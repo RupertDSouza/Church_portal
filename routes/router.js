@@ -1,10 +1,24 @@
 const express = require("express");
+const contoller = require("../controller/crudController");
+const manageModel = require("../models/indexModel");
 const router = express.Router();
-const manageController = require("../controller/manageController");
 
-// const app = express();
+router.use(
+  "/user",
+  (req, res, next) => {
+    req.model = manageModel;
+    next();
+  },
+  contoller
+);
 
-router.get("/get", manageController.getController);
-router.post("/post", manageController.postController);
+router.use(
+  "/admin",
+  (req, res, next) => {
+    req.model = manageModel;
+    next();
+  },
+  contoller
+);
 
 module.exports = router;
