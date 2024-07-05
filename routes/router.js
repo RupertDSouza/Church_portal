@@ -1,6 +1,7 @@
 const express = require("express");
-const contoller = require("../controller/crudController");
+const controller = require("../controller/crudController");
 const manageModel = require("../models/indexModel");
+const initializeRepo = require("../middleware/repoMiddleware");
 const router = express.Router();
 
 router.use(
@@ -9,7 +10,8 @@ router.use(
     req.model = manageModel;
     next();
   },
-  contoller
+  initializeRepo,
+  controller
 );
 
 router.use(
@@ -18,7 +20,7 @@ router.use(
     req.model = manageModel;
     next();
   },
-  contoller
+  controller
 );
 
 module.exports = router;
