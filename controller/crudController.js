@@ -7,7 +7,7 @@ const controller = express.Router();
 
 controller
   .use(initializeRepo)
-  .post("/post", async (req, res) => {
+  .post("/create", async (req, res) => {
     try {
       const { name, age } = req.body;
       const create = await req.repo.create({ name, age });
@@ -26,7 +26,7 @@ controller
     }
   })
 
-  .get("/get", async (req, res) => {
+  .get("/read", async (req, res) => {
     try {
       const people = await req.repo.find();
       if (!people || people.length === 0) {
@@ -48,7 +48,7 @@ controller
     }
   });
 controller
-  .get("/get/:id", async (req, res) => {
+  .get("/read/:id", async (req, res) => {
     try {
       const person = await req.repo.findById(req.params.id);
       if (!person || person === 0) {
@@ -63,7 +63,7 @@ controller
       });
     }
   })
-  .put("/put/:id", async (req, res) => {
+  .put("/update/:id", async (req, res) => {
     try {
       const change = await req.repo.findOneAndUpdate(req.params.id, req.body);
       console.log(change);
