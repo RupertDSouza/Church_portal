@@ -1,4 +1,3 @@
-const Manage = require("../models/manageModel");
 
 class Repository {
   constructor(model) {
