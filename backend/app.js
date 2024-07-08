@@ -18,4 +18,16 @@ app.use(bodyparse.json());
 
 app.use("/app", router);
 
-app.get("/", express.static(path.join(__dirname, "../public")));
+app.use(express.static("../public"));
+app.get(
+  "/",
+  express.static(
+    path.join(
+      __dirname,
+      "../public/css",
+      "../public/js",
+      "../public/fonts",
+      "../public/sass"
+    )
+  )
+);

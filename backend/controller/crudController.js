@@ -1,29 +1,28 @@
 const express = require("express");
-
-// const Repository = require("../repository/repository");
 const initializeRepo = require("../middleware/repoMiddleware");
+const { upload, fileUpload } = require("../middleware/uploadMiddleware");
 
 const controller = express.Router();
 
 controller
   .use(initializeRepo)
-  .post("/create", async (req, res) => {
-    try {
-      // const { name, age } = req.body;
-      const create = await req.repo.create(req.body);
-      if (!create || create === 0) {
-        return res.status(400).json({
-          error: "Couldn't create",
-        });
-      }
-      return res.status(200).json({
-        message: "Created Successfully",
-      });
-    } catch {
-      res.status(500).json({
-        error: "Server Error",
+  .post("/create", upload, fileUpload, async (req, res) => {
+    // try {
+    console.log(req.body);
+    const create = await req.repo.create(req.body);
+    if (!create || create === 0) {
+      return res.status(400).json({
+        error: "Couldn't create",
       });
     }
+    return res.status(200).json({
+      message: "Created Successfully",
+    });
+    // } catch {
+    //   return res.status(500).json({
+    //     error: "Server Error",
+    //   });
+    // }
   })
 
   .get("/read", async (req, res) => {
@@ -35,12 +34,12 @@ controller
         });
       }
 
-      const people_data = people.map((person) => ({
-        name: person.name,
-        age: person.age,
-      }));
+      // const people_data = people.map((person) => ({
+      //   name: person.name,
+      //   age: person.age,
+      // }));
 
-      return res.status(200).json(people_data);
+      return res.status(200).json(people);
     } catch {
       return res.status(404).json({
         error: "Couldn't fetch data",
@@ -63,7 +62,7 @@ controller
       });
     }
   })
-  .put("/update/:id", async (req, res) => {
+  .put("/update/:id", upload, fileUpload, async (req, res) => {
     try {
       const change = await req.repo.findOneAndUpdate(req.params.id, req.body);
       console.log(change);
