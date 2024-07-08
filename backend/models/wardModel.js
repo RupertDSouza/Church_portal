@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const wardSchema = new mongoose.Schema({
-  name: {
+  wardName: {
     type: String,
-    required: true,
+    required: [true, "Name is required"],
   },
   details: {
     type: String,
-    required: true,
+    required: [true, "Details is required"],
   },
   image: {
     type: String,
