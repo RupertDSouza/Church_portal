@@ -1,28 +1,29 @@
 const express = require("express");
 const initializeRepo = require("../middleware/repoMiddleware");
 const { upload, fileUpload } = require("../middleware/uploadMiddleware");
+const fs = require("fs");
+const { promisify } = require("util");
 
 const controller = express.Router();
 
 controller
   .use(initializeRepo)
   .post("/create", upload, fileUpload, async (req, res) => {
-    // try {
-    console.log(req.body);
-    const create = await req.repo.create(req.body);
-    if (!create || create === 0) {
-      return res.status(400).json({
-        error: "Couldn't create",
+    try {
+      const create = await req.repo.create(req.body);
+      if (!create || create === 0) {
+        return res.status(400).json({
+          error: "Couldn't create",
+        });
+      }
+      return res.status(200).json({
+        message: "Created Successfully",
+      });
+    } catch (error) {
+      return res.status(500).json({
+        error: error,
       });
     }
-    return res.status(200).json({
-      message: "Created Successfully",
-    });
-    // } catch {
-    //   return res.status(500).json({
-    //     error: "Server Error",
-    //   });
-    // }
   })
 
   .get("/read", async (req, res) => {
@@ -34,13 +35,8 @@ controller
         });
       }
 
-      // const people_data = people.map((person) => ({
-      //   name: person.name,
-      //   age: person.age,
-      // }));
-
       return res.status(200).json(people);
-    } catch {
+    } catch (error) {
       return res.status(404).json({
         error: "Couldn't fetch data",
       });
@@ -72,7 +68,7 @@ controller
         });
       }
       return res.status(200).json(change);
-    } catch {
+    } catch (error) {
       res.status(404).json({
         message: "couldn't update",
       });
@@ -80,16 +76,21 @@ controller
   })
   .delete("/delete/:id", async (req, res) => {
     try {
-      const person = await req.repo.deleteOne(req.params.id);
+      const unlinkAsync = promisify(fs.unlink);
+      const person = await req.repo.findOneAndDelete(req.params.id);
       if (!person || person === 0) {
         return res.status(404).json({
           message: "Not found",
         });
       }
-      return res.status(200).json(person);
-    } catch {
+      if (person.image) unlinkAsync(person.image);
+      return res.status(200).json({
+        data: { person },
+        message: "Deleted Successfully",
+      });
+    } catch (error) {
       res.status(500).json({
-        error: "Server Error",
+        error: error,
       });
     }
   });
