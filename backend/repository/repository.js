@@ -1,4 +1,3 @@
-
 class Repository {
   constructor(model) {
     this.model = model;
@@ -25,9 +24,9 @@ class Repository {
     return await this.model.findOneAndUpdate(filter, data, { new: true });
   }
 
-  async deleteOne(id) {
+  async findOneAndDelete(id) {
     const filter = { _id: id };
-    return await this.model.deleteOne(filter);
+    return await this.model.findOneAndDelete(filter);
   }
 }
 
