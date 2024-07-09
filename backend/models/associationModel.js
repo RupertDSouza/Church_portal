@@ -13,3 +13,7 @@ const associationSchema = new mongoose.Schema({
     type: String,
   },
 });
+
+const Association = new mongoose.model("Association", associationSchema);
+
+module.exports = Association;

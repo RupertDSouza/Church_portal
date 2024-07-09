@@ -3,11 +3,7 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   userName: {
     type: String,
-    required: [true, "Name is required"]
-  },
-  age: {
-    type: Number,
-    required: [true, "Age is required"]
+    required: [true, "Name is required"],
   },
   email: {
     type: String,
@@ -21,11 +17,6 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     required: [true, "Role is required"],
-  },
-  phoneNumber: {
-    type: Number,
-    maxlength: 10,
-    required: [true, "Phone number is required"],
   },
 });
 
