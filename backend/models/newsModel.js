@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const newsSchema = new mongoose.Schema({
-    newsTitle: {
+    type:{
+        type:String,
+        required:true,
+    },
+    title: {
         type: String,
         required: [true, "Title is required"],
     },
