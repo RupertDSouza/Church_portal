@@ -28,7 +28,7 @@ const fileUpload = (req, res, next) => {
     ) {
       fs.rename(tempPath, targetPath, (err) => {
         if (err) return handleError(err, res);
-        req.body.image = `../../Church_portal/public/uploads/${req.file.originalname}`;
+        req.body.image = `../../public/uploads/${req.file.originalname}`;
         next();
       });
     } else {

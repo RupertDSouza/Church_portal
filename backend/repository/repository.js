@@ -11,7 +11,8 @@ class Repository {
     await this.model.save(data);
   }
 
-  async find(filter = {}) {
+  async find(data) {
+    const filter = { email: data };
     return await this.model.find(filter);
   }
 

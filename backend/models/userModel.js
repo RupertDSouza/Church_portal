@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const hashMiddleware = require("../middleware/hashMiddleware");
 
 const userSchema = new mongoose.Schema({
   userName: {
@@ -19,6 +20,8 @@ const userSchema = new mongoose.Schema({
     required: [true, "Role is required"],
   },
 });
+
+userSchema.pre("save", hashMiddleware);
 
 const User = new mongoose.model("User", userSchema);
 
