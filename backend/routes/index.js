@@ -1,5 +1,4 @@
 const authrouter = require("./authRouter");
-const inforouter = require("./infoRouter");
 const wardrouter = require("./wardRouter");
 const priestrouter = require("./priestRouter");
 const associationrouter = require("./associationRouter");
@@ -14,7 +13,6 @@ const router = express.Router();
 
 router.use(
   authrouter,
-  inforouter,
   wardrouter,
   priestrouter,
   associationrouter,

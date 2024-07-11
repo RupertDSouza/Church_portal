@@ -4,8 +4,9 @@ const multer = require("multer");
 const upload = multer();
 const express = require("express");
 const authController = express.Router();
+require("dotenv").config();
 
-const secretKey = "thesecretkey";
+const secretKey = process.env.SECRECT_KEY;
 
 authController.post("/", upload.none(), async (req, res) => {
   try {
@@ -22,7 +23,7 @@ authController.post("/", upload.none(), async (req, res) => {
     const isPasswordVaild = await bcrypt.compare(password, user.password);
 
     if (!isPasswordVaild) {
-      res.status(401).json({
+      return res.status(401).json({
         message: "Password is incorrect",
       });
     }

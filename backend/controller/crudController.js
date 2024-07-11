@@ -1,15 +1,20 @@
 const express = require("express");
-const initializeRepo = require("../middleware/repoMiddleware");
-const { upload, fileUpload } = require("../middleware/uploadMiddleware");
 const fs = require("fs");
 const { promisify } = require("util");
+const initializeRepo = require("../middleware/repoMiddleware");
+const { upload, fileUpload } = require("../middleware/uploadMiddleware");
+const auth = require("../middleware/authMiddleware");
 
 const controller = express.Router();
 
 controller
   .use(initializeRepo)
-  .post("/create", upload, fileUpload, async (req, res) => {
+  .post("/create", auth, upload, fileUpload, async (req, res) => {
     try {
+      if (!req.access.includes(req.accessRole))
+        return res.status(401).json({
+          message: "Not allowed, Check Role",
+        });
       const create = await req.repo.create(req.body);
       if (!create || create === 0) {
         return res.status(400).json({
@@ -51,6 +56,8 @@ controller
           message: "Not found",
         });
       }
+
+      console.log(person);
       return res.status(200).json(person);
     } catch {
       return res.status(404).json({
@@ -58,7 +65,7 @@ controller
       });
     }
   })
-  .put("/update/:id", upload, fileUpload, async (req, res) => {
+  .put("/update/:id", auth, upload, fileUpload, async (req, res) => {
     try {
       const change = await req.repo.findOneAndUpdate(req.params.id, req.body);
       console.log(change);
@@ -74,7 +81,7 @@ controller
       });
     }
   })
-  .delete("/delete/:id", async (req, res) => {
+  .delete("/delete/:id", auth, async (req, res) => {
     try {
       const unlinkAsync = promisify(fs.unlink);
       const person = await req.repo.findOneAndDelete(req.params.id);
