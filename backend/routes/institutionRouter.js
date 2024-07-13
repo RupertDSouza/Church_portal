@@ -1,6 +1,6 @@
 const express = require("express");
 const controller = require("../controller/crudController");
-const institutionModel = require("../models/institutionModel");
+const institutionModel = require("../models/mongodb/institutionModel");
 const router = express.Router();
 
 router.use(

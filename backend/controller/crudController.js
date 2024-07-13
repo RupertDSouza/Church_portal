@@ -32,8 +32,10 @@ controller
   })
 
   .get("/read", async (req, res) => {
-    try {
+   try {
+    
       const people = await req.repo.find();
+      
       if (!people || people.length === 0) {
         return res.status(400).json({
           message: "Not found",
@@ -42,6 +44,7 @@ controller
 
       return res.status(200).json(people);
     } catch (error) {
+    
       return res.status(404).json({
         error: "Couldn't fetch data",
       });

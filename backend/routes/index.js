@@ -7,6 +7,8 @@ const newsrouter = require("./newsRouter");
 const institutionrouter = require("./institutionRouter");
 const obituaryrouter = require("./obituaryRouter");
 const parishcouncilrouter = require("./parishcouncilRouter");
+const studentrouter = require("./studentRouter");
+const paymentrouter = require("./paymentRouter");
 const userrouter = require("./userRouter");
 const express = require("express");
 const router = express.Router();
@@ -21,7 +23,10 @@ router.use(
   institutionrouter,
   obituaryrouter,
   parishcouncilrouter,
-  userrouter
+  userrouter,
+  studentrouter,
+  paymentrouter
 );
+
 
 module.exports = router;

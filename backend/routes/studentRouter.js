@@ -1,15 +1,15 @@
 const express = require("express");
 const controller = require("../controller/crudController");
-const obituaryModel = require("../models/mongodb/obituaryModel");
+const studentModel = require("../models/sequelize/studentModel");
 const router = express.Router();
 
 router.use(
-  "/obituary",
+  "/student",
   (req, res, next) => {
-    req.access = ["admin"];
-    req.model = obituaryModel;
+    req.model = studentModel;
     next();
   },
   controller
 );
+
 module.exports = router;

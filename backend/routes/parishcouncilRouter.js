@@ -1,6 +1,6 @@
 const express = require("express");
 const controller = require("../controller/crudController");
-const parishcouncilModel = require("../models/parishcouncilModel");
+const parishcouncilModel = require("../models/mongodb/parishcouncilModel");
 const router = express.Router();
 
 router.use(
