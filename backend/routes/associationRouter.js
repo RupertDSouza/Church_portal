@@ -1,6 +1,6 @@
 const express = require("express");
 const controller = require("../controller/crudController");
-const associationModel = require("../models/associationModel");
+const associationModel = require("../models/mongodb/associationModel");
 const router = express.Router();
 
 router.use(

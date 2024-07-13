@@ -1,6 +1,6 @@
 const express = require("express");
 const controller = require("../controller/crudController");
-const newsModel = require("../models/newsModel");
+const newsModel = require("../models/mongodb/newsModel");
 const router = express.Router();
 
 router.use(

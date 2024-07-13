@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const authController = require("../controller/authController");
 const initializeRepo = require("../middleware/repoMiddleware");
-const userModel = require("../models/userModel");
+const userModel = require("../models/mongodb/userModel");
 
 router.use(
   "/login",
