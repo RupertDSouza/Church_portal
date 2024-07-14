@@ -71,37 +71,65 @@
 	<div class="fh5co-loader"></div>
 	
 	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container-wrap">
-			<div class="top-menu">
-				<div class="row">
-					<div class="col-md-12 col-offset-0 text-center">
-						<div id="fh5co-logo"><a href="index.html">Church</a></div>
+		<nav class="fh5co-nav" role="navigation">
+			<div class="container-wrap">
+				<div class="top-menu">
+					<div class="row">
+						<div class="col-md-12 col-offset-0">
+							<div id="fh5co-logo"><img class="logo" src="C:\Subha\final project\Church Free Website\church\images\logo.jpg"><a href="index.html" style=>Holy Spirit Church</a></div>
+						</div>
+						<div class="col-md-12 col-md-offset-0 text-center menu-1">
+							<ul>
+								<li class="active"><a href="index.html">Home</a></li>
+								<li >
+									<a href="news.html">News</a>
+								</li>
+								<li><a href="events.html">Events</a></li>
+								<li class="has-dropdown"><a href="about.html">About Us</a>
+									<ul class="dropdown">
+										<li><a href="#">History</a></li>
+										<li><a href="#">Location</a></li>
+										<li><a href="#">Parish Council</a></li>
+										<li><a href="#">Priests </a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
 					</div>
-					<div class="col-md-12 col-md-offset-0 text-center menu-1">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="sermons.html">Sermons</a></li>
-							<li class="has-dropdown active">
-								<a href="news.html">News</a>
-								<ul class="dropdown">
-									<li><a href="#">Ministry</a></li>
-									<li><a href="#">Medical Missionary</a></li>
-									<li><a href="#">Country Living</a></li>
-									<li><a href="#">Gospel Workers</a></li>
-								</ul>
-							</li>
-							<li><a href="events.html">Events</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="#" class="donate">Donate</a></li>
-						</ul>
-					</div>
+					
 				</div>
-				
 			</div>
-		</div>
-	</nav>
+		</nav>
+	<div>
+		<label class="hamburger">
+			<input type="checkbox">
+			<svg viewBox="0 0 32 32">
+				<path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+				<path class="line" d="M7 16 27 16"></path>
+			</svg>
+		</label>
+	
+		<!-- Side Vertical Navigation -->
+		<nav class="vertical-menu-wrapper">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.hamburger input').on('change', function() {
+					$('body').toggleClass('show-menu');
+				});
+			});
+		</script>
+			<div class="vertical-menu-logo">
+				<div>MENU</div>
+			</div>
+			<ul class="vertical-menu">
+				<li>Associations</li>
+				<li>Gallery</li>
+				<li>Payments</li>
+				<li>Institute</li>
+			</ul>
+		</nav>
+	</div>
 	<div class="container-wrap">
 		<aside id="fh5co-hero">
 			<div class="flexslider">
