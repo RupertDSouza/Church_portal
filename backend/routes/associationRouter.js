@@ -1,15 +1,18 @@
-const express = require('express');
-const controller = require('../controller/crudController');
-const associationModel = require('../models/associationModel');
+const express = require("express");
+const associationModel = require("../models/mongodb/associationModel");
+const initializeRepo = require("../middleware/repoMiddleware");
+const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
-    '/association',
-    (req, res, next) => {
-        req.model = associationModel;
-        next();
-    },
-    controller
-    );
+  "/association",
+  (req, res, next) => {
+    req.access = ["admin"];
+    req.model = associationModel;
+    next();
+  },
+  initializeRepo,
+  crudRouter
+);
 
-    module.exports = router;
+module.exports = router;

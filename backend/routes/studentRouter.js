@@ -1,14 +1,14 @@
 const express = require("express");
-const institutionModel = require("../models/mongodb/institutionModel");
+const studentModel = require("../models/sequelize/studentModel");
 const initializeRepo = require("../middleware/repoMiddleware");
 const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
-  "/institution",
+  "/student",
   (req, res, next) => {
-    req.access = ["admin"];
-    req.model = institutionModel;
+    req.access = ["admin", "priest"];
+    req.model = studentModel;
     next();
   },
   initializeRepo,

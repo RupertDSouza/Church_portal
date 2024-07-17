@@ -12,12 +12,12 @@ const wardSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  place:{
-    type:String,
-    required:true,
+  place: {
+    type: String,
+    required: true,
   },
 });
 
-const Ward = new mongoose.model("Ward", wardSchema);
+const ward = new mongoose.model("Ward", wardSchema);
 
-module.exports = Ward;
+module.exports = ward;

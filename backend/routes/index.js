@@ -1,24 +1,32 @@
-const inforouter = require("./infoRouter");
+const authrouter = require("./authRouter");
 const wardrouter = require("./wardRouter");
-const priestrouter=require("./priestRouter");
-const associationrouter=require("./associationRouter");
-const contactrouter=require("./contactRouter");
-const newsrouter=require("./newsRouter");
-const institutionrouter=require("./institutionRouter");
-const obituaryrouter=require("./obituaryRouter");
-const parishcouncilrouter=require("./parishcouncilRouter");
-const userrouter=require("./userRouter");
+const priestrouter = require("./priestRouter");
+const associationrouter = require("./associationRouter");
+const contactrouter = require("./contactRouter");
+const newsrouter = require("./newsRouter");
+const institutionrouter = require("./institutionRouter");
+const obituaryrouter = require("./obituaryRouter");
+const parishcouncilrouter = require("./parishcouncilRouter");
+const studentrouter = require("./studentRouter");
+const paymentrouter = require("./paymentRouter");
+const userrouter = require("./userRouter");
 const express = require("express");
 const router = express.Router();
 
-router.use(inforouter);
-router.use(wardrouter);
-router.use(priestrouter);
-router.use(associationrouter);
-router.use(newsrouter);
-router.use(contactrouter);
-router.use(institutionrouter);
-router.use(obituaryrouter);
-router.use(parishcouncilrouter);
-router.use(userrouter);
+router.use(
+  authrouter,
+  wardrouter,
+  priestrouter,
+  associationrouter,
+  newsrouter,
+  contactrouter,
+  institutionrouter,
+  obituaryrouter,
+  parishcouncilrouter,
+  userrouter,
+  studentrouter,
+  paymentrouter
+);
+
+
 module.exports = router;

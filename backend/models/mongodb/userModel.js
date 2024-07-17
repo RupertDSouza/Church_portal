@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const hashMiddleware = require("../../middleware/hashMiddleware");
 
 const userSchema = new mongoose.Schema({
   userName: {
@@ -20,6 +21,8 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const User = new mongoose.model("User", userSchema);
+userSchema.pre("save", hashMiddleware);
 
-module.exports = User;
+const user = new mongoose.model("User", userSchema);
+
+module.exports = user;
