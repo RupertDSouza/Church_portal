@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ward Details</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <form id="login-form">
+    <input type="text" id="login-username" name="username" placeholder="Username" required>
+    <input type="password" id="login-password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  <h1>Ward Details</h1>
+  <button id="fetch-wards">Fetch Ward Details</button>
+  <div id="ward-details"></div>
+
+  <script>
+    async function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      console.log('Email:', email);
+      console.log('Password:', password);
+
+      try {
+        const response = await fetch('/app/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        if (!response.ok) {
+          throw new Error('Login failed');
+        }
+
+        const data = await response.json();
+        console.log('Login response:', data);
+        localStorage.setItem('token', data.token);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    document.getElementById('login-form').addEventListener('submit', handleLogin);
+
+    async function fetchWardDetails() {
+      const token = localStorage.getItem('token');
+      console.log('Token:', token);
+
+      if (!token) {
+        alert('Please login first');
+        return;
+      }
+
+      try {
+        const response = await fetch('/app/ward/read', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch ward details');
+        }
+
+        const wards = await response.json();
+        const wardDetails = document.getElementById('ward-details');
+        wardDetails.innerHTML = JSON.stringify(wards, null, 2);
+      } catch (error) {
+        alert('Failed to fetch ward details');
+        console.error('Error:', error);
+      }
+    }
+
+    document.getElementById('fetch-wards').addEventListener('click', fetchWardDetails);
+  </script>
+</body>
+</html>
