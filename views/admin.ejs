@@ -157,15 +157,15 @@
                         <div class="col-md-12 col-offset-0">
                             <div id="fh5co-logo">
                                 <img src="C:\Subha\final project\Church Free Website\church\images\logo.jpg" class="logo" alt="Holy Spirit Church Logo">
-                                <a href="index.html">Holy Spirit Church</a>
+                                <a href="index.ejs">Holy Spirit Church</a>
                             </div>
                         </div>
                         <div class="col-md-12 col-md-offset-0 text-center menu-1">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="events.html">Events</a></li>
-                                <li class="has-dropdown"><a href="about.html">About Us</a>
+                                <li class="active"><a href="index.ejs">Home</a></li>
+                                <li><a href="news.ejs">News</a></li>
+                                <li><a href="events.ejs">Events</a></li>
+                                <li class="has-dropdown"><a href="about.ejs">About Us</a>
                                     <ul class="dropdown">
                                         <li><a href="#">History</a></li>
                                         <li><a href="#">Location</a></li>
@@ -197,7 +197,7 @@
                 <div id="formContainer"></div>
                 <button type="button" onclick="submitForm()">Submit</button>
             </form>
-            <a href="display.html">View Entries</a>
+            <a href="display.ejs">View Entries</a>
         </div>
 
         <div class="gototop js-top">
@@ -418,7 +418,7 @@
             dataStore[selectedForm].push(formValues);
             localStorage.setItem('formData', JSON.stringify(dataStore));
 
-            window.location.href = 'display.html'; // Redirect to the display page
+            window.location.href = 'display.ejs'; // Redirect to the display page
         }
     </script>
 
@@ -454,7 +454,7 @@
                     let dataStore = JSON.parse(localStorage.getItem('formData')) || {};
                     dataStore[formType][index] = formValues;
                     localStorage.setItem('formData', JSON.stringify(dataStore));
-                    window.location.href = 'display.html'; // Redirect to the display page
+                    window.location.href = 'display.ejs'; // Redirect to the display page
                 };
             }
         }

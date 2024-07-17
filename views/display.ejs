@@ -69,15 +69,15 @@
                         <div class="col-md-12 col-offset-0">
                             <div id="fh5co-logo">
                                 <img src="C:\Subha\final project\Church Free Website\church\images\logo.jpg" class="logo" alt="Holy Spirit Church Logo">
-                                <a href="index.html">Holy Spirit Church</a>
+                                <a href="index.ejs">Holy Spirit Church</a>
                             </div>
                         </div>
                         <div class="col-md-12 col-md-offset-0 text-center menu-1">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="events.html">Events</a></li>
-                                <li class="has-dropdown"><a href="about.html">About Us</a>
+                                <li class="active"><a href="index.ejs">Home</a></li>
+                                <li><a href="news.ejs">News</a></li>
+                                <li><a href="events.ejs">Events</a></li>
+                                <li class="has-dropdown"><a href="about.ejs">About Us</a>
                                     <ul class="dropdown">
                                         <li><a href="#">History</a></li>
                                         <li><a href="#">Location</a></li>
@@ -95,7 +95,7 @@
         <div class="admin-display">
             <h1>Entries</h1>
             <div id="dataDisplay"></div>
-            <a href="admin.html">Back to Form</a>
+            <a href="admin.ejs">Back to Form</a>
         </div>
 
         <div class="gototop js-top">
@@ -160,7 +160,7 @@
         function editItem(formType, index) {
             const item = dataStore[formType][index];
             localStorage.setItem('editItem', JSON.stringify({ formType, index, item }));
-            window.location.href = 'admi.html'; // Redirect to the form page for editing
+            window.location.href = 'admi.ejs'; // Redirect to the form page for editing
         }
 
         function deleteItem(formType, index) {

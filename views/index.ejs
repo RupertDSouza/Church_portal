@@ -1,12 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<style>
-			.logo{
-				width: 100px;
-				height: 100px;
-			}
-		</style>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Holy Spirit Church </title>
@@ -87,7 +81,6 @@
 					<div class="col-md-12 col-md-offset-0 text-center menu-1">
 						<ul>
 							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="association.html">Associations</a></li>
 							<li >
 								<a href="news.html">News</a>
 							</li>
@@ -100,10 +93,6 @@
 									<li><a href="#">Priests </a></li>
 								</ul>
 							</li>
-							<li><a href="institutes.html">Institutes</a></li>
-							<li><a href="#" class="donate">Ward details</a></li>
-							<li><a href="#" class="gallery">Gallery</a></li>
-							<li><a href="#" class="payment">Payments</a></li>
 						</ul>
 					</div>
 				</div>
@@ -111,134 +100,185 @@
 			</div>
 		</div>
 	</nav>
+	<div class="ham-verti">
+		<label class="hamburger">
+			<input type="checkbox">
+			<svg viewBox="0 0 32 32">
+				<path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+				<path class="line" d="M7 16 27 16"></path>
+			</svg>
+		</label>
+	
+		<!-- Side Vertical Navigation -->
+		<nav class="vertical-menu-wrapper">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.hamburger input').on('change', function() {
+					$('body').toggleClass('show-menu');
+				});
+			});
+		</script>
+			<div class="vertical-menu-logo">
+				<div>MENU</div>
+			</div>
+			<ul class="vertical-menu">
+				<li>Associations</li>
+				<li>Gallery</li>
+				<li>Payments</li>
+				<li>Institute</li>
+			</ul>
+		</nav>
+	</div>
+
 	<div class="container-wrap">
 		<aside id="fh5co-hero">
 			<div class="flexslider">
-				<ul class="slides">
-			   	<li >#Church picture and details
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 text-center">
-				   				<div class="slider-text">
-					   				<div class="slider-text-inner">
-					   				<h1>Church</h1>
-									   <button>Read More</button>
-					   				</div>
-									
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			   	<li>
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 text-center">
-				   				<div class="slider-text">
-					   				<div class="slider-text-inner">
-					   					<h1>Preists</h1>
-										   <button>Read More</button>
-					   				</div>
-					   			</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			   	<li>
-			   		<div class="overlay"></div>
-			   		<div class="container-fluids">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 text-center">
-				   				<div class="slider-text">
-					   				<div class="slider-text-inner text-center">
-					   					<h1>Associations</h1>
-										   <button>Read More</button>
-					   				</div>
-					   			</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			  	</ul>
-		  	</div>
-		</aside>
-		
-		<div id="fh5co-intro">
-			<div class="row animate-box">
-				<div class="col-md-12 col-md-offset-0 text-center">
-					<h2>Living in God's Amazing Grace!</h2>
-					<span>We are open Sunday to Monday</span>
-				</div>
-			</div>
-		</div>
-		<hr>
-		<div id="fh5co-counter" class="fh5co-counters">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center animate-box">
-					<p>We have a fun facts far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-			</div>
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2">
+			  <ul class="slides">
+				<li>
+				  <div class="overlay"></div>
+				  <div class="container-fluid">
 					<div class="row">
-						<div class="col-md-3 col-sm-6 col-xs-6 text-center">
-							<span class="fh5co-counter js-counter" data-from="0" data-to="9452" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="fh5co-counter-label">Members</span>
+					  <div class="col-md-6 col-md-offset-3 text-center">
+						<div class="slider-text">
+						  <div class="slider-text-inner">
+							<section class="description-image-section">
+							  <div class="description-container">
+								<h1>Title Here</h1>
+								<p>
+								  This is the description area. It can contain text, links, or other
+								  HTML elements to provide information.
+								</p>
+							  </div>
+							  <div class="image-container">
+								<div class="slant">
+								  <img src="C:\Church_portal\public\images\church_img.jpg" alt="Description Image">
+								</div>
+							  </div>
+							</section>
+						  </div>
 						</div>
-						<div class="col-md-3 col-sm-6 col-xs-6 text-center">
-							<span class="fh5co-counter js-counter" data-from="0" data-to="214" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="fh5co-counter-label">Ministries</span>
-						</div>
-						<div class="clearfix visible-sm-block visible-xs-block"></div>
-						<div class="col-md-3 col-sm-6 col-xs-6 text-center">
-							<span class="fh5co-counter js-counter" data-from="0" data-to="433" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="fh5co-counter-label">Classes</span>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-6 text-center">
-							<span class="fh5co-counter js-counter" data-from="0" data-to="512" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="fh5co-counter-label">Activities</span>
-						</div>
+					  </div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3 animate-box">
-				<div class="news">
-					<a href="#" class="img-holder"><img class="img-responsive" src="images/img-1.jpg" alt="Free HTML5 Website Template by freehtml5.co"></a>
-					<div class="desc"><br>
-						<h3><a href="#">Events</a></h3>
-						<p>Events</p>
-						<a href="events.html">Read More <i class="icon-arrow-right3"></i></a>
+				  </div>
+				</li>
+				<li>
+				  <div class="overlay"></div>
+				  <div class="container-fluid">
+					<div class="row">
+					  <div class="col-md-6 col-md-offset-3 text-center">
+						<div class="slider-text">
+						  <div class="slider-text-inner">
+							<section class="description-image-section">
+							  <div class="description-container">
+								<h1>Title Here</h1>
+								<p>
+								  This is the description area. It can contain text, links, or other
+								  HTML elements to provide information.
+								</p>
+							  </div>
+							  <div class="image-container">
+								<div class="slant">
+								  <img src="C:\Church_portal\public\images\church_img.jpg" alt="Description Image">
+								</div>
+							  </div>
+							</section>
+						  </div>
+						</div>
+					  </div>
 					</div>
-				</div>
-			</div>
-			<div class="col-md-3 animate-box">
-				<div class="news">
-					<a href="#" class="img-holder"><img class="img-responsive" src="images/img-3.jpg" alt="Free HTML5 Website Template by freehtml5.co"></a>
-					<div class="desc">
-						<br>
-						<h3><a href="#">News</a></h3>
-						<p> News</p>
-						<a href="news.html">Read More <i class="icon-arrow-right3"></i></a>
+				  </div>
+				</li>
+				<li>
+				  <div class="overlay"></div>
+				  <div class="container-fluids">
+					<div class="row">
+					  <div class="col-md-6 col-md-offset-3 text-center">
+						<div class="slider-text">
+						  <div class="slider-text-inner">
+							<section class="description-image-section">
+							  <div class="description-container">
+								<h1>Title Here</h1>
+								<p>
+								  This is the description area. It can contain text, links, or other
+								  HTML elements to provide information.
+								</p>
+							  </div>
+							  <div class="image-container">
+								<div class="slant">
+								  <img src="public\images\church_img.jpg" alt="Description Image">
+								</div>
+							  </div>
+							</section>
+						  </div>
+						</div>
+					  </div>
 					</div>
-				</div>
+				  </div>
+				</li>
+			  </ul>
 			</div>
-		</div>
+		  </aside>
+		  
+	</div>
+		
 
-		<div id="fh5co-services" class="fh5co-light-grey">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Services</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			
-			</div>
-		</div>
+		
+	</div>
+	<br>
+	<br>
 
+	<div class="container">
+		<div class="section">
+			<h1>Events</h1>
+		</div>
+		<div class="section">
+			<h1>News</h1>
+		</div>
+		<div class="section">
+			<h1>Announcements</h1>
+		</div>
+	</div>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div>
+		<center><h1 style=>Mass Timings</h1></center>
+		<table>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Day</th>
+					<th>Timings</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>July 15, 2024</td>
+					<td>Thursday</td>
+					<td>7:00 AM, 12:00 PM, 6:00 PM</td>
+				</tr>
+				<tr>
+					<td>July 16, 2024</td>
+					<td>Friday</td>
+					<td>8:00 AM, 5:00 PM</td>
+				</tr>
+				<tr>
+					<td>July 17, 2024</td>
+					<td>Saturday</td>
+					<td>9:00 AM, 11:00 AM</td>
+				</tr>
+				<!-- Add more rows as needed -->
+			</tbody>
+		</table>
+		
+	</div>
+	<br>
+	<br>
+	<br>
 		<div id="fh5co-sermon">
 			<div class="row animate-box">
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
@@ -317,52 +357,78 @@
 				</div>
 			</div>
 		</div>
-		<div id="fh5co-events">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Our Events</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+	
+		<!--obituary section-->
+		<div class="carousel-container">
+			<div class="carousel">
+				<div class="carousel-images">
+					<div class="carousel-item" onclick="window.location.href='obituary.html'">
+						<img src="C:/Church_portal/public/images/wall-1.jpg" alt="Image 1">
+						<div class="details">
+							<h3>Name 1</h3>
+							<p>Age: 25</p>
+							<p>Description 1</p>
+						</div>
+					</div>
+					<div class="carousel-item" onclick="window.location.href='obituary.html'">
+						<img src="C:/Church_portal/public/images/wp-1.jpg" alt="Image 2">
+						<div class="details">
+							<h3>Name 2</h3>
+							<p>Age: 30</p>
+							<p>Description 2</p>
+						</div>
+					</div>
+					<div class="carousel-item" onclick="window.location.href='obituary.html'">
+						<img src="C:/Church_portal/public/images/wp.png" alt="Image 3">
+						<div class="details">
+							<h3>Name 3</h3>
+							<p>Age: 35</p>
+							<p>Description 3</p>
+						</div>
+					</div>
+					<!-- Add more carousel-item divs as needed -->
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-4 animate-box">
-					<div class="events-entry">
-						<span class="date">March 10, 2017</span>
-						<h3><a href="#">Message From God</a></h3>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						<a href="#">Read More <i class="icon-arrow-right3"></i></a>
-					</div>
-				</div>
-				<div class="col-md-4 animate-box">
-					<div class="events-entry">
-						<span class="date">March 20, 2017</span>
-						<h3><a href="#">Message From God</a></h3>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						<a href="#">Read More <i class="icon-arrow-right3"></i></a>
-					</div>
-				</div>
-				<div class="col-md-4 animate-box">
-					<div class="events-entry">
-						<span class="date">March 30, 2017</span>
-						<h3><a href="#">Message From God</a></h3>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						<a href="#">Read More <i class="icon-arrow-right3"></i></a>
-					</div>
-				</div>
-			</div>
+			<button class="arrow left" onclick="showPrevItem()">&#9664;</button>
+			<button class="arrow right" onclick="showNextItem()">&#9654;</button>
 		</div>
-		<div id="fh5co-news" class="fh5co-light-grey">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Our News</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			
-		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const carousel = document.querySelector('.carousel-images');
+				const items = document.querySelectorAll('.carousel-item');
+				let index = 0;
+		
+				function showItem(i) {
+					index = i;
+					carousel.style.transform = `translateX(${-index * 50}%)`;
+				}
+		
+				function showNextItem() {
+					index++;
+					if (index > items.length - 2) {
+						index = 0;
+					}
+					showItem(index);
+				}
+		
+				function showPrevItem() {
+					index--;
+					if (index < 0) {
+						index = items.length - 2;
+					}
+					showItem(index);
+				}
+		
+				setInterval(showNextItem, 5000); // Change item every 5 seconds
+		
+				window.showNextItem = showNextItem;
+				window.showPrevItem = showPrevItem;
+			});
+		</script>
+		
 	</div><!-- END container-wrap -->
 
-	<div class="container-wrap">
+	<div class="content-wrap">
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="col-md-4 text-center">
 				<h3>198 West 21th Street, Suite 721 New York NY 10016</h3>
@@ -379,13 +445,6 @@
 					</ul>
 				</p>
 			</div>
-			<div class="row copyright">
-				<div class="col-md-12 text-center">
-					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
-					</p>
-				</div>
 			</div>
 		</footer>
 	</div><!-- END container-wrap -->
