@@ -1,6 +1,7 @@
 const express = require("express");
-const controller = require("../controller/crudController");
 const institutionModel = require("../models/mongodb/institutionModel");
+const initializeRepo = require("../middleware/repoMiddleware");
+const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
@@ -10,6 +11,8 @@ router.use(
     req.model = institutionModel;
     next();
   },
-  controller
+  initializeRepo,
+  crudRouter
 );
+
 module.exports = router;

@@ -3,12 +3,14 @@ const bcrypt = require("bcrypt");
 const multer = require("multer");
 const upload = multer();
 const express = require("express");
-const authController = express.Router();
+const router = express.Router();
 require("dotenv").config();
 
 const secretKey = process.env.SECRECT_KEY;
 
-authController.post("/", upload.none(), async (req, res) => {
+router.use(upload.none());
+
+exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const users = await req.repo.find(email);
@@ -38,6 +40,4 @@ authController.post("/", upload.none(), async (req, res) => {
       error: error,
     });
   }
-});
-
-module.exports = authController;
+};

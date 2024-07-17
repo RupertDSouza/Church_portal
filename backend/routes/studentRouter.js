@@ -1,15 +1,18 @@
 const express = require("express");
-const controller = require("../controller/crudController");
 const studentModel = require("../models/sequelize/studentModel");
+const initializeRepo = require("../middleware/repoMiddleware");
+const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
   "/student",
   (req, res, next) => {
+    req.access = ["admin", "priest"];
     req.model = studentModel;
     next();
   },
-  controller
+  initializeRepo,
+  crudRouter
 );
 
 module.exports = router;

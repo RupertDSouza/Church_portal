@@ -1,17 +1,17 @@
 const express = require("express");
-const router = express.Router();
-const authController = require("../controller/authController");
-const initializeRepo = require("../middleware/repoMiddleware");
 const userModel = require("../models/mongodb/userModel");
+const initializeRepo = require("../middleware/repoMiddleware");
+const authController = require("../controller/authController");
+const router = express.Router();
 
-router.use(
+router.post(
   "/login",
   (req, res, next) => {
     req.model = userModel;
     next();
   },
   initializeRepo,
-  authController
+  authController.login
 );
 
 module.exports = router;

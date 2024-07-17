@@ -14,6 +14,6 @@ const associationSchema = new mongoose.Schema({
   },
 });
 
-const Association = new mongoose.model("Association", associationSchema);
+const association = new mongoose.model("Association", associationSchema);
 
-module.exports = Association;
+module.exports = association;

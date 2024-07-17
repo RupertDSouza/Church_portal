@@ -1,6 +1,7 @@
 const express = require("express");
-const controller = require("../controller/crudController");
 const userModel = require("../models/mongodb/userModel");
+const initializeRepo = require("../middleware/repoMiddleware");
+const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
@@ -10,7 +11,8 @@ router.use(
     req.model = userModel;
     next();
   },
-  controller
+  initializeRepo,
+  crudRouter
 );
 
 module.exports = router;
