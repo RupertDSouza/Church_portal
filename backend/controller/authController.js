@@ -1,14 +1,9 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const multer = require("multer");
-const upload = multer();
 const express = require("express");
-const router = express.Router();
 require("dotenv").config();
 
 const secretKey = process.env.SECRECT_KEY;
-
-router.use(upload.none());
 
 exports.login = async (req, res) => {
   try {
