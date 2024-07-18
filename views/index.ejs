@@ -5,21 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Holy Spirit Church </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
-	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="freehtml5.co" />
-
-	
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet"
 	>
@@ -155,7 +140,7 @@
 						  <div class="slider-text-inner">
 							<section class="description-image-section">
 							  <div class="description-container">
-								<h1>Title Here</h1>
+								<h1>Associations</h1>
 								<p>This is the description area. It can contain text, links, or other HTML elements to provide information.</p>
 								<button class="st-btn">Read More</button>
 							</div>
@@ -180,8 +165,8 @@
 						  <div class="slider-text-inner">
 							<section class="description-image-section">
 							  <div class="description-container">
-								<h1>Title Here</h1>
-								<p>This is the description area. It can contain text, links, or other HTML elements to provide information.</p>
+								<h1>Priest </h1>
+								<p>The priest with his image and his description will be displayed here .</p>
 								<button class="st-btn">Read More</button>
 							</div>
 							  <div class="image-container">
@@ -209,17 +194,72 @@
 	<br>
 	<br>
 
-	<div class="container">
-		<div class="section">
-			<h1>Events</h1>
-		</div>
-		<div class="section">
-			<h1>News</h1>
-		</div>
-		<div class="section">
+	
+
+	  <div class="container">
+		<div class="section" data-redirect="announcement.ejs">
 			<h1>Announcements</h1>
+			<ul>
+			  <li>
+				<p>Announcement 1 Description</p>
+			  </li>
+			  <li>
+				<p>Announcement 2 Description</p>
+			  </li>
+			  <li>
+				<p>Announcement 3 Description</p>
+			  </li>
+			</ul>
+		  </div>
+		<div class="section" data-redirect="events.ejs">
+		  <h1>Events</h1>
+		  <ul>
+			<li>
+			  <img src="images\img_bg_1.jpg" alt="Event 1">
+			  <p>Event 1 Description</p>
+			</li>
+			<li>
+			  <img src="images\img_bg_1.jpg" alt="Event 2">
+			  <p>Event 2 Description</p>
+			</li>
+			<li>
+			  <img src="images\img_bg_1.jpg" alt="Event 3">
+			  <p>Event 3 Description</p>
+			</li>
+		  </ul>
 		</div>
-	</div>
+		<div class="section" data-redirect="news.ejs">
+		  <h1>News</h1>
+		  <ul>
+			<li>
+			  <img src="images\img_bg_1.jpg" alt="News 1">
+			  <p>News 1 Description</p>
+			</li>
+			<li>
+			  <img src="images\img_bg_1.jpg" alt="News 2">
+			  <p>News 2 Description</p>
+			</li>
+			<li>
+			  <img src="images\img_bg_1.jpg" alt="News 3">
+			  <p>News 3 Description</p>
+			</li>
+		  </ul>
+		</div>
+	  </div>
+	  <script>
+		document.querySelectorAll('.section').forEach(section => {
+		  section.addEventListener('mouseenter', () => {
+			section.style.cursor = 'pointer';
+		  });
+	
+		  section.addEventListener('click', () => {
+			window.location.href = section.getAttribute('data-redirect');
+		  });
+		});
+	  </script>
+	
+
+
 	
 	<br>
 	<br>
