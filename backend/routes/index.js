@@ -10,6 +10,7 @@ const parishcouncilrouter = require("./parishcouncilRouter");
 const studentrouter = require("./studentRouter");
 const paymentrouter = require("./paymentRouter");
 const userrouter = require("./userRouter");
+const adminrouter = require("./adminRouter");
 const express = require("express");
 const router = express.Router();
 
@@ -25,7 +26,8 @@ router.use(
   parishcouncilrouter,
   userrouter,
   studentrouter,
-  paymentrouter
+  paymentrouter,
+  adminrouter
 );
 
 
