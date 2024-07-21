@@ -7,19 +7,9 @@ const secretKey = process.env.SECRECT_KEY;
 const auth = async (req, res, next) => {
   const authHeader = req.header("Authorization");
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.render(
-      "login",
-      (err, html) => {
-        if (err) {
-          console.error("Error rendering 'login' view:", err);
-          return next(err);
-        }
-        res.send(html);
-      }
-    );
-    next();
+    return res.status(401).send("Access denied. No token provided");
   }
-  
+  console.log(authHeader);
   const token = authHeader.substring(7);
 
   if (!token)

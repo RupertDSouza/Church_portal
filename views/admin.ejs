@@ -451,6 +451,51 @@
         }
     </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('token');
+        console.log(token);
+        if (!token) {
+            window.location.href = '/login';
+        }
+    });
+
+    const form = document.getElementById('mainForm');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        const token = localStorage.getItem('token');
+
+        fetch('/app/admin', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.status === 401) {
+                window.location.href = '/login';
+            }
+            return response.json();
+        })
+        .then(result => {
+            if (result.success) {
+                alert('Data added successfully');
+                form.reset();
+            } else {
+                alert('Failed to add data');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred');
+        });
+    });
+</script>
+
     <script>
         window.onload = function() {
             const editItem = JSON.parse(localStorage.getItem('editItem'));
