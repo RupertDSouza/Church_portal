@@ -11,6 +11,7 @@ const studentrouter = require("./studentRouter");
 const paymentrouter = require("./paymentRouter");
 const userrouter = require("./userRouter");
 const adminrouter = require("./adminRouter");
+const massrouter = require("./massRouter");
 const express = require("express");
 const router = express.Router();
 
@@ -27,8 +28,8 @@ router.use(
   userrouter,
   studentrouter,
   paymentrouter,
-  adminrouter
+  adminrouter,
+  massrouter
 );
-
 
 module.exports = router;

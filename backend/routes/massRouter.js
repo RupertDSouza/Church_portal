@@ -1,14 +1,15 @@
 const express = require("express");
-const newsModel = require("../models/mongodb/newsModel");
+const massModel = require("../models/mongodb/massModel");
 const initializeRepo = require("../middleware/repoMiddleware");
 const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
-  "/news",
+  "/mass",
   (req, res, next) => {
     req.access = ["admin", "priest"];
-    req.model = newsModel;
+    req.model = massModel;
+    req.mass = true;
     next();
   },
   initializeRepo,

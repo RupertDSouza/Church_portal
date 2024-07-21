@@ -6,7 +6,6 @@ const path = require("path");
 const app = express();
 const sequelize = require("./config/sequelize");
 
-
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -60,8 +59,6 @@ app.get("/", (req, res, next) => {
     }
   );
 });
-
-
 
 app.get("/:page", (req, res, next) => {
   const page = req.params.page;

@@ -31,18 +31,19 @@ class Repository {
     }
   }
 
-  async findOneAndUpdate(id, data) {
+  async findOneAndUpdate(id, data, option) {
     if (this.model.name === "Student" || this.model.name === "Payment") {
       const instance = await this.model.findByPk(id);
-      console.log("instance", instance);
       if (instance) {
-        console.log("data", data);
         return await instance.update(data);
       }
       return null;
     } else {
+      if (!option || option == {}) {
+        option = { new: true };
+      }
       const filter = { _id: id };
-      return await this.model.findOneAndUpdate(filter, data, { new: true });
+      return await this.model.findOneAndUpdate(filter, data, option);
     }
   }
 
