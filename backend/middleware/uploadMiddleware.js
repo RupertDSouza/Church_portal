@@ -48,6 +48,6 @@ const fileUpload = (req, res, next) => {
 };
 
 module.exports = {
-  upload: upload.single("image"),
+  uploadImage: upload.single("image"),
   fileUpload,
 };

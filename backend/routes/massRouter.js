@@ -9,7 +9,6 @@ router.use(
   (req, res, next) => {
     req.access = ["admin", "priest"];
     req.model = massModel;
-    req.mass = true;
     next();
   },
   initializeRepo,

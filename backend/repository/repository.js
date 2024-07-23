@@ -31,7 +31,7 @@ class Repository {
     }
   }
 
-  async findOneAndUpdate(id, data, option) {
+  async findOneAndUpdate(id, data, option = {}) {
     if (this.model.name === "Student" || this.model.name === "Payment") {
       const instance = await this.model.findByPk(id);
       if (instance) {
@@ -42,6 +42,7 @@ class Repository {
       if (!option || option == {}) {
         option = { new: true };
       }
+      console.log(option);
       const filter = { _id: id };
       return await this.model.findOneAndUpdate(filter, data, option);
     }

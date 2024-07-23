@@ -11,7 +11,7 @@ const regularMassSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  about: {
+  info: {
     type: [specialMassSchema],
     require: true,
   },
