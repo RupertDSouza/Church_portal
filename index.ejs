@@ -70,7 +70,7 @@
               method: "POST",
               headers: {
                 Authorization:
-                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjhmMDc5MTA1NDU1ODQ4ZmI5MWI5ZGMiLCJpYXQiOjE3MjA4MTMzMzUsImV4cCI6MTcyMDgxNjkzNX0.9e3sJPXVHQ4KsS4uGke4MG9KilUYWPvt2V5eFrZZots",
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjhmMDc5MTA1NDU1ODQ4ZmI5MWI5ZGMiLCJpYXQiOjE3MjE4Mjk5ODcsImV4cCI6MTcyMTgzMzU4N30.MmOp2k-2ZGZVdQzpt0bBmoQYBO7ifRLUikiNuZ_LIso",
               },
               body: formData,
             });
@@ -156,3 +156,17 @@
     </script>
   </body>
 </html>
+
+<!-- app.post('/submit', async (req, res) => {
+  try {
+      const { name, addresses } = req.body;
+      const newUser = new User({
+          name,
+          addresses: Object.values(addresses) // Convert the addresses object to an array
+      });
+      await newUser.save();
+      res.status(200).send('User created successfully!');
+  } catch (error) {
+      res.status(500).send('Error saving user: ' + error.message);
+  }
+}); -->

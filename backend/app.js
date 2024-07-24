@@ -33,31 +33,21 @@ syncDatabase();
 
 app.use("/app", router);
 
+// Set the view engine to EJS
 app.set("views", path.join(__dirname, "../views"));
-// app.set("view engine", "html");
+app.set("view engine", "ejs");
 
 // Serve static files from the public directory
-app.use(express.static(path.join(__dirname, "../public", "index.html")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 // Ignore favicon.ico requests
 // app.get("/favicon.ico", (req, res) => res.status(204).end());
 
-app.get("/favicon.ico", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public", "favicon.ico"));
-});
-
-app.get("/", (req, res, next) => {
-  res.render(
-    "index",
-    { title: "Home Page", message: "Welcome to the Home Page!" },
-    (err, html) => {
-      if (err) {
-        console.error("Error rendering 'index' view:", err);
-        return next(err);
-      }
-      res.send(html);
-    }
-  );
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: "Home Page",
+    message: "Welcome to the Home Page!",
+  });
 });
 
 app.get("/:page", (req, res, next) => {
