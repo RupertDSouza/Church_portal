@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const contact = require("./contactModel");
 
 const parishcouncilSchema = new mongoose.Schema({
-  parishcouncilName: {
+  name: {
     type: String,
     require: [true, "Name is Required"],
   },

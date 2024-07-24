@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const wardSchema = new mongoose.Schema({
-  wardName: {
+  name: {
     type: String,
     required: [true, "Name is required"],
   },
-  details: {
+  description: {
     type: String,
     required: [true, "Details is required"],
   },

@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
 const churchSchema = new mongoose.Schema({
-  churchName: {
+  name: {
     type: String,
     required: [true, "Name is required"],
   },
   history: {
     type: String,
   },
-  details: {
+  description: {
     type: String,
   },
   image: {

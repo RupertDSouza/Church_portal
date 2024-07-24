@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const hashMiddleware = require("../../middleware/hashMiddleware");
 
 const userSchema = new mongoose.Schema({
-  userName: {
+  name: {
     type: String,
     required: [true, "Name is required"],
   },

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const priestSchema = new mongoose.Schema({
-  priestName: {
+  name: {
     type: String,
     require: [true, "Name is Required"],
   },
