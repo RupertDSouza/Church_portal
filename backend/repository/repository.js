@@ -39,10 +39,9 @@ class Repository {
       }
       return null;
     } else {
-      if (!option || option == {}) {
+      if (Object.keys(option).length === 0) {
         option = { new: true };
       }
-      console.log(option);
       const filter = { _id: id };
       return await this.model.findOneAndUpdate(filter, data, option);
     }

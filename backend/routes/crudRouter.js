@@ -18,10 +18,6 @@ router.put("/update/:id", upload.none(), auth, controller.update);
 router.put(
   "/updateImage/:id",
   auth,
-  (req, res, next) => {
-    req.update = true;
-    next();
-  },
   uploadImage,
   fileUpload,
   controller.updateWithImage

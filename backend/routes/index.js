@@ -13,6 +13,8 @@ const userrouter = require("./userRouter");
 const adminrouter = require("./adminRouter");
 const massrouter = require("./massRouter");
 const churchrouter = require("./churchRouter");
+const galleryrouter = require("./galleryRouter");
+const readingsrouter = require("./readingsRouter");
 const express = require("express");
 const router = express.Router();
 
@@ -31,7 +33,9 @@ router.use(
   paymentrouter,
   adminrouter,
   massrouter,
-  churchrouter
+  churchrouter,
+  galleryrouter,
+  readingsrouter
 );
 
 module.exports = router;
