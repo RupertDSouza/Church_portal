@@ -16,6 +16,14 @@ const wardSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  noOfFamilies: {
+    type: Number,
+    required: true,
+  },
+  noOfMembers: {
+    type: Number,
+    required: true,
+  },
 });
 
 const ward = new mongoose.model("Ward", wardSchema);
