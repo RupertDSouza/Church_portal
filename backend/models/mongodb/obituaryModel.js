@@ -6,9 +6,14 @@ const obituarySchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  born: {
+    type: String,
+  },
+  died: {
+    type: String,
+  },
   age: {
-    type: Number,
-    require: true,
+    type: String,
   },
   image: {
     type: String,

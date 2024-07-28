@@ -16,11 +16,17 @@ const priestSchema = new mongoose.Schema({
   toDate: {
     type: Date,
   },
+  dateOfOrdination: {
+    type: String,
+  },
   description: {
     type: String,
   },
   contact: {
     type: Number,
+  },
+  email: {
+    type: String,
   },
 });
 const priest = new mongoose.model("Priest", priestSchema);
