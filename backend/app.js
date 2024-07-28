@@ -55,12 +55,21 @@ app.get("/:page", (req, res, next) => {
   console.log(`Attempting to render page: ${page}`);
   res.render(
     page,
-    {
-      title: `${page.charAt(0).toUpperCase() + page.slice(1)} Page`,
-      message: `Welcome to the ${
-        page.charAt(0).toUpperCase() + page.slice(1)
-      } Page!`,
-    },
+    (err, html) => {
+      if (err) {
+        console.error(`Error rendering page: ${page}`, err);
+        return next(err);
+      }
+      res.send(html);
+    }
+  );
+});
+
+app.get("/admin/:page", (req, res, next) => {
+  const page = req.params.page;
+  console.log(`Attempting to render page: ${page}`);
+  res.render(
+    `admin/${page}`,
     (err, html) => {
       if (err) {
         console.error(`Error rendering page: ${page}`, err);

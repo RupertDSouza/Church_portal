@@ -1,0 +1,290 @@
+<html>
+    <head>
+        <title>Edit Ward</title>
+        <style>
+            .main_content .main_content_iner {
+  min-height: 68vh;
+  transition: 0.5s;
+  margin: 30px;
+}
+.container-fluid{
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+.plr_30 {
+  padding: 0 30px !important;
+}
+.body_white_bg {
+  background: #fff;
+}
+.pt_30 {
+  padding-top: 30px !important;
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 90%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+
+.col-lg-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .white_box {
+  padding: 30px;
+  background-color: #4d4f5c26;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  /* width: inherit; */
+}
+.white_box.box_border {
+  border: 1px solid rgba(202, 206, 213, 0.7);
+}
+.white_box .white_box_tittle h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.mb_30 {
+  margin-bottom: 30px !important;
+}
+.box_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: center;
+}
+.box_header .title_info p {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #a3a0fb;
+}
+.chart_box_1 .box_header .box_header_left {
+  flex-basis: 50%;
+}
+.chart_box_1 .box_header .box_header_left ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.chart_box_1 .box_header .box_header_left ul li {
+  display: inline-block;
+  text-align: center;
+}
+.chart_box_1 .box_header .box_header_left ul li h4 {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+.chart_box_1 .box_header .box_header_left ul li p {
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.chart_box_1 .box_header .box_header_right .legend_circle ul li {
+  color: #828bb2;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 30px;
+  display: inline-block;
+}
+.chart_box_1 .box_header .box_header_right .legend_circle ul li:last-child {
+  margin-right: 0;
+}
+.chart_box_1 .box_header .box_header_right .legend_circle ul li span {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.main-title h3 {
+  font-family: muli, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #4d4f5c;
+  line-height: 1.2;
+}
+.main-title span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #a3a0fb;
+  display: block;
+  margin-top: 6px;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+.form-label {
+  margin-bottom: 0.5rem;
+}
+.form-control {
+  display: block;
+  width: 40%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+body {
+  font-family: muli, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  background: #f7faff;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+.btn-group-lg > .btn,
+.btn-lg {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+}
+        </style>
+    </head>
+    <body>
+        <div class="main_content_iner ">
+            <div class="container-fluid plr_30 body_white_bg pt_30">
+            <div class="row justify-content-center">
+            <div class="col-lg-12">
+            <div class="white_box mb_30">
+            <div class="box_header ">
+            <div class="main-title">
+            <h3 class="mb-0">Input select 1</h3>
+            </div>
+            </div>
+            <form>
+            <div class="mb-3">
+            <label class="form-label" for="wardName">Ward Name</label>
+            <input type="text" class="form-control" id="wardName" name="wardName" >
+            </div>
+            <div class="mb-3">
+            <label class="form-label" for="details">Details</label>
+            <textarea class="form-control" id="details" name="details" ></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="place">Place</label>
+                <input type="text" class="form-control" id="place" name="place" >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="noOfFamilies">No Of Families</label>
+                    <input type="text" class="form-control" id="noOfFamilies" name="noOfFamilies" >
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="noOfMembers">No Of Members</label>
+                        <input type="text" class="form-control" id="noOfMembers" name="noOfFamilies" >
+                        </div>
+                         <button type="button" class="btn btn-primary btn-lg" id="updateButton">Update</button>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wardId = localStorage.getItem('wardId');
+            const token = localStorage.getItem('token');
+
+            if (wardId) {
+                fetch(`/app/ward/read/${wardId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('wardName').value = data.wardName;
+                        document.getElementById('details').value = data.details;
+                        document.getElementById('place').value = data.place;
+                        document.getElementById('noOfFamilies').value = data.noOfFamilies;
+                        document.getElementById('noOfMembers').value = data.noOfMembers;
+                    })
+                    .catch(error => console.error('Error fetching ward details:', error));
+            }
+            document.getElementById('updateButton').addEventListener('click', () => {
+                const updatedWard = {
+                    wardName: document.getElementById('wardName').value,
+                    details: document.getElementById('details').value,
+                    place: document.getElementById('place').value,
+                    noOfFamilies: document.getElementById('noOfFamilies').value,
+                    noOfMembers: document.getElementById('noOfMembers').value
+                };
+
+                fetch(`/app/ward/update/${wardId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Include the token in the request headers
+                },
+                body: JSON.stringify(updatedWard)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Ward updated successfully!');
+                } else {
+                    alert('Failed to update ward.');
+                }
+            })
+            .catch(error => console.error('Error updating ward:', error));
+        });
+    });
+    </script>
+</html>
