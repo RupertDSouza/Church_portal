@@ -199,10 +199,7 @@
         <div class="home_slider_container">
           <div class="owl-carousel owl-theme home_slider">
             <div class="owl-item">
-              <div
-                class="home_slider_background"
-                style="background-image: url(images/home_slider_background.jpg)"
-              ></div>
+              <div class="home_slider_background" id="backgroundImageId" style ></div>
               <div class="home_slider_content text-center">
                 <div
                   class="cross_1 d-flex flex-column align-items-center justify-content-center"
@@ -268,7 +265,10 @@
                 <div class="section_image">
                   <img src="images/church_1.png" alt />
                 </div>
-                <div class="section_title"><h2>Welcome to Our Church</h2></div>
+                <div class="section_title">
+                  <h3>Welcome to Our</h3>
+                  <h2 id="church-title"></h2>
+                </div>
                 <div class="section_subtitle">God loves us all</div>
               </div>
             </div>
@@ -276,21 +276,13 @@
           <div class="row intro_content">
             <div class="col-lg-6">
               <div class="intro_text">
-                <p>
-                  Integer nec bibendum lacus. Suspendisse dictum enim sit amet
-                  libero malesuada feugiat. Praesent malesuada congue magna at
-                  finibus. In hac habitasse platea dictumst. Curabitur rhoncus
-                  auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu
-                  varius ac. Etiam cursus turpis lectus, id iaculis risus tempor
-                  id. Phasellus fringilla nisl sed sem scelerisque, eget aliquam
-                  magna vehicula.nteger nec bibendum lacus.
-                </p>
+                <p id="church-details"></p>
                 <div class="button intro_button"><a href="#">Read More</a></div>
               </div>
             </div>
 
             <div class="col-lg-6">
-              <div class="intro_image"><img src="images/intro.jpg" alt /></div>
+              <div class="intro_image"><img id="church-image" alt /></div>
             </div>
           </div>
         </div>
@@ -311,9 +303,9 @@
                   <img src="images/church_2.png" alt />
                 </div>
                 <div class="section_title">
-                  <h2>Our Church main activities</h2>
+                  <h2>Discover More About Church</h2>
                 </div>
-                <div class="section_subtitle">God loves us all</div>
+                <div class="section_subtitle">Peace Be With You</div>
               </div>
             </div>
           </div>
@@ -321,11 +313,15 @@
             <div class="col">
               <div class="services_text text-center">
                 <p>
-                  Integer nec bibendum lacus. Suspendisse dictum enim sit amet
-                  libero malesuada feugiat. Praesent malesuada congue magna at
-                  finibus. In hac habi tasse platea dictumst. Curabitur rhoncus
-                  auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu
-                  varius ac.
+                  Bringing together people of all ages through various
+                  activities and services, Holy Spirit Church in Mukka fosters a
+                  strong sense of togetherness. From engaging community
+                  associations and uplifting worship services to events that
+                  celebrate our shared faith, the church is a hub of unity and
+                  joy. Our vibrant parish life is beautifully captured in our
+                  gallery, reflecting the essence of our community. Join us to
+                  experience a place where faith, fellowship, and support are at
+                  the heart of everything we do.
                 </p>
               </div>
             </div>
@@ -334,36 +330,9 @@
             <div class="col-lg-2 col-md-4 col-sm-6">
               <div class="services_item text-center">
                 <div class="services_image">
-                  <img src="images/services_1.png" alt />
-                </div>
-                <div class="services_title">Teaching</div>
-              </div>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-sm-6">
-              <div class="services_item text-center">
-                <div class="services_image">
                   <img src="images/services_2.png" alt />
                 </div>
-                <div class="services_title">Communion</div>
-              </div>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-sm-6">
-              <div class="services_item text-center">
-                <div class="services_image">
-                  <img src="images/services_3.png" alt />
-                </div>
-                <div class="services_title">Confessions</div>
-              </div>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-sm-6">
-              <div class="services_item text-center">
-                <div class="services_image">
-                  <img src="images/services_4.png" alt />
-                </div>
-                <div class="services_title">Sermons</div>
+                <div class="services_title">Daily Mass</div>
               </div>
             </div>
 
@@ -372,7 +341,25 @@
                 <div class="services_image">
                   <img src="images/services_5.png" alt />
                 </div>
-                <div class="services_title">Daily Mass</div>
+                <div class="services_title">Daily Reading</div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/icons-03.png" alt />
+                </div>
+                <div class="services_title">Wards</div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/icons-02.png" alt />
+                </div>
+                <div class="services_title">Associations</div>
               </div>
             </div>
 
@@ -384,13 +371,22 @@
                 <div class="services_title">Daily Prayers</div>
               </div>
             </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/icons-04.png" alt />
+                </div>
+                <div class="services_title">Gallery</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="sermon">
+      <div class="priest">
         <div
-          class="sermon_background"
+          class="priest_background"
           style="background-image: url(images/sermon.png)"
         ></div>
         <div class="container">
@@ -398,44 +394,37 @@
             <div class="col">
               <div class="section_title_container">
                 <div class="section_image">
-                  <img src="images/church_3.png" alt />
+                  <img src="images/icons-01.png" alt />
                 </div>
-                <div class="section_title"><h2>Today's Sermon</h2></div>
-                <div class="section_subtitle">God loves us all</div>
+                <div class="section_title"><h2>Parish Priest</h2></div>
+                <div class="section_subtitle">Grace and blessings to all</div>
               </div>
             </div>
           </div>
-          <div class="row sermon_row">
+          <div class="row priest_row">
             <div class="col-lg-6">
-              <div class="sermon_image">
-                <img src="images/sermon_image.jpg" alt />
+              <div class="priest_image">
+                <img id="priest-image" alt />
               </div>
             </div>
 
             <div class="col-lg-6">
-              <div class="sermon_content">
-                <div class="sermon_title">
-                  Receive The Holy Spirit By Jesus Christ
+              <div class="priest_content">
+                <div class="priest_title">
+                  <h2 id="priest-title"></h2>
                 </div>
-                <ul class="sermon_list">
+                <!-- <ul class="priest_list">
                   <li>Sermon by: <a href="#">Priest Jack Smith</a></li>
                   <li>
                     Categories: <a href="#">Jesus Christ</a>,
                     <a href="#">Holy</a>
                   </li>
                   <li>Date: <a href="#">Monday 11 March, 2018</a></li>
-                </ul>
-                <div class="sermon_text">
-                  <p>
-                    Praesent malesuada congue magna at finibus. In hac habitasse
-                    platea dictumst. Curabitur rhoncus auctor eleifend. Fusce
-                    venenatis diam urna, eu pharetra arcu varius ac. Etiam
-                    cursus turpis lectus, id iaculis risus tempor id. Phasellus
-                    fringilla nisl sed sem scelerisque, eget aliquam magna
-                    vehicula.nteger nec bibendum lacus.
-                  </p>
+                </ul> -->
+                <div class="priest_text">
+                  <p id="priest-details"></p>
                 </div>
-                <div class="button sermon_button">
+                <div class="button priest_button">
                   <a href="sermons.ejs">Read More</a>
                 </div>
               </div>
@@ -452,78 +441,31 @@
                 <div class="section_image">
                   <img src="images/church_4.png" alt />
                 </div>
-                <div class="section_title"><h2>Our Church's Causes</h2></div>
+                <div class="section_title"><h2>Obituary</h2></div>
                 <div class="section_subtitle">God loves us all</div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <div class="causes_slider_container">
-                <div class="owl-carousel owl-theme causes_slider">
-                  <div class="owl-item text-center causes_item">
-                    <div class="causes_item_image">
-                      <img src="images/causes_1.jpg" alt />
-                    </div>
-                    <div class="causes_item_title">Children's aid</div>
-                    <div class="causes_item_text">
-                      <p>
-                        Praesent malesuada congue magna at finibus. In hac
-                        habitasse platea dictumst.
-                      </p>
-                    </div>
-                  </div>
+            <div class="causes_slider_container">
 
-                  <div class="owl-item text-center causes_item">
-                    <div class="causes_item_image">
-                      <img src="images/causes_2.jpg" alt />
-                    </div>
-                    <div class="causes_item_title">Aid for the Elderly</div>
-                    <div class="causes_item_text">
-                      <p>
-                        Praesent malesuada congue magna at finibus. In hac
-                        habitasse platea dictumst.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="owl-item text-center causes_item">
-                    <div class="causes_item_image">
-                      <img src="images/causes_3.jpg" alt />
-                    </div>
-                    <div class="causes_item_title">Community Food</div>
-                    <div class="causes_item_text">
-                      <p>
-                        Praesent malesuada congue magna at finibus. In hac
-                        habitasse platea dictumst.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="owl-item text-center causes_item">
-                    <div class="causes_item_image">
-                      <img src="images/causes_4.jpg" alt />
-                    </div>
-                    <div class="causes_item_title">After School</div>
-                    <div class="causes_item_text">
-                      <p>
-                        Praesent malesuada congue magna at finibus. In hac
-                        habitasse platea dictumst.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="causes_slider_nav causes_slider_prev trans_200 d-flex flex-column align-items-center justify-content-center"
-                >
-                  <img src="images/arrow_l.png" alt />
-                </div>
-                <div
-                  class="causes_slider_nav causes_slider_next trans_200 d-flex flex-column align-items-center justify-content-center"
-                >
-                  <img src="images/arrow_r.png" alt />
+            <div class="slider-wrapper">
+              <button id="prev" class="slider-nav slider-prev">
+                <img src="images/arrow_l.png" alt="Previous" />
+              </button>
+              <div class="slider-container">
+                <div class="slider" id="slider-container">
+                  <!-- display here -->
                 </div>
               </div>
+              <button id="next" class="slider-nav slider-next">
+                <img src="images/arrow_r.png" alt="Next" />
+              </button>
+            </div>
+
+            </div>
+            </div>
             </div>
           </div>
         </div>
@@ -785,6 +727,7 @@
         </div>
       </footer>
     </div>
+    <script src="js/slider_script.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="styles/bootstrap4/popper.js"></script>
     <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -792,6 +735,7 @@
     <script src="plugins/easing/easing.js"></script>
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
     <script src="js/custom.js"></script>
+    
 
     <!-- <script
       async
@@ -806,12 +750,61 @@
 
       gtag("config", "UA-23581568-13");
     </script>
-    <!-- <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-      integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-      data-cf-beacon='{"rayId":"8a7be0179c05c464","version":"2024.7.0","serverTiming":{"name":{"cfL4":true}},"token":"cd0b4b3a733644fc843ef0b185f98241","b":1}'
-      crossorigin="anonymous"
-    ></script> -->
+
+    <script>
+      async function fetchData(url, titleId, imageId, detailsId) {
+        // try {
+          const response = await fetch(url, {
+            method: "GET",
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
+          const data = await response.json();
+
+          const len = data.length - 1;
+          const imageUrl = data[len].image.replace(/^.*\/public\//, "../");
+
+          document.getElementById(titleId).textContent = data[len].name;
+          document.getElementById(imageId).src = imageUrl;
+          const backgroundImage = document.getElementById(backgroundImageId)
+          if(backgroundImage){
+            backgroundImage.style.backgroundImage = `url(${imageUrl})`;
+          }else {
+      console.error("Element with ID 'backgroundImageId' not found");
+    }
+          document.getElementById(detailsId).textContent =
+            data[len].description;
+        // } catch (error) {
+        //   console.error("Error fetching data:", error);
+        // }
+      }
+
+      function initSlider() {
+        fetchData(
+          "/app/church/read",
+          "church-title",
+          "church-image",
+          "church-details"
+        );
+        fetchData(
+          "/app/priest/read",
+          "priest-title",
+          "priest-image",
+          "priest-details"
+        );
+        // fetchData(
+        //   "/app/association/read",
+        //   "associations-title",
+        //   "associations-image",
+        //   "associations-details"
+        // );
+      }
+
+      document.addEventListener("DOMContentLoaded", initSlider);
+    </script>
   </body>
 </html>
