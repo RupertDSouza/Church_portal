@@ -5,7 +5,7 @@ const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
-  "/mass",
+  "/poster",
   (req, res, next) => {
     req.access = ["admin"];
     req.model = posterModel;

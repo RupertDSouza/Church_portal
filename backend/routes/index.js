@@ -15,6 +15,7 @@ const massrouter = require("./massRouter");
 const churchrouter = require("./churchRouter");
 const galleryrouter = require("./galleryRouter");
 const readingsrouter = require("./readingsRouter");
+const posterrouter = require("./posterRouter");
 const express = require("express");
 const router = express.Router();
 
@@ -35,7 +36,8 @@ router.use(
   massrouter,
   churchrouter,
   galleryrouter,
-  readingsrouter
+  readingsrouter,
+  posterrouter
 );
 
 module.exports = router;
