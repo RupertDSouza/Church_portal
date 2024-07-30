@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Role is required"],
   },
+  avatar:{
+    type: String,
+  },
 });
 
 userSchema.pre("save", hashMiddleware);
