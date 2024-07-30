@@ -197,60 +197,16 @@
 
       <div class="home">
         <div class="home_slider_container">
-          <div class="owl-carousel owl-theme home_slider">
-            <div class="owl-item">
-              <div class="home_slider_background" id="backgroundImageId" style ></div>
-              <div class="home_slider_content text-center">
-                <div
-                  class="cross_1 d-flex flex-column align-items-center justify-content-center"
-                >
-                  <img src="images/cross_1.png" alt />
-                </div>
-                <h1>God</h1>
-                <div class="button home_slider_button">
-                  <a href="#">Come and join us</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="owl-item">
-              <div
-                class="home_slider_background"
-                style="background-image: url(images/home_slider_background.jpg)"
-              ></div>
-              <div class="home_slider_content text-center">
-                <div
-                  class="cross_1 d-flex flex-column align-items-center justify-content-center"
-                >
-                  <img src="images/cross_1.png" alt />
-                </div>
-                <h1>is</h1>
-                <div class="button home_slider_button">
-                  <a href="#">Come and join us</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="owl-item">
-              <div
-                class="home_slider_background"
-                style="background-image: url(images/home_slider_background.jpg)"
-              ></div>
-              <div class="home_slider_content text-center">
-                <div
-                  class="cross_1 d-flex flex-column align-items-center justify-content-center"
-                >
-                  <img src="images/cross_1.png" alt />
-                </div>
-                <h1>God is all around us</h1>
-                <div class="button home_slider_button">
-                  <a href="#">Come and join us</a>
-                </div>
-              </div>
-            </div>
+          <div type="button"
+            class="home_slider_nav home_slider_prev d-flex flex-column align-items-center justify-content-center" id="prev"
+          >
+            <img src="images/arrow_l.png" alt />
           </div>
-          <div
-            class="home_slider_nav d-flex flex-column align-items-center justify-content-center"
+          <div class="poster-container" id="poster-slider">
+            <!-- displayed here -->
+          </div>
+          <div type="button"
+            class="home_slider_nav home_slider_next d-flex flex-column align-items-center justify-content-center" id="next"
           >
             <img src="images/arrow_r.png" alt />
           </div>
@@ -727,6 +683,7 @@
         </div>
       </footer>
     </div>
+    <script src="js/poster_slider.js"></script>
     <script src="js/slider_script.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="styles/bootstrap4/popper.js"></script>
@@ -753,7 +710,7 @@
 
     <script>
       async function fetchData(url, titleId, imageId, detailsId) {
-        // try {
+        try {
           const response = await fetch(url, {
             method: "GET",
           });
@@ -770,17 +727,10 @@
 
           document.getElementById(titleId).textContent = data[len].name;
           document.getElementById(imageId).src = imageUrl;
-          const backgroundImage = document.getElementById(backgroundImageId)
-          if(backgroundImage){
-            backgroundImage.style.backgroundImage = `url(${imageUrl})`;
-          }else {
-      console.error("Element with ID 'backgroundImageId' not found");
-    }
-          document.getElementById(detailsId).textContent =
-            data[len].description;
-        // } catch (error) {
-        //   console.error("Error fetching data:", error);
-        // }
+          document.getElementById(detailsId).textContent = data[len].description;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
       }
 
       function initSlider() {

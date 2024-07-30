@@ -1,0 +1,240 @@
+<html>
+    <head>
+        <title>
+            Admin Page
+        </title>
+        <style>
+ *,
+::after,
+::before {
+  box-sizing: border-box;
+}
+    .col-lg-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .single_element h4 {
+  margin-bottom: 30px;
+}
+.single_element .quick_activity_wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  margin-bottom: 50px;
+}
+.single_element .single_quick_activity {
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding: 41px 30px;
+  position: relative;
+  background: #3b76ef;
+}
+.single_element .single_quick_activity:nth-child(2) {
+  background: #63c7ff;
+}
+.single_element .single_quick_activity:nth-child(3) {
+  background: #a66dd4;
+}
+.single_element .single_quick_activity:nth-child(4) {
+  background: #6dd4b1;
+}
+.single_element .single_quick_activity::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: cover;
+}
+.single_element .single_quick_activity h4 {
+  font-size: 17px;
+  margin-bottom: 0;
+  font-weight: 700;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.single_element .single_quick_activity h3 {
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 0;
+  font-weight: 900;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: #fff;
+  margin-bottom: 7px;
+}
+.single_element .single_quick_activity p {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 13px;
+  font-weight: 400;
+  color: #fff;
+}
+.single_element .single_quick_activity:hover {
+  background: #3b76ef;
+}
+.single_element .single_quick_activity:hover::before {
+  background-image: url('/images/diamond.png');
+}
+.single_element .single_quick_activity:hover .quick_activity_icon {
+  background-color: rgba(255, 247, 248, 0.2);
+}
+.single_element .single_quick_activity:hover .quick_activity_icon i {
+  color: #fff;
+}
+.single_element .quick_activity_wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  margin-bottom: 50px;
+}
+.single_element .single_quick_activity {
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding: 41px 30px;
+  position: relative;
+  background: #3b76ef;
+}
+.single_element .single_quick_activity:nth-child(2) {
+  background: #63c7ff;
+}
+.single_element .single_quick_activity:nth-child(3) {
+  background: #a66dd4;
+}
+.single_element .single_quick_activity:nth-child(4) {
+  background: #6dd4b1;
+}
+.single_element .single_quick_activity::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: cover;
+}
+.single_element .single_quick_activity h4 {
+  font-size: 17px;
+  margin-bottom: 0;
+  font-weight: 700;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.single_element .single_quick_activity h3 {
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 0;
+  font-weight: 900;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: #fff;
+  margin-bottom: 7px;
+}
+.single_element .single_quick_activity p {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 13px;
+  font-weight: 400;
+  color: #fff;
+}
+.single_element .single_quick_activity:hover {
+  background: #3b76ef;
+}
+.single_element .single_quick_activity:hover::before {
+  background-image: url('/images/diamond.png');
+}
+.single_element .single_quick_activity:hover .quick_activity_icon {
+  background-color: rgba(255, 247, 248, 0.2);
+}
+.single_element .single_quick_activity:hover .quick_activity_icon i {
+  color: #fff;
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+.col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+
+
+        </style>
+    </head>
+    <body>
+      
+        <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="single_element">
+            <div class="quick_activity">
+            <div class="row">
+            <div class="col-12">
+            <div class="quick_activity_wrap">
+
+            <div class="single_quick_activity" id="wardsDiv" >
+            <h3>Wards </h3>
+            </div>
+
+            <div class="single_quick_activity">
+            <h3>Priests </h3>
+            </div>
+
+            <div class="single_quick_activity">
+            <h3>Sermons </h3>
+            </div>
+
+            <div class="single_quick_activity">
+            <h3>Obituary </h3>
+            </div>
+            
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+    </body>
+
+    <script>
+      document.getElementById('wardsDiv').addEventListener('click', function() {
+          window.location.href = '/admin/wards.ejs';
+          
+      });
+  </script>
+</html>
