@@ -51,8 +51,8 @@ async function loadPoster(containerId) {
       slides[0].classList.add("active");
     }
 
-    const nextButton = document.getElementById("next");
-    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("go-to-next");
+    const prevButton = document.getElementById("go-to-prev");
 
     let currentSlide = 0;
     let slideInterval;
