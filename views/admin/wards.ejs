@@ -1,288 +1,121 @@
 <html>
     <head>
         <title>Wards</title>
-        <style>
-           .main_content .main_content_iner {
-  min-height: 68vh;
-  transition: 0.5s;
-  margin: 30px;
-}
-.container-fluid{
-  width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  margin-right: auto;
-  margin-left: auto;
-}
-.plr_30 {
-  padding: 0 30px !important;
-}
-.body_white_bg {
-  background: #fff;
-}
-.pt_30 {
-  padding-top: 30px !important;
-}
-.row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(var(--bs-gutter-y) * -1);
-  margin-right: calc(var(--bs-gutter-x) * -0.5);
-  margin-left: calc(var(--bs-gutter-x) * -0.5);
-}
-.row > * {
-  flex-shrink: 0;
-  width: 100%;
-  max-width: 30%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
-  margin-top: var(--bs-gutter-y);
-}
-.justify-content-center {
-  justify-content: center !important;
-}
-.col-lg-6 {
-    flex: 0 0 auto;
-    width: 50%;
-  }
-  .white_box {
-  padding: 30px;
-  background-color: #4d4f5c26;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-  /* width: inherit; */
-}
-.white_box.box_border {
-  border: 1px solid rgba(202, 206, 213, 0.7);
-}
-.white_box .white_box_tittle h4 {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 0;
-}
-.mb_30 {
-  margin-bottom: 30px !important;
-}
-.box_header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
-  align-items: center;
-}
-.box_header .title_info p {
-  font-size: 12px;
-  font-weight: 400;
-  margin-bottom: 0;
-  color: #a3a0fb;
-}
-.chart_box_1 .box_header .box_header_left {
-  flex-basis: 50%;
-}
-.chart_box_1 .box_header .box_header_left ul {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.chart_box_1 .box_header .box_header_left ul li {
-  display: inline-block;
-  text-align: center;
-}
-.chart_box_1 .box_header .box_header_left ul li h4 {
-  font-weight: 500;
-  font-size: 18px;
-  margin-bottom: 0;
-}
-.chart_box_1 .box_header .box_header_left ul li p {
-  font-weight: 500;
-  font-size: 12px;
-  margin-bottom: 0;
-}
-.chart_box_1 .box_header .box_header_right .legend_circle ul li {
-  color: #828bb2;
-  font-size: 12px;
-  font-weight: 400;
-  margin-right: 30px;
-  display: inline-block;
-}
-.chart_box_1 .box_header .box_header_right .legend_circle ul li:last-child {
-  margin-right: 0;
-}
-.chart_box_1 .box_header .box_header_right .legend_circle ul li span {
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.main-title h3 {
-  font-family: muli, sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #4d4f5c;
-  line-height: 1.2;
-}
-.main-title span {
-  font-size: 12px;
-  font-weight: 400;
-  color: #a3a0fb;
-  display: block;
-  margin-top: 6px;
-}
-.mb-0 {
-  margin-bottom: 0 !important;
-}
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-}
-.btn {
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.btn:hover {
-  color: #212529;
-}
-.btn-check:focus + .btn,
-.btn:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-}
-.btn.disabled,
-.btn:disabled,
-fieldset:disabled .btn {
-  pointer-events: none;
-  opacity: 0.65;
-}
-.btn-primary {
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-}
-.btn-primary:hover {
-  color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
-}
-.btn-check:focus + .btn-primary,
-.btn-primary:focus {
-  color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
-  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
-}
-.btn-check:active + .btn-primary,
-.btn-check:checked + .btn-primary,
-.btn-primary.active,
-.btn-primary:active,
-.show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #0a58ca;
-  border-color: #0a53be;
-}
-.btn-check:active + .btn-primary:focus,
-.btn-check:checked + .btn-primary:focus,
-.btn-primary.active:focus,
-.btn-primary:active:focus,
-.show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
-}
-.btn-primary.disabled,
-.btn-primary:disabled {
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-}
-.card-img,
-.card-img-bottom,
-.card-img-top {
-  width: 100%;
-}
-.card-img,
-.card-img-top {
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
-}
-.card-img,
-.card-img-bottom {
-  border-bottom-right-radius: calc(0.25rem - 1px);
-  border-bottom-left-radius: calc(0.25rem - 1px);
-}
-.card-body {
-  flex: 1 1 auto;
-  padding: 1rem 1rem;
-}
 
-*,
-::after,
-::before {
-  box-sizing: border-box;
-}
 
-body {
-  margin: 0;
-  font-family: muli, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-}
-.modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-        }
-        .modal-content .btn {
-            margin: 10px;
-        }
-
-        </style>
+           <link rel="stylesheet" href="/styles/style1.css" />
+        <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+      
+        
     </head>
-    <body>
+    <body class="crm_body_bg">
+
+
+
+      <nav class="sidebar">
+      <div class="logo d-flex justify-content-between">
+      <a href="index.html"><img src="../images/logo.jpg" alt></a>
+      <div class="sidebar_close_icon d-lg-none">
+      <i class="ti-close"></i>
+      </div>
+      </div>
+      <ul id="sidebar_menu">
+      <li class="mm-active">
+      <a class="has-arrow" href="#" aria-expanded="true">
+      <img src="../images/menu-icon/1.svg" alt>
+      <span>Dashboard</span>
+      </a>
+     
+      </li>
+      <li class>
+        <a href="index.html">
+      <img src="../images/menu-icon/2.svg" alt>
+      <span>News</span>
+      </a>
+      
+      </li>
+      <li class>
+        <a href="index.html">
+      <img src="../images/time_15311293.png" style="max-width: 70%" alt>
+      <span>Events</span>
+      </a>
+      </li>
+      <li class>
+        <a href="index.html">
+      <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
+      <span>Announcements</span>
+      </a>
+      </li>
+      <li class>
+        <a href="index.html">
+      <img src="../images/image_12998520.png" style="max-width: 90%" alt>
+      <span>Gallery</span>
+      </a>
+      </li>
+      <li class>
+        <a href="index.html">
+      <img src="../images/building_15624293.png" style="max-width: 90%" alt>
+      <span>Institution</span>
+        </a>
+      </li>
+      <li class>
+        <a href="index.html">
+      <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
+      <span>Mass Timings</span>
+      </a>
+      </li>
+      <li class>
+        <a href="index.html">
+      <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
+      <span>Readings</span>
+      </a>
+      </li>
+       <li class>
+        <a href="index.html">
+      <img src="../images/community_16682249.png" style="max-width: 80%" alt>
+      <span>Users</span>
+      </a>
+      </li>
+      </ul>
+      </nav>
+      
+      
+      <section class="main_content dashboard_part">
+      
+      <div class="container-fluid g-0">
+      <div class="row">
+      <div class="col-lg-12 p-0">
+      <div class="header_iner d-flex justify-content-between align-items-center">
+      <div class="sidebar_icon d-lg-none">
+      <i class="ti-menu"></i>
+      </div>
+      <div >
+     
+      <form action="#">
+        <button type="button" class="btn btn-secondary btn-lg" id="updateButton">Update Church Info</button>
+           </form>
+      </div>
+      
+      <div class="header_right d-flex justify-content-between align-items-center">
+      <div class="header_notification_warp d-flex align-items-center">
+      <li>
+      <a href="#"> <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
+      </li>
+      
+      </div>
+      <div class="profile_info">
+      <img src="../images/boy_3984606.png" alt="#">
+      <div class="profile_info_iner">
+      <p>Welcome Admin!</p>
+      <h5>Travor James</h5>
+      
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
       
       <div class="main_content_iner">
           <div class="container-fluid plr_30 body_white_bg pt_30">
@@ -424,4 +257,5 @@ async function deleteCard(cardId) {
 }
   displayResults();
   </script>
+   
 </html>
