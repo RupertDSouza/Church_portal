@@ -29,7 +29,7 @@ exports.login = async (req, res) => {
       expiresIn: "1h",
     });
 
-    return res.json({ token });
+    return res.json({ token, userId: user._id });
   } catch (error) {
     return res.status(500).json({
       error: error,
