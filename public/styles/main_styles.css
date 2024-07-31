@@ -1266,6 +1266,10 @@ section {
   }
 }
 
+/*********************************
+15. Poster slider
+*********************************/
+
 .poster-container {
   display: flex;
   position: relative;
@@ -1291,4 +1295,42 @@ section {
 .poster-slider.prev {
   left: -100%;
   opacity: 0;
+}
+
+/*********************************
+16. numbers
+*********************************/
+
+.number-row {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.number-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #f0f4f8;
+  /* font-family: "Bilbo", serif; */
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: bold;
+  /* padding: 20px; */
+  border-radius: 8px;
+  text-align: center;
+  width: 80px;
+  /* height: 80px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Biblo", serif;
+  color: #f0f4f8;
 }
