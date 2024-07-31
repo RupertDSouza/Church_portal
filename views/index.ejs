@@ -550,6 +550,29 @@
                 </div>
                 <div class="logo_subtitle">Church template</div>
               </div>
+            </div>
+
+            <div class="col-lg-5 footer_col">
+              <div class="footer_contact">
+                <div class="footer_title">Contact Us</div>
+                <ul class="footer_ul">
+                  <li class="footer_li">
+                    <span>Address: </span>
+                    <div id="church-address"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Phone: </span>
+                    <div id="contact"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Email: </span>
+                    <a id="email" href="" class="__cf_email__">[email&#160;protected]</a>
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
               <div class="footer_social">
                 <ul>
                   <li>
@@ -575,52 +598,6 @@
                 </ul>
               </div>
             </div>
-
-            <div class="col-lg-4 footer_col">
-              <div class="footer_links">
-                <div class="footer_title">Useful Links</div>
-                <ul>
-                  <li><a href="index.ejs">Home</a></li>
-                  <li><a href="#">Donations</a></li>
-                  <li><a href="sermons.ejs">Sermons</a></li>
-                  <li><a href="#">Causes</a></li>
-                  <li><a href="#">Quotes</a></li>
-                  <li><a href="blog.ejs">News</a></li>
-                  <li><a href="#">Event List</a></li>
-                  <li><a href="ministries.ejs">Ministries</a></li>
-                  <li><a href="#">Priests</a></li>
-                  <li><a href="contact.ejs">Contact</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-lg-3 footer_col">
-              <div class="footer_contact">
-                <div class="footer_title">Contact Us</div>
-                <ul>
-                  <li>
-                    <span>Address: </span>1481 Creekside Lane Avila Beach, CA
-                    93424
-                  </li>
-                  <li class="footer_contact_phone">
-                    <span>Phone: </span>
-                    <div>
-                      <div>+53 345 7953 32453</div>
-                      <div>+53 345 7557 822112</div>
-                    </div>
-                  </li>
-                  <li>
-                    <span>Email: </span
-                    ><a
-                      href=""
-                      class="__cf_email__"
-                      data-cfemail="7801170d0a15191114381f15191114561b1715"
-                      >[email&#160;protected]</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -633,12 +610,11 @@
           <script>
             document.write(new Date().getFullYear());
           </script>
-          All rights reserved | This template is made with
-          <i class="fa fa-heart-o" aria-hidden="true"></i> by
-          <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+          All rights reserved 
         </div>
       </footer>
     </div>
+    <script src="js/footerContact.js"></script>
     <script src="js/loadNumbers.js"></script>
     <script src="js/poster_slider.js"></script>
     <script src="js/slider_script.js"></script>
@@ -650,11 +626,6 @@
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
     <script src="js/custom.js"></script>
     
-
-    <!-- <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-    ></script> -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -666,7 +637,7 @@
     </script>
 
     <script>
-      async function fetchData(url, titleId, imageId, detailsId) {
+      async function fetchData(url, titleId, imageId, detailsId, addressId) {
         try {
           const response = await fetch(url, {
             method: "GET",
@@ -685,6 +656,9 @@
           document.getElementById(titleId).textContent = data[len].name;
           document.getElementById(imageId).src = imageUrl;
           document.getElementById(detailsId).textContent = data[len].description;
+          if(addressId){
+            document.getElementById(addressId).textContent = data[len].address;
+          }
         } catch (error) {
           console.error("Error fetching data:", error);
         }
@@ -695,7 +669,8 @@
           "/app/church/read",
           "church-title",
           "church-image",
-          "church-details"
+          "church-details",
+          "church-address"
         );
         fetchData(
           "/app/priest/read",
@@ -735,8 +710,6 @@
         function displayItem(image, title, text, dates, item) {
     
           if (item) {
-            console.log(item);
-            // const itemElement = document.createElement("div");
             const imageUrl = item.image.replace(/^.*\/public\//, "../");
             document.getElementById(image).src=imageUrl;
             document.getElementById(title).textContent=`${item.title}`;
@@ -746,7 +719,6 @@
             : item.content;
             document.getElementById(text).textContent = truncatedContent;
             document.getElementById(dates).textContent = item.dates;
-            // container.appendChild(itemElement);
           } else {
             document.getElementById(title).textContent="No items available.";
             document.getElementById(title).textContent="No items available.";

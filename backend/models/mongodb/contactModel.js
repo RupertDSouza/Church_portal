@@ -8,7 +8,7 @@ const contactSchema = new mongoose.Schema({
   designation: {
     type: String,
   },
-  contacts: {
+  contact: {
     type: Number,
     require: true,
   },

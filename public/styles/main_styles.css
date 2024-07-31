@@ -1190,9 +1190,9 @@ section {
   font-weight: 500;
   color: #eb4141;
 }
-.footer_contact_phone span {
+/* .footer_contact_phone span {
   float: left;
-}
+} */
 .footer_contact_phone div {
   padding-left: 28px;
 }
@@ -1207,6 +1207,12 @@ section {
   margin-top: 75px;
 }
 
+.footer_ul {
+  display: flex;
+}
+.footer_li {
+  padding: 10px;
+}
 /*********************************
 14. Obituray slider
 *********************************/

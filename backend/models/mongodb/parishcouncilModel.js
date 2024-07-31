@@ -9,7 +9,7 @@ const parishcouncilSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  contact: {
+  contacts: {
     type: mongoose.Schema.Types.ObjectId,
     ref: contact,
   },

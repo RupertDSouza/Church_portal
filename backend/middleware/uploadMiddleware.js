@@ -40,7 +40,9 @@ const fileUpload = (req, res, next) => {
       });
     }
   } else {
+    console.log("req.file", req.file);
     req.body.image = null;
+    next();
   }
 };
 
