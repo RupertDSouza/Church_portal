@@ -967,21 +967,22 @@ section {
 .news_image img {
   max-width: 100%;
 }
-.news_date {
+.news_date_bg {
   position: absolute;
   top: 0;
   left: 0;
-  width: 94px;
-  height: 94px;
+  width: 140px;
+  height: 90px;
   background: #eb4141;
 }
-.news_day {
-  font-size: 30px;
+.news_date {
+  font-size: 10px;
+  font-weight: bold;
   color: #ffffff;
   line-height: 0.75;
 }
-.news_month {
-  font-size: 12px;
+.news_type {
+  font-size: 8px;
   color: #ffffff;
   line-height: 0.75;
   margin-top: 10px;

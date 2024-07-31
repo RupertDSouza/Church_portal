@@ -9,7 +9,6 @@ async function fetchWardData(url, containerId) {
     }
 
     const data = await response.json();
-    console.log(data, data.length);
 
     const container = document.getElementById(containerId);
 

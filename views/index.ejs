@@ -48,8 +48,8 @@
                   <div class="logo_container">
                     <div class="logo">
                       <a href="#">
-                        <span>Believe</span>
                         <img src="images/logo.jpg" alt />
+                        <span>Believe</span>
                       </a>
                     </div>
                   </div>
@@ -256,7 +256,7 @@
             <div class="col">
               <div class="section_title_container">
                 <div class="section_image">
-                  <img src="images/church_2.png" alt />
+                  <img src="images/church_2.png" loading="lazy" alt />
                 </div>
                 <div class="section_title">
                   <h2>Discover More About Church</h2>
@@ -427,7 +427,7 @@
         </div>
       </div>
 
-      <div class="quote">
+      <div class="quote lazy-load">
         <div
           class="quote_background parallax-window"
           data-parallax="scroll"
@@ -439,7 +439,7 @@
             <div class="col">
               <div class="section_title_container">
                 <div class="section_image">
-                  <img src="images/church_5.png" alt />
+                  <img src="images/church_5.png" loading="lazy" alt />
                 </div>
                 <div class="section_title"><h2>Living in God's Amazing Grace!</h2></div>
                 <div class="section_subtitle">God loves us all</div>
@@ -448,10 +448,6 @@
           </div>
           <div class="row quote_row">
             <div class="col text-center">
-              <!-- <div class="quote_char">
-                <img src="images/quote_char.png" alt />
-              </div> -->
-              
               <div class="number-row" id="number-row">
                 <!-- display numbers -->
             </div>
@@ -478,22 +474,18 @@
             <div class="col-lg-4 news_col">
               <div class="news_item">
                 <div class="news_image">
-                  <img src="images/news_1.jpg" alt />
+                  <img id="news_image" alt />
                   <div
-                    class="news_date d-flex flex-column align-items-center justify-content-center"
+                    class="news_date_bg d-flex flex-column align-items-center justify-content-center"
                   >
-                    <div class="news_day">06</div>
-                    <div class="news_month">March, 2018</div>
+                    <div class="news_date" id="news_date"></div>
+                    <div class="news_type">NEWS</div>
                   </div>
                 </div>
                 <div class="news_content">
-                  <div class="news_title">Latest news in the '18 community</div>
+                  <div class="news_title" id="news_title"></div>
                   <div class="news_text">
-                    <p>
-                      Praesent malesuada congue magna at finibus. In hac
-                      habitasse platea dic tumst malesuada congue magna at
-                      finibus. In hac habitasse platea.
-                    </p>
+                    <p id="news_text"></p>
                   </div>
                   <div class="news_link"><a href="blog.ejs">Read More</a></div>
                 </div>
@@ -503,22 +495,18 @@
             <div class="col-lg-4 news_col">
               <div class="news_item">
                 <div class="news_image">
-                  <img src="images/news_2.jpg" alt />
+                  <img id="events_image" alt />
                   <div
-                    class="news_date d-flex flex-column align-items-center justify-content-center"
+                    class="news_date_bg d-flex flex-column align-items-center justify-content-center"
                   >
-                    <div class="news_day">05</div>
-                    <div class="news_month">March, 2018</div>
+                    <div class="news_date" id="events_date"></div>
+                    <div class="news_type">EVENTS</div>
                   </div>
                 </div>
                 <div class="news_content">
-                  <div class="news_title">Help us raise money for the kids</div>
-                  <div class="news_text">
-                    <p>
-                      Praesent malesuada congue magna at finibus. In hac
-                      habitasse platea dic tumst malesuada congue magna at
-                      finibus. In hac habitasse platea.
-                    </p>
+                  <div class="news_title" id="events_title">Help us raise money for the kids</div>
+                  <div class="news_text" >
+                    <p id="events_text"></p>
                   </div>
                   <div class="news_link"><a href="blog.ejs">Read More</a></div>
                 </div>
@@ -528,51 +516,20 @@
             <div class="col-lg-4 news_col">
               <div class="news_item">
                 <div class="news_image">
-                  <img src="images/news_3.jpg" alt />
+                  <img id="announcements_image" alt />
                   <div
-                    class="news_date d-flex flex-column align-items-center justify-content-center"
+                    class="news_date_bg d-flex flex-column align-items-center justify-content-center"
                   >
-                    <div class="news_day">03</div>
-                    <div class="news_month">March, 2018</div>
+                    <div class="news_date" id="announcements_date"></div>
+                    <div class="news_type">ANNOUCEMENTS</div>
                   </div>
                 </div>
                 <div class="news_content">
-                  <div class="news_title">The best way to pray</div>
-                  <div class="news_text">
-                    <p>
-                      Praesent malesuada congue magna at finibus. In hac
-                      habitasse platea dic tumst malesuada congue magna at
-                      finibus. In hac habitasse platea.
-                    </p>
+                  <div class="news_title" id="announcements_title">The best way to pray</div>
+                  <div class="news_text" >
+                    <p id="announcements_text"></p>
                   </div>
                   <div class="news_link"><a href="blog.ejs">Read More</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="newsletter">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div
-                class="newsletter_content d-flex flex-lg-row flex-column align-items-center justify-content-start"
-              >
-                <div class="newsletter_title">Subscribe to our newsletter</div>
-                <div class="newsletter_form_container ml-lg-auto">
-                  <form action="#" id="newsletter_form" class="newsletter_form">
-                    <input
-                      type="email"
-                      class="newsletter_input"
-                      placeholder="Your email"
-                      required="required"
-                    />
-                    <button id="newsletter_button" class="newsletter_button">
-                      Subscribe
-                    </button>
-                  </form>
                 </div>
               </div>
             </div>
@@ -746,15 +703,68 @@
           "priest-image",
           "priest-details"
         );
-        // fetchData(
-        //   "/app/association/read",
-        //   "associations-title",
-        //   "associations-image",
-        //   "associations-details"
-        // );
       }
-
       document.addEventListener("DOMContentLoaded", initSlider);
     </script>
+      <script>
+        async function fetchNews(url) {
+          try {
+            const response = await fetch(url, {
+              method: "GET",
+            });
+    
+            if (!response.ok) {
+              throw new Error("Network response was not ok " + response.statusText);
+            }
+    
+            const data = await response.json();
+            return data;
+          } catch (error) {
+            console.error("Error fetching data:", error);
+            return [];
+          }
+        }
+    
+        function getMostRecentItem(data, type) {
+          const filteredData = data.filter(item => item.type === type);
+          if (filteredData.length === 0) return null;
+
+          return filteredData[filteredData.length - 1];
+        }
+    
+        function displayItem(image, title, text, dates, item) {
+    
+          if (item) {
+            console.log(item);
+            // const itemElement = document.createElement("div");
+            const imageUrl = item.image.replace(/^.*\/public\//, "../");
+            document.getElementById(image).src=imageUrl;
+            document.getElementById(title).textContent=`${item.title}`;
+
+            const truncatedContent = item.content.length > 50 
+            ? item.content.substring(0, 100) + '...' 
+            : item.content;
+            document.getElementById(text).textContent = truncatedContent;
+            document.getElementById(dates).textContent = item.dates;
+            // container.appendChild(itemElement);
+          } else {
+            document.getElementById(title).textContent="No items available.";
+            document.getElementById(title).textContent="No items available.";
+            document.getElementById(text).textContent="No items available.";
+          }
+        }
+    
+        document.addEventListener("DOMContentLoaded", async () => {
+          const data = await fetchNews("/app/news/read");
+    
+          const recentNews = getMostRecentItem(data, "news");
+          const recentEvents = getMostRecentItem(data, "events");
+          const recentAnnouncements = getMostRecentItem(data, "announcements");
+    
+          displayItem("news_image","news_title","news_text","news_date", recentNews);
+          displayItem("events_image","events_title","events_text","events_date", recentEvents);
+          displayItem("announcements_image","announcements_title","announcements_text","announcements_date", recentAnnouncements);
+        });
+      </script>
   </body>
 </html>
