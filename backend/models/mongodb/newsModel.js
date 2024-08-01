@@ -16,8 +16,8 @@ const newsSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  date: {
-    type: Date,
+  dates: {
+    type: String,
     required: [true, "Date is required"],
   },
 });
