@@ -732,6 +732,7 @@ section {
   max-height: 100%;
 }
 .services_title {
+  cursor: pointer;
   display: inline-block;
   font-size: 18px;
   color: #ffffff;

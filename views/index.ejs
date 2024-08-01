@@ -34,6 +34,7 @@
     />
     <link rel="stylesheet" type="text/css" href="styles/main_styles.css" />
     <link rel="stylesheet" type="text/css" href="styles/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="styles/popup_styles.css" />
   </head>
   <body>
     <div class="super_container">
@@ -288,7 +289,29 @@
                 <div class="services_image">
                   <img src="images/services_2.png" alt />
                 </div>
-                <div class="services_title">Daily Mass</div>
+                <div class="services_title" id="daily_mass">Daily Mass</div>
+                <!-- <button onclick="showPopup()">Show Schedule</button> -->
+                  <div id="popupOverlay" class="popup-overlay"></div>
+                  <div id="schedulePopup" class="popup">
+                    <span class="close-btn-1" onclick="closePopup()"> × </span>
+                    <table id="scheduleTable">
+                      <thead>
+                        <tr>
+                          <th rowspan="2">Days</th>
+                          <th colspan="3">Info</th>
+                        </tr>
+                        <tr>
+                          <th>Occasion</th>
+                          <th>Date</th>
+                          <th>Time</th>
+                        </tr>
+                      </thead>
+                      <tbody id="scheduleBody">
+                        <!-- Table rows will be dynamically inserted here -->
+                      </tbody>
+                    </table>
+                  </div>
+                  
               </div>
             </div>
 
@@ -614,6 +637,7 @@
         </div>
       </footer>
     </div>
+    <script src="js/popup.js"></script>
     <script src="js/footerContact.js"></script>
     <script src="js/loadNumbers.js"></script>
     <script src="js/poster_slider.js"></script>
@@ -708,7 +732,6 @@
         }
     
         function displayItem(image, title, text, dates, item) {
-    
           if (item) {
             const imageUrl = item.image.replace(/^.*\/public\//, "../");
             document.getElementById(image).src=imageUrl;
