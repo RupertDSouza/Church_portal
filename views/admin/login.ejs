@@ -39,6 +39,8 @@
         const data = await response.json();
         console.log('Login response:', data);
         localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.userId);
+        console.log(data.userId);
         window.location.href = '/admin/admin.ejs';
       } catch (error) {
         console.error('Error:', error);
