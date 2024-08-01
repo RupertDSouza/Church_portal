@@ -98,13 +98,12 @@
       
       <div class="header_right d-flex justify-content-between align-items-center">
       
-      <div class="profile_info">
-      <img src="../images/boy_3984606.png" alt="#">
-      <div class="profile_info_iner">
-      <p>Welcome Admin!</p>
-      <h5>Travor James</h5>
-      
-      </div>
+        <div class="profile_info">
+          <img id="profileImage" src="" alt="Profile Image">
+          <div class="profile_info_iner">
+              <p id="role">Welcome!</p>
+              <h5 id="name">User</h5>
+          </div>
       </div>
       </div>
       </div>
@@ -158,10 +157,41 @@
     </body>
 
     <script>
+         document.addEventListener('DOMContentLoaded', () => {
+    const userId = localStorage.getItem('userId'); // Assuming you store the user ID in local storage
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+        window.location.href = '/admin/login.ejs';
+    } else if (userId) {
+        fetch(`/app/user/read/${userId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('profileImage').src = getImagePath(data.avatar); // Assuming data.image contains the image URL
+            document.getElementById('name').textContent = data.userName;
+            
+            document.getElementById('role').textContent = `Welcome ${data.role}!`;
+        })
+        .catch(error => console.error('Error fetching user details:', error));
+    }
+});
       document.getElementById('wardsDiv').addEventListener('click', function() {
           window.location.href = '/admin/wards.ejs';
           
       });
+
+      function getImagePath(image) {
+    if (image) {
+       
+        return image.replace("../../Church_portal/public/", "/");
+    }
+    return ""; // Return an empty string if the image is null or undefined
+}
+
    </script>
 
 
