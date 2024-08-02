@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const readingSchema = new mongoose.Schema({
+  date: {
+    type: Date,
+  },
   firstReading: {
     type: String,
   },

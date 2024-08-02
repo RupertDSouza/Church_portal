@@ -1,18 +1,62 @@
-async function fetchScheduleData() {
+async function fetchAnyData(endpoint) {
   try {
-    const response = await fetch("/app/mass/read");
+    const response = await fetch(`/app/${endpoint}/read`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     return await response.json();
   } catch (error) {
-    console.error("Error fetching schedule data:", error);
+    console.error(`Error fetching ${endpoint} data:`, error);
     return null;
   }
 }
 
-async function populateTable() {
-  const scheduleData = await fetchScheduleData();
+async function populateReadings() {
+  const readingsData = await fetchAnyData("reading");
+  if (!readingsData) {
+    alert("Failed to fetch readings data. Please try again later.");
+    return;
+  }
+
+  const content = document.getElementById("readingsContent");
+  content.innerHTML = "";
+
+  for (let index = 0; index <= readingsData.length - 1; index++) {
+    const dayDiv = document.createElement("div");
+    dayDiv.className = "day-readings";
+
+    const date = new Date(readingsData[index].date).toLocaleDateString();
+    const itemDate = `<h3>${date}</h3>`;
+    dayDiv.insertAdjacentHTML("beforeend", itemDate);
+
+    const readings = [
+      { title: "First Reading", text: readingsData[index].firstReading },
+      { title: "Second Reading", text: readingsData[index].secondReading },
+      {
+        title: "Responsorial Psalm",
+        text: readingsData[index].responsorialPsalm,
+      },
+      { title: "Gospel", text: readingsData[index].gospel },
+    ];
+
+    readings.forEach((reading) => {
+      if (reading.text) {
+        const section = document.createElement("div");
+        section.className = "reading";
+        section.innerHTML = `
+          <h4>${reading.title}</h4>
+          <h3>${reading.text}</h3>
+        `;
+        dayDiv.appendChild(section);
+      }
+    });
+
+    content.appendChild(dayDiv);
+  }
+}
+
+async function populateSchedule() {
+  const scheduleData = await fetchAnyData("mass");
   if (!scheduleData) {
     alert("Failed to fetch schedule data. Please try again later.");
     return;
@@ -22,11 +66,9 @@ async function populateTable() {
   tableBody.innerHTML = ""; // Clear existing content
 
   scheduleData.forEach((daySchedule) => {
-    console.log(daySchedule);
     daySchedule.info.forEach((event, index) => {
       const row = document.createElement("tr");
 
-      // Day column (only for the first event of each day)
       if (index === 0) {
         const dayCell = document.createElement("td");
         dayCell.textContent = daySchedule.day;
@@ -34,17 +76,14 @@ async function populateTable() {
         row.appendChild(dayCell);
       }
 
-      // Occasion column
       const occasionCell = document.createElement("td");
       occasionCell.textContent = event.occasion;
       row.appendChild(occasionCell);
 
-      // Date column
       const dateCell = document.createElement("td");
       dateCell.textContent = new Date(event.date).toLocaleDateString();
       row.appendChild(dateCell);
 
-      // Time column
       const timeCell = document.createElement("td");
       timeCell.textContent = event.time;
       row.appendChild(timeCell);
@@ -54,22 +93,32 @@ async function populateTable() {
   });
 }
 
-function showPopup() {
-  populateTable();
-  document.getElementById("popupOverlay").style.display = "block";
+function showPopup1() {
+  populateSchedule();
   document.getElementById("schedulePopup").style.display = "block";
+  document.getElementById("popupOverlay").style.display = "block";
+}
+
+function showPopup2() {
+  populateReadings();
+  document.getElementById("readingsPopup").style.display = "block";
+  document.getElementById("popupOverlay").style.display = "block";
 }
 
 function closePopup() {
   document.getElementById("popupOverlay").style.display = "none";
+  document.getElementById("readingsPopup").style.display = "none";
   document.getElementById("schedulePopup").style.display = "none";
 }
 
 // Initial setup
 document.addEventListener("DOMContentLoaded", () => {
-  const showButton = document.getElementById("daily_mass");
-  showButton.addEventListener("click", showPopup);
+  const showButton1 = document.getElementById("daily_mass");
+  showButton1.addEventListener("click", showPopup1);
 
-  const closeButton = document.querySelector(".close-btn-1");
+  const showButton2 = document.getElementById("daily_reading");
+  showButton2.addEventListener("click", showPopup2);
+
+  const closeButton = document.querySelector(".close-btn");
   closeButton.addEventListener("click", closePopup);
 });
