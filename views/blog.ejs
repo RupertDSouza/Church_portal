@@ -335,7 +335,7 @@
                         type="submit"
                         class="sidebar_search_button d-flex flex-column align-items-center justify-content-center"
                       >
-                        <img src="images/index.ejs" alt />
+                        <img src="" alt />
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -362,74 +362,12 @@
 
                 <div class="sidebar_section">
                   <div class="sidebar_title">Latest News</div>
-                  <div class="latest_news_container">
-                    <div
-                      class="latest_news d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div class="latest_news_image_container">
-                        <div class="latest_news_image">
-                          <img src="images/latest_1.jpg" alt />
-                        </div>
-                      </div>
-                      <div class="latest_news_content">
-                        <div class="latest_news_date">06 March, 2018</div>
-                        <div class="latest_news_title">
-                          <a href="#">How to pray the right way</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="latest_news d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div class="latest_news_image_container">
-                        <div class="latest_news_image">
-                          <img src="images/latest_2.jpg" alt />
-                        </div>
-                      </div>
-                      <div class="latest_news_content">
-                        <div class="latest_news_date">06 March, 2018</div>
-                        <div class="latest_news_title">
-                          <a href="#">Latest news in the ‘18 community</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="latest_news d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div class="latest_news_image_container">
-                        <div class="latest_news_image">
-                          <img src="images/latest_3.jpg" alt />
-                        </div>
-                      </div>
-                      <div class="latest_news_content">
-                        <div class="latest_news_date">06 March, 2018</div>
-                        <div class="latest_news_title">
-                          <a href="#">Church charities for 2018</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="latest_news d-flex flex-row align-items-start justify-content-start"
-                    >
-                      <div class="latest_news_image_container">
-                        <div class="latest_news_image">
-                          <img src="images/latest_4.jpg" alt />
-                        </div>
-                      </div>
-                      <div class="latest_news_content">
-                        <div class="latest_news_date">06 March, 2018</div>
-                        <div class="latest_news_title">
-                          <a href="#">News in the youth community</a>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="latest_news_container" id="news_container">
+                    <!-- display here -->
                   </div>
                 </div>
 
-                <div class="sidebar_section">
+                <div class="sidebar_section_events">
                   <div class="sidebar_title">Categories</div>
                   <div class="sidebar_list">
                     <ul>
@@ -556,6 +494,30 @@
                 </div>
                 <div class="logo_subtitle">Church template</div>
               </div>
+            </div>
+
+            <div class="col-lg-5 footer_col">
+              <div class="footer_contact">
+                <div class="footer_title">Contact Us</div>
+                <ul class="footer_ul">
+                  <li class="footer_li">
+                    <span>Address: </span>
+                    <div id="church-address"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Phone: </span>
+                    <div id="contact"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Email: </span>
+                    <a id="email" href="" class="__cf_email__"
+                      >[email&#160;protected]</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
               <div class="footer_social">
                 <ul>
                   <li>
@@ -581,52 +543,6 @@
                 </ul>
               </div>
             </div>
-
-            <div class="col-lg-4 footer_col">
-              <div class="footer_links">
-                <div class="footer_title">Useful Links</div>
-                <ul>
-                  <li><a href="index-2.ejs">Home</a></li>
-                  <li><a href="#">Donations</a></li>
-                  <li><a href="sermons.ejs">Sermons</a></li>
-                  <li><a href="#">Causes</a></li>
-                  <li><a href="#">Quotes</a></li>
-                  <li><a href="#">News</a></li>
-                  <li><a href="#">Event List</a></li>
-                  <li><a href="ministries.ejs">Ministries</a></li>
-                  <li><a href="#">Priests</a></li>
-                  <li><a href="contact.ejs">Contact</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-lg-3 footer_col">
-              <div class="footer_contact">
-                <div class="footer_title">Contact Us</div>
-                <ul>
-                  <li>
-                    <span>Address: </span>1481 Creekside Lane Avila Beach, CA
-                    93424
-                  </li>
-                  <li class="footer_contact_phone">
-                    <span>Phone: </span>
-                    <div>
-                      <div>+53 345 7953 32453</div>
-                      <div>+53 345 7557 822112</div>
-                    </div>
-                  </li>
-                  <li>
-                    <span>Email: </span
-                    ><a
-                      href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
-                      class="__cf_email__"
-                      data-cfemail="ccb5a3b9bea1ada5a08caba1ada5a0e2afa3a1"
-                      >[email&#160;protected]</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -634,17 +550,16 @@
           Copyright &copy;
           <script
             data-cfasync="false"
-            src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+            src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
           ></script>
           <script>
             document.write(new Date().getFullYear());
           </script>
-          All rights reserved | This template is made with
-          <i class="fa fa-heart-o" aria-hidden="true"></i> by
-          <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+          All rights reserved
         </div>
       </footer>
     </div>
+    <script src="js/blog.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="styles/bootstrap4/popper.js"></script>
     <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -652,10 +567,6 @@
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
     <script src="js/blog_custom.js"></script>
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -665,14 +576,5 @@
 
       gtag("config", "UA-23581568-13");
     </script>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-      integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-      data-cf-beacon='{"rayId":"8a7be0420dbac464","version":"2024.7.0","serverTiming":{"name":{"cfL4":true}},"token":"cd0b4b3a733644fc843ef0b185f98241","b":1}'
-      crossorigin="anonymous"
-    ></script>
   </body>
-
-  <!-- Mirrored from preview.colorlib.com/theme/church/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jul 2024 13:05:10 GMT -->
 </html>
