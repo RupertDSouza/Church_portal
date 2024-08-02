@@ -640,16 +640,27 @@ section {
   background: #ffffff;
 }
 .ministries_row {
-  margin-top: 98px;
+  margin-top: 30px;
 }
 .ministry {
   margin-bottom: 98px;
+  width: 100%;
+  display: flex;
+  /* max-height: 100vh; */
 }
+
+@media only screen and (max-width: 800px) {
+  .ministry {
+    display: block;
+  }
+}
+
 .ministry_image {
   width: 100%;
 }
 .ministry_image img {
   max-width: 100%;
+  margin-top: 51px;
 }
 .ministry_title {
   font-size: 24px;
@@ -657,8 +668,12 @@ section {
   color: #000000;
   margin-top: 51px;
 }
+.ministry_color {
+  color: #eb4141;
+}
 .ministry_text {
   margin-top: 31px;
+  text-align: justify;
 }
 .ministry_button {
   margin-top: 34px;

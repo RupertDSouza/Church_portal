@@ -789,6 +789,9 @@ section {
 }
 .priest_row {
   margin-top: 84px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .priest_image {
   width: 100%;
