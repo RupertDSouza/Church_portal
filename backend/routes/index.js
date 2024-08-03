@@ -2,7 +2,6 @@ const authrouter = require("./authRouter");
 const wardrouter = require("./wardRouter");
 const priestrouter = require("./priestRouter");
 const associationrouter = require("./associationRouter");
-const contactrouter = require("./contactRouter");
 const newsrouter = require("./newsRouter");
 const institutionrouter = require("./institutionRouter");
 const obituaryrouter = require("./obituaryRouter");
@@ -25,7 +24,6 @@ router.use(
   priestrouter,
   associationrouter,
   newsrouter,
-  contactrouter,
   institutionrouter,
   obituaryrouter,
   parishcouncilrouter,

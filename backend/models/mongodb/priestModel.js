@@ -17,7 +17,7 @@ const priestSchema = new mongoose.Schema({
     type: Date,
   },
   dateOfOrdination: {
-    type: String,
+    type: Date,
   },
   description: {
     type: String,
