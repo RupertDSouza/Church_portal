@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Wards</title>
+        <title>Obituary</title>
 
 
            <link rel="stylesheet" href="/styles/style1.css" />
@@ -100,7 +100,7 @@
       <div class="header_right d-flex justify-content-between align-items-center">
       <div class="header_notification_warp d-flex align-items-center">
       <li>
-      <a href="#" onclick="redirectToCreateWard()">
+      <a href="#" onclick="redirectToCreateObituary()">
          <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
       </li>
       
@@ -141,11 +141,11 @@
   </body>
   <script>
 
-    function redirectToCreateWard() {
-            window.location.href = '/admin/createWard';
+    function redirectToCreateObituary() {
+            window.location.href = '/admin/createObituary.ejs';
         }
      document.addEventListener('DOMContentLoaded', () => {
-    const userId = localStorage.getItem('userId'); // Assuming you store the user ID in local storage
+    const userId = localStorage.getItem('userId'); 
     const token = localStorage.getItem('token');
     
     if (!token) {
@@ -169,7 +169,7 @@
     
   async function displayResults() {
       try {
-          const response = await fetch("/app/ward/read", {
+          const response = await fetch("/app/obituary/read", {
               method: "GET",
           });
   
@@ -178,7 +178,6 @@
           }
   
           const result = await response.json();
-          console.log(result);
           const cardsContainer = document.getElementById("cards-container");
   
           result.forEach(record => {
@@ -215,8 +214,8 @@
             button.addEventListener('click', function(event) {
                 event.preventDefault();
                 const cardId = this.getAttribute('data-id');
-                localStorage.setItem('wardId', cardId);
-                window.location.href = '/admin/editWard.ejs';
+                localStorage.setItem('obituaryId', cardId);
+                window.location.href = '/admin/editObituary.ejs';
             });
         });
 
@@ -228,7 +227,7 @@
   }
   function getImagePath(image) {
     if (image) {
-        // Adjust the path according to your server's configuration
+        
         return image.replace("../../Church_portal/public/", "/");
     }
     return ""; // Return an empty string if the image is null or undefined
@@ -255,11 +254,6 @@ function showConfirmationModal(cardId) {
             modal.style.display = "none";
         };
 
-        // window.onclick = function(event) {
-        //     if (event.target == modal) {
-        //         modal.style.display = "none";
-        //     }
-        // };
     }
 
 async function deleteCard(cardId) {
@@ -270,7 +264,7 @@ async function deleteCard(cardId) {
       }
 
       try {
-        const response = await fetch(`/app/ward/delete/${cardId}`, {
+        const response = await fetch(`/app/obituary/delete/${cardId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

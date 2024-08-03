@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const contact = require("./contactModel");
 
 const parishcouncilSchema = new mongoose.Schema({
   name: {
@@ -8,10 +7,13 @@ const parishcouncilSchema = new mongoose.Schema({
   },
   image: {
     type: String,
+    require: [true, "Image is Required"],
   },
-  contacts: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: contact,
+  contact: {
+    type: Number,
+  },
+  email: {
+    type: String,
   },
 });
 

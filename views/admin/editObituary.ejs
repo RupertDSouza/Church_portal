@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Edit Ward</title>
+        <title>Edit Obituary</title>
 
         <link rel="stylesheet" href="/styles/style1.css" />
         <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
@@ -113,30 +113,30 @@
             <div class="white_box mb_30">
             <div class="box_header ">
             <div class="main-title">
-            <h3 class="mb-0">Edit Ward Details</h3>
+            <h3 class="mb-0">Edit Obituary Details</h3>
             </div>
             </div>
             <form>
-            <div class="mb-3">
-            <label class="form-label" for="wardName">Ward Name</label>
-            <input type="text" class="form-control" id="wardName" name="wardName" >
-            </div>
-            <div class="mb-3">
-            <label class="form-label" for="description">description</label>
-            <textarea class="form-control" id="description" name="description" ></textarea>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="place">Place</label>
-                <input type="text" class="form-control" id="place" name="place" >
-                </div>
                 <div class="mb-3">
-                    <label class="form-label" for="noOfFamilies">No Of Families</label>
-                    <input type="text" class="form-control" id="noOfFamilies" name="noOfFamilies" >
+                    <label class="form-label" for="obituaryName">Name</label>
+                    <input type="text" class="form-control" id="obituaryName" name="obituaryName" >
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="noOfMembers">No Of Members</label>
-                        <input type="text" class="form-control" id="noOfMembers" name="noOfFamilies" >
+                    <label class="form-label" for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" >
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="dob">Date of Birth </label>
+                        <input type="date" class="form-control" id="dob" name="dob" >
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="dod">Date of Death</label>
+                            <input type="date" class="form-control" id="dod" name="dod" >
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="age">Age</label>
+                                <input type="number" class="form-control" id="age" name="age" >
+                                </div>
                          <button type="button" class="btn btn-primary btn-lg" id="updateButton">Update</button>
             
             </form>          
@@ -153,7 +153,7 @@
               <div class="white_box mb_30">
               <div class="box_header ">
               <div class="main-title">
-              <h3 class="mb-0">Edit Ward image</h3>
+              <h3 class="mb-0">Edit Obituary Image</h3>
               </div>
               </div>
               <form>
@@ -175,9 +175,9 @@
       
 
       document.addEventListener('DOMContentLoaded', () => {
-    const userId = localStorage.getItem('userId'); // Assuming you store the user ID in local storage
+    const userId = localStorage.getItem('userId'); 
     const token = localStorage.getItem('token');
-    const wardId = localStorage.getItem('wardId');
+    const obituaryId = localStorage.getItem('obituaryId');
     
     if (!token) {
         window.location.href = '/admin/login.ejs';
@@ -186,7 +186,7 @@
     
 
 
-           else if (wardId && userId) {
+           else if (obituaryId && userId) {
             fetch(`/app/user/read/${userId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -201,45 +201,44 @@
         })
         .catch(error => console.error('Error fetching user details:', error));
 
-                fetch(`/app/ward/read/${wardId}`)
+                fetch(`/app/obituary/read/${obituaryId}`)
                     .then(response => response.json())
                     .then(data => {
-                        document.getElementById('wardName').value = data.name;
-                        document.getElementById('description').value = data.description;
-                        document.getElementById('place').value = data.place;
-                        document.getElementById('noOfFamilies').value = data.noOfFamilies;
-                        document.getElementById('noOfMembers').value = data.noOfMembers;
+                     document.getElementById('obituaryName').value = data.name;
+                     document.getElementById('description').value = data.description;
+                     document.getElementById('dob').value = formatDate(data.born);
+                     document.getElementById('dod').value = formatDate(data.died);
+                     document.getElementById('age').value = data.age;   
                     })
-                    .catch(error => console.error('Error fetching ward details:', error));
+                    .catch(error => console.error('Error fetching obituary details:', error));
             }
             document.getElementById('updateButton').addEventListener('click', () => {
-              console.log('update button clicked');
-                const updatedWard = {
-                    name: document.getElementById('name').value,
+                const updatedObituary = {
+                    name: document.getElementById('obituaryName').value,
                     description: document.getElementById('description').value,
-                    place: document.getElementById('place').value,
-                    noOfFamilies: document.getElementById('noOfFamilies').value,
-                    noOfMembers: document.getElementById('noOfMembers').value
+                    born: document.getElementById('dob').value,
+                    died: document.getElementById('dod').value,
+                    age: document.getElementById('age').value
                 };
 
-                fetch(`/app/ward/update/${wardId}`, {
+                fetch(`/app/obituary/update/${obituaryId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}` // Include the token in the request headers
                 },
-                body: JSON.stringify(updatedWard)
+                body: JSON.stringify(updatedObituary)
             })
             .then(response => response.json())
             .then(data => {
             console.log('Server response:', data); // Log the server response
             if (data.message === 'Success') {
-                alert('Ward updated successfully!');
+                alert('Obituary updated successfully!');
             } else {
-                alert('Failed to update ward.');
+                alert('Failed to update obituary.');
             }
         })
-            .catch(error => console.error('Error updating ward:', error));
+            .catch(error => console.error('Error updating obituary:', error));
         });
 
         document.getElementById('updateImage').addEventListener('click', () => {
@@ -252,7 +251,7 @@
             const formData = new FormData();
             formData.append('image', imageInput.files[0]);
 
-            fetch(`/app/ward/updateImage/${wardId}`, {
+            fetch(`/app/obituary/updateImage/${obituaryId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -262,12 +261,12 @@
             .then(response => response.json())
             .then(data => {
                 if (data.message === 'Success') {
-                    alert('Ward image updated successfully!');
+                    alert('Obituary image updated successfully!');
                 } else {
-                    alert('Failed to update ward image.');
+                    alert('Failed to update obituary image.');
                 }
             })
-            .catch(error => console.error('Error updating ward image:', error));
+            .catch(error => console.error('Error updating obituary image:', error));
         });
     });
 
@@ -279,6 +278,13 @@
     }
     return ""; // Return an empty string if the image is null or undefined
 }
+function formatDate(dateString) {
+            const date = new Date(dateString);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
 
     </script>
 
