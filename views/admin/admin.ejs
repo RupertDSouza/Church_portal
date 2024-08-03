@@ -125,20 +125,20 @@
             <h3>Wards </h3>
             </div>
 
-            <div class="single_quick_activity">
+            <div class="single_quick_activity" id="priestsDiv">
             <h3>Priests </h3>
             </div>
 
-            <div class="single_quick_activity">
-            <h3>Sermons </h3>
+            <div class="single_quick_activity" id="associationsDiv">
+            <h3>Associations </h3>
             </div>
 
-            <div class="single_quick_activity">
+            <div class="single_quick_activity" id="obituaryDiv">
             <h3>Obituary </h3>
             </div>
             
-            <div class="single_quick_activity">
-              <h3>Sermons </h3>
+            <div class="single_quick_activity" id="parishCouncilDiv">
+              <h3>Parish Council </h3>
               </div>
 
               <div class="single_quick_activity">
@@ -179,10 +179,7 @@
         .catch(error => console.error('Error fetching user details:', error));
     }
 });
-      document.getElementById('wardsDiv').addEventListener('click', function() {
-          window.location.href = '/admin/wards.ejs';
-          
-      });
+      
 
       function getImagePath(image) {
     if (image) {
@@ -191,6 +188,29 @@
     }
     return ""; // Return an empty string if the image is null or undefined
 }
+
+  document.getElementById('wardsDiv').addEventListener('click', function() {
+          window.location.href = '/admin/wards.ejs';
+          
+      });
+
+      document.getElementById('priestsDiv').addEventListener('click', function() {
+          window.location.href = '/admin/priests.ejs';
+          
+      });
+
+      document.getElementById('obituaryDiv').addEventListener('click', function() {
+          window.location.href = '/admin/obituary.ejs';
+          
+      });
+      document.getElementById('associationsDiv').addEventListener('click', function() {
+          window.location.href = '/admin/associations.ejs';
+          
+      });
+      document.getElementById('parishCouncilDiv').addEventListener('click', function() {
+          window.location.href = '/admin/parishCouncil.ejs';
+          
+      });
 
    </script>
 

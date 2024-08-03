@@ -7,13 +7,13 @@ const obituarySchema = new mongoose.Schema({
     require: true,
   },
   born: {
-    type: String,
+    type: Date,
   },
   died: {
-    type: String,
+    type: Date,
   },
   age: {
-    type: String,
+    type: Number,
   },
   image: {
     type: String,
