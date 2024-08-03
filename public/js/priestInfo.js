@@ -23,6 +23,9 @@ async function loadPriestInfo(containerId) {
       const imageUrl = item.image.replace(/^.*\/public\//, "../");
       const fromDate = new Date(item.fromDate).toLocaleDateString();
       let toDate = new Date(item.toDate).toLocaleDateString();
+      const dateOfOrdination = new Date(
+        item.dateOfOrdination
+      ).toLocaleDateString();
       if (toDate == "Invalid Date") {
         toDate = "...".toString();
       }
@@ -38,7 +41,7 @@ async function loadPriestInfo(containerId) {
                     <h2>${item.name}<h2>
                 </div>
                 <div class="ministry_color">
-                    <h4>Date of Ordination : ${item.dateOfOrdination}</h4>
+                    <h4>Date of Ordination : ${dateOfOrdination}</h4>
                     <br>
                     <h4>${fromDate} - ${toDate}</h4>
                 </div>

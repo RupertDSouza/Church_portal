@@ -17,6 +17,8 @@ async function fetchDataArray(url, containerId) {
     for (let index = data.length - 1; index >= 0; index--) {
       const item = data[index];
       const imageUrl = item.image.replace(/^.*\/public\//, "../");
+      const born = new Date(item.born).toLocaleDateString();
+      const died = new Date(item.died).toLocaleDateString();
       const itemHtml = `
         <div class="imageAndInfo">
             <div class="text-center causes_item">
@@ -25,8 +27,8 @@ async function fetchDataArray(url, containerId) {
                 </div>
                 <div class="causes_item_title">${item.name}</div>
                 <div class="causes_item_text">
-                    <h4>${item.born} - ${item.died}</h4>
-                    <h4>${item.age}</h4>
+                    <h4>${born} - ${died}</h4>
+                    <h4>${item.age} yrs</h4>
                     <p>${item.description}</p>
                 </div>
             </div>
