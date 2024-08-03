@@ -732,6 +732,7 @@ section {
   max-height: 100%;
 }
 .services_title {
+  cursor: pointer;
   display: inline-block;
   font-size: 18px;
   color: #ffffff;
@@ -788,6 +789,9 @@ section {
 }
 .priest_row {
   margin-top: 84px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .priest_image {
   width: 100%;

@@ -5,7 +5,7 @@ const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
-  "/mass",
+  "/reading",
   (req, res, next) => {
     req.access = ["admin", "priest"];
     req.model = readingsModel;
