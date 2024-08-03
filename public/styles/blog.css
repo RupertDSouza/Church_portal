@@ -640,11 +640,10 @@ section {
 
 .blog {
   padding-top: 97px;
-  padding-bottom: 98px;
   background: #ffffff;
 }
 .blog_post {
-  margin-bottom: 98px;
+  margin-bottom: 10px;
 }
 .blog_image_container {
   width: 100%;
@@ -653,13 +652,15 @@ section {
   width: 100%;
 }
 .blog_image img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 800px;
+  max-height: 300px;
 }
 .news_date {
   position: absolute;
   top: 0;
   left: 0;
-  width: 94px;
+  width: 150px;
   height: 94px;
   background: #eb4141;
 }
@@ -701,7 +702,7 @@ section {
   margin-left: 8px;
 }
 .blog_text {
-  margin-top: 34px;
+  margin-bottom: 34px;
 }
 .blog_link {
   margin-top: 17px;
@@ -744,7 +745,7 @@ section {
 }
 .sidebar_section {
   width: 100%;
-  margin-bottom: 90px;
+  margin-top: 50px;
 }
 .sidebar_section:last-child {
   margin-bottom: 0;
@@ -899,77 +900,7 @@ section {
 }
 
 /*********************************
-7. Newsletter
-*********************************/
-
-.newsletter {
-  width: 100%;
-  background: #eb4141;
-}
-.newsletter_content {
-  height: 154px;
-}
-.newsletter_title {
-  font-size: 36px;
-  color: #ffffff;
-  font-weight: 500;
-}
-.newsletter_form {
-  position: relative;
-}
-.newsletter_input {
-  width: 463px;
-  height: 49px;
-  border: none;
-  outline: none;
-  padding-left: 20px;
-  border-bottom: solid 2px #ffd600;
-}
-.newsletter_button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 157px;
-  height: 47px;
-  background: #000000;
-  color: #ffffff;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-.newsletter_input::-webkit-input-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-.newsletter_input:-moz-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-.newsletter_input::-moz-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-.newsletter_input:-ms-input-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-.newsletter_input::input-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-
-/*********************************
-8. Footer
+7. Footer
 *********************************/
 
 .footer {
@@ -1097,4 +1028,10 @@ section {
   font-weight: 600;
   line-height: 84px;
   margin-top: 75px;
+}
+.footer_ul {
+  display: flex;
+}
+.footer_li {
+  padding: 10px;
 }

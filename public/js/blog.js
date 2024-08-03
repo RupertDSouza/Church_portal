@@ -27,20 +27,9 @@ function displayItem(containerId, data) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
 
-  for (
-    let index = data.length - 1;
-    index >= Math.max(data.length - 3, 0);
-    index--
-  ) {
+  for (let index = data.length - 1; index >= 0; index--) {
     item = data[index];
-    console.log(item);
-
-    const truncatedContent =
-      item.content.length > 20
-        ? item.content.substring(0, 20) + "..."
-        : item.content;
     const imageUrl = item.image.replace(/^.*\/public\//, "../");
-    console.log(imageUrl);
 
     const itemHtml = `
          <div class="latest_news d-flex flex-row align-items-start justify-content-start">
@@ -52,13 +41,45 @@ function displayItem(containerId, data) {
             <div class="latest_news_content">
             <div class="latest_news_date">${item.dates}</div>
             <div class="latest_news_title">
-                <a href="#">${truncatedContent}</a>
+                <a href="#">${item.title}</a>
             </div>
             </div>
         </div>
     `;
     container.insertAdjacentHTML("beforeend", itemHtml);
   }
+}
+
+function displayBlogContent(item_container, item) {
+  console.log(item_container);
+  const blogContent = document.getElementById(item_container);
+  const imageUrl = item.image.replace(/^.*\/public\//, "../");
+
+  const blogHtml = `
+    <div class="blog_post">
+      <div class="blog_image">
+        <img src="${imageUrl}" alt />
+        <div class="news_date d-flex flex-column align-items-center justify-content-center">
+          <div class="news_day">${new Date(item.dates).getDate()}</div>
+          <div class="news_month">${new Date(item.dates).toLocaleString(
+            "default",
+            { month: "long" }
+          )}, ${new Date(item.dates).getFullYear()}</div>
+        </div>
+      </div>
+      <div class="blog_title">${item.title}</div>
+      <div class="blog_meta">
+        <ul>
+          <li>In <a href="#">${item.type}</a></li>
+        </ul>
+      </div>
+      <div class="blog_text">
+        <p>${item.content}</p>
+      </div>
+    </div>
+  `;
+
+  blogContent.innerHTML = blogHtml;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -71,4 +92,46 @@ document.addEventListener("DOMContentLoaded", async () => {
   displayItem("news_container", recentNews);
   displayItem("events_container", recentEvents);
   displayItem("announcements_container", recentAnnouncements);
+
+  // Display the latest news item by default
+  if (recentNews && recentNews.length > 0) {
+    displayBlogContent("news_content", recentNews[recentNews.length - 1]);
+  }
+  if (recentEvents && recentEvents.length > 0) {
+    displayBlogContent("events_content", recentEvents[recentEvents.length - 1]);
+  }
+  if (recentAnnouncements && recentAnnouncements.length > 0) {
+    displayBlogContent(
+      "announcements_content",
+      recentAnnouncements[recentAnnouncements.length - 1]
+    );
+  }
+  // Add click event listeners to sidebar items
+  document.querySelectorAll(".latest_news").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+      const title = item.querySelector(".latest_news_title a").textContent;
+
+      const matchingItemNews = [...recentNews].find((newsItem) =>
+        newsItem.title.startsWith(title)
+      );
+      if (matchingItemNews) {
+        displayBlogContent("news_content", matchingItemNews);
+      }
+
+      const matchingItemEvents = [...recentEvents].find((newsItem) =>
+        newsItem.title.startsWith(title)
+      );
+      if (matchingItemEvents) {
+        displayBlogContent("events_content", matchingItemEvents);
+      }
+
+      const matchingItemAnnouncements = [...recentAnnouncements].find(
+        (newsItem) => newsItem.title.startsWith(title)
+      );
+      if (matchingItemAnnouncements) {
+        displayBlogContent("announcements_content", matchingItemAnnouncements);
+      }
+    });
+  });
 });

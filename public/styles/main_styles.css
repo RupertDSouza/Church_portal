@@ -76,6 +76,7 @@ p {
 }
 p:last-of-type {
   margin-bottom: 0;
+  text-align: justify;
 }
 p a {
   display: inline;
@@ -371,9 +372,14 @@ section {
 /*********************************
 3.3 Logo
 *********************************/
-
+.logo_align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .logo a span {
-  font-size: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
   color: #353535;
 }
 .logo a img {
@@ -1271,9 +1277,11 @@ section {
     display: grid;
     text-align: center;
   }
-
   .slider-container {
     width: 100%;
+  }
+  .slider-nav {
+    background-color: #c3bfbf;
   }
 }
 
