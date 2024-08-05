@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Obituary</title>
+        <title>Announcements</title>
 
 
            <link rel="stylesheet" href="/styles/style1.css" />
@@ -13,72 +13,72 @@
 
 
 
-        <nav class="sidebar">
-            <div class="logo d-flex justify-content-between">
-            <a href="index.html"><img src="../images/logo.jpg" alt></a>
-            <div class="sidebar_close_icon d-lg-none">
-            <i class="ti-close"></i>
-            </div>
-            </div>
-            <ul id="sidebar_menu">
-            <li class="mm-active">
-            <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
-            <img src="../images/menu-icon/1.svg" alt>
-            <span>Dashboard</span>
-            </a>
-           
-            </li>
-            <li class>
-              <a href="/admin/news.ejs">
-            <img src="../images/menu-icon/2.svg" alt>
-            <span>News</span>
-            </a>
-            
-            </li>
-            <li class>
-              <a href="/admin/events.ejs">
-            <img src="../images/time_15311293.png" style="max-width: 70%" alt>
-            <span>Events</span>
-            </a>
-            </li>
-            <li class>
-              <a href="/admin/announcements.ejs">
-            <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
-            <span>Announcements</span>
-            </a>
-            </li>
-            <li class>
-              <a href="/admin/gallery.ejs">
-            <img src="../images/image_12998520.png" style="max-width: 90%" alt>
-            <span>Gallery</span>
-            </a>
-            </li>
-            <li class>
-              <a href="/admin/institution.ejs">
-            <img src="../images/building_15624293.png" style="max-width: 90%" alt>
-            <span>Institution</span>
-              </a>
-            </li>
-            <li class>
-              <a href="/admin/massTimings.ejs">
-            <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
-            <span>Mass Timings</span>
-            </a>
-            </li>
-            <li class>
-              <a href="/admin/readings.ejs">
-            <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
-            <span>Readings</span>
-            </a>
-            </li>
-             <li class>
-              <a href="/admin/users.ejs">
-            <img src="../images/community_16682249.png" style="max-width: 80%" alt>
-            <span>Users</span>
-            </a>
-            </li>
-            </ul>
-            </nav>
+      <nav class="sidebar">
+      <div class="logo d-flex justify-content-between">
+      <a href="index.html"><img src="../images/logo.jpg" alt></a>
+      <div class="sidebar_close_icon d-lg-none">
+      <i class="ti-close"></i>
+      </div>
+      </div>
+      <ul id="sidebar_menu">
+      <li class="mm-active">
+      <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
+      <img src="../images/menu-icon/1.svg" alt>
+      <span>Dashboard</span>
+      </a>
+     
+      </li>
+      <li class>
+        <a href="/admin/news.ejs">
+      <img src="../images/menu-icon/2.svg" alt>
+      <span>News</span>
+      </a>
+      
+      </li>
+      <li class>
+        <a href="/admin/events.ejs">
+      <img src="../images/time_15311293.png" style="max-width: 70%" alt>
+      <span>Events</span>
+      </a>
+      </li>
+      <li class>
+        <a href="#">
+      <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
+      <span>Announcements</span>
+      </a>
+      </li>
+      <li class>
+        <a href="/admin/gallery.ejs">
+      <img src="../images/image_12998520.png" style="max-width: 90%" alt>
+      <span>Gallery</span>
+      </a>
+      </li>
+      <li class>
+        <a href="/admin/institution.ejs">
+      <img src="../images/building_15624293.png" style="max-width: 90%" alt>
+      <span>Institution</span>
+        </a>
+      </li>
+      <li class>
+        <a href="/admin/massTimings.ejs">
+      <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
+      <span>Mass Timings</span>
+      </a>
+      </li>
+      <li class>
+        <a href="/admin/readings.ejs">
+      <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
+      <span>Readings</span>
+      </a>
+      </li>
+       <li class>
+        <a href="/admin/users.ejs">
+      <img src="../images/community_16682249.png" style="max-width: 80%" alt>
+      <span>Users</span>
+      </a>
+      </li>
+      </ul>
+      </nav>
       
       
       <section class="main_content dashboard_part">
@@ -100,7 +100,7 @@
       <div class="header_right d-flex justify-content-between align-items-center">
       <div class="header_notification_warp d-flex align-items-center">
       <li>
-      <a href="#" onclick="redirectToCreateObituary()">
+      <a href="#" onclick="redirectToCreateAnnouncement()">
          <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
       </li>
       
@@ -141,8 +141,8 @@
   </body>
   <script>
 
-    function redirectToCreateObituary() {
-            window.location.href = '/admin/createObituary.ejs';
+    function redirectToCreateAnnouncement() {
+            window.location.href = '/admin/createAnnouncement.ejs';
         }
      document.addEventListener('DOMContentLoaded', () => {
     const userId = localStorage.getItem('userId'); 
@@ -158,7 +158,7 @@
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('profileImage').src = getImagePath(data.avatar); // Assuming data.image contains the image URL
+            document.getElementById('profileImage').src = getImagePath(data.avatar); 
             document.getElementById('name').textContent = data.userName;
             
             document.getElementById('role').textContent = `Welcome ${data.role}!`;
@@ -169,7 +169,7 @@
     
   async function displayResults() {
       try {
-          const response = await fetch("/app/obituary/read", {
+          const response = await fetch("/app/news/read", {
               method: "GET",
           });
   
@@ -178,16 +178,17 @@
           }
   
           const result = await response.json();
+          const recentNews = getItem(result, "announcements");
           const cardsContainer = document.getElementById("cards-container");
   
-          result.forEach(record => {
+          recentNews.forEach(record => {
               const cardDiv = document.createElement("div");
               cardDiv.className = "col-lg-6";
               cardDiv.innerHTML = `
                   <div class="white_box mb_30">
                       <div class="box_header">
                           <div class="main-title">
-                              <h3 class="mb-0">${record.name}</h3>
+                              <h3 class="mb-0">${record.title}</h3>
                           </div>
                       </div>
                       <div class="card" style="width: 18rem;">
@@ -214,8 +215,8 @@
             button.addEventListener('click', function(event) {
                 event.preventDefault();
                 const cardId = this.getAttribute('data-id');
-                localStorage.setItem('obituaryId', cardId);
-                window.location.href = '/admin/editObituary.ejs';
+                localStorage.setItem('announcementId', cardId);
+                window.location.href = '/admin/editAnnouncement.ejs';
             });
         });
 
@@ -227,12 +228,17 @@
   }
   function getImagePath(image) {
     if (image) {
-        
+        // Adjust the path according to your server's configuration
         return image.replace("../../Church_portal/public/", "/");
     }
     return ""; // Return an empty string if the image is null or undefined
 }
+function getItem(data, type) {
+  const filteredData = data.filter((item) => item.type === type);
+  if (filteredData.length === 0) return null;
 
+  return filteredData;
+}
 function showConfirmationModal(cardId) {
         const modal = document.getElementById("confirmationModal");
         modal.style.display = "block";
@@ -264,7 +270,7 @@ async function deleteCard(cardId) {
       }
 
       try {
-        const response = await fetch(`/app/obituary/delete/${cardId}`, {
+        const response = await fetch(`/app/news/delete/${cardId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

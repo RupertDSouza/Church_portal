@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Edit Obituary</title>
+        <title>Edit Gallery</title>
 
         <link rel="stylesheet" href="/styles/style1.css" />
         <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
@@ -8,73 +8,72 @@
         
     </head>
     <body>
-      <nav class="sidebar">
-        <div class="logo d-flex justify-content-between">
-        <a href="index.html"><img src="../images/logo.jpg" alt></a>
-        <div class="sidebar_close_icon d-lg-none">
-        <i class="ti-close"></i>
-        </div>
-        </div>
-        <ul id="sidebar_menu">
-        <li class="mm-active">
-        <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
-        <img src="../images/menu-icon/1.svg" alt>
-        <span>Dashboard</span>
-        </a>
-       
-        </li>
-        <li class>
-          <a href="/admin/news.ejs">
-        <img src="../images/menu-icon/2.svg" alt>
-        <span>News</span>
-        </a>
-        
-        </li>
-        <li class>
-          <a href="/admin/events.ejs">
-        <img src="../images/time_15311293.png" style="max-width: 70%" alt>
-        <span>Events</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/announcements.ejs">
-        <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
-        <span>Announcements</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/gallery.ejs">
-        <img src="../images/image_12998520.png" style="max-width: 90%" alt>
-        <span>Gallery</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/institution.ejs">
-        <img src="../images/building_15624293.png" style="max-width: 90%" alt>
-        <span>Institution</span>
-          </a>
-        </li>
-        <li class>
-          <a href="/admin/massTimings.ejs">
-        <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
-        <span>Mass Timings</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/readings.ejs">
-        <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
-        <span>Readings</span>
-        </a>
-        </li>
-         <li class>
-          <a href="/admin/users.ejs">
-        <img src="../images/community_16682249.png" style="max-width: 80%" alt>
-        <span>Users</span>
-        </a>
-        </li>
-        </ul>
-        </nav>
-      
+        <nav class="sidebar">
+            <div class="logo d-flex justify-content-between">
+            <a href="index.html"><img src="../images/logo.jpg" alt></a>
+            <div class="sidebar_close_icon d-lg-none">
+            <i class="ti-close"></i>
+            </div>
+            </div>
+            <ul id="sidebar_menu">
+            <li class="mm-active">
+            <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
+            <img src="../images/menu-icon/1.svg" alt>
+            <span>Dashboard</span>
+            </a>
+           
+            </li>
+            <li class>
+              <a href="/admin/news.ejs">
+            <img src="../images/menu-icon/2.svg" alt>
+            <span>News</span>
+            </a>
+            
+            </li>
+            <li class>
+              <a href="/admin/events.ejs">
+            <img src="../images/time_15311293.png" style="max-width: 70%" alt>
+            <span>Events</span>
+            </a>
+            </li>
+            <li class>
+              <a href="/admin/announcements.ejs">
+            <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
+            <span>Announcements</span>
+            </a>
+            </li>
+            <li class>
+              <a href="/admin/gallery.ejs">
+            <img src="../images/image_12998520.png" style="max-width: 90%" alt>
+            <span>Gallery</span>
+            </a>
+            </li>
+            <li class>
+              <a href="/admin/institution.ejs">
+            <img src="../images/building_15624293.png" style="max-width: 90%" alt>
+            <span>Institution</span>
+              </a>
+            </li>
+            <li class>
+              <a href="/admin/massTimings.ejs">
+            <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
+            <span>Mass Timings</span>
+            </a>
+            </li>
+            <li class>
+              <a href="/admin/readings.ejs">
+            <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
+            <span>Readings</span>
+            </a>
+            </li>
+             <li class>
+              <a href="/admin/users.ejs">
+            <img src="../images/community_16682249.png" style="max-width: 80%" alt>
+            <span>Users</span>
+            </a>
+            </li>
+            </ul>
+            </nav>
       
       <section class="main_content dashboard_part">
       
@@ -113,30 +112,22 @@
             <div class="white_box mb_30">
             <div class="box_header ">
             <div class="main-title">
-            <h3 class="mb-0">Edit Obituary Details</h3>
+            <h3 class="mb-0">Edit Gallery Details</h3>
             </div>
             </div>
             <form>
                 <div class="mb-3">
-                    <label class="form-label" for="obituaryName">Name</label>
-                    <input type="text" class="form-control" id="obituaryName" name="obituaryName" >
+                    <label class="form-label" for="galleryName">Name</label>
+                    <input type="text" class="form-control" id="galleryName" name="galleryName" >
                     </div>
                     <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
                     <input type="text" class="form-control" id="description" name="description" >
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="dob">Date of Birth </label>
-                        <input type="date" class="form-control" id="dob" name="dob" >
+                        <label class="form-label" for="link">Link</label>
+                        <input type="text" class="form-control" id="link" name="link" >
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="dod">Date of Death</label>
-                            <input type="date" class="form-control" id="dod" name="dod" >
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="age">Age</label>
-                                <input type="number" class="form-control" id="age" name="age" >
-                                </div>
                          <button type="button" class="btn btn-primary btn-lg" id="updateButton">Update</button>
             
             </form>          
@@ -153,7 +144,7 @@
               <div class="white_box mb_30">
               <div class="box_header ">
               <div class="main-title">
-              <h3 class="mb-0">Edit Obituary Image</h3>
+              <h3 class="mb-0">Edit Gallery Image</h3>
               </div>
               </div>
               <form>
@@ -177,7 +168,7 @@
       document.addEventListener('DOMContentLoaded', () => {
     const userId = localStorage.getItem('userId'); 
     const token = localStorage.getItem('token');
-    const obituaryId = localStorage.getItem('obituaryId');
+    const galleryId = localStorage.getItem('galleryId');
     
     if (!token) {
         window.location.href = '/admin/login.ejs';
@@ -186,7 +177,7 @@
     
 
 
-           else if (obituaryId && userId) {
+           else if (galleryId && userId) {
             fetch(`/app/user/read/${userId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -201,44 +192,40 @@
         })
         .catch(error => console.error('Error fetching user details:', error));
 
-                fetch(`/app/obituary/read/${obituaryId}`)
+                fetch(`/app/gallery/read/${galleryId}`)
                     .then(response => response.json())
                     .then(data => {
-                     document.getElementById('obituaryName').value = data.name;
-                     document.getElementById('description').value = data.description;
-                     document.getElementById('dob').value = formatDate(data.born);
-                     document.getElementById('dod').value = formatDate(data.died);
-                     document.getElementById('age').value = data.age;   
+                        document.getElementById('galleryName').value = data.name;
+                        document.getElementById('description').value = data.description;
+                        document.getElementById('link').value = data.link;
                     })
-                    .catch(error => console.error('Error fetching obituary details:', error));
+                    .catch(error => console.error('Error fetching gallery details:', error));
             }
             document.getElementById('updateButton').addEventListener('click', () => {
-                const updatedObituary = {
-                    name: document.getElementById('obituaryName').value,
+                const updatedGallery = {
+                    name: document.getElementById('galleryName').value,
                     description: document.getElementById('description').value,
-                    born: document.getElementById('dob').value,
-                    died: document.getElementById('dod').value,
-                    age: document.getElementById('age').value
+                    link: document.getElementById('link').value
                 };
 
-                fetch(`/app/obituary/update/${obituaryId}`, {
+                fetch(`/app/gallery/update/${galleryId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}` 
                 },
-                body: JSON.stringify(updatedObituary)
+                body: JSON.stringify(updatedGallery)
             })
             .then(response => response.json())
             .then(data => {
            
             if (data.message === 'Success') {
-                alert('Obituary updated successfully!');
+                alert('Gallery updated successfully!');
             } else {
-                alert('Failed to update obituary.');
+                alert('Failed to update gallery.');
             }
         })
-            .catch(error => console.error('Error updating obituary:', error));
+            .catch(error => console.error('Error updating gallery:', error));
         });
 
         document.getElementById('updateImage').addEventListener('click', () => {
@@ -251,7 +238,7 @@
             const formData = new FormData();
             formData.append('image', imageInput.files[0]);
 
-            fetch(`/app/obituary/updateImage/${obituaryId}`, {
+            fetch(`/app/gallery/updateImage/${galleryId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -261,12 +248,12 @@
             .then(response => response.json())
             .then(data => {
                 if (data.message === 'Success') {
-                    alert('Obituary image updated successfully!');
+                    alert('Gallery image updated successfully!');
                 } else {
-                    alert('Failed to update obituary image.');
+                    alert('Failed to update gallery image.');
                 }
             })
-            .catch(error => console.error('Error updating obituary image:', error));
+            .catch(error => console.error('Error updating gallery image:', error));
         });
     });
 
@@ -276,15 +263,9 @@
        
         return image.replace("../../Church_portal/public/", "/");
     }
-    return ""; // Return an empty string if the image is null or undefined
+    return ""; 
 }
-function formatDate(dateString) {
-            const date = new Date(dateString);
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const day = String(date.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
+
 
     </script>
 
