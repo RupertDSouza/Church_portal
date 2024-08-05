@@ -9,6 +9,9 @@ async function performSearch(event) {
       fetch(`/app/church/read?q=${encodeURIComponent(searchTerm)}`).then(
         (res) => res.json()
       ),
+      fetch(`/app/priest/read?q=${encodeURIComponent(searchTerm)}`).then(
+        (res) => res.json()
+      ),
       fetch(`/app/ward/read?q=${encodeURIComponent(searchTerm)}`).then((res) =>
         res.json()
       ),

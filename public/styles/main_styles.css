@@ -292,67 +292,6 @@ section {
 }
 
 /*********************************
-3.1 Top Bar
-*********************************/
-
-.top_bar {
-  width: 100%;
-  background: #000000;
-}
-.top_bar_content {
-  width: 100%;
-  height: 57px;
-}
-.event_timer span {
-  color: #ffd600;
-}
-.timer {
-  display: inline-block;
-  margin-left: 22px;
-}
-.timer li:not(:last-child) {
-  margin-right: 14px;
-}
-.timer_num {
-  display: inline-block;
-  color: #ffffff;
-  font-weight: 500;
-}
-.timer_unit {
-  display: inline-block;
-  color: #868687;
-  font-weight: 600;
-  margin-left: 3px;
-}
-.donations_button {
-  width: 157px;
-  height: 57px;
-  background: #eb4141;
-  text-align: center;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-.donations_button a {
-  display: block;
-  color: #ffffff;
-  line-height: 57px;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-.donations_button:hover {
-  background: #ffffff;
-}
-.donations_button:hover a {
-  color: #eb4141;
-}
-
-/*********************************
 3.2 Header Content
 *********************************/
 
@@ -511,7 +450,6 @@ section {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
-
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -1111,76 +1049,6 @@ section {
   color: #eb4141;
   font-style: italic;
   font-weight: 500;
-}
-
-/*********************************
-12. Newsletter
-*********************************/
-
-.newsletter {
-  width: 100%;
-  background: #eb4141;
-}
-.newsletter_content {
-  height: 154px;
-}
-.newsletter_title {
-  font-size: 36px;
-  color: #ffffff;
-  font-weight: 500;
-}
-.newsletter_form {
-  position: relative;
-}
-.newsletter_input {
-  width: 463px;
-  height: 49px;
-  border: none;
-  outline: none;
-  padding-left: 20px;
-  border-bottom: solid 2px #ffd600;
-}
-.newsletter_button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 157px;
-  height: 47px;
-  background: #000000;
-  color: #ffffff;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-.newsletter_input::-webkit-input-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-.newsletter_input:-moz-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-.newsletter_input::-moz-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-.newsletter_input:-ms-input-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
-}
-.newsletter_input::input-placeholder {
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  font-style: italic;
-  color: #b5b5b5 !important;
 }
 
 /*********************************

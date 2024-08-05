@@ -68,6 +68,15 @@
 ************/
 
 @media only screen and (max-width: 1024px) {
+  .header_nav_container {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .search {
+    margin-left: 500px;
+  }
 }
 
 /************
@@ -113,6 +122,9 @@
 ************/
 
 @media only screen and (max-width: 768px) {
+  .search {
+    margin-left: 300px;
+  }
 }
 
 /************
@@ -242,4 +254,18 @@
 ************/
 
 @media only screen and (max-width: 400px) {
+  .search {
+    margin-left: 40px;
+  }
+  .logo_text h2 {
+    color: #eb4141;
+    margin: 0;
+    font-size: 1em; /* Adjust as needed */
+    line-height: 1.2; /* Improve vertical spacing */
+  }
+  .logo_text span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.5em; /* Adjust as needed */
+    color: #353535;
+  }
 }
