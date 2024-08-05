@@ -12,7 +12,7 @@ const userrouter = require("./userRouter");
 const adminrouter = require("./adminRouter");
 const massrouter = require("./massRouter");
 const churchrouter = require("./churchRouter");
-const galleryrouter = require("./galleryRouter");
+const documentrouter = require("./documentRouter");
 const readingsrouter = require("./readingsRouter");
 const posterrouter = require("./posterRouter");
 const express = require("express");
@@ -33,7 +33,7 @@ router.use(
   adminrouter,
   massrouter,
   churchrouter,
-  galleryrouter,
+  documentrouter,
   readingsrouter,
   posterrouter
 );

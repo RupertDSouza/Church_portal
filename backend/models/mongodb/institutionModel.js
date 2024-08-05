@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const institutionSchema = new mongoose.Schema({
+  type: {
+    type: String,
+  },
   name: {
     type: String,
     require: [true, "Name is Required"],
@@ -10,6 +13,12 @@ const institutionSchema = new mongoose.Schema({
     require: [true, "Details is Required"],
   },
   image: {
+    type: String,
+  },
+  contact: {
+    type: Number,
+  },
+  email: {
     type: String,
   },
 });

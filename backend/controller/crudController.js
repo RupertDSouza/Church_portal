@@ -62,7 +62,6 @@ exports.readOne = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    console.log(req.body);
     const change = await req.repo.findOneAndUpdate(req.params.id, req.body);
 
     if (!change || change === 0) {
@@ -153,6 +152,27 @@ exports.updateMass = async (req, res) => {
   }
 };
 
+exports.delete = async (req, res) => {
+  try {
+    const unlinkAsync = promisify(fs.unlink);
+    const person = await req.repo.findOneAndDelete(req.params.id);
+    if (!person || person === 0) {
+      return res.status(404).json({
+        message: "Not found",
+      });
+    }
+    if (person.image) unlinkAsync(person.image);
+    return res.status(200).json({
+      data: { person },
+      message: "Deleted Successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: error,
+    });
+  }
+};
+
 // exports.update = async (req, res) => {
 //   try {
 //     let change;
@@ -210,24 +230,3 @@ exports.updateMass = async (req, res) => {
 //     });
 //   }
 // };
-
-exports.delete = async (req, res) => {
-  try {
-    const unlinkAsync = promisify(fs.unlink);
-    const person = await req.repo.findOneAndDelete(req.params.id);
-    if (!person || person === 0) {
-      return res.status(404).json({
-        message: "Not found",
-      });
-    }
-    if (person.image) unlinkAsync(person.image);
-    return res.status(200).json({
-      data: { person },
-      message: "Deleted Successfully",
-    });
-  } catch (error) {
-    res.status(500).json({
-      error: error,
-    });
-  }
-};

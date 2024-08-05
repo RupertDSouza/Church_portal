@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 
 const associationSchema = new mongoose.Schema({
+  type: {
+    type: String,
+  },
+  subType: {
+    type: String,
+  },
   name: {
     type: String,
     required: [true, "Name is required"],

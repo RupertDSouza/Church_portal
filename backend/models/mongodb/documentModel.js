@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const gallerySchema = new mongoose.Schema({
+  type: {
+    type: String,
+  },
   name: {
     type: String,
   },
@@ -15,6 +18,6 @@ const gallerySchema = new mongoose.Schema({
   },
 });
 
-const gallery = new mongoose.model("Gallery", gallerySchema);
+const document = new mongoose.model("Documents", gallerySchema);
 
-module.exports = gallery;
+module.exports = document;

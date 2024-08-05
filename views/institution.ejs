@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Institution</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Demo project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="styles/bootstrap4/bootstrap.min.css"
+    />
+    <link
+      href="plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" type="text/css" href="styles/institution.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="styles/sermon_single_responsive.css"
+    />
+  </head>
+
+  <body>
+    <div class="super_container">
+      <header class="header">
+        <div class="header_container">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div
+                  class="header_content d-flex flex-row align-items-center justify-content-start"
+                >
+                  <div class="logo_container">
+                    <div class="logo">
+                      <a href="#">
+                        <span>Believe</span>
+                        <img src="images/logo.jpg" alt />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="header_nav_container ml-auto">
+                    <nav class="main_nav">
+                      <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="priest.ejs">Priests</a></li>
+                        <li><a href="sermons.ejs">Sermons</a></li>
+                        <li><a href="associations.ejs">Associations</a></li>
+                        <li><a href="institution.ejs">Commisions</a></li>
+                        <li><a href="blog.ejs">Blog</a></li>
+                        <li><a href="institution.ejs">Institution</a></li>
+                        <li><a href="contact.ejs">Contact</a></li>
+                      </ul>
+                    </nav>
+                    <div class="search">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        version="1.1"
+                        id="Capa_1"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 56.966 56.966"
+                        style="enable-background: new 0 0 56.966 56.966"
+                        xml:space="preserve"
+                        width="13px"
+                        height="14px"
+                      >
+                        <path
+                          class="search_path"
+                          d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                          fill="#353535"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="hamburger ml-auto">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header_search_container">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div
+                    class="header_search_content d-flex flex-row align-items-center justify-content-end"
+                  >
+                    <form action="#" class="header_search_form">
+                      <input
+                        type="search"
+                        class="search_input"
+                        placeholder="Search"
+                        required="required"
+                      />
+                      <button
+                        class="header_search_button d-flex flex-column align-items-center justify-content-center"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          version="1.1"
+                          id="Capa_2"
+                          x="0px"
+                          y="0px"
+                          viewBox="0 0 56.966 56.966"
+                          style="enable-background: new 0 0 56.966 56.966"
+                          xml:space="preserve"
+                          width="20px"
+                          height="20px"
+                        >
+                          <path
+                            class="search_path"
+                            d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                            fill="#353535"
+                          />
+                        </svg>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div
+        class="menu d-flex flex-column align-items-center justify-content-center"
+      >
+        <div class="menu_content">
+          <div
+            class="cross_1 d-flex flex-column align-items-center justify-content-center"
+          >
+            <img src="images/cross_1.png" alt />
+          </div>
+          <form action="#" class="menu_search_form">
+            <input
+              type="search"
+              class="menu_search_input"
+              placeholder="Search"
+              required="required"
+            />
+            <button
+              class="menu_search_button d-flex flex-column align-items-center justify-content-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                id="Capa_3"
+                x="0px"
+                y="0px"
+                viewBox="0 0 56.966 56.966"
+                style="enable-background: new 0 0 56.966 56.966"
+                xml:space="preserve"
+                width="20px"
+                height="20px"
+              >
+                <path
+                  class="search_path"
+                  d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                  fill="#353535"
+                />
+              </svg>
+            </button>
+          </form>
+          <nav class="menu_nav">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="priest.ejs">Priests</a></li>
+              <li><a href="sermons.ejs">Sermons</a></li>
+              <li><a href="associations.ejs">Associations</a></li>
+              <li><a href="institution.ejs">Commisions</a></li>
+              <li><a href="blog.ejs">Blog</a></li>
+              <li><a href="institution.ejs">Institution</a></li>
+              <li><a href="contact.ejs">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="menu_close">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="home">
+        <div
+          class="home_background parallax-window"
+          data-parallax="scroll"
+          data-image-src="images/sermon_single.jpg"
+          data-speed="0.8"
+        ></div>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="home_container">
+                <div
+                  class="home_content d-flex flex-row align-items-center justify-content-start"
+                >
+                  <div class="home_title">Institution</div>
+                  <div class="home_breadcrumbs ml-auto">
+                    <ul class="breadcrumbs">
+                      <li><a href="index.ejs">Home</a></li>
+                      <li>Institution</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sermon">
+        <div class="sermon_image_big">
+          <img id="institution-image" alt />
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div
+                class="sermon_title_container d-flex flex-lg-row flex-column align-items-start justify-content-start"
+              >
+                <div class="sermon_content">
+                  <div class="sermon_title">
+                    <h1 id="institution-name"></h1>
+                  </div>
+                  <ul class="sermon_list">
+                    <li>
+                      Contact No. : <a href="#" id="institution-contact"></a>
+                    </li>
+                    <li>
+                      Email:
+                      <a id="institution-email" href="" class="__cf_email__"
+                        >[email&#160;protected]</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="sermon_text">
+              <p id="institution-details"></p>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col">
+              <div
+                class="institution_principal d-flex flex-row align-items-start justify-content-start"
+              >
+                <div class="sermon_pastor_image_container">
+                  <div class="sermon_pastor_image">
+                    <img id="principal-image" alt />
+                  </div>
+                </div>
+                <div class="sermon_pastor_content">
+                  <div class="sermon_pastor_title" id="principal-name"></div>
+                  <div
+                    class="sermon_pastor_subtitle"
+                    id="principal-position"
+                  ></div>
+                  <div class="sermon_pastor_text">
+                    <p id="principal-details"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="comment_form_container">
+                <h2 class="comment_title">Student Registration Form</h2>
+                <form action="#" class="comment_form">
+                  <!-- Name, Upload Photo, Admission Class -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="name">Name / ಹೆಸರು</label>
+                      <input
+                        type="text"
+                        id="name"
+                        class="comment_input comment_input_name"
+                        placeholder="Name"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="photo">Upload Photo / ಫೋಟೋ ಅಪ್ಲೋಡ್</label>
+                      <input
+                        type="file"
+                        id="photo"
+                        class="comment_input comment_input_file"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="admissionClass"
+                        >Admission Class / ಪ್ರವೇಶ ತರಗತಿ</label
+                      >
+                      <select
+                        id="admissionClass"
+                        class="comment_input"
+                        required="required"
+                      >
+                        <option value="" disabled selected>
+                          Select Class / ತರಗತಿ ಆಯ್ಕೆಮಾಡಿ
+                        </option>
+                        <option value="nursery">Nursery / ನರ್ಸರಿ</option>
+                        <option value="lkg">LKG / ಎಲ್‌ಕಜೆ</option>
+                        <option value="ukg">UKG / ಯುಕೆಜಿಎ</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Date of Birth, Gender, Mother Tongue, Other Language, Number of Brothers, Number of Sisters -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="dob">Date of Birth / ಹುಟ್ಟಿದ ದಿನಾಂಕ</label>
+                      <input
+                        type="date"
+                        id="dob"
+                        class="comment_input"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="gender"
+                        >Gender of Student / ವಿದ್ಯಾರ್ಥಿಯ ಲಿಂಗ</label
+                      >
+                      <select
+                        id="gender"
+                        class="comment_input"
+                        required="required"
+                      >
+                        <option value="" disabled selected>
+                          Select Gender / ಲಿಂಗ ಆಯ್ಕೆಮಾಡಿ
+                        </option>
+                        <option value="male">Male / ಪುರುಷ</option>
+                        <option value="female">Female / ಮಹಿಳೆ</option>
+                        <option value="transgender">
+                          Transgender / ತೃತೀಯ ಲಿಂಗ
+                        </option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="mother_tongue"
+                        >Mother Tongue / ತಾಯ್ನಾಡು</label
+                      >
+                      <input
+                        type="text"
+                        id="mother_tongue"
+                        class="comment_input"
+                        placeholder="Mother Tongue"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="other_language"
+                        >Any Other Language / ಇತರ ಭಾಷೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="other_language"
+                        class="comment_input"
+                        placeholder="Any Other Language"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="no_of_brothers"
+                        >Number of Brothers / ಅಣ್ಣ-ಅಚಚಣರ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="number"
+                        id="no_of_brothers"
+                        class="comment_input"
+                        placeholder="Number of Brothers"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="no_of_sisters"
+                        >Number of Sisters / ಸಹೋದರಿಯರ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="number"
+                        id="no_of_sisters"
+                        class="comment_input"
+                        placeholder="Number of Sisters"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Address -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="address">Address / ವಿಳಾಸ</label>
+                      <input
+                        type="text"
+                        id="address"
+                        class="comment_input"
+                        placeholder="Address"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- City/Village/Town, Locality, Pincode, District, Taluk -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="city_village_town"
+                        >City/Village/Town / ನಗರ/ಗ್ರಾಮ</label
+                      >
+                      <input
+                        type="text"
+                        id="city_village_town"
+                        class="comment_input"
+                        placeholder="City/Village/Town"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="locality">Locality / ಸ್ಥಳೀಯತೆ</label>
+                      <input
+                        type="text"
+                        id="locality"
+                        class="comment_input"
+                        placeholder="Locality"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="pincode">Pincode / ಪಿನ್‌ಕೋಡ್</label>
+                      <input
+                        type="text"
+                        id="pincode"
+                        class="comment_input"
+                        placeholder="Pincode"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="district">District / ಜಿಲ್ಲೆ</label>
+                      <input
+                        type="text"
+                        id="district"
+                        class="comment_input"
+                        placeholder="District"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="taluk">Taluk / ತಾಲ್ಲೂಕು</label>
+                      <input
+                        type="text"
+                        id="taluk"
+                        class="comment_input"
+                        placeholder="Taluk"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Aadhar Number, Religion, Caste -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="aadhar_number"
+                        >Aadhar Number / ಆಧಾರ್ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="aadhar_number"
+                        class="comment_input"
+                        placeholder="Aadhar Number"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="religion">Religion / ಧರ್ಮ</label>
+                      <select
+                        id="religion"
+                        class="comment_input"
+                        required="required"
+                        onchange="toggleOtherInput()"
+                      >
+                        <option value="" disabled selected>
+                          Select Religion / ಧರ್ಮ ಆಯ್ಕೆಮಾಡಿ
+                        </option>
+                        <option value="hindu">Hindu / ಹಿಂದೂ</option>
+                        <option value="muslim">Muslim / ಮುಸ್ಲಿಂ</option>
+                        <option value="christian">
+                          Christian / ಕ್ರಿಶ್ಚಿಯನ್
+                        </option>
+                        <option value="sikh">Sikh / ಸಿಖ್</option>
+                        <option value="buddha">Buddha / ಬುದ್ಧ</option>
+                        <option value="parsi">Parsi / ಪಾರ್ಸಿ</option>
+                        <option value="jain">Jain / ಜೈನ</option>
+                        <option value="other">Other / ಇತರ</option>
+                      </select>
+                      <input
+                        type="text"
+                        id="other_religion"
+                        class="comment_input"
+                        placeholder="Specify Religion"
+                        style="display: none; margin-left: 10px"
+                      />
+                    </div>
+                    <div>
+                      <label for="caste">Caste / ಜಾತಿ</label>
+                      <input
+                        type="text"
+                        id="caste"
+                        class="comment_input"
+                        placeholder="Caste"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Social Category, Belong to BPL, BPL Card Number, SATS Number -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="social_category"
+                        >Social Category / ಸಾಮಾಜಿಕ ವರ್ಗ</label
+                      >
+                      <select
+                        id="social_category"
+                        class="comment_input"
+                        required="required"
+                      >
+                        <option value="" disabled selected>
+                          Select Category / ವರ್ಗ ಆಯ್ಕೆಮಾಡಿ
+                        </option>
+                        <option value="general">General / ಸಾಮಾನ್ಯ</option>
+                        <option value="obc">OBC / ಓಬಿಸಿ</option>
+                        <option value="sc">SC / ಎಸ್‌ಸಿ</option>
+                        <option value="st">ST / ಎಸ್‌ಟಿ</option>
+                        <option value="other">Other / ಇತರ</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="belong_to_bpl"
+                        >Belong to BPL / ಬಿಪಿಎಲ್ ಗೆ ಸೇರಿದ್ದಾರೆ</label
+                      >
+                      <select
+                        id="belong_to_bpl"
+                        class="comment_input"
+                        required="required"
+                      >
+                        <option value="" disabled selected>
+                          Select / ಆಯ್ಕೆಮಾಡಿ
+                        </option>
+                        <option value="yes">Yes / ಹೌದು</option>
+                        <option value="no">No / ಇಲ್ಲ</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="bpl_card_number"
+                        >BPL Card No / ಬಿಪಿಎಲ್ ಕಾರ್ಡ್ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="bpl_card_number"
+                        class="comment_input"
+                        placeholder="BPL Card Number"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="sats_number"
+                        >SATS Number / ಸಾಟ್‌ಎಸ್ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="sats_number"
+                        class="comment_input"
+                        placeholder="SATS Number"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Bank Name, Account Number, IFSC Code -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="bank_name">Bank Name / ಬ್ಯಾಂಕ್ ಹೆಸರು</label>
+                      <input
+                        type="text"
+                        id="bank_name"
+                        class="comment_input"
+                        placeholder="Bank Name"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="account_number"
+                        >Account Number / ಖಾತೆ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="account_number"
+                        class="comment_input"
+                        placeholder="Account Number"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="ifsc_code"
+                        >IFSC Code / ಐಎಫ್‌ಎಸ್‌ಸಿ ಕೋಡ್</label
+                      >
+                      <input
+                        type="text"
+                        id="ifsc_code"
+                        class="comment_input"
+                        placeholder="IFSC Code"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Father's Name, Mother's Name -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="father_name"
+                        >Father's Name / ತಂದೆಯ ಹೆಸರು</label
+                      >
+                      <input
+                        type="text"
+                        id="father_name"
+                        class="comment_input"
+                        placeholder="Father's Name"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="mother_name"
+                        >Mother's Name / ತಾಯಿಯ ಹೆಸರು</label
+                      >
+                      <input
+                        type="text"
+                        id="mother_name"
+                        class="comment_input"
+                        placeholder="Mother's Name"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Father's Aadhar Number, Mother's Aadhar Number -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="father_aadhar_number"
+                        >Father's Aadhar Number / ತಂದೆಯ ಆಧಾರ್ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="father_aadhar_number"
+                        class="comment_input"
+                        placeholder="Father's Aadhar Number"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="mother_aadhar_number"
+                        >Mother's Aadhar Number / ತಾಯಿಯ ಆಧಾರ್ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="mother_aadhar_number"
+                        class="comment_input"
+                        placeholder="Mother's Aadhar Number"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Father's Qualification, Mother's Qualification, Father's Occupation, Mother's Occupation -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="father_qualification"
+                        >Father's Qualification / ತಂದೆಯ ವಿದ್ಯಾರ್ಹತೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="father_qualification"
+                        class="comment_input"
+                        placeholder="Father's Qualification"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="mother_qualification"
+                        >Mother's Qualification / ತಾಯಿಯ ವಿದ್ಯಾರ್ಹತೆ</label
+                      >
+                      <input
+                        type="text"
+                        id="mother_qualification"
+                        class="comment_input"
+                        placeholder="Mother's Qualification"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="father_occupation"
+                        >Father's Occupation / ತಂದೆಯ ಉದ್ಯೋಗ</label
+                      >
+                      <input
+                        type="text"
+                        id="father_occupation"
+                        class="comment_input"
+                        placeholder="Father's Occupation"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="mother_occupation"
+                        >Mother's Occupation / ತಾಯಿಯ ಉದ್ಯೋಗ</label
+                      >
+                      <input
+                        type="text"
+                        id="mother_occupation"
+                        class="comment_input"
+                        placeholder="Mother's Occupation"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Annual Income, Number of Dependents, Father's Phone Number, Mother's Phone Number -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="annual_income"
+                        >Annual Income of the Family / ವಾರ್ಷಿಕ ಆದಾಯ</label
+                      >
+                      <input
+                        type="text"
+                        id="annual_income"
+                        class="comment_input"
+                        placeholder="Annual Income"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="no_of_dependents"
+                        >Number of Dependents / ನಿರ್ವಹಣೆಯಲ್ಲಿರುವವರ ಸಂಖ್ಯೆ</label
+                      >
+                      <input
+                        type="number"
+                        id="no_of_dependents"
+                        class="comment_input"
+                        placeholder="Number of Dependents"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="father_phone_number"
+                        >Father's Phone Number / ತಂದೆಯ ಫೋನ್ ನಂಬರ್</label
+                      >
+                      <input
+                        type="text"
+                        id="father_phone_number"
+                        class="comment_input"
+                        placeholder="Father's Phone Number"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="mother_phone_number"
+                        >Mother's Phone Number / ತಾಯಿಯ ಫೋನ್ ನಂಬರ್</label
+                      >
+                      <input
+                        type="text"
+                        id="mother_phone_number"
+                        class="comment_input"
+                        placeholder="Mother's Phone Number"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Previous School Affiliation, Transfer Certificate Number, Transfer Certificate Date -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="previous_school_affiliation"
+                        >Previous School Affiliation / ಹಳೆಯ ಶಾಲೆಯ ಒಡನೊಡನೆ</label
+                      >
+                      <select
+                        id="previous_school_affiliation"
+                        class="comment_input"
+                        required="required"
+                      >
+                        <option value="" disabled selected>
+                          Select Affiliation / ಒಡನೊಡನೆ ಆಯ್ಕೆಮಾಡಿ
+                        </option>
+                        <option value="state">State Board / ರಾಜ್ಯ ಮಂಡಳಿ</option>
+                        <option value="cbsc">CBSC / ಸಿಬಿಎಸ್‌ಸಿ</option>
+                        <option value="icse">ICSE / ಐಸಿಎಸ್ಇ</option>
+                        <option value="other">Other / ಇತರ</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="transfer_certificate_number"
+                        >Transfer Certificate Number / ವರ್ಗಾಯCertificate
+                        Number</label
+                      >
+                      <input
+                        type="text"
+                        id="transfer_certificate_number"
+                        class="comment_input"
+                        placeholder="Transfer Certificate Number"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="transfer_certificate_date"
+                        >Transfer Certificate Date / ವರ್ಗಾವಣೆ ಪ್ರಮಾಣಪತ್ರದ
+                        ದಿನಾಂಕ</label
+                      >
+                      <input
+                        type="date"
+                        id="transfer_certificate_date"
+                        class="comment_input"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Previous School Name, Pincode of Previous School, DISE Number -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="previous_school_name"
+                        >Previous School Name/ ಹಳೆಯ ಶಾಲೆಯ ಹೆಸರು</label
+                      >
+                      <input
+                        type="text"
+                        id="previous_school_name"
+                        class="comment_input"
+                        placeholder="Previous School Name"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="pincode_of_previous_school"
+                        >Previous School Pincode / ಶಾಲೆಯ ಪಿನ್‌ಕೋಡ್</label
+                      >
+                      <input
+                        type="text"
+                        id="pincode_of_previous_school"
+                        class="comment_input"
+                        placeholder="Pincode of Previous School"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="dise_no">DISE Number / ಡಿಐಎಸ್‌ಇ ಸಂಖ್ಯೆ</label>
+                      <input
+                        type="text"
+                        id="dise_no"
+                        class="comment_input"
+                        placeholder="DISE Number"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <!-- Previous School District, Previous School Taluk, Previous School Village/City/Town -->
+                  <div class="form-group-inline">
+                    <div>
+                      <label for="previous_school_district"
+                        >District of the Previous School / ಹಳೆಯ ಶಾಲೆಯ ಸಂಬಂಧಿತ
+                        ಜಿಲ್ಲೆ
+                      </label>
+                      <input
+                        type="text"
+                        id="previous_school_district"
+                        class="comment_input"
+                        placeholder="Previous School District"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="previous_school_taluk"
+                        >Taluk of the Previous School / ಹಳೆಯ ಶಾಲೆಯ ಸ್ಥಾನಿಯ
+                        ತಾಲ್ಲೂಕು</label
+                      >
+                      <input
+                        type="text"
+                        id="previous_school_taluk"
+                        class="comment_input"
+                        placeholder="Previous School Taluk"
+                        required="required"
+                      />
+                    </div>
+                    <div>
+                      <label for="previous_school_village_city_town"
+                        >Previous School Village/City/Town / ಹಳೆಯ ಶಾಲೆಯ
+                        ಗ್ರಾಮ/ನಗರ/ಮಟ್ಟ</label
+                      >
+                      <input
+                        type="text"
+                        id="previous_school_village_city_town"
+                        class="comment_input"
+                        placeholder="Previous School Village/City/Town"
+                        required="required"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="form-group">
+                    <button type="submit" class="comment_button trans_200">
+                      Submit / ಸಲ್ಲಿಸಿ
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 footer_col">
+              <div class="logo_container">
+                <div class="logo">
+                  <a href="#">
+                    <span>Believe</span>
+                    <img src="images/logo_large.jpg" alt />
+                  </a>
+                </div>
+                <div class="logo_subtitle">Church template</div>
+              </div>
+            </div>
+
+            <div class="col-lg-5 footer_col">
+              <div class="footer_contact">
+                <div class="footer_title">Contact Us</div>
+                <ul class="footer_ul">
+                  <li class="footer_li">
+                    <span>Address: </span>
+                    <div id="church-address"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Phone: </span>
+                    <div id="contact"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Email: </span>
+                    <a id="email" href="" class="__cf_email__"
+                      >[email&#160;protected]</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="footer_social">
+                <ul>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-google-plus" aria-hidden="true"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-pinterest" aria-hidden="true"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-facebook" aria-hidden="true"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-twitter" aria-hidden="true"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright text-center">
+          Copyright &copy;
+          <script
+            data-cfasync="false"
+            src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+          ></script>
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All rights reserved
+        </div>
+      </footer>
+    </div>
+    <script src="js/institution.js"></script>
+    <script src="js/footeraddress.js"></script>
+    <script src="js/footerContact.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="js/sermons_custom.js"></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-23581568-13");
+    </script>
+  </body>
+</html>

@@ -283,10 +283,10 @@ section {
   transition: all 400ms ease;
 }
 .header.scrolled {
-  top: -57px;
+  top: -82px;
 }
 .header.scrolled .header_content {
-  height: 92px;
+  height: 110px;
 }
 
 /*********************************
@@ -371,13 +371,37 @@ section {
 3.3 Logo
 *********************************/
 
-.logo a span {
-  font-size: 24px;
-  color: #353535;
+.logo_align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
+
 .logo a img {
   display: inline-block;
-  vertical-align: text-bottom;
+  vertical-align: middle;
+  margin-right: 10px; /* Add space between logo and text */
+}
+
+.logo_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo_text h2 {
+  color: #eb4141;
+  margin: 0;
+  font-size: 1.5em; /* Adjust as needed */
+  line-height: 1.2; /* Improve vertical spacing */
+}
+
+.logo_text span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em; /* Adjust as needed */
+  color: #353535;
 }
 
 /*********************************

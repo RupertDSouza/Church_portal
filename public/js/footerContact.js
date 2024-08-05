@@ -28,7 +28,7 @@ async function fetchContact(url, contactId, emailId) {
 
     for (
       let index = data.length - 1;
-      index >= Math.max(data.length - 3, 0);
+      index >= Math.max(data.length - 2, 0);
       index--
     ) {
       const item = data[index];
@@ -46,7 +46,7 @@ async function fetchContact(url, contactId, emailId) {
 }
 
 function contacts() {
-  fetchContact("/app/contact/read", "contact", "email");
+  fetchContact("/app/parishcouncil/read", "contact", "email");
 }
 
 document.addEventListener("DOMContentLoaded", contacts);
