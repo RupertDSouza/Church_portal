@@ -16,7 +16,7 @@
 	3.6 Hamburger
 4. Menu
 5. Home
-6. Sermon
+6. institution
 7. Newsletter
 8. Footer
 
@@ -497,6 +497,17 @@ section {
   outline: none;
   cursor: pointer;
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -746,14 +757,14 @@ section {
 }
 
 /*********************************
-6. Sermon
+6. institution
 *********************************/
 
-.sermon {
+.institution {
   padding-bottom: 98px;
 }
 
-.sermon_image_big {
+.institution_image_big {
   width: 100%;
   height: 100%;
   border-bottom: solid 3px #eb4141;
@@ -763,7 +774,7 @@ section {
   overflow: hidden;
 }
 
-.sermon_image_big img {
+.institution_image_big img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -771,56 +782,56 @@ section {
   height: auto;
 }
 
-.sermon_title_container {
+.institution_title_container {
   margin-top: 20px;
   width: 100%;
 }
 
-.sermon_content {
+.institution_content {
 }
 
-.sermon_title {
+.institution_title {
   font-size: 24px;
   font-weight: 500;
   color: #000000;
 }
 
-.sermon_list {
+.institution_list {
   margin-top: 14px;
 }
 
-.sermon_list li {
+.institution_list li {
   font-size: 14px;
   font-weight: 500;
   color: #000000;
   margin-bottom: 14px;
 }
 
-.sermon_list li:last-child {
+.institution_list li:last-child {
   margin-bottom: 0;
 }
 
-.sermon_list li a {
+.institution_list li a {
   color: #eb4141;
 }
 
-.sermon_text {
+.institution_text {
   margin-top: 33px;
 }
 
-.sermon_buttons ul li {
+.institution_buttons ul li {
   display: inline-block;
   margin-right: 18px;
   cursor: pointer;
 }
 
-.sermon_buttons ul li img,
-.sermon_buttons ul li svg {
+.institution_buttons ul li img,
+.institution_buttons ul li svg {
   width: 27px;
   height: 27px;
 }
 
-.sermon_buttons ul li img svg {
+.institution_buttons ul li img svg {
   max-width: 100%;
 }
 
@@ -835,18 +846,18 @@ section {
   transition: all 200ms ease;
 }
 
-.sermon_item:hover .svg path,
-.sermon_item:hover .svg rect,
-.sermon_item:hover .svg polygon {
+.institution_item:hover .svg path,
+.institution_item:hover .svg rect,
+.institution_item:hover .svg polygon {
   fill: #eb4141;
 }
 
-.sermon_image_small {
+.institution_image_small {
   width: 100%;
   margin-top: 88px;
 }
 
-.sermon_image_small img {
+.institution_image_small img {
   max-width: 100%;
 }
 
@@ -856,22 +867,22 @@ section {
   border-bottom: solid 2px #e1dddd;
 }
 
-.sermon_pastor_image {
+.institution_pastor_image {
   width: 138px;
   height: 138px;
   border-radius: 50%;
   overflow: hidden;
 }
 
-.sermon_pastor_image img {
+.institution_pastor_image img {
   max-width: 100%;
 }
 
-.sermon_pastor_content {
+.institution_pastor_content {
   margin-left: 60px;
 }
 
-.sermon_pastor_title {
+.institution_pastor_title {
   font-size: 24px;
   font-weight: 500;
   line-height: 0.75;
@@ -879,14 +890,14 @@ section {
   margin-top: 2px;
 }
 
-.sermon_pastor_subtitle {
+.institution_pastor_subtitle {
   font-size: 14px;
   font-weight: 500;
   margin-top: 5px;
   color: #eb4141;
 }
 
-.sermon_pastor_text {
+.institution_pastor_text {
   margin-top: 28px;
 }
 

@@ -119,6 +119,9 @@
   .footer_col:not(:last-child) {
     margin-bottom: 30px;
   }
+  .search {
+    margin-left: 350px;
+  }
 }
 
 /************
@@ -173,6 +176,9 @@
   }
   .causes_slider_nav {
     display: none !important;
+  }
+  .search {
+    margin-left: 165px;
   }
 }
 

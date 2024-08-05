@@ -438,6 +438,17 @@ section {
   outline: none;
   cursor: pointer;
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -665,16 +676,16 @@ section {
 }
 
 /*********************************
-6. Sermon
+6. Wards
 *********************************/
 
-.sermon {
+.ward {
   padding-top: 97px;
   padding-bottom: 98px;
   background: #f0f4f8;
   border-bottom: solid 3px #eb4141;
 }
-.sermon_background {
+.ward_background {
   position: absolute;
   top: 0;
   left: 0;
@@ -684,20 +695,20 @@ section {
   background-size: cover;
   background-position: center center;
 }
-.sermon_row {
+.ward_row {
   margin-top: 84px;
 }
-.sermon_image {
+.ward_image {
   width: 100%;
 }
-.sermon_image img {
+.ward_image img {
   max-width: 100%;
 }
-.sermon_content {
+.ward_content {
   width: 100%;
   margin-top: -8px;
 }
-.sermon_title a {
+.ward_title a {
   font-size: 24px;
   font-weight: 500;
   color: #000000;
@@ -707,41 +718,41 @@ section {
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.sermon_title a:hover {
+.ward_title a:hover {
   color: #eb4141;
 }
-.sermon_list {
+.ward_list {
   margin-top: 14px;
 }
-.sermon_list li {
+.ward_list li {
   font-size: 14px;
   font-weight: 500;
   color: #000000;
   margin-bottom: 14px;
 }
-.sermon_list li:last-child {
+.ward_list li:last-child {
   margin-bottom: 0;
 }
-.sermon_list li a {
+.ward_list li a {
   color: #eb4141;
 }
-.sermon_text {
+.ward_text {
   margin-top: 33px;
 }
-.sermon_buttons {
+.ward_buttons {
   margin-top: 64px;
 }
-.sermon_buttons ul li {
+.ward_buttons ul li {
   display: inline-block;
   margin-right: 18px;
   cursor: pointer;
 }
-.sermon_buttons ul li img,
-.sermon_buttons ul li svg {
+.ward_buttons ul li img,
+.ward_buttons ul li svg {
   width: 27px;
   height: 27px;
 }
-.sermon_buttons ul li img svg {
+.ward_buttons ul li img svg {
   max-width: 100%;
 }
 .svg path,
@@ -754,9 +765,9 @@ section {
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.sermon_item:hover .svg path,
-.sermon_item:hover .svg rect,
-.sermon_item:hover .svg polygon {
+.ward_item:hover .svg path,
+.ward_item:hover .svg rect,
+.ward_item:hover .svg polygon {
   fill: #eb4141;
 }
 
@@ -767,25 +778,27 @@ section {
 .popular {
   width: 100%;
   background: #ffffff;
-  padding-top: 97px;
 }
 .popular_row {
   margin-top: 85px;
+  justify-content: center;
+  align-content: center;
 }
 .popular_item {
   width: 100%;
-  margin-bottom: 98px;
+  overflow-y: auto;
 }
 .popular_image {
   width: 100%;
 }
 .popular_image img {
   max-width: 100%;
+  margin-top: 30px;
 }
-.popular .sermon_content {
+.popular .ward_content {
   margin-top: 42px;
 }
-.popular .sermon_buttons {
+.popular .ward_buttons {
   margin-top: 30px;
 }
 
@@ -809,12 +822,11 @@ section {
   height: 100%;
 }
 .featured_1 {
-  width: 100%;
+  width: 40%;
   border: solid 2px #eb4141;
-  padding-left: 158px;
-  padding-top: 67px;
-  padding-bottom: 66px;
-  padding-right: 140px;
+  padding: 30px;
+  margin-bottom: 40px;
+  margin-left: 40px;
 }
 .featured_col_2 {
   padding-left: 219px;
@@ -824,12 +836,12 @@ section {
 }
 .featured_2 {
 }
-.featured .sermon_title,
-.featured .sermon_list li,
-.featured .sermon_text p {
+.featured .ward_title,
+.featured .ward_list li,
+.featured .ward_text p {
   color: #ffffff;
 }
-.featured .sermon_buttons {
+.featured .ward_buttons {
   margin-top: 30px;
 }
 

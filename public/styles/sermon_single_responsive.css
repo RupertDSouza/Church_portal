@@ -106,7 +106,7 @@
   .hamburger {
     display: block;
   }
-  .sermon_buttons {
+  .institution_buttons {
     margin-top: 40px;
   }
   .newsletter_content {
@@ -162,6 +162,9 @@
   }
   .comment_input_email {
     margin-top: 28px;
+  }
+  .search {
+    margin-left: 165px;
   }
 }
 
@@ -237,11 +240,11 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-  .sermon_pastor_image {
+  .institution_pastor_image {
     width: 80px;
     height: 80px;
   }
-  .sermon_pastor_content {
+  .institution_pastor_content {
     margin-left: 30px;
   }
   .newsletter_title {
