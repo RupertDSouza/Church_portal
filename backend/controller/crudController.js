@@ -28,7 +28,13 @@ exports.create = async (req, res) => {
 
 exports.readAll = async (req, res) => {
   try {
-    const people = await req.repo.find();
+    let people;
+    if (req.query.q) {
+      people = await req.repo.find(req.query.q);
+    } else {
+      people = await req.repo.find();
+    }
+
     if (!people || people.length === 0) {
       return res.status(400).json({
         message: "Not found",

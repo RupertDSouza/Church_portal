@@ -9,15 +9,27 @@ class Repository {
 
   async find(data) {
     let filter;
-
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
     if (this.model.name === "Student" || this.model.name === "Payment") {
       filter = {};
       return await this.model.findAll({ where: filter });
     } else {
       if (!data) {
         filter = {};
-      } else {
+      } else if (isValidEmail(data)) {
         filter = { email: data };
+      } else {
+        const searchTerm = data;
+        filter = {
+          $or: [
+            { name: { $regex: searchTerm, $options: "i" } },
+            { description: { $regex: searchTerm, $options: "i" } },
+            { title: { $regex: searchTerm, $options: "i" } },
+          ],
+        };
       }
       return await this.model.find(filter);
     }
