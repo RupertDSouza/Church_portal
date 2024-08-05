@@ -1,79 +1,78 @@
 <html>
     <head>
-        <title>Create Association</title>
+        <title>Create Announcement</title>
 
         <link rel="stylesheet" href="/styles/style1.css" />
         <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
       
-        
     </head>
     <body>
-      <nav class="sidebar">
-        <div class="logo d-flex justify-content-between">
-        <a href="index.html"><img src="../images/logo.jpg" alt></a>
-        <div class="sidebar_close_icon d-lg-none">
-        <i class="ti-close"></i>
-        </div>
-        </div>
-        <ul id="sidebar_menu">
-        <li class="mm-active">
-        <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
-        <img src="../images/menu-icon/1.svg" alt>
-        <span>Dashboard</span>
-        </a>
-       
-        </li>
-        <li class>
-          <a href="/admin/news.ejs">
-        <img src="../images/menu-icon/2.svg" alt>
-        <span>News</span>
-        </a>
-        
-        </li>
-        <li class>
-          <a href="/admin/events.ejs">
-        <img src="../images/time_15311293.png" style="max-width: 70%" alt>
-        <span>Events</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/announcements.ejs">
-        <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
-        <span>Announcements</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/gallery.ejs">
-        <img src="../images/image_12998520.png" style="max-width: 90%" alt>
-        <span>Gallery</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/institution.ejs">
-        <img src="../images/building_15624293.png" style="max-width: 90%" alt>
-        <span>Institution</span>
-          </a>
-        </li>
-        <li class>
-          <a href="/admin/massTimings.ejs">
-        <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
-        <span>Mass Timings</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/readings.ejs">
-        <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
-        <span>Readings</span>
-        </a>
-        </li>
-         <li class>
-          <a href="/admin/users.ejs">
-        <img src="../images/community_16682249.png" style="max-width: 80%" alt>
-        <span>Users</span>
-        </a>
-        </li>
-        </ul>
-        </nav>
+        <nav class="sidebar">
+            <div class="logo d-flex justify-content-between">
+            <a href="index.html"><img src="../images/logo.jpg" alt></a>
+            <div class="sidebar_close_icon d-lg-none">
+            <i class="ti-close"></i>
+            </div>
+            </div>
+            <ul id="sidebar_menu">
+            <li class="mm-active">
+            <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
+            <img src="../images/menu-icon/1.svg" alt>
+            <span>Dashboard</span>
+            </a>
+           
+            </li>
+            <li class>
+              <a href="/admin/news.ejs">
+            <img src="../images/menu-icon/2.svg" alt>
+            <span>News</span>
+            </a>
+            
+            </li>
+            <li class>
+              <a href="/admin/events.ejs">
+            <img src="../images/time_15311293.png" style="max-width: 70%" alt>
+            <span>Events</span>
+            </a>
+            </li>
+            <li class>
+              <a href="/admin/announcements.ejs">
+            <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
+            <span>Announcements</span>
+            </a>
+            </li>
+            <li class>
+              <a href="/admin/gallery.ejs">
+            <img src="../images/image_12998520.png" style="max-width: 90%" alt>
+            <span>Gallery</span>
+            </a>
+            </li>
+            <li class>
+              <a href="/admin/institution.ejs">
+            <img src="../images/building_15624293.png" style="max-width: 90%" alt>
+            <span>Institution</span>
+              </a>
+            </li>
+            <li class>
+              <a href="/admin/massTimings.ejs">
+            <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
+            <span>Mass Timings</span>
+            </a>
+            </li>
+            <li class>
+              <a href="/admin/readings.ejs">
+            <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
+            <span>Readings</span>
+            </a>
+            </li>
+             <li class>
+              <a href="/admin/users.ejs">
+            <img src="../images/community_16682249.png" style="max-width: 80%" alt>
+            <span>Users</span>
+            </a>
+            </li>
+            </ul>
+            </nav>
       
       
       <section class="main_content dashboard_part">
@@ -113,24 +112,30 @@
             <div class="white_box mb_30">
             <div class="box_header ">
             <div class="main-title">
-            <h3 class="mb-0">Create Association </h3>
+            <h3 class="mb-0">Create Announcement </h3>
             </div>
             </div>
-            <form id="createAssociationForm">
+            <form id="createAnnouncementForm">
                 <div class="mb-3">
-                    <label class="form-label" for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" >
+                    <label class="form-label" for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" >
                     </div>
+                    <input type="hidden" id="type" name="type" value="announcements">
                     <div class="mb-3">
-                    <label class="form-label" for="description">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" >
-                    </div>
-                        <label class="form-label" for="image">Association Image</label>
+                        <label class="form-label" for="content">Content</label>
+                        <input type="text" class="form-control" id="content" name="content" >
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="dates">Date </label>
+                            <input type="date" class="form-control" id="dates" name="dates" >
+                            </div>
+                                      <label class="form-label" for="image">Announcement Image</label>
                         <div class="input-group mb-3">
                             
                             <input type="file" class="form-control" id="image" name="image">
                             <label class="input-group-text" for="image">Upload</label>
                             </div>
+
                          <button type="button" class="btn btn-primary btn-lg" id="createButton">Create</button>
             
             </form>          
@@ -165,28 +170,28 @@
         })
         .catch(error => console.error('Error fetching user details:', error));
     }
-    document.getElementById('createButton').addEventListener('click', createAssociation);
+    document.getElementById('createButton').addEventListener('click', createAnnouncement);
 });
 function getImagePath(image) {
     if (image) {
         
         return image.replace("../../Church_portal/public/", "/");
     }
-    return ""; // Return an empty string if the image is null or undefined
+    return ""; 
 }
 
-async function createAssociation() {
+async function createAnnouncement() {
             const token = localStorage.getItem('token');
             if (!token) {
                 alert('Please login first');
                 return;
             }
 
-            const form = document.getElementById('createAssociationForm');
+            const form = document.getElementById('createAnnouncementForm');
             const formData = new FormData(form);
 
             try {
-                const response = await fetch('/app/association/create', {
+                const response = await fetch('/app/news/create', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -195,11 +200,12 @@ async function createAssociation() {
                 });
 
                 const data = await response.json();
+                
                 if (data.message === 'Created Successfully') {
-                    alert('Association created successfully!');
-                    // Optionally redirect to another page or clear the form
+                    alert('Announcement created successfully!');
+                   
                 } else {
-                    alert('Error creating association: ' + data.message);
+                    alert('Error creating announcement: ' + data.message);
                 }
             } catch (error) {
                 console.error('Error:', error);
