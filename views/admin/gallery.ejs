@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Obituary</title>
+        <title>Gallery</title>
 
 
            <link rel="stylesheet" href="/styles/style1.css" />
@@ -48,7 +48,7 @@
             </a>
             </li>
             <li class>
-              <a href="/admin/gallery.ejs">
+              <a href="#">
             <img src="../images/image_12998520.png" style="max-width: 90%" alt>
             <span>Gallery</span>
             </a>
@@ -100,7 +100,7 @@
       <div class="header_right d-flex justify-content-between align-items-center">
       <div class="header_notification_warp d-flex align-items-center">
       <li>
-      <a href="#" onclick="redirectToCreateObituary()">
+      <a href="#" onclick="redirectToCreateGallery()">
          <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
       </li>
       
@@ -141,8 +141,8 @@
   </body>
   <script>
 
-    function redirectToCreateObituary() {
-            window.location.href = '/admin/createObituary.ejs';
+    function redirectToCreateGallery() {
+            window.location.href = '/admin/createGallery.ejs';
         }
      document.addEventListener('DOMContentLoaded', () => {
     const userId = localStorage.getItem('userId'); 
@@ -169,7 +169,7 @@
     
   async function displayResults() {
       try {
-          const response = await fetch("/app/obituary/read", {
+          const response = await fetch("/app/gallery/read", {
               method: "GET",
           });
   
@@ -214,8 +214,8 @@
             button.addEventListener('click', function(event) {
                 event.preventDefault();
                 const cardId = this.getAttribute('data-id');
-                localStorage.setItem('obituaryId', cardId);
-                window.location.href = '/admin/editObituary.ejs';
+                localStorage.setItem('galleryId', cardId);
+                window.location.href = '/admin/editGallery.ejs';
             });
         });
 
@@ -254,6 +254,7 @@ function showConfirmationModal(cardId) {
             modal.style.display = "none";
         };
 
+       
     }
 
 async function deleteCard(cardId) {
@@ -264,7 +265,7 @@ async function deleteCard(cardId) {
       }
 
       try {
-        const response = await fetch(`/app/obituary/delete/${cardId}`, {
+        const response = await fetch(`/app/gallery/delete/${cardId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

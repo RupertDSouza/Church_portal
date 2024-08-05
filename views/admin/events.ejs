@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Obituary</title>
+        <title>Events</title>
 
 
            <link rel="stylesheet" href="/styles/style1.css" />
@@ -36,7 +36,7 @@
             
             </li>
             <li class>
-              <a href="/admin/events.ejs">
+              <a href="#">
             <img src="../images/time_15311293.png" style="max-width: 70%" alt>
             <span>Events</span>
             </a>
@@ -100,7 +100,7 @@
       <div class="header_right d-flex justify-content-between align-items-center">
       <div class="header_notification_warp d-flex align-items-center">
       <li>
-      <a href="#" onclick="redirectToCreateObituary()">
+      <a href="#" onclick="redirectToCreateEvent()">
          <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
       </li>
       
@@ -141,8 +141,8 @@
   </body>
   <script>
 
-    function redirectToCreateObituary() {
-            window.location.href = '/admin/createObituary.ejs';
+    function redirectToCreateEvent() {
+            window.location.href = '/admin/createEvent.ejs';
         }
      document.addEventListener('DOMContentLoaded', () => {
     const userId = localStorage.getItem('userId'); 
@@ -158,7 +158,7 @@
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('profileImage').src = getImagePath(data.avatar); // Assuming data.image contains the image URL
+            document.getElementById('profileImage').src = getImagePath(data.avatar); 
             document.getElementById('name').textContent = data.userName;
             
             document.getElementById('role').textContent = `Welcome ${data.role}!`;
@@ -169,7 +169,7 @@
     
   async function displayResults() {
       try {
-          const response = await fetch("/app/obituary/read", {
+          const response = await fetch("/app/news/read", {
               method: "GET",
           });
   
@@ -178,16 +178,17 @@
           }
   
           const result = await response.json();
+          const recentNews = getItem(result, "events");
           const cardsContainer = document.getElementById("cards-container");
   
-          result.forEach(record => {
+          recentNews.forEach(record => {
               const cardDiv = document.createElement("div");
               cardDiv.className = "col-lg-6";
               cardDiv.innerHTML = `
                   <div class="white_box mb_30">
                       <div class="box_header">
                           <div class="main-title">
-                              <h3 class="mb-0">${record.name}</h3>
+                              <h3 class="mb-0">${record.title}</h3>
                           </div>
                       </div>
                       <div class="card" style="width: 18rem;">
@@ -214,8 +215,8 @@
             button.addEventListener('click', function(event) {
                 event.preventDefault();
                 const cardId = this.getAttribute('data-id');
-                localStorage.setItem('obituaryId', cardId);
-                window.location.href = '/admin/editObituary.ejs';
+                localStorage.setItem('eventId', cardId);
+                window.location.href = '/admin/editEvent.ejs';
             });
         });
 
@@ -227,12 +228,17 @@
   }
   function getImagePath(image) {
     if (image) {
-        
+        // Adjust the path according to your server's configuration
         return image.replace("../../Church_portal/public/", "/");
     }
     return ""; // Return an empty string if the image is null or undefined
 }
+function getItem(data, type) {
+  const filteredData = data.filter((item) => item.type === type);
+  if (filteredData.length === 0) return null;
 
+  return filteredData;
+}
 function showConfirmationModal(cardId) {
         const modal = document.getElementById("confirmationModal");
         modal.style.display = "block";
@@ -264,7 +270,7 @@ async function deleteCard(cardId) {
       }
 
       try {
-        const response = await fetch(`/app/obituary/delete/${cardId}`, {
+        const response = await fetch(`/app/news/delete/${cardId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`
