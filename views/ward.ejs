@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Mirrored from preview.colorlib.com/theme/church/sermons.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jul 2024 13:04:58 GMT -->
   <head>
     <title>Sermons</title>
     <meta charset="utf-8" />
@@ -32,12 +31,8 @@
       type="text/css"
       href="plugins/OwlCarousel2-2.2.1/animate.css"
     />
-    <link rel="stylesheet" type="text/css" href="styles/sermons.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="styles/sermons_responsive.css"
-    />
+    <link rel="stylesheet" type="text/css" href="styles/ward.css" />
+    <link rel="stylesheet" type="text/css" href="styles/ward_responsive.css" />
   </head>
   <body>
     <div class="super_container">
@@ -51,9 +46,15 @@
                 >
                   <div class="logo_container">
                     <div class="logo">
-                      <a href="#">
-                        <span>Believe</span>
-                        <img src="images/logo.jpg" alt />
+                      <a class="logo_align" href="#">
+                        <img
+                          src="images/holy-spirit-logo-md.jpg"
+                          alt="Holy Spirit Church Logo"
+                        />
+                        <div class="logo_text">
+                          <h2>Holy Spirit Church</h2>
+                          <span>Mukka</span>
+                        </div>
                       </a>
                     </div>
                   </div>
@@ -61,36 +62,38 @@
                   <div class="header_nav_container ml-auto">
                     <nav class="main_nav">
                       <ul>
-                        <li><a href="/">Home</a></li>
+                        <li class="active"><a href="#">Home</a></li>
                         <li><a href="priest.ejs">Priests</a></li>
-                        <li class="active"><a href="#">Sermons</a></li>
+                        <li><a href="sermons.ejs">Sermons</a></li>
+                        <li><a href="associations.ejs">Associations</a></li>
+                        <li><a href="institution.ejs">Commisions</a></li>
                         <li><a href="blog.ejs">Blog</a></li>
+                        <li><a href="institution.ejs">Institution</a></li>
                         <li><a href="contact.ejs">Contact</a></li>
                       </ul>
                     </nav>
-                    <div class="search">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        version="1.1"
-                        id="Capa_1"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 56.966 56.966"
-                        style="enable-background: new 0 0 56.966 56.966"
-                        xml:space="preserve"
-                        width="13px"
-                        height="14px"
-                      >
-                        <path
-                          class="search_path"
-                          d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
-                          fill="#353535"
-                        />
-                      </svg>
-                    </div>
                   </div>
-
+                  <div class="search">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      version="1.1"
+                      id="Capa_1"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 56.966 56.966"
+                      style="enable-background: new 0 0 56.966 56.966"
+                      xml:space="preserve"
+                      width="13px"
+                      height="14px"
+                    >
+                      <path
+                        class="search_path"
+                        d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                        fill="#353535"
+                      />
+                    </svg>
+                  </div>
                   <div class="hamburger ml-auto">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                   </div>
@@ -105,14 +108,16 @@
                   <div
                     class="header_search_content d-flex flex-row align-items-center justify-content-end"
                   >
-                    <form action="#" class="header_search_form">
+                    <form id="searchForm" class="header_search_form">
                       <input
                         type="search"
+                        id="searchInput"
                         class="search_input"
                         placeholder="Search"
                         required="required"
                       />
                       <button
+                        type="submit"
                         class="header_search_button d-flex flex-column align-items-center justify-content-center"
                       >
                         <svg
@@ -140,6 +145,14 @@
                 </div>
               </div>
             </div>
+
+            <div id="searchModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Search Results</h2>
+                <div id="searchResults"></div>
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -153,43 +166,16 @@
           >
             <img src="images/cross_1.png" alt />
           </div>
-          <form action="#" class="menu_search_form">
-            <input
-              type="search"
-              class="menu_search_input"
-              placeholder="Search"
-              required="required"
-            />
-            <button
-              class="menu_search_button d-flex flex-column align-items-center justify-content-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                version="1.1"
-                id="Capa_3"
-                x="0px"
-                y="0px"
-                viewBox="0 0 56.966 56.966"
-                style="enable-background: new 0 0 56.966 56.966"
-                xml:space="preserve"
-                width="20px"
-                height="20px"
-              >
-                <path
-                  class="search_path"
-                  d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
-                  fill="#353535"
-                />
-              </svg>
-            </button>
-          </form>
+
           <nav class="menu_nav">
             <ul>
               <li class="active"><a href="/">Home</a></li>
               <li><a href="priest.ejs">Priests</a></li>
-              <li><a href="#">Sermons</a></li>
+              <li><a href="ward.ejs">Ward</a></li>
+              <li><a href="associations.ejs">Associations</a></li>
+              <li><a href="institution.ejs">Commisions</a></li>
               <li><a href="blog.ejs">Blog</a></li>
+              <li><a href="institution.ejs">Institution</a></li>
               <li><a href="contact.ejs">Contact</a></li>
             </ul>
           </nav>
@@ -711,6 +697,30 @@
                 </div>
                 <div class="logo_subtitle">Church template</div>
               </div>
+            </div>
+
+            <div class="col-lg-5 footer_col">
+              <div class="footer_contact">
+                <div class="footer_title">Contact Us</div>
+                <ul class="footer_ul">
+                  <li class="footer_li">
+                    <span>Address: </span>
+                    <div id="church-address"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Phone: </span>
+                    <div id="contact"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Email: </span>
+                    <a id="email" href="" class="__cf_email__"
+                      >[email&#160;protected]</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
               <div class="footer_social">
                 <ul>
                   <li>
@@ -736,52 +746,6 @@
                 </ul>
               </div>
             </div>
-
-            <div class="col-lg-4 footer_col">
-              <div class="footer_links">
-                <div class="footer_title">Useful Links</div>
-                <ul>
-                  <li><a href="index.ejs">Home</a></li>
-                  <li><a href="#">Donations</a></li>
-                  <li><a href="#">Sermons</a></li>
-                  <li><a href="#">Causes</a></li>
-                  <li><a href="#">Quotes</a></li>
-                  <li><a href="blog.ejs">News</a></li>
-                  <li><a href="#">Event List</a></li>
-                  <li><a href="ministries.ejs">Ministries</a></li>
-                  <li><a href="#">Priests</a></li>
-                  <li><a href="contact.ejs">Contact</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-lg-3 footer_col">
-              <div class="footer_contact">
-                <div class="footer_title">Contact Us</div>
-                <ul>
-                  <li>
-                    <span>Address: </span>1481 Creekside Lane Avila Beach, CA
-                    93424
-                  </li>
-                  <li class="footer_contact_phone">
-                    <span>Phone: </span>
-                    <div>
-                      <div>+53 345 7953 32453</div>
-                      <div>+53 345 7557 822112</div>
-                    </div>
-                  </li>
-                  <li>
-                    <span>Email: </span
-                    ><a
-                      href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
-                      class="__cf_email__"
-                      data-cfemail="8cf5e3f9fee1ede5e0ccebe1ede5e0a2efe3e1"
-                      >[email&#160;protected]</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -789,17 +753,18 @@
           Copyright &copy;
           <script
             data-cfasync="false"
-            src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+            src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
           ></script>
           <script>
             document.write(new Date().getFullYear());
           </script>
-          All rights reserved | This template is made with
-          <i class="fa fa-heart-o" aria-hidden="true"></i> by
-          <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+          All rights reserved
         </div>
       </footer>
     </div>
+    <script src="js/search.js"></script>
+    <script src="js/footeraddress.js"></script>
+    <script src="js/footerContact.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="styles/bootstrap4/popper.js"></script>
     <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -808,10 +773,6 @@
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
     <script src="js/sermons_custom.js"></script>
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -821,14 +782,5 @@
 
       gtag("config", "UA-23581568-13");
     </script>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-      integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-      data-cf-beacon='{"rayId":"8a7be03f1d61c167","version":"2024.7.0","serverTiming":{"name":{"cfL4":true}},"token":"cd0b4b3a733644fc843ef0b185f98241","b":1}'
-      crossorigin="anonymous"
-    ></script>
   </body>
-
-  <!-- Mirrored from preview.colorlib.com/theme/church/sermons.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jul 2024 13:05:06 GMT -->
 </html>

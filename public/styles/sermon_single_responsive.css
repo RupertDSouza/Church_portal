@@ -201,6 +201,9 @@
   .header_content {
     height: 65px;
   }
+  .search {
+    margin-left: 20px;
+  }
   .header.scrolled .header_content {
     height: 65px;
   }
@@ -280,6 +283,9 @@
 ************/
 
 @media only screen and (max-width: 479px) {
+  .search {
+    margin-left: 40px;
+  }
 }
 
 /************

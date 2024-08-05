@@ -52,14 +52,14 @@
                   <div class="header_nav_container ml-auto">
                     <nav class="main_nav">
                       <ul>
-                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
                         <li><a href="priest.ejs">Priests</a></li>
                         <li><a href="sermons.ejs">Sermons</a></li>
                         <li><a href="associations.ejs">Associations</a></li>
                         <li><a href="institution.ejs">Commisions</a></li>
                         <li><a href="blog.ejs">Blog</a></li>
                         <li><a href="institution.ejs">Institution</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li class="active"><a href="#">Contact</a></li>
                       </ul>
                     </nav>
                   </div>
@@ -166,7 +166,7 @@
               <li><a href="institution.ejs">Commisions</a></li>
               <li><a href="blog.ejs">Blog</a></li>
               <li><a href="institution.ejs">Institution</a></li>
-              <li><a href="#">Contact</a></li>
+              <li class="active"><a href="#">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -369,6 +369,30 @@
                 </div>
                 <div class="logo_subtitle">Church template</div>
               </div>
+            </div>
+
+            <div class="col-lg-5 footer_col">
+              <div class="footer_contact">
+                <div class="footer_title">Contact Us</div>
+                <ul class="footer_ul">
+                  <li class="footer_li">
+                    <span>Address: </span>
+                    <div id="church-address"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Phone: </span>
+                    <div id="contact"></div>
+                  </li>
+                  <li class="footer_li">
+                    <span>Email: </span>
+                    <a id="email" href="" class="__cf_email__"
+                      >[email&#160;protected]</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
               <div class="footer_social">
                 <ul>
                   <li>
@@ -394,52 +418,6 @@
                 </ul>
               </div>
             </div>
-
-            <div class="col-lg-4 footer_col">
-              <div class="footer_links">
-                <div class="footer_title">Useful Links</div>
-                <ul>
-                  <li><a href="index.ejs">Home</a></li>
-                  <li><a href="#">Donations</a></li>
-                  <li><a href="sermons.ejs">Sermons</a></li>
-                  <li><a href="#">Causes</a></li>
-                  <li><a href="#">Quotes</a></li>
-                  <li><a href="blog.ejs">News</a></li>
-                  <li><a href="#">Event List</a></li>
-                  <li><a href="ministries.ejs">Ministries</a></li>
-                  <li><a href="#">Priests</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-lg-3 footer_col">
-              <div class="footer_contact">
-                <div class="footer_title">Contact Us</div>
-                <ul>
-                  <li>
-                    <span>Address: </span>1481 Creekside Lane Avila Beach, CA
-                    93424
-                  </li>
-                  <li class="footer_contact_phone">
-                    <span>Phone: </span>
-                    <div>
-                      <div>+53 345 7953 32453</div>
-                      <div>+53 345 7557 822112</div>
-                    </div>
-                  </li>
-                  <li>
-                    <span>Email: </span
-                    ><a
-                      href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
-                      class="__cf_email__"
-                      data-cfemail="1d6472686f707c74715d7a707c7471337e7270"
-                      >[email&#160;protected]</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -447,17 +425,18 @@
           Copyright &copy;
           <script
             data-cfasync="false"
-            src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+            src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
           ></script>
           <script>
             document.write(new Date().getFullYear());
           </script>
-          All rights reserved | This template is made with
-          <i class="fa fa-heart-o" aria-hidden="true"></i> by
-          <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+          All rights reserved
         </div>
       </footer>
     </div>
+    <script src="js/search.js"></script>
+    <script src="js/footeraddress.js"></script>
+    <script src="js/footerContact.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="styles/bootstrap4/popper.js"></script>
     <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -466,10 +445,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
     <script src="js/contact_custom.js"></script>
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -479,14 +454,5 @@
 
       gtag("config", "UA-23581568-13");
     </script>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-      integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-      data-cf-beacon='{"rayId":"8a7be04a3acbc167","version":"2024.7.0","serverTiming":{"name":{"cfL4":true}},"token":"cd0b4b3a733644fc843ef0b185f98241","b":1}'
-      crossorigin="anonymous"
-    ></script>
   </body>
-
-  <!-- Mirrored from preview.colorlib.com/theme/church/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jul 2024 13:05:12 GMT -->
 </html>

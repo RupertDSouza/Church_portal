@@ -456,7 +456,7 @@ section {
 .header_search_form {
   display: block;
   position: relative;
-  width: 40%;
+  width: 100%;
 }
 .header_search_container {
   position: absolute;
