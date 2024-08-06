@@ -120,6 +120,9 @@
                     <label class="form-label" for="galleryName">Name</label>
                     <input type="text" class="form-control" id="galleryName" name="galleryName" >
                     </div>
+                    <label class="form-label" for="type">Type</label>
+                    <input type="text" class="form-control" id="type" name="type" >
+                    </div>
                     <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
                     <input type="text" class="form-control" id="description" name="description" >
@@ -196,6 +199,7 @@
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('galleryName').value = data.name;
+                        document.getElementById('type').value = data.type;
                         document.getElementById('description').value = data.description;
                         document.getElementById('link').value = data.link;
                     })
@@ -204,6 +208,7 @@
             document.getElementById('updateButton').addEventListener('click', () => {
                 const updatedGallery = {
                     name: document.getElementById('galleryName').value,
+                    type: document.getElementById('type').value,
                     description: document.getElementById('description').value,
                     link: document.getElementById('link').value
                 };
