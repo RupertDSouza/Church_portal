@@ -195,7 +195,7 @@
         })
         .catch(error => console.error('Error fetching user details:', error));
 
-                fetch(`/app/gallery/read/${galleryId}`)
+                fetch(`/app/document/read/${galleryId}`)
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('galleryName').value = data.name;
@@ -213,7 +213,7 @@
                     link: document.getElementById('link').value
                 };
 
-                fetch(`/app/gallery/update/${galleryId}`, {
+                fetch(`/app/document/update/${galleryId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -243,7 +243,7 @@
             const formData = new FormData();
             formData.append('image', imageInput.files[0]);
 
-            fetch(`/app/gallery/updateImage/${galleryId}`, {
+            fetch(`/app/document/updateImage/${galleryId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`

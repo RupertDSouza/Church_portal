@@ -194,7 +194,7 @@ async function createGallery() {
             const formData = new FormData(form);
 
             try {
-                const response = await fetch('/app/gallery/create', {
+                const response = await fetch('/app/document/create', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
