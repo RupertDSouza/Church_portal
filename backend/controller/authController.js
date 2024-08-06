@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const express = require("express");
 require("dotenv").config();
 
 const secretKey = process.env.SECRECT_KEY;

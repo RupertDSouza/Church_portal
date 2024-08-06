@@ -7,7 +7,7 @@ const router = express.Router();
 router.use(
   "/student",
   (req, res, next) => {
-    req.access = ["admin", "priest"];
+    req.access = "student";
     req.model = studentModel;
     next();
   },

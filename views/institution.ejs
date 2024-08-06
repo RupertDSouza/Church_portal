@@ -20,7 +20,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="styles/sermon_single_responsive.css"
+      href="styles/institution_responsive.css"
     />
   </head>
 
@@ -269,7 +269,7 @@
             <div class="col">
               <div class="comment_form_container">
                 <h2 class="comment_title">Student Registration Form</h2>
-                <form action="#" class="comment_form">
+                <form class="comment_form" id="admission_form">
                   <!-- Name, Upload Photo, Admission Class -->
                   <div class="form-group-inline">
                     <div>
@@ -577,7 +577,6 @@
                         id="bpl_card_number"
                         class="comment_input"
                         placeholder="BPL Card Number"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -589,7 +588,6 @@
                         id="sats_number"
                         class="comment_input"
                         placeholder="SATS Number"
-                        required="required"
                       />
                     </div>
                   </div>
@@ -703,7 +701,6 @@
                         id="father_qualification"
                         class="comment_input"
                         placeholder="Father's Qualification"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -715,7 +712,6 @@
                         id="mother_qualification"
                         class="comment_input"
                         placeholder="Mother's Qualification"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -727,7 +723,6 @@
                         id="father_occupation"
                         class="comment_input"
                         placeholder="Father's Occupation"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -739,7 +734,6 @@
                         id="mother_occupation"
                         class="comment_input"
                         placeholder="Mother's Occupation"
-                        required="required"
                       />
                     </div>
                   </div>
@@ -768,7 +762,6 @@
                         id="no_of_dependents"
                         class="comment_input"
                         placeholder="Number of Dependents"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -807,7 +800,6 @@
                       <select
                         id="previous_school_affiliation"
                         class="comment_input"
-                        required="required"
                       >
                         <option value="" disabled selected>
                           Select Affiliation / ಒಡನೊಡನೆ ಆಯ್ಕೆಮಾಡಿ
@@ -828,7 +820,6 @@
                         id="transfer_certificate_number"
                         class="comment_input"
                         placeholder="Transfer Certificate Number"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -840,7 +831,6 @@
                         type="date"
                         id="transfer_certificate_date"
                         class="comment_input"
-                        required="required"
                       />
                     </div>
                   </div>
@@ -857,7 +847,6 @@
                         id="previous_school_name"
                         class="comment_input"
                         placeholder="Previous School Name"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -869,7 +858,6 @@
                         id="pincode_of_previous_school"
                         class="comment_input"
                         placeholder="Pincode of Previous School"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -879,7 +867,6 @@
                         id="dise_no"
                         class="comment_input"
                         placeholder="DISE Number"
-                        required="required"
                       />
                     </div>
                   </div>
@@ -897,7 +884,6 @@
                         id="previous_school_district"
                         class="comment_input"
                         placeholder="Previous School District"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -910,7 +896,6 @@
                         id="previous_school_taluk"
                         class="comment_input"
                         placeholder="Previous School Taluk"
-                        required="required"
                       />
                     </div>
                     <div>
@@ -923,7 +908,6 @@
                         id="previous_school_village_city_town"
                         class="comment_input"
                         placeholder="Previous School Village/City/Town"
-                        required="required"
                       />
                     </div>
                   </div>
@@ -931,7 +915,7 @@
 
                   <div class="form-group">
                     <button type="submit" class="comment_button trans_200">
-                      Submit / ಸಲ್ಲಿಸಿ
+                      Submit
                     </button>
                   </div>
                 </form>
@@ -1020,6 +1004,7 @@
       </footer>
     </div>
     <script src="js/institution.js"></script>
+    <script src="js/institution_admission.js"></script>
     <script src="js/search.js"></script>
     <script src="js/footeraddress.js"></script>
     <script src="js/footerContact.js"></script>
@@ -1029,7 +1014,10 @@
     <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="plugins/easing/easing.js"></script>
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
-    <script src="js/sermons_custom.js"></script>
+    <script src="js/institution_custom.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
 
     <script>
       window.dataLayer = window.dataLayer || [];

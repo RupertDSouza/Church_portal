@@ -1,15 +1,14 @@
-const express = require("express");
 const fs = require("fs");
 const { promisify } = require("util");
 
-const router = express.Router();
-
 exports.create = async (req, res) => {
   try {
-    if (!req.access.includes(req.accessRole))
+    if (req.access !== "student" && !req.access.includes(req.accessRole)) {
       return res.status(401).json({
         message: "Not allowed, Check Role",
       });
+    }
+    console.log(">>>", req.body);
     const create = await req.repo.create(req.body);
     if (!create || create === 0) {
       return res.status(400).json({

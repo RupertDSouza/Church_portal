@@ -9,6 +9,8 @@ const upload = multer();
 
 router.post("/create", auth, uploadImage, fileUpload, controller.create);
 
+router.post("/admission", uploadImage, fileUpload, controller.create);
+
 router.get("/read", controller.readAll);
 
 router.get("/read/:id", controller.readOne);

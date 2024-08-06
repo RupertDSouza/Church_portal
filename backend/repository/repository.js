@@ -4,6 +4,7 @@ class Repository {
   }
 
   async create(data) {
+    console.log(data);
     return await this.model.create(data);
   }
 
