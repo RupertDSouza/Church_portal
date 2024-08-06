@@ -39,7 +39,10 @@ function displayItem(containerId, data) {
             </div>
             </div>
             <div class="latest_news_content">
-            <div class="latest_news_date">${item.dates}</div>
+            <div class="latest_news_date">${new Date(item.dates).getDate()}
+            ${new Date(item.dates).toLocaleString("default", {
+              month: "long",
+            })} ${new Date(item.dates).getFullYear()}</div>
             <div class="latest_news_title">
                 <a href="#">${item.title}</a>
             </div>

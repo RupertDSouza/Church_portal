@@ -1,6 +1,6 @@
 let uploadedImage = null;
 
-document.getElementById("photo").addEventListener("change", function (event) {
+document.getElementById("image").addEventListener("change", function (event) {
   const file = event.target.files[0];
   if (file) {
     const reader = new FileReader();

@@ -1,191 +1,190 @@
+const { DataTypes } = require("sequelize");
+const sequelize = require("../../config/sequelize");
 
-const { DataTypes } = require('sequelize');
-const sequelize = require('../../config/sequelize');
-
-const Student = sequelize.define('Student', {
+const Student = sequelize.define("Student", {
   name: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   admissionClass: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
-  dob: {  
+  dob: {
     type: DataTypes.DATE,
-    allowNull: true
+    allowNull: true,
   },
   gender: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
-  motherTonque: {
+  motherTongue: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   anyOtherLanguage: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
-  noOfBrothers: { 
+  noOfBrothers: {
     type: DataTypes.INTEGER,
-    allowNull: true
+    allowNull: true,
   },
   noOfSisters: {
     type: DataTypes.INTEGER,
-    allowNull: true
+    allowNull: true,
   },
   address: {
     type: DataTypes.STRING,
-    allowNull: true
-    },
+    allowNull: true,
+  },
   cityVillageTown: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   locality: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   pincode: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   district: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   taluk: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   aadharNumber: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   religion: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   caste: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   socialCategory: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   belongToBPL: {
     type: DataTypes.BOOLEAN,
-    allowNull: true
+    allowNull: true,
   },
   bplCardNumber: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   satsNo: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   bankName: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   accountNumber: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   ifscCode: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   fatherName: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
-  mothername: {
+  motherName: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   fatherAadharNumber: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   motherAadharNumber: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   fatherQualification: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   motherQualification: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   fatherOccupation: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   motherOccupation: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   annualIncome: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   noOfDependents: {
     type: DataTypes.INTEGER,
-    allowNull: true
+    allowNull: true,
   },
   fatherPhoneNumber: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   motherPhoneNumber: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   previousSchoolAffiliation: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   transferCertificateNumber: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   transferCertificateDate: {
     type: DataTypes.DATE,
-    allowNull: true
+    allowNull: true,
   },
   previousSchoolName: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   pincodeOfPreviousSchool: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   diseNo: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   previousSchoolDistrict: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   previousSchoolTaluk: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   previousSchoolVillageCityTown: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   image: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
 });
 

@@ -723,7 +723,7 @@
 
           return filteredData[filteredData.length - 1];
         }
-    
+        
         function displayItem(image, title, text, dates, item) {
           if (item) {
             const imageUrl = item.image.replace(/^.*\/public\//, "../");
@@ -734,7 +734,9 @@
             ? item.content.substring(0, 100) + '...' 
             : item.content;
             document.getElementById(text).textContent = truncatedContent;
-            document.getElementById(dates).textContent = item.dates;
+            const date = new Date(item.dates);
+            const formattedDate = `${date.toLocaleString("default", { month: "long" })} ${date.getDate()}, ${date.getFullYear()}`;
+            document.getElementById(dates).textContent = formattedDate;
           } else {
             document.getElementById(title).textContent="No items available.";
             document.getElementById(title).textContent="No items available.";

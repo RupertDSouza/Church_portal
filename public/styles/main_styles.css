@@ -1016,18 +1016,18 @@ section {
   position: absolute;
   top: 0;
   left: 0;
-  width: 140px;
+  width: 150px;
   height: 90px;
   background: #eb4141;
 }
 .news_date {
   font-size: 10px;
-  font-weight: bold;
   color: #ffffff;
   line-height: 0.75;
 }
 .news_type {
   font-size: 8px;
+  font-weight: 500;
   color: #ffffff;
   line-height: 0.75;
   margin-top: 10px;
