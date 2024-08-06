@@ -1,5 +1,11 @@
 const mongoose = require("mongoose");
 
+const moreInfo = new mongoose.Schema({
+  image: String,
+  gurkarName: String,
+  role: String,
+});
+
 const wardSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -14,6 +20,10 @@ const wardSchema = new mongoose.Schema({
   },
   place: {
     type: String,
+    required: true,
+  },
+  info: {
+    type: [moreInfo],
     required: true,
   },
   noOfFamilies: {

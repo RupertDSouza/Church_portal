@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Wards</title>
+    <title>Associations</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="Demo project" />
@@ -31,8 +31,12 @@
       type="text/css"
       href="plugins/OwlCarousel2-2.2.1/animate.css"
     />
-    <link rel="stylesheet" type="text/css" href="styles/ward.css" />
-    <link rel="stylesheet" type="text/css" href="styles/ward_responsive.css" />
+    <link rel="stylesheet" type="text/css" href="styles/association.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="styles/association_responsive.css"
+    />
   </head>
   <body>
     <div class="super_container">
@@ -62,10 +66,12 @@
                   <div class="header_nav_container ml-auto">
                     <nav class="main_nav">
                       <ul>
-                        <li><a href="/'">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="priest.ejs">Priests</a></li>
-                        <li class="active"><a href="#">Wards</a></li>
-                        <li><a href="associations.ejs">Associations</a></li>
+                        <li><a href="ward.ejs">Wards</a></li>
+                        <li class="active">
+                          <a href="#">Associations</a>
+                        </li>
                         <li><a href="institution.ejs">Commisions</a></li>
                         <li><a href="blog.ejs">Blog</a></li>
                         <li><a href="institution.ejs">Institution</a></li>
@@ -169,10 +175,12 @@
 
           <nav class="menu_nav">
             <ul>
-              <li><a href="/'">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="priest.ejs">Priests</a></li>
-              <li class="active"><a href="#">Wards</a></li>
-              <li><a href="associations.ejs">Associations</a></li>
+              <li><a href="ward.ejs">Wards</a></li>
+              <li class="active">
+                <a href="#">Associations</a>
+              </li>
               <li><a href="institution.ejs">Commisions</a></li>
               <li><a href="blog.ejs">Blog</a></li>
               <li><a href="institution.ejs">Institution</a></li>
@@ -199,11 +207,11 @@
                 <div
                   class="home_content d-flex flex-row align-items-center justify-content-start"
                 >
-                  <div class="home_title">Wards</div>
+                  <div class="home_title">Associations</div>
                   <div class="home_breadcrumbs ml-auto">
                     <ul class="breadcrumbs">
                       <li><a href="index.ejs">Home</a></li>
-                      <li>Wards</li>
+                      <li>Associations</li>
                     </ul>
                   </div>
                 </div>
@@ -213,9 +221,9 @@
         </div>
       </div>
 
-      <div class="ward">
+      <div class="association">
         <div
-          class="ward_background"
+          class="association_background"
           style="background-image: url(images/sermon.png)"
         ></div>
         <div class="container">
@@ -225,7 +233,7 @@
                 <div class="section_image">
                   <img src="images/ward-01.png" alt />
                 </div>
-                <div class="section_title"><h2>Our Wards</h2></div>
+                <div class="section_title"><h2>Our Associations</h2></div>
                 <div class="section_subtitle">God loves us all</div>
               </div>
             </div>
@@ -235,7 +243,7 @@
 
       <div class="popular">
         <div class="container">
-          <div class="row popular_row" id="ward-container">
+          <div class="row popular_row" id="association-container">
             <!-- display here -->
           </div>
         </div>
@@ -319,7 +327,7 @@
         </div>
       </footer>
     </div>
-    <script src="js/ward.js"></script>
+    <script src="js/association.js"></script>
     <script src="js/footeraddress.js"></script>
     <script src="js/footerContact.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>

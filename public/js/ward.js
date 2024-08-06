@@ -9,7 +9,6 @@ async function loadWardInfo(containerId) {
     }
 
     const data = await response.json();
-    console.log(data);
 
     const container = document.getElementById(containerId);
     container.innerHTML = ""; // Clear existing content
@@ -20,7 +19,6 @@ async function loadWardInfo(containerId) {
 
     for (let index = 0; index <= data.length - 1; index++) {
       const item = data[index];
-      console.log(item);
 
       const imageUrl = item.image.replace(/^.*\/public\//, "../");
       const itemHtml = `
@@ -32,7 +30,7 @@ async function loadWardInfo(containerId) {
                             </div>
                             <div class="ward_content">
                             <div class="ward_title">
-                                <a href="ward_single.ejs"> ${item.name} </a>
+                                <h2> ${item.name} </h2>
                             </div>
                             <ul class="ward_list">
                                 <li>Place: ${item.place}</li>

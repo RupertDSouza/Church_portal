@@ -8,7 +8,6 @@ exports.create = async (req, res) => {
         message: "Not allowed, Check Role",
       });
     }
-    console.log(">>>", req.body);
     const create = await req.repo.create(req.body);
     if (!create || create === 0) {
       return res.status(400).json({

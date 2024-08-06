@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 
-const associationSchema = new mongoose.Schema({
+const memberSchema = new mongoose.Schema({
   category: {
-    type: String,
+    type: [String],
+    default: [],
   },
   name: {
     type: String,
     required: [true, "Name is required"],
   },
-  description: {
+  designation: {
     type: String,
     required: [true, "Details is required"],
   },
@@ -17,6 +18,6 @@ const associationSchema = new mongoose.Schema({
   },
 });
 
-const association = new mongoose.model("Association", associationSchema);
+const member = new mongoose.model("Member", memberSchema);
 
-module.exports = association;
+module.exports = member;

@@ -16,15 +16,11 @@
 	3.6 Hamburger
 4. Menu
 5. Home
-	5.1 Home Slider
-6. Intro
-7. Services
-8. priest
-9. Causes
-10. Quote
-11. News
-12. Newsletter
-13. Footer
+6. Sermon
+7. Popular Sermons
+8. Featured
+9. Newsletter
+10. Footer
 
 
 ******************************/
@@ -76,7 +72,6 @@ p {
 }
 p:last-of-type {
   margin-bottom: 0;
-  text-align: justify;
 }
 p a {
   display: inline;
@@ -218,6 +213,10 @@ section {
 .prlx {
   height: 130% !important;
 }
+.parallax-window {
+  min-height: 400px;
+  background: transparent;
+}
 .nopadding {
   padding: 0px !important;
 }
@@ -311,6 +310,7 @@ section {
 /*********************************
 3.3 Logo
 *********************************/
+
 .logo_align {
   display: flex;
   justify-content: center;
@@ -335,7 +335,6 @@ section {
   color: #eb4141;
   margin: 0;
   font-size: 1.5em; /* Adjust as needed */
-  font-weight: 600;
   line-height: 1.2; /* Improve vertical spacing */
 }
 
@@ -439,7 +438,6 @@ section {
   outline: none;
   cursor: pointer;
 }
-
 .modal {
   display: none;
   position: fixed;
@@ -618,47 +616,6 @@ section {
 .menu_close:hover i {
   color: #eb4141;
 }
-
-/*********************************
-5. Home
-*********************************/
-
-.home {
-  width: 100%;
-  height: 100vh;
-}
-
-/*********************************
-5.1 Home Slider
-*********************************/
-
-.home_slider_container {
-  width: 100%;
-  height: 100%;
-}
-.home_slider_background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-}
-.home_slider_content {
-  position: absolute;
-  width: 100%;
-  top: 38.5%;
-  left: 50%;
-  padding-left: 15px;
-  padding-right: 15px;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
 .cross_1 {
   width: 89px;
   height: 89px;
@@ -669,157 +626,64 @@ section {
 .cross_1 img {
   width: 44px !important;
 }
-.home_slider_content h1 {
-  font-size: 112px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-top: 29px;
-}
-.home_slider_button {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-}
-.home_slider_nav {
-  position: absolute;
-  top: 57%;
-  width: 33px;
-  height: 33px;
-  border-radius: 50%;
-  background: rgba(235, 65, 65, 1);
-  z-index: 10;
-  cursor: pointer;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-.home_slider_nav:hover {
-  background: rgba(235, 65, 65, 0.75);
-}
-.home_slider_prev {
-  left: 50px;
-}
-.home_slider_next {
-  right: 50px;
-}
 
 /*********************************
-6. Intro
+5. Home
 *********************************/
 
-.intro {
-  padding-top: 97px;
-  padding-bottom: 98px;
-  background: #ffffff;
-}
-.intro_content {
-  margin-top: 85px;
-}
-.intro_text {
-  width: 100%;
-  margin-top: -8px;
-}
-.intro_button {
-  margin-top: 50px;
-}
-.intro_image {
+.home {
   width: 100%;
 }
-.intro_image img {
-  max-width: 100%;
-}
-
-/*********************************
-7. Services
-*********************************/
-
-.services {
-  padding-top: 97px;
-  padding-bottom: 38px;
-}
-.services_background {
+.home_background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.services .section_title h2,
-.services .section_subtitle {
-  color: #ffffff;
-}
-.services_text {
-  margin-top: 76px;
-}
-.services_text p {
-  color: #ffffff;
-  font-weight: 400;
-}
-.services_row {
-  margin-top: 91px;
-}
-.services_item {
+.home_container {
   width: 100%;
-  margin-bottom: 60px;
+  height: 323px;
 }
-.services_image {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto;
-}
-.services_image {
-  max-width: 100%;
-  max-height: 100%;
-}
-.services_title {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 18px;
-  color: #ffffff;
-  margin-top: 18px;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-.services_title::after {
-  display: block;
+.home_content {
   position: absolute;
-  left: 0;
-  bottom: 0px;
   width: 100%;
-  height: 1px;
-  background: #ffd600;
-  content: "";
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
+  left: 0;
+  bottom: 60px;
 }
-.services_item:hover .services_title {
+.home_title {
+  font-size: 30px;
+  color: #ffffff;
+  line-height: 0.75;
+}
+.breadcrumbs li {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
   color: #eb4141;
+  font-weight: 600;
+  line-height: 0.75;
 }
-.services_item:hover .services_title::after {
-  visibility: visible;
-  opacity: 1;
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 5px;
+  color: #ffffff;
+}
+.breadcrumbs li a {
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 0.75;
 }
 
 /*********************************
-8. priest
+6. associations
 *********************************/
 
-.priest {
+.association {
   padding-top: 97px;
-  padding-bottom: 98px;
-  background: #f0f4f8;
+  padding-bottom: 10px;
 }
-.priest_background {
+.association_background {
   position: absolute;
   top: 0;
   left: 0;
@@ -829,80 +693,26 @@ section {
   background-size: cover;
   background-position: center center;
 }
-.priest_row {
+.association_row {
   margin-top: 84px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
 }
-.priest_image {
-  width: 100%;
+.association_item:hover .association_item_image {
 }
-.priest_image img {
-  max-width: 100%;
-}
-.priest_content {
-  width: 100%;
-  margin-top: -8px;
-}
-.priest_title {
-  font-size: 24px;
-  font-weight: 500;
-  color: #000000;
-}
-.priest_list {
-  margin-top: 14px;
-}
-.priest_list li {
-  font-size: 14px;
-  font-weight: 500;
-  color: #000000;
-  margin-bottom: 14px;
-}
-.priest_list li:last-child {
-  margin-bottom: 0;
-}
-.priest_list li a {
-  color: #eb4141;
-}
-.priest_text {
-  margin-top: 33px;
-}
-.priest_button {
-  margin-top: 38px;
-}
-
-/*********************************
-9. Causes
-*********************************/
-
-.causes {
-  width: 100%;
-  padding-top: 97px;
-  padding-bottom: 98px;
-  background: #ffffff;
-}
-.causes_slider_container {
-  width: 100%;
-  margin-top: 85px;
-}
-.causes_item:hover .causes_item_image {
-}
-.causes_item_image {
+.association_item_image {
   width: 215px;
   height: 215px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   overflow: hidden;
   margin: 0 auto;
 }
-.causes_item_image::after {
+.association_item_image::after {
   display: block;
   position: absolute;
   top: -1px;
   left: -1px;
   width: calc(100% + 2px);
   height: calc(100% + 2px);
-  border-radius: 50%;
+  /* border-radius: 50%; */
   content: "";
   border: solid 10px #eb4141;
   visibility: hidden;
@@ -913,15 +723,16 @@ section {
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.causes_item_image img {
+.association_item_image img {
   max-width: 100%;
 }
-.causes_item:hover .causes_item_image::after {
+.association_item:hover .association_item_image::after {
   visibility: visible;
   opacity: 1;
 }
-.causes_item_title {
-  font-size: 24px;
+.association_item_title {
+  font-size: 17px;
+  font-weight: 600;
   color: #000000;
   margin-top: 40px;
   -webkit-transition: all 200ms ease;
@@ -930,130 +741,128 @@ section {
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.causes_item_text {
+.association_item_text {
   margin-top: 12px;
 }
-.causes_item:hover .causes_item_title {
+.association_item:hover .association_item_title {
   color: #eb4141;
 }
-.causes_slider_nav {
-  position: absolute;
-  top: 99px;
-  width: 33px;
-  height: 33px;
-  border-radius: 50%;
-  background: #cbcbcb;
+.imageAndInfo {
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-size: 24px;
+    color: #fff;
+    background-color: #333; */
+  transition: transform 0.5s ease;
+}
+.association_buttons {
+  margin-top: 64px;
+}
+.association_buttons ul li {
+  display: inline-block;
+  margin-right: 18px;
   cursor: pointer;
 }
-.causes_slider_nav:hover {
-  background: #eb4141;
+.association_buttons ul li img,
+.association_buttons ul li svg {
+  width: 27px;
+  height: 27px;
 }
-.causes_slider_prev {
-  left: -95px;
+.association_buttons ul li img svg {
+  max-width: 100%;
 }
-.causes_slider_next {
-  right: -95px;
+.svg path,
+.svg rect,
+.svg polygon {
+  fill: #c4c4c5;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.association_item:hover .svg path,
+.association_item:hover .svg rect,
+.association_item:hover .svg polygon {
+  fill: #eb4141;
 }
 
 /*********************************
-10. Quote
+7. Popular Sermons
 *********************************/
 
-.quote {
+.popular {
   width: 100%;
-  padding-top: 97px;
-  padding-bottom: 98px;
+  background: #ffffff;
 }
-.quote_background {
+.popular_row {
+  justify-content: center;
+  align-content: center;
+}
+.popular_item {
+  width: 100%;
+  overflow-y: auto;
+}
+.popular_image {
+  width: 100%;
+}
+.popular_image img {
+  max-width: 100%;
+  margin-top: 30px;
+}
+.popular .association_content {
+  margin-top: 42px;
+}
+.popular .association_buttons {
+  margin-top: 30px;
+}
+
+/*********************************
+8. Featured
+*********************************/
+
+.featured {
+}
+.featured_col {
+  padding-left: 44px;
+  padding-right: 44px;
+  padding-top: 43px;
+  padding-bottom: 45px;
+}
+.featured_background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.quote .section_title h2,
-.quote .section_subtitle {
+.featured_1 {
+  width: 40%;
+  padding: 30px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+.featured_col_2 {
+  padding-left: 219px;
+  padding-top: 111px;
+  padding-bottom: 113px;
+  padding-right: 160px;
+}
+.featured_2 {
+}
+.featured .association_title,
+.featured .association_list li,
+.featured .association_text p {
   color: #ffffff;
 }
-.quote_row {
-  margin-top: 55px;
-}
-.quote_text {
-  font-size: 18px;
-  font-style: italic;
-  color: #ffffff;
+.featured .association_buttons {
   margin-top: 30px;
-  line-height: 2;
-}
-.quote_source {
-  font-size: 18px;
-  color: #e6c100;
-  margin-top: 26px;
 }
 
 /*********************************
-11. News
-*********************************/
-
-.news {
-  width: 100%;
-  padding-top: 98px;
-  padding-bottom: 98px;
-  background: #ffffff;
-}
-.news_row {
-  margin-top: 95px;
-}
-.news_item {
-  width: 100%;
-}
-.news_image {
-  width: 100%;
-}
-.news_image img {
-  max-width: 100%;
-}
-.news_date_bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 90px;
-  background: #eb4141;
-}
-.news_date {
-  font-size: 10px;
-  color: #ffffff;
-  line-height: 0.75;
-}
-.news_type {
-  font-size: 8px;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 0.75;
-  margin-top: 10px;
-}
-.news_title {
-  font-size: 18px;
-  color: #000000;
-  font-weight: 500;
-  margin-top: 38px;
-}
-.news_text {
-  margin-top: 18px;
-}
-.news_link {
-  margin-top: 18px;
-}
-.news_link a {
-  font-size: 14px;
-  color: #eb4141;
-  font-style: italic;
-  font-weight: 500;
-}
-
-/*********************************
-13. Footer
+10. Footer
 *********************************/
 
 .footer {
@@ -1061,22 +870,24 @@ section {
   background: #161619;
   padding-top: 88px;
 }
-.footer .logo_container {
-  width: 100%;
-  padding-top: 35px;
-}
-
-.footer .logo_text h2 {
+.footer .logo a span {
+  font-size: 49px;
   color: #ffffff;
-  margin: 0;
-  font-size: 2em; /* Adjust as needed */
-  line-height: 1.2; /* Improve vertical spacing */
 }
-
-.footer .logo_text span {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.5em; /* Adjust as needed */
-  color: #eb4141;
+.footer .logo a img {
+  display: inline-block;
+  -webkit-transform: translateY(5px);
+  -moz-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  -o-transform: translateY(5px);
+  transform: translateY(5px);
+}
+.logo_subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #797979;
+  margin-top: -11px;
+  padding-left: 4px;
 }
 .footer_social {
   margin-top: 45px;
@@ -1164,9 +975,9 @@ section {
   font-weight: 500;
   color: #eb4141;
 }
-/* .footer_contact_phone span {
+.footer_contact_phone span {
   float: left;
-} */
+}
 .footer_contact_phone div {
   padding-left: 28px;
 }
@@ -1180,137 +991,9 @@ section {
   line-height: 84px;
   margin-top: 75px;
 }
-
 .footer_ul {
   display: flex;
 }
 .footer_li {
   padding: 10px;
-}
-/*********************************
-14. Obituray slider
-*********************************/
-
-.slider-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.slider-container {
-  width: 100%; /* 3 items * 300px each */
-  overflow: hidden;
-  margin: 0 10px;
-}
-
-.slider {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.imageAndInfo {
-  min-width: 350px; /* Adjust width for 3 items */
-  height: 450px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.5s ease;
-}
-
-.slider-nav {
-  background-color: #eb4141;
-  border: none;
-  cursor: pointer;
-  padding: 10px; /* Decreased padding */
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slider-nav img {
-  width: 15px; /* Decreased size */
-  height: 15px; /* Decreased size */
-}
-
-/* Mobile responsive styles */
-@media (max-width: 768px) {
-  .slider-wrapper {
-    display: grid;
-    text-align: center;
-  }
-  .slider-container {
-    width: 100%;
-  }
-  .slider-nav {
-    background-color: #c3bfbf;
-  }
-}
-
-/*********************************
-15. Poster slider
-*********************************/
-
-.poster-container {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.poster-slider {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out, left 1s ease-in-out;
-}
-.poster-slider.active {
-  left: 0;
-  opacity: 1;
-}
-
-.poster-slider.prev {
-  left: -100%;
-  opacity: 0;
-}
-
-/*********************************
-16. numbers
-*********************************/
-
-.number-row {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-}
-
-.number-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.label {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #f0f4f8;
-  /* font-family: "Bilbo", serif; */
-}
-
-.number {
-  font-size: 3rem;
-  font-weight: bold;
-  /* padding: 20px; */
-  border-radius: 8px;
-  text-align: center;
-  width: 80px;
-  /* height: 80px; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Biblo", serif;
-  color: #f0f4f8;
 }

@@ -2,13 +2,14 @@ const mongoose = require("mongoose");
 
 const associationSchema = new mongoose.Schema({
   category: {
-    type: String,
+    type: [String],
+    default: [],
   },
   name: {
     type: String,
     required: [true, "Name is required"],
   },
-  description: {
+  designation: {
     type: String,
     required: [true, "Details is required"],
   },
