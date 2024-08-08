@@ -169,7 +169,7 @@
     
   async function displayResults() {
       try {
-          const response = await fetch("/app/gallery/read", {
+          const response = await fetch("/app/document/read", {
               method: "GET",
           });
   
@@ -177,7 +177,7 @@
               throw new Error("Network response was not ok " + response.statusText);
           }
   
-          const result = await response.json();
+          const result = await response.json(); 
           const cardsContainer = document.getElementById("cards-container");
   
           result.forEach(record => {
@@ -265,7 +265,7 @@ async function deleteCard(cardId) {
       }
 
       try {
-        const response = await fetch(`/app/gallery/delete/${cardId}`, {
+        const response = await fetch(`/app/document/delete/${cardId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

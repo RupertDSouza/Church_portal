@@ -122,6 +122,10 @@
                     <input type="text" class="form-control" id="name" name="name" >
                     </div>
                     <div class="mb-3">
+                      <label class="form-label" for="type">Type</label>
+                      <input type="text" class="form-control" id="type" name="type" >
+                      </div>
+                    <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
                     <input type="text" class="form-control" id="description" name="description" >
                     </div>
@@ -190,7 +194,7 @@ async function createGallery() {
             const formData = new FormData(form);
 
             try {
-                const response = await fetch('/app/gallery/create', {
+                const response = await fetch('/app/document/create', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
