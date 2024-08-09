@@ -84,15 +84,6 @@
 ************/
 
 @media only screen and (max-width: 1024px) {
-  .header_nav_container {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-  }
-  .search {
-    margin-left: 500px;
-  }
 }
 
 /************
@@ -108,17 +99,6 @@
   }
   .institution_buttons {
     margin-top: 40px;
-  }
-  .newsletter_content {
-    height: auto;
-    padding-top: 40px;
-    padding-bottom: 50px;
-  }
-  .newsletter_form_container {
-    margin-top: 30px;
-  }
-  .footer_col:not(:last-child) {
-    margin-bottom: 30px;
   }
 }
 
@@ -141,9 +121,6 @@
 ************/
 
 @media only screen and (max-width: 768px) {
-  .search {
-    margin-left: 300px;
-  }
 }
 
 /************
@@ -151,20 +128,8 @@
 ************/
 
 @media only screen and (max-width: 767px) {
-  .top_bar {
-    display: none;
-  }
-  .header.scrolled {
-    top: 0px;
-  }
-  .home_container {
-    height: 286px;
-  }
   .comment_input_email {
     margin-top: 28px;
-  }
-  .search {
-    margin-left: 165px;
   }
 }
 
@@ -173,97 +138,12 @@
 ************/
 
 @media only screen and (max-width: 575px) {
-  p {
-    font-size: 13px;
-    font-weight: 400;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  .button {
-    width: 117px;
-    height: 36px;
-  }
-  .button a {
-    font-size: 10px;
-    line-height: 36px;
-  }
-  .home_container {
-    height: 215px;
-  }
-  .home_title {
-    font-size: 24px;
-  }
-  .breadcrumbs li,
-  .breadcrumbs li a {
-    font-size: 12px;
-  }
-  .section_subtitle {
-    font-size: 16px;
-  }
-  .header_content {
-    height: 65px;
-  }
-  .search {
-    margin-left: 20px;
-  }
-  .header.scrolled .header_content {
-    height: 65px;
-  }
-  .cross_1 {
-    height: 59px;
-    width: 59px;
-  }
-  .cross_1 img {
-    width: 34px !important;
-  }
-  .quote_text,
-  .quote_source {
-    font-size: 14px;
-  }
-  .menu_close {
-    top: 21px;
-    right: 40px;
-  }
-  .menu_search_form {
-    width: 100%;
-    padding-right: 15px;
-  }
-  .menu_search_input {
-    width: 100%;
-  }
-  .menu_search_button {
-    right: 15px;
-  }
-  .menu_content {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
   .institution_pastor_image {
     width: 80px;
     height: 80px;
   }
   .institution_pastor_content {
     margin-left: 30px;
-  }
-  .newsletter_title {
-    font-size: 24px;
-  }
-  .newsletter_form_container {
-    width: 100%;
-  }
-  .newsletter_form {
-    width: 100%;
-  }
-  .newsletter_input {
-    width: 100%;
-    height: 40px;
-  }
-  .newsletter_button {
-    width: 101px;
-    height: 38px;
-    font-size: 10px;
   }
 }
 
@@ -286,9 +166,6 @@
 ************/
 
 @media only screen and (max-width: 479px) {
-  .search {
-    margin-left: 40px;
-  }
 }
 
 /************
@@ -296,18 +173,4 @@
 ************/
 
 @media only screen and (max-width: 400px) {
-  .search {
-    margin-left: 40px;
-  }
-  .logo_text h2 {
-    color: #eb4141;
-    margin: 0;
-    font-size: 1em; /* Adjust as needed */
-    line-height: 1.2; /* Improve vertical spacing */
-  }
-  .logo_text span {
-    font-family: "Montserrat", sans-serif;
-    font-size: 0.5em; /* Adjust as needed */
-    color: #353535;
-  }
 }
