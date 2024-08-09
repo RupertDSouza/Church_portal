@@ -189,4 +189,7 @@
 ************/
 
 @media only screen and (max-width: 400px) {
+  .imageAndInfo {
+    justify-content: unset;
+  }
 }
