@@ -133,8 +133,9 @@
     padding-right: 52px;
   }
   .featured_1 {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 0;
+    width: 90%;
+    margin-left: 5px;
   }
 }
 
