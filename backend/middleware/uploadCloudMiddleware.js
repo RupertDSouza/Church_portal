@@ -1,12 +1,16 @@
 const cloudinary = require("cloudinary");
+const multer = require("multer");
+const path = require("path");
 require("dotenv").config();
+
+const upload = multer({
+  dest: path.join(__dirname, "../../public/temp"),
+});
 
 const uploadToCloud = async (req, res, next) => {
   // Configuration
   cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
+    url: process.env.CLOUDINARY_URL,
   });
 
   const allowedExtensions = [".png", ".jpg", ".jpeg"];
@@ -18,25 +22,19 @@ const uploadToCloud = async (req, res, next) => {
     ) {
       // Upload an image
       const uploadResult = await cloudinary.uploader
-        .upload(req.file.path, {
-          public_id: req.file.originalname,
-        })
+        .upload(req.file.path)
         .catch((error) => {
-          console.log(error);
+          return res.status(400).json({ Error: error });
         });
 
-      console.log(uploadResult);
-
       // Optimize delivery by resizing and applying auto-format and auto-quality
-      const optimizeUrl = cloudinary.image(req.file.originalname, {
+      const optimizeUrl = cloudinary.url(uploadResult.public_id, {
         transformation: [
           { width: 1000, crop: "scale" },
           { quality: 35 },
           { fetch_format: "auto" },
         ],
       });
-
-      console.log(optimizeUrl);
       req.body.image = optimizeUrl;
       next();
     } else {
@@ -50,4 +48,7 @@ const uploadToCloud = async (req, res, next) => {
   }
 };
 
-module.exports = uploadToCloud;
+module.exports = {
+  uploadImageCloudinary: upload.single("image"),
+  uploadToCloud,
+};

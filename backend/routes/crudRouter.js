@@ -2,7 +2,10 @@ const express = require("express");
 const multer = require("multer");
 const auth = require("../middleware/authMiddleware");
 const { uploadImage, fileUpload } = require("../middleware/uploadMiddleware");
-const uploadToCloud = require("../middleware/uploadCloudMiddleware");
+const {
+  uploadImageCloudinary,
+  uploadToCloud,
+} = require("../middleware/uploadCloudMiddleware");
 const controller = require("../controller/crudController");
 
 const router = express.Router();
@@ -12,7 +15,7 @@ router.post("/create", auth, uploadImage, fileUpload, controller.create);
 
 router.post(
   "/admission",
-  upload.single("image"),
+  uploadImageCloudinary,
   uploadToCloud,
   controller.create
 );
