@@ -19,7 +19,7 @@ async function loadAboutUs(containerId) {
     const item = data[data.length - 1];
 
     const imageUrl = item.image.replace(/^.*\/public\//, "../");
-    const formattedAddress = item.address.replace(/, /g, "\n");
+    // const formattedAddress = item.address.replace(/, /g, "\n");
     const itemHtml = `
                   <div class="container">
           <div class="church_title">About our Church</div>
@@ -40,18 +40,16 @@ async function loadAboutUs(containerId) {
               <ul class="contact_info_list">
                 <li class="address_alignment">
                   <span>Address: </span> 
-                  <div class="contact_address">${formattedAddress}</div>
+                  <div class="contact_address">${item.address}</div>
                 </li>
                 <li class="footer_contact_phone">
                   <span>Phone: </span>${item.contact}
                 </li>
                 <li>
                   <span>Email: </span>
-                  <a id="email" href="" class="__cf_email__" value="${
-                    item.email
-                  }">
-                    [email&#160;protected]
-                  </a>
+                 <a href="mailto:${item.email}" class="__cf_email__">
+                    ${item.email}
+                    </a>
                 </li>
               </ul>
             </div>
