@@ -40,16 +40,6 @@
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-.cross_1 {
-  width: 89px;
-  height: 89px;
-  border-radius: 50%;
-  background: #eb4141;
-  margin: 0 auto;
-}
-.cross_1 img {
-  width: 44px !important;
-}
 .home_slider_content h1 {
   font-size: 112px;
   font-weight: 700;

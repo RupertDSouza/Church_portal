@@ -8,15 +8,22 @@ async function fetchData(url, titleId, imageId, detailsId, addressId) {
       throw new Error("Network response was not ok " + response.statusText);
     }
     const data = await response.json();
-
     const len = data.length - 1;
-    const imageUrl = data[len].image.replace(/^.*\/public\//, "../");
+    const item = data[len];
 
-    document.getElementById(titleId).textContent = data[len].name;
+    const imageUrl = item.image.replace(/^.*\/public\//, "../");
+
+    document.getElementById(titleId).textContent = item.name;
     document.getElementById(imageId).src = imageUrl;
-    document.getElementById(detailsId).textContent = data[len].description;
+    console.log(item.description.length);
+
+    const truncatedContent =
+      item.description.length > 700
+        ? item.description.substring(0, 700) + "..."
+        : item.description;
+    document.getElementById(detailsId).textContent = truncatedContent;
     if (addressId) {
-      document.getElementById(addressId).textContent = data[len].address;
+      document.getElementById(addressId).textContent = item.address;
     }
   } catch (error) {
     console.error("Error fetching data:", error);

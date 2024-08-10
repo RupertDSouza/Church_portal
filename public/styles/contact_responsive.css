@@ -75,10 +75,10 @@
 ************/
 
 @media only screen and (max-width: 991px) {
-  .contact_info_col,
+  /* .contact_info_col,
   .contact_info_image {
-    margin-top: 91px;
-  }
+    margin-top: 15px;
+  } */
   .contact_input_email {
     margin-top: 28px;
   }
@@ -148,4 +148,7 @@
 ************/
 
 @media only screen and (max-width: 400px) {
+  .church_title {
+    font-size: 30px;
+  }
 }

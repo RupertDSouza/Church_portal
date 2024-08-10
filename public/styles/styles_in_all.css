@@ -339,7 +339,6 @@ section {
 /*********************************
 3.4 Main Navigation
 *********************************/
-
 .main_nav {
   display: inline-block;
 }
@@ -534,7 +533,16 @@ section {
 /*********************************
 4. Menu
 *********************************/
-
+.cross_1 {
+  width: 89px;
+  height: 89px;
+  border-radius: 50%;
+  background: #eb4141;
+  margin: 0 auto;
+}
+.cross_1 img {
+  width: 44px !important;
+}
 .menu {
   position: fixed;
   width: 100vw;

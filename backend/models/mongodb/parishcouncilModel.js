@@ -9,6 +9,9 @@ const parishcouncilSchema = new mongoose.Schema({
     type: String,
     require: [true, "Image is Required"],
   },
+  designation: {
+    type: String,
+  },
   contact: {
     type: Number,
   },

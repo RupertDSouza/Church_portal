@@ -18,6 +18,13 @@ const churchSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  contact: {
+    type: String,
+    require: true,
+  },
+  email: {
+    type: String,
+  },
 });
 
 const church = new mongoose.model("Church", churchSchema);
