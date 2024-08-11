@@ -21,10 +21,9 @@
       </div>
       <div >
      
-      <form action="#">
-        <button type="button" class="btn btn-secondary btn-lg" id="updateChurchInfo">Update Church Info</button>
-           </form>
-      </div>
+        <form action="/admin/editChurchInfo.ejs">
+            <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
+        </form>
       
       <div class="header_right d-flex justify-content-between align-items-center">
       
@@ -57,11 +56,11 @@
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="history">History</label>
-                      <input type="text" class="form-control" id="history" name="history" >
+                      <textarea class="form-control" id="history" name="history" rows="3"></textarea>
                       </div>
                     <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" >
+                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="address">Address</label>

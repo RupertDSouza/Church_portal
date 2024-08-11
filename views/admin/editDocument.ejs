@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Edit Gallery</title>
+    <title>Edit Document</title>
 
     <link rel="stylesheet" href="/styles/style1.css" />
     <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
@@ -23,9 +23,8 @@
                             </div>
                             <div>
 
-                                <form action="#">
-                                    <button type="button" class="btn btn-secondary btn-lg" id="updateCurchInfo">Update
-                                        Church Info</button>
+                                <form action="/admin/editChurchInfo.ejs">
+                                    <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
                                 </form>
                             </div>
 
@@ -50,20 +49,21 @@
                             <div class="white_box mb_30">
                                 <div class="box_header ">
                                     <div class="main-title">
-                                        <h3 class="mb-0">Edit Gallery Details</h3>
+                                        <h3 class="mb-0">Edit Document Details</h3>
                                     </div>
                                 </div>
                                 <form>
                                     <div class="mb-3">
-                                        <label class="form-label" for="galleryName">Name</label>
-                                        <input type="text" class="form-control" id="galleryName" name="galleryName">
+                                        <label class="form-label" for="documentName">Name</label>
+                                        <input type="text" class="form-control" id="documentName" name="documentName">
                                     </div>
+                                    <div class="mb-3">
                                     <label class="form-label" for="type">Type</label>
                                     <input type="text" class="form-control" id="type" name="type">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="description">Description</label>
-                                <input type="text" class="form-control" id="description" name="description">
+                                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="link">Link</label>
@@ -85,7 +85,7 @@
                             <div class="white_box mb_30">
                                 <div class="box_header ">
                                     <div class="main-title">
-                                        <h3 class="mb-0">Edit Gallery Image</h3>
+                                        <h3 class="mb-0">Edit Document Image</h3>
                                     </div>
                                 </div>
                                 <form>
@@ -111,7 +111,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         const token = localStorage.getItem('token');
-        const galleryId = localStorage.getItem('galleryId');
+        const documentId = localStorage.getItem('documentId');
         checkAuthAndFetchUserData((error, userData) => {
             if (error) {
                 console.error('Authentication failed');
@@ -122,45 +122,45 @@
             document.getElementById('role').textContent = `Welcome ${userData.role}!`;
 
 
-            if (galleryId) {
+            if (documentId) {
 
-                fetch(`/app/document/read/${galleryId}`)
+                fetch(`/app/document/read/${documentId}`)
                     .then(response => response.json())
                     .then(data => {
-                        document.getElementById('galleryName').value = data.name;
+                        document.getElementById('documentName').value = data.name;
                         document.getElementById('type').value = data.type;
                         document.getElementById('description').value = data.description;
                         document.getElementById('link').value = data.link;
                     })
-                    .catch(error => console.error('Error fetching gallery details:', error));
+                    .catch(error => console.error('Error fetching document details:', error));
             }
         });
         document.getElementById('updateButton').addEventListener('click', () => {
-            const updatedGallery = {
-                name: document.getElementById('galleryName').value,
+            const updatedDocument = {
+                name: document.getElementById('documentName').value,
                 type: document.getElementById('type').value,
                 description: document.getElementById('description').value,
                 link: document.getElementById('link').value
             };
 
-            fetch(`/app/document/update/${galleryId}`, {
+            fetch(`/app/document/update/${documentId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(updatedGallery)
+                body: JSON.stringify(updatedDocument)
             })
                 .then(response => response.json())
                 .then(data => {
 
                     if (data.message === 'Success') {
-                        alert('Gallery updated successfully!');
+                        alert('Document updated successfully!');
                     } else {
-                        alert('Failed to update gallery.');
+                        alert('Failed to update document.');
                     }
                 })
-                .catch(error => console.error('Error updating gallery:', error));
+                .catch(error => console.error('Error updating document:', error));
         });
 
         document.getElementById('updateImage').addEventListener('click', () => {
@@ -173,7 +173,7 @@
             const formData = new FormData();
             formData.append('image', imageInput.files[0]);
 
-            fetch(`/app/document/updateImage/${galleryId}`, {
+            fetch(`/app/document/updateImage/${documentId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -183,12 +183,12 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.message === 'Success') {
-                        alert('Gallery image updated successfully!');
+                        alert('Document image updated successfully!');
                     } else {
-                        alert('Failed to update gallery image.');
+                        alert('Failed to update document image.');
                     }
                 })
-                .catch(error => console.error('Error updating gallery image:', error));
+                .catch(error => console.error('Error updating document image:', error));
         });
     });
 

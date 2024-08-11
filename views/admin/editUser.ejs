@@ -23,9 +23,8 @@
                             </div>
                             <div>
 
-                                <form action="#">
-                                    <button type="button" class="btn btn-secondary btn-lg" id="updateCurchInfo">Update
-                                        Church Info</button>
+                                <form action="/admin/editChurchInfo.ejs">
+                                    <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
                                 </form>
                             </div>
 
@@ -134,7 +133,7 @@
                 fetch(`/app/user/read/${editUserId}`)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data.role);
+                        
                         document.getElementById('userName').value = data.name;
                         document.getElementById('email').value = data.email;
                         document.getElementById('userRole').value = data.role;
