@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Role is required"],
   },
-  avatar:{
+  image:{
     type: String,
   },
 });

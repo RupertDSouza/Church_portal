@@ -1,193 +1,125 @@
 <html>
-    <head>
-        <title>Edit Parish Council</title>
 
-        <link rel="stylesheet" href="/styles/style1.css" />
-        <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
-      
-        
-    </head>
-    <body>
-      <nav class="sidebar">
-        <div class="logo d-flex justify-content-between">
-        <a href="index.html"><img src="../images/logo.jpg" alt></a>
-        <div class="sidebar_close_icon d-lg-none">
-        <i class="ti-close"></i>
-        </div>
-        </div>
-        <ul id="sidebar_menu">
-        <li class="mm-active">
-        <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
-        <img src="../images/menu-icon/1.svg" alt>
-        <span>Dashboard</span>
-        </a>
-       
-        </li>
-        <li class>
-          <a href="/admin/news.ejs">
-        <img src="../images/menu-icon/2.svg" alt>
-        <span>News</span>
-        </a>
-        
-        </li>
-        <li class>
-          <a href="/admin/events.ejs">
-        <img src="../images/time_15311293.png" style="max-width: 70%" alt>
-        <span>Events</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/announcements.ejs">
-        <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
-        <span>Announcements</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/gallery.ejs">
-        <img src="../images/image_12998520.png" style="max-width: 90%" alt>
-        <span>Gallery</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/institution.ejs">
-        <img src="../images/building_15624293.png" style="max-width: 90%" alt>
-        <span>Institution</span>
-          </a>
-        </li>
-        <li class>
-          <a href="/admin/massTimings.ejs">
-        <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
-        <span>Mass Timings</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/readings.ejs">
-        <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
-        <span>Readings</span>
-        </a>
-        </li>
-         <li class>
-          <a href="/admin/users.ejs">
-        <img src="../images/community_16682249.png" style="max-width: 80%" alt>
-        <span>Users</span>
-        </a>
-        </li>
-        </ul>
-        </nav>
-      
-      
-      <section class="main_content dashboard_part">
-      
-      <div class="container-fluid g-0">
-      <div class="row">
-      <div class="col-lg-12 p-0">
-      <div class="header_iner d-flex justify-content-between align-items-center">
-      <div class="sidebar_icon d-lg-none">
-      <i class="ti-menu"></i>
-      </div>
-      <div >
-     
-      <form action="#">
-        <button type="button" class="btn btn-secondary btn-lg" id="updateCurchInfo">Update Church Info</button>
-           </form>
-      </div>
-      
-      <div class="header_right d-flex justify-content-between align-items-center">
-      
-        <div class="profile_info">
-          <img id="profileImage" src="" alt="Profile Image">
-          <div class="profile_info_iner">
-              <p id="role">Welcome!</p>
-              <h5 id="name">User</h5>
-          </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-        <div class="main_content_iner " style="min-height: 0;">
-            <div class="container-fluid plr_30 body_white_bg pt_30">
-            <div class="row justify-content-center">
-            <div class="col-lg-12">
-            <div class="white_box mb_30">
-            <div class="box_header ">
-            <div class="main-title">
-            <h3 class="mb-0">Edit Parish Council Details</h3>
-            </div>
-            </div>
-            <form>
-                <div class="mb-3">
-                    <div class="mb-3">
-                        <label class="form-label" for="parishCouncilName">Name</label>
-                        <input type="text" class="form-control" id="parishCouncilName" name="parishCouncilName" >
+<head>
+    <title>Edit Parish Council</title>
+
+    <link rel="stylesheet" href="/styles/style1.css" />
+    <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+
+
+</head>
+
+<body>
+    <%- include('../handlebars/navbar') %>
+
+        <section class="main_content dashboard_part">
+
+            <div class="container-fluid g-0">
+                <div class="row">
+                    <div class="col-lg-12 p-0">
+                        <div class="header_iner d-flex justify-content-between align-items-center">
+                            <div class="sidebar_icon d-lg-none">
+                                <i class="ti-menu"></i>
+                            </div>
+                            <div>
+
+                                <form action="#">
+                                    <button type="button" class="btn btn-secondary btn-lg" id="updateCurchInfo">Update
+                                        Church Info</button>
+                                </form>
+                            </div>
+
+                            <div class="header_right d-flex justify-content-between align-items-center">
+
+                                <div class="profile_info">
+                                    <img id="profileImage" src="" alt="Profile Image">
+                                    <div class="profile_info_iner">
+                                        <p id="role">Welcome!</p>
+                                        <h5 id="name">User</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_content_iner " style="min-height: 0;">
+                <div class="container-fluid plr_30 body_white_bg pt_30">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="white_box mb_30">
+                                <div class="box_header ">
+                                    <div class="main-title">
+                                        <h3 class="mb-0">Edit Parish Council Details</h3>
+                                    </div>
+                                </div>
+                                <form>
+                                    <div class="mb-3">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="parishCouncilName">Name</label>
+                                            <input type="text" class="form-control" id="parishCouncilName"
+                                                name="parishCouncilName">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="contact">Contact</label>
+                                        <input type="number" class="form-control" id="contact" name="contact">
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-lg"
+                                        id="updateButton">Update</button>
+
+                                </form>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                                <label class="form-label" for="contact">Contact</label>
-                                <input type="number" class="form-control" id="contact" name="contact" >
-                                 </div>
-                         <button type="button" class="btn btn-primary btn-lg" id="updateButton">Update</button>
-            
-            </form>          
-            </div>
-            </div>
-            </div>
-            </div>
+                    </div>
+                </div>
             </div>
 
             <div class="main_content_iner ">
-              <div class="container-fluid plr_30 body_white_bg pt_30">
-              <div class="row justify-content-center">
-              <div class="col-lg-12">
-              <div class="white_box mb_30">
-              <div class="box_header ">
-              <div class="main-title">
-              <h3 class="mb-0">Edit Image</h3>
-              </div>
-              </div>
-              <form>
-                <div class="input-group mb-3">
-                  <input type="file" class="form-control" id="image">
-                  <label class="input-group-text" for="image">Upload</label>
-                  </div>
-                           <button type="button" class="btn btn-primary btn-lg" id="updateImage">Update</button>
-              
-              </form>          
-              </div>
-              </div>
-              </div>
-              </div>
-              </div>
-        </div>
-    </body>
-    <script>
-      
+                <div class="container-fluid plr_30 body_white_bg pt_30">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="white_box mb_30">
+                                <div class="box_header ">
+                                    <div class="main-title">
+                                        <h3 class="mb-0">Edit Image</h3>
+                                    </div>
+                                </div>
+                                <form>
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="image">
+                                        <label class="input-group-text" for="image">Upload</label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-lg"
+                                        id="updateImage">Update</button>
 
-      document.addEventListener('DOMContentLoaded', () => {
-    const userId = localStorage.getItem('userId'); 
-    const token = localStorage.getItem('token');
-    const parishCouncilId = localStorage.getItem('parishCouncilId');
-    
-    if (!token) {
-        window.location.href = '/admin/login.ejs';
-    } 
-        
-           else if (parishCouncilId && userId) {
-            fetch(`/app/user/read/${userId}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<script src="/js/auth.js"></script>
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('token');
+        const parishCouncilId = localStorage.getItem('parishCouncilId');
+        checkAuthAndFetchUserData((error, userData) => {
+            if (error) {
+                console.error('Authentication failed');
+                return;
             }
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('profileImage').src = getImagePath(data.avatar); 
-            document.getElementById('name').textContent = data.userName;
-            
-            document.getElementById('role').textContent = `Welcome ${data.role}!`;
-        })
-        .catch(error => console.error('Error fetching user details:', error));
+            document.getElementById('profileImage').src = getImagePath(userData.image);
+            document.getElementById('name').textContent = userData.name;
+            document.getElementById('role').textContent = `Welcome ${userData.role}!`;
 
+
+            if (parishCouncilId) {
                 fetch(`/app/parishcouncil/read/${parishCouncilId}`)
                     .then(response => response.json())
                     .then(data => {
@@ -196,13 +128,14 @@
                     })
                     .catch(error => console.error('Error fetching parish council details:', error));
             }
-            document.getElementById('updateButton').addEventListener('click', () => {
-                const updatedParishCouncil = {
-                    name: document.getElementById('parishCouncilName').value,
-                    contact: document.getElementById('contact').value
-                };
+        });
+        document.getElementById('updateButton').addEventListener('click', () => {
+            const updatedParishCouncil = {
+                name: document.getElementById('parishCouncilName').value,
+                contact: document.getElementById('contact').value
+            };
 
-                fetch(`/app/parishcouncil/update/${parishCouncilId}`, {
+            fetch(`/app/parishcouncil/update/${parishCouncilId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -210,15 +143,15 @@
                 },
                 body: JSON.stringify(updatedParishCouncil)
             })
-            .then(response => response.json())
-            .then(data => {
-            if (data.message === 'Success') {
-                alert('Parish Council updated successfully!');
-            } else {
-                alert('Failed to update parish council.');
-            }
-        })
-            .catch(error => console.error('Error updating parish council:', error));
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Success') {
+                        alert('Parish Council updated successfully!');
+                    } else {
+                        alert('Failed to update parish council.');
+                    }
+                })
+                .catch(error => console.error('Error updating parish council:', error));
         });
 
         document.getElementById('updateImage').addEventListener('click', () => {
@@ -238,27 +171,27 @@
                 },
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message === 'Success') {
-                    alert('Parish Council image updated successfully!');
-                } else {
-                    alert('Failed to update parish council image.');
-                }
-            })
-            .catch(error => console.error('Error updating parish council image:', error));
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Success') {
+                        alert('Parish Council image updated successfully!');
+                    } else {
+                        alert('Failed to update parish council image.');
+                    }
+                })
+                .catch(error => console.error('Error updating parish council image:', error));
         });
     });
 
-    
+
     function getImagePath(image) {
-    if (image) {
-       
-        return image.replace("../../Church_portal/public/", "/");
-    }
-    return "";
+        if (image) {
+
+            return image.replace("../../Church_portal/public/", "/");
+        }
+        return "";
     }
 
-    </script>
+</script>
 
 </html>

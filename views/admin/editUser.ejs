@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Edit Ward</title>
+    <title>Edit User</title>
 
     <link rel="stylesheet" href="/styles/style1.css" />
     <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
@@ -50,29 +50,30 @@
                             <div class="white_box mb_30">
                                 <div class="box_header ">
                                     <div class="main-title">
-                                        <h3 class="mb-0">Edit Ward Details</h3>
+                                        <h3 class="mb-0">Edit User Details</h3>
                                     </div>
                                 </div>
                                 <form>
                                     <div class="mb-3">
-                                        <label class="form-label" for="wardName">Ward Name</label>
-                                        <input type="text" class="form-control" id="wardName" name="wardName">
+                                        <label class="form-label" for="userName">User Name</label>
+                                        <input type="text" class="form-control" id="userName" name="userName">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="description">description</label>
-                                        <textarea class="form-control" id="description" name="description"></textarea>
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="place">Place</label>
-                                        <input type="text" class="form-control" id="place" name="place">
+                                        <label class="form-label" for="role">Role</label>
+                                        <input type="text" class="form-control" id="userRole" name="role">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="noOfFamilies">No Of Families</label>
-                                        <input type="text" class="form-control" id="noOfFamilies" name="noOfFamilies">
+                                        <label class="form-label" for="password">New Password</label>
+                                        <input type="password" class="form-control" id="password" name="password">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="noOfMembers">No Of Members</label>
-                                        <input type="text" class="form-control" id="noOfMembers" name="noOfFamilies">
+                                        <label class="form-label" for="password">Confirm Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            name="password">
                                     </div>
                                     <button type="button" class="btn btn-primary btn-lg"
                                         id="updateButton">Update</button>
@@ -91,7 +92,7 @@
                             <div class="white_box mb_30">
                                 <div class="box_header ">
                                     <div class="main-title">
-                                        <h3 class="mb-0">Edit Ward image</h3>
+                                        <h3 class="mb-0">Edit User image</h3>
                                     </div>
                                 </div>
                                 <form>
@@ -116,8 +117,10 @@
 
 
     document.addEventListener('DOMContentLoaded', () => {
+
+        const editUserId = localStorage.getItem('editUserId');
         const token = localStorage.getItem('token');
-        const wardId = localStorage.getItem('wardId');
+
         checkAuthAndFetchUserData((error, userData) => {
             if (error) {
                 console.error('Authentication failed');
@@ -127,49 +130,55 @@
             document.getElementById('name').textContent = userData.name;
             document.getElementById('role').textContent = `Welcome ${userData.role}!`;
 
-
-            if (wardId) {
-
-                fetch(`/app/ward/read/${wardId}`)
+            if (editUserId) {
+                fetch(`/app/user/read/${editUserId}`)
                     .then(response => response.json())
                     .then(data => {
-                        document.getElementById('wardName').value = data.name;
-                        document.getElementById('description').value = data.description;
-                        document.getElementById('place').value = data.place;
-                        document.getElementById('noOfFamilies').value = data.noOfFamilies;
-                        document.getElementById('noOfMembers').value = data.noOfMembers;
+                        console.log(data.role);
+                        document.getElementById('userName').value = data.name;
+                        document.getElementById('email').value = data.email;
+                        document.getElementById('userRole').value = data.role;
+
                     })
-                    .catch(error => console.error('Error fetching ward details:', error));
+                    .catch(error => console.error('Error fetching user details:', error));
             }
         });
+
+
         document.getElementById('updateButton').addEventListener('click', () => {
-            console.log('update button clicked');
-            const updatedWard = {
-                name: document.getElementById('name').value,
-                description: document.getElementById('description').value,
-                place: document.getElementById('place').value,
-                noOfFamilies: document.getElementById('noOfFamilies').value,
-                noOfMembers: document.getElementById('noOfMembers').value
+            const newPassword = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+
+            if (newPassword !== confirmPassword) {
+                alert('New password and confirm password do not match!');
+                return;
+            }
+            const updatedUser = {
+                name: document.getElementById('userName').value,
+                email: document.getElementById('email').value,
+                role: document.getElementById('userRole').value,
+                password: document.getElementById('password').value
             };
 
-            fetch(`/app/ward/update/${wardId}`, {
+            fetch(`/app/user/update/${editUserId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Include the token in the request headers
+                    'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(updatedWard)
+                body: JSON.stringify(updatedUser)
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Server response:', data); // Log the server response
+
                     if (data.message === 'Success') {
-                        alert('Ward updated successfully!');
+                        alert('User updated successfully!');
                     } else {
-                        alert('Failed to update ward.');
+                        alert('Failed to update user.');
                     }
                 })
-                .catch(error => console.error('Error updating ward:', error));
+                .catch(error => console.error('Error updating user:', error));
         });
 
         document.getElementById('updateImage').addEventListener('click', () => {
@@ -182,7 +191,7 @@
             const formData = new FormData();
             formData.append('image', imageInput.files[0]);
 
-            fetch(`/app/ward/updateImage/${wardId}`, {
+            fetch(`/app/user/updateImage/${editUserId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -192,12 +201,12 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.message === 'Success') {
-                        alert('Ward image updated successfully!');
+                        alert('User image updated successfully!');
                     } else {
-                        alert('Failed to update ward image.');
+                        alert('Failed to update user image.');
                     }
                 })
-                .catch(error => console.error('Error updating ward image:', error));
+                .catch(error => console.error('Error updating user image:', error));
         });
     });
 
