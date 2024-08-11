@@ -23,9 +23,8 @@
                             </div>
                             <div>
 
-                                <form action="#">
-                                    <button type="button" class="btn btn-secondary btn-lg" id="updateCurchInfo">Update
-                                        Church Info</button>
+                                <form action="/admin/editChurchInfo.ejs">
+                                    <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
                                 </form>
                             </div>
 
@@ -60,8 +59,12 @@
                                             name="associationName">
                                     </div>
                                     <div class="mb-3">
+                                        <label class="form-label" for="category">Category</label>
+                                        <input type="text" class="form-control" id="category" name="category">
+                                    </div>
+                                    <div class="mb-3">
                                         <label class="form-label" for="description">Description</label>
-                                        <input type="text" class="form-control" id="description" name="description">
+                                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                                     </div>
 
                                     <button type="button" class="btn btn-primary btn-lg"
@@ -126,6 +129,7 @@
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('associationName').value = data.name;
+                        document.getElementById('category').value = data.category;
                         document.getElementById('description').value = data.description;
                     })
                     .catch(error => console.error('Error fetching association details:', error));
@@ -135,7 +139,7 @@
             const updatedAssociation = {
                 name: document.getElementById('associationName').value,
                 description: document.getElementById('description').value,
-
+                category: document.getElementById('category').value
             };
 
             fetch(`/app/association/update/${associationId}`, {

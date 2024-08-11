@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Create Priest</title>
+    <title>Create Document</title>
 
     <link rel="stylesheet" href="/styles/style1.css" />
     <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
@@ -49,40 +49,27 @@
                             <div class="white_box mb_30">
                                 <div class="box_header ">
                                     <div class="main-title">
-                                        <h3 class="mb-0">Create Ward </h3>
+                                        <h3 class="mb-0">Create Document </h3>
                                     </div>
                                 </div>
-                                <form id="createPriestForm">
+                                <form id="createDocumentForm">
                                     <div class="mb-3">
-                                        <label class="form-label" for="name">Priest Name</label>
+                                        <label class="form-label" for="name">Name</label>
                                         <input type="text" class="form-control" id="name" name="name">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="contact">Contact</label>
-                                        <input type="number" class="form-control" id="contact" name="contact">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email">
+                                        <label class="form-label" for="type">Type</label>
+                                        <input type="text" class="form-control" id="type" name="type">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="description">Description</label>
                                         <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="fromDate">From Date</label>
-                                        <input type="date" class="form-control" id="fromDate" name="fromDate">
+                                        <label class="form-label" for="link">Link</label>
+                                        <input type="text" class="form-control" id="link" name="link">
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="toDate">To Date</label>
-                                        <input type="date" class="form-control" id="toDate" name="toDate">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="dateOfOrdination">Date Of Ordination</label>
-                                        <input type="date" class="form-control" id="dateOfOrdination"
-                                            name="dateOfOrdination">
-                                    </div>
-                                    <label class="form-label" for="image">Priest Image</label>
+                                    <label class="form-label" for="image">Document Image</label>
                                     <div class="input-group mb-3">
 
                                         <input type="file" class="form-control" id="image" name="image">
@@ -112,12 +99,12 @@
                 console.error('Authentication failed');
                 return;
             }
-
+            
             document.getElementById('profileImage').src = getImagePath(userData.image);
             document.getElementById('name').textContent = userData.name;
             document.getElementById('role').textContent = `Welcome ${userData.role}!`;
         });
-        document.getElementById('createButton').addEventListener('click', createPriest);
+        document.getElementById('createButton').addEventListener('click', createDocument);
     });
     function getImagePath(image) {
         if (image) {
@@ -127,18 +114,18 @@
         return "";
     }
 
-    async function createPriest() {
+    async function createDocument() {
         const token = localStorage.getItem('token');
         if (!token) {
             alert('Please login first');
             return;
         }
 
-        const form = document.getElementById('createPriestForm');
+        const form = document.getElementById('createDocumentForm');
         const formData = new FormData(form);
 
         try {
-            const response = await fetch('/app/priest/create', {
+            const response = await fetch('/app/document/create', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -147,12 +134,12 @@
             });
 
             const data = await response.json();
-            console.log(data);
+
             if (data.message === 'Created Successfully') {
-                alert('Priest created successfully!');
+                alert('Document created successfully!');
 
             } else {
-                alert('Error creating priest: ' + data.message);
+                alert('Error creating document: ' + data.message);
             }
         } catch (error) {
             console.error('Error:', error);

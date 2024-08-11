@@ -23,9 +23,8 @@
                             </div>
                             <div>
 
-                                <form action="#">
-                                    <button type="button" class="btn btn-secondary btn-lg" id="updateChurchInfo">Update
-                                        Church Info</button>
+                                <form action="/admin/editChurchInfo.ejs">
+                                    <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
                                 </form>
                             </div>
 
@@ -60,7 +59,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="description">Description</label>
-                                        <input type="text" class="form-control" id="description" name="description">
+                                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="born">Date of Birth </label>

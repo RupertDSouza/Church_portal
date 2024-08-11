@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const associationSchema = new mongoose.Schema({
+const commisionMemberSchema = new mongoose.Schema({
   category: {
     type: [String],
     default: [],
@@ -18,6 +18,6 @@ const associationSchema = new mongoose.Schema({
   },
 });
 
-const association = new mongoose.model("Association", associationSchema);
+const commisionMember = new mongoose.model("CommisionMember", commisionMemberSchema);
 
-module.exports = association;
+module.exports = commisionMember;

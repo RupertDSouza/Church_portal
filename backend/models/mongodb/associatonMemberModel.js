@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const memberSchema = new mongoose.Schema({
+const associationMemberSchema = new mongoose.Schema({
   category: {
     type: [String],
     default: [],
@@ -18,6 +18,6 @@ const memberSchema = new mongoose.Schema({
   },
 });
 
-const member = new mongoose.model("Member", memberSchema);
+const associationMember = new mongoose.model("AssociationMember", associationMemberSchema);
 
-module.exports = member;
+module.exports = associationMember;
