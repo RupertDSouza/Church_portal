@@ -8,73 +8,7 @@
         
     </head>
     <body>
-      <nav class="sidebar">
-        <div class="logo d-flex justify-content-between">
-        <a href="index.html"><img src="../images/logo.jpg" alt></a>
-        <div class="sidebar_close_icon d-lg-none">
-        <i class="ti-close"></i>
-        </div>
-        </div>
-        <ul id="sidebar_menu">
-        <li class="mm-active">
-        <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
-        <img src="../images/menu-icon/1.svg" alt>
-        <span>Dashboard</span>
-        </a>
-       
-        </li>
-        <li class>
-          <a href="/admin/news.ejs">
-        <img src="../images/menu-icon/2.svg" alt>
-        <span>News</span>
-        </a>
-        
-        </li>
-        <li class>
-          <a href="/admin/events.ejs">
-        <img src="../images/time_15311293.png" style="max-width: 70%" alt>
-        <span>Events</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/announcements.ejs">
-        <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
-        <span>Announcements</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/gallery.ejs">
-        <img src="../images/image_12998520.png" style="max-width: 90%" alt>
-        <span>Gallery</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/institution.ejs">
-        <img src="../images/building_15624293.png" style="max-width: 90%" alt>
-        <span>Institution</span>
-          </a>
-        </li>
-        <li class>
-          <a href="/admin/massTimings.ejs">
-        <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
-        <span>Mass Timings</span>
-        </a>
-        </li>
-        <li class>
-          <a href="/admin/readings.ejs">
-        <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
-        <span>Readings</span>
-        </a>
-        </li>
-         <li class>
-          <a href="/admin/users.ejs">
-        <img src="../images/community_16682249.png" style="max-width: 80%" alt>
-        <span>Users</span>
-        </a>
-        </li>
-        </ul>
-        </nav>
-      
+      <%- include('../handlebars/navbar') %>
       
       <section class="main_content dashboard_part">
       
@@ -167,111 +101,104 @@
               </div>
         </div>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<script src="/js/auth.js"></script>
     <script>
       
-
       document.addEventListener('DOMContentLoaded', () => {
-    const userId = localStorage.getItem('userId'); 
     const token = localStorage.getItem('token');
     let churchId;
-    if (!token) {
-        window.location.href = '/admin/login.ejs';
-    } 
+
+    checkAuthAndFetchUserData((error, userData) => {
+        if (error) {
+            console.error('Authentication failed');
+            return;
+        }
+        document.getElementById('profileImage').src = getImagePath(userData.image);
+        document.getElementById('name').textContent = userData.name;
+        document.getElementById('role').textContent = `Welcome ${userData.role}!`;
         
-    
+        fetchChurchInfo();
+    });
 
+    function fetchChurchInfo() {
+        fetch(`/app/church/read`)
+            .then(response => response.json())
+            .then(data => {
+                churchId = data[0]._id;
+                document.getElementById('churchName').value = data[0].name;
+                document.getElementById('history').value = data[0].history;
+                document.getElementById('description').value = data[0].description;
+                document.getElementById('address').value = data[0].address;  
+            })
+            .catch(error => console.error('Error fetching church info details:', error));
+    }
 
-           else if (  userId) {
-            fetch(`/app/user/read/${userId}`, {
+    document.getElementById('updateButton').addEventListener('click', updateChurchInfo);
+    document.getElementById('updateImage').addEventListener('click', updateChurchImage);
+
+    function updateChurchInfo() {
+        const updatedChurchInfo = {
+            name: document.getElementById('churchName').value,
+            history: document.getElementById('history').value,
+            description: document.getElementById('description').value,
+            address: document.getElementById('address').value
+        };
+
+        fetch(`/app/church/update/${churchId}`, {
+            method: 'PUT',
             headers: {
-                'Authorization': `Bearer ${token}`
-            }
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` 
+            },
+            body: JSON.stringify(updatedChurchInfo)
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('profileImage').src = getImagePath(data.avatar); // Assuming data.image contains the image URL
-            document.getElementById('name').textContent = data.userName;
-            
-            document.getElementById('role').textContent = `Welcome ${data.role}!`;
-        })
-        .catch(error => console.error('Error fetching user details:', error));
-
-                fetch(`/app/church/read`)
-                    .then(response => response.json())
-                    .then(data => {
-                         churchId = data[0]._id;
-                        document.getElementById('churchName').value = data[0].name;
-                        document.getElementById('history').value = data[0].history;
-                        document.getElementById('description').value = data[0].description;
-                        document.getElementById('address').value = data[0].address;  
-                    })
-                    .catch(error => console.error('Error fetching church info details:', error));
-            }
-            document.getElementById('updateButton').addEventListener('click', () => {
-                const updatedChurchInfo = {
-                    name: document.getElementById('churchName').value,
-                    history: document.getElementById('history').value,
-                    description: document.getElementById('description').value,
-                    address: document.getElementById('address').value
-                };
-
-                fetch(`/app/church/update/${churchId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` 
-                },
-                body: JSON.stringify(updatedChurchInfo)
-            })
-            .then(response => response.json())
-            .then(data => {
-           
             if (data.message === 'Success') {
                 alert('Church info updated successfully!');
             } else {
                 alert('Failed to update church info.');
             }
         })
-            .catch(error => console.error('Error updating church info:', error));
-        });
+        .catch(error => console.error('Error updating church info:', error));
+    }
 
-        document.getElementById('updateImage').addEventListener('click', () => {
-            const imageInput = document.getElementById('image');
-            if (imageInput.files.length === 0) {
-                alert('Please select an image to upload.');
-                return;
+    function updateChurchImage() {
+        const imageInput = document.getElementById('image');
+        if (imageInput.files.length === 0) {
+            alert('Please select an image to upload.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', imageInput.files[0]);
+
+        fetch(`/app/church/updateImage/${churchId}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'Success') {
+                alert('Church image updated successfully!');
+            } else {
+                alert('Failed to update church image.');
             }
+        })
+        .catch(error => console.error('Error updating church image:', error));
+    }
+});
 
-            const formData = new FormData();
-            formData.append('image', imageInput.files[0]);
-
-            fetch(`/app/church/updateImage/${churchId}`, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                },
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message === 'Success') {
-                    alert('Church image updated successfully!');
-                } else {
-                    alert('Failed to update church image.');
-                }
-            })
-            .catch(error => console.error('Error updating church image:', error));
-        });
-    });
-
-    
-    function getImagePath(image) {
+function getImagePath(image) {
     if (image) {
-       
         return image.replace("../../Church_portal/public/", "/");
     }
     return ""; 
-  }
+}
     </script>
 
 </html>

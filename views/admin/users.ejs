@@ -11,74 +11,7 @@
     </head>
     <body class="crm_body_bg">
 
-
-
-        <nav class="sidebar">
-            <div class="logo d-flex justify-content-between">
-            <a href="index.html"><img src="../images/logo.jpg" alt></a>
-            <div class="sidebar_close_icon d-lg-none">
-            <i class="ti-close"></i>
-            </div>
-            </div>
-            <ul id="sidebar_menu">
-            <li class="mm-active">
-            <a class="has-arrow" href="/admin/admin.ejs" aria-expanded="true">
-            <img src="../images/menu-icon/1.svg" alt>
-            <span>Dashboard</span>
-            </a>
-           
-            </li>
-            <li class>
-              <a href="/admin/news.ejs">
-            <img src="../images/menu-icon/2.svg" alt>
-            <span>News</span>
-            </a>
-            
-            </li>
-            <li class>
-              <a href="/admin/events.ejs">
-            <img src="../images/time_15311293.png" style="max-width: 70%" alt>
-            <span>Events</span>
-            </a>
-            </li>
-            <li class>
-              <a href="/admin/announcements.ejs">
-            <img src="../images/marketing_12011138.png" style="max-width: 80%" alt>
-            <span>Announcements</span>
-            </a>
-            </li>
-            <li class>
-              <a href="/admin/gallery.ejs">
-            <img src="../images/image_12998520.png" style="max-width: 90%" alt>
-            <span>Gallery</span>
-            </a>
-            </li>
-            <li class>
-              <a href="/admin/institution.ejs">
-            <img src="../images/building_15624293.png" style="max-width: 90%" alt>
-            <span>Institution</span>
-              </a>
-            </li>
-            <li class>
-              <a href="/admin/massTimings.ejs">
-            <img src="../images/watch_2166542.png" style="max-width: 90%" alt>
-            <span>Mass Timings</span>
-            </a>
-            </li>
-            <li class>
-              <a href="/admin/readings.ejs">
-            <img src="../images/open-book_8132217.png" style="max-width: 80%" alt>
-            <span>Readings</span>
-            </a>
-            </li>
-             <li class>
-              <a href="/admin/users.ejs">
-            <img src="../images/community_16682249.png" style="max-width: 80%" alt>
-            <span>Users</span>
-            </a>
-            </li>
-            </ul>
-            </nav>
+        <%- include('../handlebars/navbar') %>
       
       
       <section class="main_content dashboard_part">
@@ -100,7 +33,7 @@
       <div class="header_right d-flex justify-content-between align-items-center">
       <div class="header_notification_warp d-flex align-items-center">
       <li>
-      <a href="#" onclick="redirectToCreateWard()">
+      <a href="#" onclick="redirectToCreateUsers()">
          <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
       </li>
       
@@ -145,33 +78,38 @@
     </div>
 </section>
 
-<div id="response"></div> <!-- Added to handle error messages -->
+<div id="response"></div> 
+
+<!-- Modal Background  -->
+<div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <p>Are you sure you want to delete this card?</p>
+        <button id="confirmDelete" class="btn btn-primary" style="margin-bottom: 10;">Yes</button>
+        <button id="cancelDelete" class="btn btn-secondary">No</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+
+<script src="/js/auth.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const userId = localStorage.getItem('userId');
-        const token = localStorage.getItem('token');
-        
-        if (!token) {
-            window.location.href = '/admin/login.ejs';
-        } else if (userId) {
-            fetch(`/app/user/read/${userId}`, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('profileImage').src = getImagePath(data.avatar);
-                document.getElementById('name').textContent = data.userName;
-                document.getElementById('role').textContent = `Welcome ${data.role}!`;
-            })
-            .catch(error => console.error('Error fetching user details:', error));
-        }
+        checkAuthAndFetchUserData((error, userData) => {
+            if (error) {
+                console.error('Authentication failed');
+                return;
+            }
 
+            document.getElementById('profileImage').src = getImagePath(userData.image);
+            document.getElementById('name').textContent = userData.name;
+            document.getElementById('role').textContent = `Welcome ${userData.role}!`;
+        });
         displayResults();
     });
-
+    
     async function displayResults() {
         try {
             const token = localStorage.getItem('token');
@@ -185,50 +123,118 @@
             if (!response.ok) {
                 throw new Error("Network response was not ok " + response.statusText);
             }
-
+            
             const users = await response.json();
             const tableBody = document.querySelector('.lms_table_active tbody');
-
+            
             // Clear existing table rows
             tableBody.innerHTML = '';
-
+            
             users.forEach(user => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${user.userName}</td>
-                    <td>${user.email}</td>
-                    <td>${user.role}</td>
-                    <td><a href="#" class="status_btn" data-id="${user._id}" style="text-decoration: none;">Edit</a>&nbsp;&nbsp;
-                        <a href="#" class="status_btn" data-id="${user._id}" style="text-decoration: none;">Delete</a></td>
-                `;
-                tableBody.appendChild(row);
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.role}</td>
+                <td><a href="#" class="status_btn edit-btn" data-id="${user._id}" style="text-decoration: none;">Edit</a>&nbsp;&nbsp;
+                    <a href="#" class="status_btn delete-btn" data-id="${user._id}" style="text-decoration: none;">Delete</a></td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+
+                document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const cardId = this.getAttribute('data-id');
+                    showConfirmationModal(cardId);
+                });
+            });
+                
+                document.querySelectorAll('.edit-btn').forEach(button => {
+                    button.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const rowId = this.getAttribute('data-id');
+                        localStorage.setItem('editUserId', rowId);
+                        window.location.href = '/admin/editUser.ejs';
+                    });
+                });
+                
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("response").innerText = "Error: " + error.message;
+            }
+        }
+        
+        function getImagePath(image) {
+            if (image) {
+                
+                return image.replace("../../Church_portal/public/", "/");
+            }
+            return ""; 
+        }
+        function showConfirmationModal(cardId) {
+        const modal = document.getElementById("confirmationModal");
+        modal.style.display = "block";
+
+        const confirmButton = document.getElementById("confirmDelete");
+        const closeButton = document.getElementById("closeModal");
+        const cancelButton = document.getElementById("cancelDelete");
+
+        confirmButton.onclick = async function () {
+            await deleteCard(cardId);
+            modal.style.display = "none";
+        };
+
+        closeButton.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        cancelButton.onclick = function () {
+            modal.style.display = "none";
+        };
+
+    }
+
+    async function deleteCard(cardId) {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('Please login first');
+            return;
+        }
+
+        try {
+            const response = await fetch(`/app/user/delete/${cardId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
             });
 
-            document.querySelectorAll('.edit-btn').forEach(button => {
-            button.addEventListener('click', function(event) {
-                event.preventDefault();
-                const rowId = this.getAttribute('data-id');
-                localStorage.setItem('userId', rowId);
-                window.location.href = '/admin/editUser.ejs';
-            });
-        });
+            if (!response.ok) {
+                throw new Error("Network response was not ok " + response.statusText);
+            }
 
+            const row = document.querySelector(`[data-id='${cardId}']`).closest('tr');
+        if (row) {
+            row.remove();
+        }
+
+        // Optionally, you can show a success message
+        document.getElementById("response").innerText = "User deleted successfully";
         } catch (error) {
             console.error("Error:", error);
-            document.getElementById("response").innerText = "Error: " + error.message;
+            const responseElement = document.getElementById("response");
+            if (responseElement) {
+                responseElement.innerText = "Error: " + error.message;
+            }
         }
     }
-
-    function getImagePath(image) {
-    if (image) {
-        // Adjust the path according to your server's configuration
-        return image.replace("../../Church_portal/public/", "/");
-    }
-    return ""; // Return an empty string if the image is null or undefined
-}
-
-    document.getElementById('updateChurchInfo').addEventListener('click', () => {
-        window.location.href = '/admin/editChurchInfo.ejs';
+        
+        function redirectToCreateUsers() {
+                window.location.href = '/admin/createUser.ejs';
+            }
+        document.getElementById('updateChurchInfo').addEventListener('click', () => {
+            window.location.href = '/admin/editChurchInfo.ejs';
     });
 </script>
 </body>

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Create Association</title>
+    <title>Create User</title>
 
     <link rel="stylesheet" href="/styles/style1.css" />
     <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
@@ -11,7 +11,6 @@
 
 <body>
     <%- include('../handlebars/navbar') %>
-
 
         <section class="main_content dashboard_part">
 
@@ -51,19 +50,29 @@
                             <div class="white_box mb_30">
                                 <div class="box_header ">
                                     <div class="main-title">
-                                        <h3 class="mb-0">Create Association </h3>
+                                        <h3 class="mb-0">Create User </h3>
                                     </div>
                                 </div>
-                                <form id="createAssociationForm">
+                                <form id="createUserForm">
                                     <div class="mb-3">
-                                        <label class="form-label" for="name">Name</label>
+                                        <label class="form-label" for="name">User Name</label>
                                         <input type="text" class="form-control" id="name" name="name">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="description">Description</label>
-                                        <input type="text" class="form-control" id="description" name="description">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email">
                                     </div>
-                                    <label class="form-label" for="image">Association Image</label>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label" for="role">Role</label>
+                                        <input type="text" class="form-control" id="role" name="role">
+                                    </div>
+
+                                    <label class="form-label" for="image">Avatar</label>
                                     <div class="input-group mb-3">
 
                                         <input type="file" class="form-control" id="image" name="image">
@@ -98,28 +107,28 @@
             document.getElementById('name').textContent = userData.name;
             document.getElementById('role').textContent = `Welcome ${userData.role}!`;
         });
-        document.getElementById('createButton').addEventListener('click', createAssociation);
+        document.getElementById('createButton').addEventListener('click', createUser);
     });
     function getImagePath(image) {
         if (image) {
 
             return image.replace("../../Church_portal/public/", "/");
         }
-        return ""; 
+        return "";
     }
 
-    async function createAssociation() {
+    async function createUser() {
         const token = localStorage.getItem('token');
         if (!token) {
             alert('Please login first');
             return;
         }
 
-        const form = document.getElementById('createAssociationForm');
+        const form = document.getElementById('createUserForm');
         const formData = new FormData(form);
-
+        
         try {
-            const response = await fetch('/app/association/create', {
+            const response = await fetch('/app/user/create', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -128,11 +137,12 @@
             });
 
             const data = await response.json();
+
             if (data.message === 'Created Successfully') {
-                alert('Association created successfully!');
-                
+                alert('User created successfully!');
+
             } else {
-                alert('Error creating association: ' + data.message);
+                alert('Error creating user: ' + data.message);
             }
         } catch (error) {
             console.error('Error:', error);
