@@ -54,7 +54,6 @@ function displayItem(containerId, data) {
 }
 
 function displayBlogContent(item_container, item) {
-  console.log(item_container);
   const blogContent = document.getElementById(item_container);
   const imageUrl = item.image.replace(/^.*\/public\//, "../");
 

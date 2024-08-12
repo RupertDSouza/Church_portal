@@ -26,6 +26,12 @@
 ************/
 
 @media only screen and (max-width: 1600px) {
+  .container .row {
+    justify-content: center;
+  }
+  .blog_post {
+    margin-right: 100px;
+  }
 }
 
 /************
@@ -131,6 +137,9 @@
 ************/
 
 @media only screen and (max-width: 479px) {
+  .blog_post {
+    margin-right: 0;
+  }
 }
 
 /************
