@@ -114,22 +114,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       event.preventDefault();
       const title = item.querySelector(".latest_news_title a").textContent;
 
-      const matchingItemNews = [...recentNews].find((newsItem) =>
-        newsItem.title.startsWith(title)
+      const matchingItemNews = recentNews.find(
+        (newsItem) => newsItem.title === title
       );
       if (matchingItemNews) {
         displayBlogContent("news_content", matchingItemNews);
       }
 
-      const matchingItemEvents = [...recentEvents].find((newsItem) =>
-        newsItem.title.startsWith(title)
+      const matchingItemEvents = [...recentEvents].find(
+        (eventsItem) => eventsItem.title === title
       );
       if (matchingItemEvents) {
         displayBlogContent("events_content", matchingItemEvents);
       }
 
       const matchingItemAnnouncements = [...recentAnnouncements].find(
-        (newsItem) => newsItem.title.startsWith(title)
+        (announcementsItem) => announcementsItem.title === title
       );
       if (matchingItemAnnouncements) {
         displayBlogContent("announcements_content", matchingItemAnnouncements);
