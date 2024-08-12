@@ -156,7 +156,11 @@
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.services_title::after {
+.services_title a {
+  color: #ffffff;
+}
+.services_title::after,
+.services_title a::after {
   display: block;
   position: absolute;
   left: 0;
@@ -173,14 +177,15 @@
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.services_item:hover .services_title {
+.services_item:hover .services_title,
+.services_item:hover .services_title a {
   color: #eb4141;
 }
-.services_item:hover .services_title::after {
+.services_item:hover .services_title::after,
+.services_item:hover .services_title a::after {
   visibility: visible;
   opacity: 1;
 }
-
 /*********************************
 5. priest
 *********************************/
