@@ -240,7 +240,7 @@
 
       <div class="services">
         <div
-          class="services_background parallax-window"
+          class="services_background"
           data-parallax="scroll"
           data-image-src="images/services.jpg"
           data-speed="0.1"
@@ -448,7 +448,7 @@
         </div>
       </div>
 
-      <div class="quote lazy-load">
+      <div class="quote">
         <div
           class="quote_background parallax-window"
           data-parallax="scroll"
@@ -626,10 +626,7 @@
 
         <div class="copyright text-center">
           Copyright &copy;
-          <script
-            data-cfasync="false"
-            src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-          ></script>
+          
           <script>
             document.write(new Date().getFullYear());
           </script>
@@ -652,6 +649,16 @@
     <script src="plugins/easing/easing.js"></script>
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
     <script src="js/custom.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        $('.parallax-window').parallax({
+          naturalWidth: 1920,
+          naturalHeight: 1080
+        });
+        $(window).trigger('resize');
+      });
+    </script>
     
     <script>
       window.dataLayer = window.dataLayer || [];

@@ -348,6 +348,9 @@
   color: #e6c100;
   margin-top: 26px;
 }
+.parallax-mirror {
+  z-index: -1 !important; /* Ensure the parallax background stays behind other content */
+}
 
 /*********************************
 8. News

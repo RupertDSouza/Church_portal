@@ -15,7 +15,6 @@ async function fetchData(url, titleId, imageId, detailsId, addressId) {
 
     document.getElementById(titleId).textContent = item.name;
     document.getElementById(imageId).src = imageUrl;
-    console.log(item.description.length);
 
     const truncatedContent =
       item.description.length > 700
