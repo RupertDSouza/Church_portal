@@ -16,6 +16,7 @@ const documentrouter = require("./documentRouter");
 const readingsrouter = require("./readingsRouter");
 const posterrouter = require("./posterRouter");
 const emailRouter = require("./emailRouter");
+const spotlightRouter = require("./spotlightRouter");
 const express = require("express");
 const router = express.Router();
 
@@ -37,7 +38,8 @@ router.use(
   documentrouter,
   readingsrouter,
   posterrouter,
-  emailRouter
+  emailRouter,
+  spotlightRouter
 );
 
 module.exports = router;

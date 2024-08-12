@@ -9,6 +9,51 @@
   height: 100vh;
 }
 
+.ads {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.ads-content {
+  max-width: 100%;
+}
+.ads-content h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+}
+.ads-content p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1c1a1a;
+}
+.close-bttn {
+  position: fixed;
+  top: 0px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.arrow-btn {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  background-color: #eb4141;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  transition: all 0.5s ease;
+}
 /*********************************
 2.1 Home Slider
 *********************************/
