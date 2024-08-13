@@ -21,8 +21,12 @@ async function loadWardInfo(containerId) {
       const item = data[index];
 
       const imageUrl = item.image.replace(/^.*\/public\//, "../");
+      const truncatedContent =
+        item.description.length > 300
+          ? item.description.substring(0, 300) + "..."
+          : item.description;
       const itemHtml = `
-                <div class="featured_1">
+                <div class="featured_1" data-id="${item._id}" onclick="redirectToDetailPage('${item._id}')">
                     <div class="col-lg-12">
                         <div class="popular_item">
                             <div class="popular_image">
@@ -38,7 +42,7 @@ async function loadWardInfo(containerId) {
                                 <li>No of People: ${item.noOfMembers}</li>
                             </ul>
                             <div class="ward_text">
-                                <p>${item.details}</p>
+                                <p>${truncatedContent}</p>
                             </div>
                             </div>
                         </div>
@@ -50,6 +54,11 @@ async function loadWardInfo(containerId) {
   } catch (error) {
     console.error("Error fetching data:", error);
   }
+}
+
+function redirectToDetailPage(wardId) {
+  sessionStorage.setItem("selectedWardId", wardId);
+  window.location.href = `/ward_single`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
