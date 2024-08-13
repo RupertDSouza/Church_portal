@@ -16,15 +16,24 @@ function displayAds() {
   const closeBtn = document.getElementById("closeBtn");
   const arrowBtn = document.getElementById("arrowBtn");
   const bottomIcon = document.getElementById("bottomIcon");
+  const overlay = document.getElementById("overlay");
 
   function showAds() {
     ads.style.display = "block";
     arrowBtn.style.display = "none";
+    overlay.style.display = "block";
+    document.body.classList.add("body-blur");
+    ads.classList.add("no-blur");
+    overlay.classList.add("no-blur");
   }
 
   function hideAds() {
     ads.style.display = "none";
     arrowBtn.style.display = "block";
+    overlay.style.display = "none";
+    document.body.classList.remove("body-blur");
+    ads.classList.remove("no-blur");
+    overlay.classList.remove("no-blur");
   }
 
   // Show Ads initially
@@ -32,6 +41,7 @@ function displayAds() {
 
   closeBtn.addEventListener("click", hideAds);
   arrowBtn.addEventListener("click", showAds);
+  overlay.addEventListener("click", hideAds); // Close ads when clicking outside
 
   bottomIcon.addEventListener("click", () => {
     if (arrowBtn.style.display === "none") {
@@ -65,15 +75,24 @@ async function spotlight(containerId) {
 
   for (let index = data.length - 1; index >= 0; index--) {
     const item = data[index];
-
     const imageUrl = item.image.replace(/^.*\/public\//, "../");
-    const itemHtml = `
-          <div class="ads-container">
-            <img src="${imageUrl}" alt />
-            <h4>${item.title}</h4>
-            <p id="ads-content">${item.description}</p>
-          </div>
-    `;
+
+    let itemHtml = `<div class="ads-container">`;
+
+    if (item.image) {
+      itemHtml += `<img src="${imageUrl}" alt="Advertisement Image" />`;
+    }
+
+    if (item.title) {
+      itemHtml += `<h4>${item.title}</h4>`;
+    }
+
+    if (item.description) {
+      itemHtml += `<p id="ads-content">${item.description}</p>`;
+    }
+
+    itemHtml += `</div>`;
+
     container.insertAdjacentHTML("beforeend", itemHtml);
   }
 

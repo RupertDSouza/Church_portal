@@ -214,4 +214,7 @@
   .imageAndInfo {
     justify-content: unset;
   }
+  .close-bttn {
+    margin-top: 10px;
+  }
 }
