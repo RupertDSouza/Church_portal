@@ -204,6 +204,9 @@
 ************/
 
 @media only screen and (max-width: 479px) {
+  .close-bttn {
+    margin-top: 20px;
+  }
 }
 
 /************
@@ -213,8 +216,5 @@
 @media only screen and (max-width: 400px) {
   .imageAndInfo {
     justify-content: unset;
-  }
-  .close-bttn {
-    margin-top: 20px;
   }
 }
