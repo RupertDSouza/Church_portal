@@ -598,14 +598,14 @@ section {
 .menu_close:hover i {
   color: #eb4141;
 }
-.cross_1 {
+.logo-lg-1 {
   width: 89px;
   height: 89px;
   border-radius: 50%;
   background: #eb4141;
   margin: 0 auto;
 }
-.cross_1 img {
+.logo-lg-1 img {
   width: 44px !important;
 }
 
