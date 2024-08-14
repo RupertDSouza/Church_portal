@@ -193,12 +193,12 @@
   .header.scrolled .header_content {
     height: 65px;
   }
-  .cross_1 {
+  .logo-lg-1 {
     height: 59px;
     width: 59px;
   }
-  .cross_1 img {
-    width: 34px !important;
+  .logo-lg-1 img {
+    width: 44px !important;
   }
   .quote_text,
   .quote_source {

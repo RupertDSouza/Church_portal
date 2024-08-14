@@ -13,39 +13,72 @@ const upload = multer({
 });
 
 const fileUpload = (req, res, next) => {
-  if (req.file) {
-    const tempPath = req.file.path;
-    const targetPath = path.join(
-      __dirname,
-      `../../public/uploads/${req.file.originalname}`
-    );
-
+  const fileFields = Object.keys(req.files || {});
+  if (fileFields.length > 0) {
     const allowedExtensions = [".png", ".jpg", ".jpeg", ".gif"];
-    if (
-      allowedExtensions.includes(
-        path.extname(req.file.originalname).toLowerCase()
-      )
-    ) {
-      fs.rename(tempPath, targetPath, (err) => {
-        if (err) return handleError(err, res);
-        req.body.image = `../../Church_portal/public/uploads/${req.file.originalname}`;
-        next();
-      });
-    } else {
-      fs.unlink(tempPath, (err) => {
-        if (err) return handleError(err, res);
-        return res.status(403).json({
-          error: "Only images are allowed!",
+    const processedFiles = {};
+
+    const processFile = (fieldName, file, callback) => {
+      const tempPath = file.path;
+      const originalName = file.originalname;
+      const targetPath = path.join(
+        __dirname,
+        `../../public/uploads/${originalName}`
+      );
+
+      if (
+        allowedExtensions.includes(path.extname(originalName).toLowerCase())
+      ) {
+        fs.rename(tempPath, targetPath, (err) => {
+          if (err) return callback(err);
+          processedFiles[
+            fieldName
+          ] = `../../Church_portal/public/uploads/${originalName}`;
+          callback(null);
         });
+      } else {
+        fs.unlink(tempPath, (err) => {
+          if (err) return callback(err);
+          callback(
+            new Error(
+              `Only images with extensions ${allowedExtensions.join(
+                ", "
+              )} are allowed.`
+            )
+          );
+        });
+      }
+    };
+
+    const processFiles = (index) => {
+      if (index >= fileFields.length) {
+        // Assign processed files to req.body
+        Object.assign(req.body, processedFiles);
+        next();
+        return;
+      }
+
+      const fieldName = fileFields[index];
+      const file = req.files[fieldName][0]; // We're only processing one file per field
+
+      processFile(fieldName, file, (err) => {
+        if (err) {
+          return handleError(err, res);
+        }
+        processFiles(index + 1);
       });
-    }
+    };
+
+    processFiles(0);
   } else {
-    req.body.image = null;
     next();
   }
 };
 
 module.exports = {
-  uploadImage: upload.single("image"),
+  uploadImage: upload.fields([
+    { name: "image", maxCount: 1 },
+    { name: "gurkarImage", maxCount: 1 },
+  ]),
   fileUpload,
 };

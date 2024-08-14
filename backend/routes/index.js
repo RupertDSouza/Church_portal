@@ -19,6 +19,7 @@ const commisionrouter = require("./commisionRouter");
 const associationmemberrouter = require("./associationMemberRouter");
 const commisionmemberrouter = require("./commisionMemberRouter");
 const emailRouter = require("./emailRouter");
+const spotlightRouter = require("./spotlightRouter");
 const express = require("express");
 const router = express.Router();
 
@@ -43,7 +44,8 @@ router.use(
   emailRouter,
   commisionrouter,
   associationmemberrouter,
-  commisionmemberrouter
+  commisionmemberrouter,
+  spotlightRouter
 );
 
 module.exports = router;

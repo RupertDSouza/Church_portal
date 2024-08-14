@@ -33,9 +33,9 @@ async function loadPoster(containerId) {
           ></div>
           <div class="home_slider_content text-center">
             <div
-              class="cross_1 d-flex flex-column align-items-center justify-content-center"
+              class="logo-lg-1 d-flex flex-column align-items-center justify-content-center"
             >
-              <img src="images/cross_1.png" alt />
+              <img src="images/logo-lg-1.png" alt />
             </div>
             <h1>${item.title}</h1>
             <div class="button home_slider_button">

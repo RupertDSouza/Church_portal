@@ -158,6 +158,9 @@
 ************/
 
 @media only screen and (max-width: 479px) {
+  .ward_sinlge_sidebar {
+    margin-top: 20px;
+  }
 }
 
 /************

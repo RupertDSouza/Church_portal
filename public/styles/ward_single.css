@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+/*********************************
+1. Home
+*********************************/
+
+.home {
+  width: 100%;
+}
+.home_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.home_container {
+  width: 100%;
+  height: 323px;
+}
+.home_content {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 60px;
+}
+.home_title {
+  font-size: 30px;
+  color: #ffffff;
+  line-height: 0.75;
+}
+.breadcrumbs li {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  color: #eb4141;
+  font-weight: 600;
+  line-height: 0.75;
+}
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 5px;
+  color: #ffffff;
+}
+.breadcrumbs li a {
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 0.75;
+}
+
+/*********************************
+2. Ward_sinlge
+*********************************/
+.ward {
+  padding: 80px 0;
+  border-bottom: solid 3px #eb4141;
+}
+.ward_alignment {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.ward_sinlge_content,
+.ward_sinlge_sidebar {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.ward_sinlge_content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.sidebar_container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ward_sinlge_content h2 {
+  color: #2c3e50;
+  padding: 20px;
+  margin: 0;
+  font-size: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.sidebar_section {
+  margin-bottom: 30px;
+}
+.sidebar_single_title {
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.sidebar_container {
+  padding: 20px;
+}
+.sidebar_container img {
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.sidebar_title {
+  color: #2c3e50;
+  font-size: 16px;
+  font-weight: bold;
+}
+.ward_single_text {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  margin-top: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#ward-description {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.ward-info-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.ward_single_text h3,
+.ward-info-container h3 {
+  color: #2c3e50;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.ward-info-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ward-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ward-info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #34495e;
+  flex: 1;
+}
+
+.info-value {
+  font-weight: 900;
+  color: #555;
+  flex: 2;
+  text-align: right;
+}

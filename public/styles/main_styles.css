@@ -9,6 +9,105 @@
   height: 100vh;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(
+    5px
+  ); /* Add -webkit-backdrop-filter for Safari */
+  z-index: 999;
+  display: none;
+}
+.blur-background {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+.ads {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff00;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none;
+  text-align: center;
+  max-width: 90%;
+  width: 400px;
+}
+.ads h2 {
+  color: #eb4141;
+  margin-bottom: 20px;
+  font-size: 24px;
+  background-color: #f3ebeb;
+  border-radius: 5px;
+  padding: 10px;
+}
+.ads-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.ads-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: solid 1px #ede6e6;
+  border-radius: 5px;
+  background-color: #f3ecec;
+}
+.ads-container img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.ads-container h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 10px;
+}
+.ads-container p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666666;
+  line-height: 1.5;
+}
+.close-bttn {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #eb4141;
+  transition: color 0.3s ease;
+}
+.close-bttn:hover {
+  color: #eb4141;
+}
+.arrow-btn {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  background-color: #eb4141;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  transition: all 0.5s ease;
+}
 /*********************************
 2.1 Home Slider
 *********************************/
