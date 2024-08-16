@@ -15,6 +15,9 @@ const churchrouter = require("./churchRouter");
 const documentrouter = require("./documentRouter");
 const readingsrouter = require("./readingsRouter");
 const posterrouter = require("./posterRouter");
+const commisionrouter = require("./commisionRouter");
+const associationmemberrouter = require("./associationMemberRouter");
+const commisionmemberrouter = require("./commisionMemberRouter");
 const emailRouter = require("./emailRouter");
 const spotlightRouter = require("./spotlightRouter");
 const express = require("express");
@@ -39,6 +42,9 @@ router.use(
   readingsrouter,
   posterrouter,
   emailRouter,
+  commisionrouter,
+  associationmemberrouter,
+  commisionmemberrouter,
   spotlightRouter
 );
 
