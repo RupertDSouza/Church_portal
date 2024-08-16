@@ -2,6 +2,9 @@ const authrouter = require("./authRouter");
 const wardrouter = require("./wardRouter");
 const priestrouter = require("./priestRouter");
 const associationrouter = require("./associationRouter");
+const associationMemberrouter = require("./associationMemberRouter");
+const commisionrouter = require("./commisionRouter");
+const commisionMemberrouter = require("./commisionMemberRouter");
 const newsrouter = require("./newsRouter");
 const institutionrouter = require("./institutionRouter");
 const obituaryrouter = require("./obituaryRouter");
@@ -15,9 +18,6 @@ const churchrouter = require("./churchRouter");
 const documentrouter = require("./documentRouter");
 const readingsrouter = require("./readingsRouter");
 const posterrouter = require("./posterRouter");
-const commisionrouter = require("./commisionRouter");
-const associationmemberrouter = require("./associationMemberRouter");
-const commisionmemberrouter = require("./commisionMemberRouter");
 const emailRouter = require("./emailRouter");
 const spotlightRouter = require("./spotlightRouter");
 const express = require("express");
@@ -28,6 +28,9 @@ router.use(
   wardrouter,
   priestrouter,
   associationrouter,
+  associationMemberrouter,
+  commisionrouter,
+  commisionMemberrouter,
   newsrouter,
   institutionrouter,
   obituaryrouter,
@@ -42,9 +45,6 @@ router.use(
   readingsrouter,
   posterrouter,
   emailRouter,
-  commisionrouter,
-  associationmemberrouter,
-  commisionmemberrouter,
   spotlightRouter
 );
 
