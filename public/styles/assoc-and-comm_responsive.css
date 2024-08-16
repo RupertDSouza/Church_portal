@@ -83,10 +83,10 @@
 ************/
 
 @media only screen and (max-width: 991px) {
-  .association_content {
+  .assoc-and-comm_content {
     margin-top: 42px;
   }
-  .featured .association_content {
+  .featured .assoc-and-comm_content {
     margin-top: 0;
   }
 }

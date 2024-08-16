@@ -49,14 +49,14 @@
 }
 
 /*********************************
-2. associations
+2. assoc-and-comms
 *********************************/
 
-.association {
+.assoc-and-comm {
   padding-top: 97px;
   padding-bottom: 10px;
 }
-.association_background {
+.assoc-and-comm_background {
   position: absolute;
   top: 0;
   left: 0;
@@ -66,19 +66,19 @@
   background-size: cover;
   background-position: center center;
 }
-.association_row {
+.assoc-and-comm_row {
   margin-top: 84px;
 }
-.association_item:hover .association_item_image {
+.assoc-and-comm_item:hover .assoc-and-comm_item_image {
 }
-.association_item_image {
+.assoc-and-comm_item_image {
   width: 215px;
   height: 215px;
   /* border-radius: 50%; */
   overflow: hidden;
   margin: 0 auto;
 }
-.association_item_image::after {
+.assoc-and-comm_item_image::after {
   display: block;
   position: absolute;
   top: -1px;
@@ -96,14 +96,14 @@
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.association_item_image img {
+.assoc-and-comm_item_image img {
   max-width: 100%;
 }
-.association_item:hover .association_item_image::after {
+.assoc-and-comm_item:hover .assoc-and-comm_item_image::after {
   visibility: visible;
   opacity: 1;
 }
-.association_item_title {
+.assoc-and-comm_item_title {
   font-size: 17px;
   font-weight: 600;
   color: #000000;
@@ -114,12 +114,12 @@
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.association_item_text {
+.assoc-and-comm_item_text {
   margin-top: 12px;
   margin-right: 40px;
   margin-left: 40px;
 }
-.association_item:hover .association_item_title {
+.assoc-and-comm_item:hover .assoc-and-comm_item_title {
   color: #eb4141;
 }
 .imageAndInfo {
@@ -132,20 +132,20 @@
     background-color: #333; */
   transition: transform 0.5s ease;
 }
-.association_buttons {
+.assoc-and-comm_buttons {
   margin-top: 64px;
 }
-.association_buttons ul li {
+.assoc-and-comm_buttons ul li {
   display: inline-block;
   margin-right: 18px;
   cursor: pointer;
 }
-.association_buttons ul li img,
-.association_buttons ul li svg {
+.assoc-and-comm_buttons ul li img,
+.assoc-and-comm_buttons ul li svg {
   width: 27px;
   height: 27px;
 }
-.association_buttons ul li img svg {
+.assoc-and-comm_buttons ul li img svg {
   max-width: 100%;
 }
 .svg path,
@@ -158,9 +158,9 @@
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.association_item:hover .svg path,
-.association_item:hover .svg rect,
-.association_item:hover .svg polygon {
+.assoc-and-comm_item:hover .svg path,
+.assoc-and-comm_item:hover .svg rect,
+.assoc-and-comm_item:hover .svg polygon {
   fill: #eb4141;
 }
 
@@ -187,10 +187,10 @@
   max-width: 100%;
   margin-top: 30px;
 }
-.popular .association_content {
+.popular .assoc-and-comm_content {
   margin-top: 42px;
 }
-.popular .association_buttons {
+.popular .assoc-and-comm_buttons {
   margin-top: 30px;
 }
 
@@ -227,11 +227,11 @@
 }
 .featured_2 {
 }
-.featured .association_title,
-.featured .association_list li,
-.featured .association_text p {
+.featured .assoc-and-comm_title,
+.featured .assoc-and-comm_list li,
+.featured .assoc-and-comm_text p {
   color: #ffffff;
 }
-.featured .association_buttons {
+.featured .assoc-and-comm_buttons {
   margin-top: 30px;
 }

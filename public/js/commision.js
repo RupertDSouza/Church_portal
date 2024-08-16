@@ -1,6 +1,6 @@
-async function loadAssociationInfo(containerId) {
+async function loadCommisionInfo(containerId) {
   try {
-    const response = await fetch("/app/association/read", {
+    const response = await fetch("/app/commision/read", {
       method: "GET",
     });
 
@@ -46,5 +46,5 @@ async function loadAssociationInfo(containerId) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadAssociationInfo("assoc-and-comm-container");
+  loadCommisionInfo("assoc-and-comm-container");
 });
