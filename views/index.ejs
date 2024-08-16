@@ -253,7 +253,6 @@
           class="services_background"
           data-parallax="scroll"
           data-image-src="images/services.jpg"
-          data-speed="0.1"
         ></div>
         <div class="container">
           <div class="row">
@@ -463,7 +462,6 @@
           class="quote_background parallax-window"
           data-parallax="scroll"
           data-image-src="images/quote.jpg"
-          data-speed="0.1"
         ></div>
         <div class="container">
           <div class="row">
@@ -660,6 +658,48 @@
     <script src="plugins/easing/easing.js"></script>
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
     <script src="js/custom.js"></script>
+
+    <script>
+    function initParallax() {
+      $('.services_background, .quote_background').parallax('destroy');
+      $('.services_background, .quote_background').parallax({
+          speed: 0.1,
+          androidFix: false,
+          iosFix: false
+      });
+  }
+  
+  $(document).ready(function() {
+      // Wait for images to load
+      $('<img/>').attr('src', 'images/services.jpg').on('load', function() {
+          $(this).remove();
+          $('<img/>').attr('src', 'images/quote.jpg').on('load', function() {
+              $(this).remove();
+              initParallax();
+          });
+      });
+  
+      // Reinitialize on resize
+      $(window).on('resize', initParallax);
+  
+      // Fallback: if images don't load, initialize anyway after a delay
+      setTimeout(initParallax, 2000);
+  });
+
+  function setParallaxPosition() {
+    $('.parallax').each(function() {
+        var scrolled = $(window).scrollTop();
+        var speed = 0.5; // Adjust for desired parallax effect
+        $(this).css('background-position', 'center ' + -(scrolled * speed) + 'px');
+    });
+}
+
+$(document).ready(function() {
+    setParallaxPosition();
+    $(window).scroll(setParallaxPosition);
+    $(window).resize(setParallaxPosition);
+});
+  </script>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {

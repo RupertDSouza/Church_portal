@@ -285,6 +285,24 @@
   visibility: visible;
   opacity: 1;
 }
+.parallax-window {
+  height: 500px; /* Adjust as needed */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* .parallax {
+
+} */
+
+.services_background {
+  background-image: url("images/services.jpg");
+}
+
+.quote_background {
+  background-image: url("images/quote.jpg");
+}
 /*********************************
 5. priest
 *********************************/
