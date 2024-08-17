@@ -1948,6 +1948,10 @@ table.dataTable.dtr-inline.collapsed
     margin: 0 10px;
   }
 }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.delete-btn-table{
+  margin-top: 5%;
+}
 @media (max-width: 575.98px) {
   .header_iner {
     margin: 0;
@@ -2173,6 +2177,16 @@ table.dataTable.dtr-inline.collapsed
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+.create-btn{
+  max-width:16%; 
+  margin-left:85%;
+}
+@media (max-width: 991px) {
+  .create-btn {
+    max-width: 10%;
+  }
+}
+
 .sidebar_icon {
   position: absolute;
   top: 50%;
@@ -2597,7 +2611,7 @@ table.dataTable {
   background: 0 0;
   text-decoration:none ;
 }
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-width: 1115px) and (max-width: 1200px) {
   .sidebar #sidebar_menu li a {
     padding: 18px 25px 18px 30px;
     text-decoration:none ;
@@ -2919,16 +2933,17 @@ body::-webkit-scrollbar {
   padding-left: 0;
   padding-top: 100px !important;
 }
-@media (max-width: 991px) {
-  .main_content {
-    padding: 90px 0 100px;
-  }
-}
 @media (max-width: 575.98px) {
   .main_content {
     padding: 120px 0 100px;
   }
 }
+@media (max-width: 991px) {
+  .main_content {
+    padding: 90px 0 100px;
+  }
+}
+
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .main_content {
     padding: 120px 0 100px;
