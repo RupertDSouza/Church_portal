@@ -70,9 +70,6 @@ function displayResults(results) {
           "history",
           "day",
           "info",
-          "occasion",
-          "date",
-          "time",
           "link",
           "firstReading",
           "secondReading",
@@ -84,21 +81,106 @@ function displayResults(results) {
 
         fields.forEach((field) => {
           if (result[field]) {
-            const element = document.createElement(
-              field === "title" || field === "name" ? "h3" : "p"
-            );
-            element.className = `result-${field}`;
+            let element;
 
-            if (field === "link") {
-              const link = document.createElement("a");
-              link.href = result[field];
-              link.textContent = "Read More";
-              link.target = "_blank";
-              element.appendChild(link);
-            } else {
-              element.textContent = `${
-                field.charAt(0).toUpperCase() + field.slice(1)
-              }: ${result[field]}`;
+            switch (field) {
+              case "title":
+              case "name":
+                element = document.createElement("h3");
+                break;
+              case "link":
+                if (field === "link") {
+                  const link = document.createElement("a");
+                  link.href = result[field];
+                  link.textContent = "Read More";
+                  link.target = "_blank";
+                  element.appendChild(link);
+                } else {
+                  element.textContent = `${
+                    field.charAt(0).toUpperCase() + field.slice(1)
+                  }: ${result[field]}`;
+                }
+                break;
+              case "content":
+              case "history":
+                element = document.createElement("div");
+                element.className = `content-${field}`;
+                element.textContent = result[field];
+                break;
+              case "day":
+              case "info":
+                element = document.createElement("div");
+                element.className = `result-${field}`;
+
+                // Create a table to hold the info items
+                const infoTable = document.createElement("table");
+                infoTable.className = "info-table";
+
+                // Check if result[field] is an array
+                if (Array.isArray(result[field])) {
+                  // If it's an array, iterate through it
+                  result[field].forEach((item, index) => {
+                    const row = infoTable.insertRow();
+
+                    // Add a header cell for the item number
+                    const headerCell = row.insertCell();
+                    headerCell.textContent = `${index + 1}`;
+                    headerCell.style.fontWeight = "bold";
+
+                    // Add a cell for the item contents
+                    const contentCell = row.insertCell();
+
+                    // Create an inner table for the item's properties
+                    const innerTable = document.createElement("table");
+                    innerTable.className = "inner-info-table";
+
+                    for (const [key, value] of Object.entries(item)) {
+                      if (key !== "_id") {
+                        const innerRow = innerTable.insertRow();
+                        const keyCell = innerRow.insertCell();
+                        const valueCell = innerRow.insertCell();
+
+                        keyCell.textContent = key;
+                        keyCell.style.fontWeight = "bold";
+                        valueCell.textContent = value;
+                      }
+                    }
+
+                    contentCell.appendChild(innerTable);
+                  });
+                } else if (
+                  typeof result[field] === "object" &&
+                  result[field] !== null
+                ) {
+                  // If it's a single object, display its properties
+                  const row = infoTable.insertRow();
+                  const contentCell = row.insertCell();
+
+                  const innerTable = document.createElement("table");
+                  innerTable.className = "inner-info-table";
+
+                  for (const [key, value] of Object.entries(result[field])) {
+                    const innerRow = innerTable.insertRow();
+                    const keyCell = innerRow.insertCell();
+                    const valueCell = innerRow.insertCell();
+
+                    keyCell.textContent = key;
+                    keyCell.style.fontWeight = "bold";
+                    valueCell.textContent = value;
+                  }
+
+                  contentCell.appendChild(innerTable);
+                } else {
+                  // If it's neither an array nor an object, display as is
+                  const row = infoTable.insertRow();
+                  const cell = row.insertCell();
+                  cell.textContent = result[field];
+                }
+
+                element.appendChild(infoTable);
+                break;
+              default:
+                element = document.createElement("p");
             }
 
             resultDiv.appendChild(element);

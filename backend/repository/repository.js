@@ -23,27 +23,34 @@ class Repository {
         filter = { email: data };
       } else {
         const searchTerm = data;
+        const dateSearch = new Date(searchTerm);
+        const isValidDate = !isNaN(dateSearch.getTime());
+
         filter = {
           $or: [
-            { name: { $regex: searchTerm, $options: "i" } },
-            { description: { $regex: searchTerm, $options: "i" } },
-            { title: { $regex: searchTerm, $options: "i" } },
-            { content: { $regex: searchTerm, $options: "i" } },
-            { history: { $regex: searchTerm, $options: "i" } },
-            { day: { $regex: searchTerm, $options: "i" } },
-            { info: { $regex: searchTerm, $options: "i" } },
-            { occasion: { $regex: searchTerm, $options: "i" } },
-            { date: { $regex: searchTerm, $options: "i" } },
-            { time: { $regex: searchTerm, $options: "i" } },
-            { link: { $regex: searchTerm, $options: "i" } },
-            { firstReading: { $regex: searchTerm, $options: "i" } },
-            { secondReading: { $regex: searchTerm, $options: "i" } },
-            { responsorialPsalm: { $regex: searchTerm, $options: "i" } },
-            { gospel: { $regex: searchTerm, $options: "i" } },
-            { place: { $regex: searchTerm, $options: "i" } },
-            { type: { $regex: searchTerm, $options: "i" } },
+            { name: new RegExp(searchTerm, "i") },
+            { description: new RegExp(searchTerm, "i") },
+            { title: new RegExp(searchTerm, "i") },
+            { content: new RegExp(searchTerm, "i") },
+            { history: new RegExp(searchTerm, "i") },
+            { day: new RegExp(searchTerm, "i") },
+            { "info.occasion": new RegExp(searchTerm, "i") },
+            { "info.time": new RegExp(searchTerm, "i") },
+            { link: new RegExp(searchTerm, "i") },
+            { firstReading: new RegExp(searchTerm, "i") },
+            { secondReading: new RegExp(searchTerm, "i") },
+            { responsorialPsalm: new RegExp(searchTerm, "i") },
+            { gospel: new RegExp(searchTerm, "i") },
+            { place: new RegExp(searchTerm, "i") },
+            { type: new RegExp(searchTerm, "i") },
           ],
         };
+
+        if (isValidDate) {
+          const nextDay = new Date(dateSearch);
+          nextDay.setDate(nextDay.getDate() + 1);
+          filter.$or.push({ "info.date": { $gte: dateSearch, $lt: nextDay } });
+        }
       }
       return await this.model.find(filter);
     }

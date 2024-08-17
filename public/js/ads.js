@@ -41,13 +41,8 @@ function displayAds() {
 
   closeBtn.addEventListener("click", hideAds);
   arrowBtn.addEventListener("click", showAds);
-  overlay.addEventListener("click", hideAds); // Close ads when clicking outside
-
-  bottomIcon.addEventListener("click", () => {
-    if (arrowBtn.style.display === "none") {
-      showAds();
-    }
-  });
+  overlay.addEventListener("click", hideAds);
+  bottomIcon.addEventListener("click", showAds);
 
   window.addEventListener("scroll", () => {
     const arrowRect = arrowBtn.getBoundingClientRect();

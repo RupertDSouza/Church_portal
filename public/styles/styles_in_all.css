@@ -618,6 +618,28 @@ section {
   color: #eb4141;
 }
 
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.inner-info-table {
+  width: 100%;
+}
+
+.inner-info-table td {
+  border: none;
+  padding: 4px;
+}
+
+.inner-info-table td:first-child {
+  width: 30%;
+}
 /*********************************
 5. Footer
 *********************************/
