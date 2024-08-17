@@ -292,17 +292,6 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* .parallax {
-
-} */
-
-.services_background {
-  background-image: url("images/services.jpg");
-}
-
-.quote_background {
-  background-image: url("images/quote.jpg");
-}
 /*********************************
 5. priest
 *********************************/
