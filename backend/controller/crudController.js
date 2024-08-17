@@ -97,8 +97,14 @@ exports.updateWithImage = async (req, res) => {
 
     if (change.image) {
       if (change.image !== old.image && old.image != null) {
+        const accessAsync = promisify(fs.access);
         const unlinkAsync = promisify(fs.unlink);
-        unlinkAsync(old.image);
+        try {
+          accessAsync(person.image);
+          unlinkAsync(person.image);
+        } catch (unlinkError) {
+          console.error("Error deleting image file:", unlinkError);
+        }
       }
     }
     return res.status(200).json({
@@ -158,6 +164,7 @@ exports.updateMass = async (req, res) => {
 
 exports.delete = async (req, res) => {
   try {
+    const accessAsync = promisify(fs.access);
     const unlinkAsync = promisify(fs.unlink);
     const person = await req.repo.findOneAndDelete(req.params.id);
     if (!person || person === 0) {
@@ -165,7 +172,14 @@ exports.delete = async (req, res) => {
         message: "Not found",
       });
     }
-    if (person.image) unlinkAsync(person.image);
+    if (person.image) {
+      try {
+        accessAsync(person.image);
+        unlinkAsync(person.image);
+      } catch (unlinkError) {
+        console.error("Error deleting image file:", unlinkError);
+      }
+    }
     return res.status(200).json({
       data: { person },
       message: "Deleted Successfully",
