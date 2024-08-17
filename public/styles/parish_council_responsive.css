@@ -33,10 +33,6 @@
 ************/
 
 @media only screen and (max-width: 1440px) {
-  .featured_1 {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
 }
 
 /************
@@ -58,10 +54,6 @@
 ************/
 
 @media only screen and (max-width: 1199px) {
-  .featured_1 {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
   .parish-council_item_image {
     width: 200px;
     height: 200px;
@@ -90,7 +82,7 @@
   .parish-council_content {
     margin-top: 42px;
   }
-  .featured .parish-council_content {
+  .parish-council_content {
     margin-top: 0;
   }
   .parish-council_item_title {
@@ -136,18 +128,6 @@
 ************/
 
 @media only screen and (max-width: 575px) {
-  .featured_col {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .featured_col_2 {
-    padding-left: 52px;
-    padding-right: 52px;
-  }
-  .featured_1 {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
 }
 
 /************

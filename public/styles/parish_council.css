@@ -171,41 +171,11 @@
 .popular .parish-council_buttons {
   margin-top: 30px;
 }
-
-/*********************************
-4. Featured
-*********************************/
-
-.featured_col {
-  padding-left: 44px;
-  padding-right: 44px;
-  padding-top: 43px;
-  padding-bottom: 45px;
-}
-.featured_background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.featured_1 {
-  width: 40%;
-  padding: 30px;
-  margin-bottom: 40px;
-  margin-left: 40px;
-}
-.featured_col_2 {
-  padding-left: 219px;
-  padding-top: 111px;
-  padding-bottom: 113px;
-  padding-right: 160px;
-}
-.featured .parish-council_title,
-.featured .parish-council_list li,
-.featured .parish-council_text p {
+.parish-council_title,
+.parish-council_list li,
+.parish-council_text p {
   color: #ffffff;
 }
-.featured .parish-council_buttons {
+.parish-council_buttons {
   margin-top: 30px;
 }

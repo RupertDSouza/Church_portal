@@ -1,4 +1,4 @@
-async function loadAssociationInfo(containerId) {
+async function loadParishCouncilInfo(containerId) {
   try {
     const response = await fetch("/app/parishcouncil/read", {
       method: "GET",
@@ -46,5 +46,5 @@ async function loadAssociationInfo(containerId) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadAssociationInfo("parish-council-container");
+  loadParishCouncilInfo("parish-council-container");
 });
