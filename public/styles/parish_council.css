@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+/*********************************
+1. Home
+*********************************/
+
+.home {
+  width: 100%;
+}
+.home_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.home_container {
+  width: 100%;
+  height: 323px;
+}
+.home_content {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 60px;
+}
+.home_title {
+  font-size: 30px;
+  color: #ffffff;
+  line-height: 0.75;
+}
+.breadcrumbs li {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  color: #eb4141;
+  font-weight: 600;
+  line-height: 0.75;
+}
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 5px;
+  color: #ffffff;
+}
+.breadcrumbs li a {
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 0.75;
+}
+
+/*********************************
+2. parish-councils
+*********************************/
+
+.parish-council {
+  padding-top: 97px;
+  padding-bottom: 10px;
+}
+.parish-council_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.parish-council_row {
+  margin-top: 84px;
+}
+/* .parish-council_item:hover .parish-council_item_image {
+} */
+.parish-council_item_image {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.parish-council_item_image img {
+  max-width: 100%;
+}
+.parish-council_item:hover .parish-council_item_image::after {
+  visibility: visible;
+  opacity: 1;
+}
+.parish-council_item_title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #000000;
+  margin-top: 40px;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.parish-council_item_text {
+  margin-top: 12px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+.parish-council_item:hover .parish-council_item_title {
+  color: #eb4141;
+}
+.imageAndInfo {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+.parish-council_buttons {
+  margin-top: 64px;
+}
+.parish-council_buttons ul li {
+  display: inline-block;
+  margin-right: 18px;
+  cursor: pointer;
+}
+.parish-council_buttons ul li img,
+.parish-council_buttons ul li svg {
+  width: 27px;
+  height: 27px;
+}
+.parish-council_buttons ul li img svg {
+  max-width: 100%;
+}
+.svg path,
+.svg rect,
+.svg polygon {
+  fill: #c4c4c5;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.parish-council_item:hover .svg path,
+.parish-council_item:hover .svg rect,
+.parish-council_item:hover .svg polygon {
+  fill: #eb4141;
+}
+
+/*********************************
+3. Popular Sermons
+*********************************/
+
+.popular {
+  width: 100%;
+  background: #ffffff;
+}
+.popular_row {
+  justify-content: center;
+  align-content: center;
+}
+.popular_item {
+  width: 100%;
+  overflow-y: auto;
+}
+.popular_image {
+  width: 100%;
+}
+.popular_image img {
+  max-width: 100%;
+  margin-top: 30px;
+}
+.popular .parish-council_content {
+  margin-top: 42px;
+}
+.popular .parish-council_buttons {
+  margin-top: 30px;
+}
+
+/*********************************
+4. Featured
+*********************************/
+
+.featured_col {
+  padding-left: 44px;
+  padding-right: 44px;
+  padding-top: 43px;
+  padding-bottom: 45px;
+}
+.featured_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.featured_1 {
+  width: 40%;
+  padding: 30px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+.featured_col_2 {
+  padding-left: 219px;
+  padding-top: 111px;
+  padding-bottom: 113px;
+  padding-right: 160px;
+}
+.featured .parish-council_title,
+.featured .parish-council_list li,
+.featured .parish-council_text p {
+  color: #ffffff;
+}
+.featured .parish-council_buttons {
+  margin-top: 30px;
+}
