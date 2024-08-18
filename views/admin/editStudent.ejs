@@ -1,0 +1,947 @@
+<html>
+
+<head>
+    <title>Edit Student</title>
+
+    <link rel="stylesheet" href="/styles/style1.css" />
+    <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/styles/institution_responsive.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/styles/styles_in_all.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/institution.css" />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="/styles/bootstrap4/bootstrap.min.css"
+  />
+
+</head>
+
+<body>
+    <%- include('../handlebars/navbar') %>
+
+        <section class="main_content dashboard_part">
+
+            <div class="container-fluid g-0">
+                <div class="row">
+                    <div class="col-lg-12 p-0">
+                        <div class="header_iner d-flex justify-content-between align-items-center">
+                            <%- include('../handlebars/mobileNav') %>
+                            <div class="sidebar_icon d-lg-none">
+                                <i class="ti-menu"></i>
+                            </div>
+                            <div>
+
+                                <form action="/admin/editChurchInfo.ejs">
+                                    <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
+                                </form>
+                            </div>
+
+                            <div class="header_right d-flex justify-content-between align-items-center">
+
+                                <div class="profile_info">
+                                    <img id="profileImage" src="" alt="Profile Image">
+                                    <div class="profile_info_iner">
+                                        <p id="role">Welcome!</p>
+                                        <h5 id="name">User</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_content_iner ">
+                <div class="container-fluid plr_30 body_white_bg pt_30">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="white_box mb_30">
+                                <div class="row admission-form">
+                                    <div class="col">
+                                      <div class="comment_form_container">
+                                        <h2 class="comment_title">Update Student Details</h2>
+                                        <form class="comment_form" id="createStudentForm">
+                                          <!-- Name, Upload Photo, Admission Class -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="studentName">Name / ಹೆಸರು</label>
+                                              <input
+                                                type="text"
+                                                id="studentName"
+                                                name="name"
+                                                class="comment_input comment_input_name"
+                                                placeholder="Name"
+                                                required="required"
+                                              />
+                                            </div>
+                                           
+                                            <div>
+                                              <label for="admissionClass"
+                                                >Admission Class / ಪ್ರವೇಶ ತರಗತಿ</label
+                                              >
+                                              <select
+                                                id="admissionClass"
+                                                name="admissionClass"
+                                                class="comment_input"
+                                                required="required"
+                                              >
+                                                <option value="" disabled selected>
+                                                  Select Class / ತರಗತಿ ಆಯ್ಕೆಮಾಡಿ
+                                                </option>
+                                                <option value="nursery">Nursery / ನರ್ಸರಿ</option>
+                                                <option value="lkg">LKG / ಎಲ್‌ಕಜೆ</option>
+                                                <option value="ukg">UKG / ಯುಕೆಜಿಎ</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Date of Birth, Gender, Mother Tongue, Other Language, Number of Brothers, Number of Sisters -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="dob">Date of Birth / ಹುಟ್ಟಿದ ದಿನಾಂಕ</label>
+                                              <input
+                                                type="date"
+                                                id="dob"
+                                                name="dob"
+                                                class="comment_input"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="gender"
+                                                >Gender of Student / ವಿದ್ಯಾರ್ಥಿಯ ಲಿಂಗ</label
+                                              >
+                                              <select
+                                                id="gender"
+                                                name="gender"
+                                                class="comment_input"
+                                                required="required"
+                                              >
+                                                <option value="" disabled selected>
+                                                  Select Gender / ಲಿಂಗ ಆಯ್ಕೆಮಾಡಿ
+                                                </option>
+                                                <option value="male">Male / ಪುರುಷ</option>
+                                                <option value="female">Female / ಮಹಿಳೆ</option>
+                                                <option value="transgender">
+                                                  Transgender / ತೃತೀಯ ಲಿಂಗ
+                                                </option>
+                                              </select>
+                                            </div>
+                                            <div>
+                                              <label for="mother_tongue"
+                                                >Mother Tongue / ತಾಯ್ನಾಡು</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="mother_tongue"
+                                                name="motherTongue"
+                                                class="comment_input"
+                                                placeholder="Mother Tongue"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="other_language"
+                                                >Any Other Language / ಇತರ ಭಾಷೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="other_language"
+                                                name="anyOtherLanguage"
+                                                class="comment_input"
+                                                placeholder="Any Other Language"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="no_of_brothers"
+                                                >Number of Brothers / ಅಣ್ಣ-ಅಚಚಣರ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="number"
+                                                id="no_of_brothers"
+                                                name="noOfBrothers"
+                                                class="comment_input"
+                                                placeholder="Number of Brothers"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="no_of_sisters"
+                                                >Number of Sisters / ಸಹೋದರಿಯರ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="number"
+                                                id="no_of_sisters"
+                                                name="noOfSisters"
+                                                class="comment_input"
+                                                placeholder="Number of Sisters"
+                                                required="required"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Address -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="address">Address / ವಿಳಾಸ</label>
+                                              <input
+                                                type="text"
+                                                id="address"
+                                                name="address"
+                                                class="comment_input"
+                                                placeholder="Address"
+                                                required="required"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- City/Village/Town, Locality, Pincode, District, Taluk -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="city_village_town"
+                                                >City/Village/Town / ನಗರ/ಗ್ರಾಮ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="city_village_town"
+                                                name="cityVillageTown"
+                                                class="comment_input"
+                                                placeholder="City/Village/Town"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="locality">Locality / ಸ್ಥಳೀಯತೆ</label>
+                                              <input
+                                                type="text"
+                                                id="locality"
+                                                name="locality"
+                                                class="comment_input"
+                                                placeholder="Locality"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="pincode">Pincode / ಪಿನ್‌ಕೋಡ್</label>
+                                              <input
+                                                type="text"
+                                                id="pincode"
+                                                name="pincode"
+                                                class="comment_input"
+                                                placeholder="Pincode"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="district">District / ಜಿಲ್ಲೆ</label>
+                                              <input
+                                                type="text"
+                                                id="district"
+                                                name="district"
+                                                class="comment_input"
+                                                placeholder="District"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="taluk">Taluk / ತಾಲ್ಲೂಕು</label>
+                                              <input
+                                                type="text"
+                                                id="taluk"
+                                                name="taluk"
+                                                class="comment_input"
+                                                placeholder="Taluk"
+                                                required="required"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Aadhar Number, Religion, Caste -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="aadhar_number"
+                                                >Aadhar Number / ಆಧಾರ್ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="aadhar_number"
+                                                name="aadharNumber"
+                                                class="comment_input"
+                                                placeholder="Aadhar Number"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="religion">Religion / ಧರ್ಮ</label>
+                                              <select
+                                                id="religion"
+                                                name="religion"
+                                                class="comment_input"
+                                                required="required"
+                                                onchange="toggleOtherInput()"
+                                              >
+                                                <option value="" disabled selected>
+                                                  Select Religion / ಧರ್ಮ ಆಯ್ಕೆಮಾಡಿ
+                                                </option>
+                                                <option value="hindu">Hindu / ಹಿಂದೂ</option>
+                                                <option value="muslim">Muslim / ಮುಸ್ಲಿಂ</option>
+                                                <option value="christian">
+                                                  Christian / ಕ್ರಿಶ್ಚಿಯನ್
+                                                </option>
+                                                <option value="sikh">Sikh / ಸಿಖ್</option>
+                                                <option value="buddha">Buddha / ಬುದ್ಧ</option>
+                                                <option value="parsi">Parsi / ಪಾರ್ಸಿ</option>
+                                                <option value="jain">Jain / ಜೈನ</option>
+                                                <option value="other">Other / ಇತರ</option>
+                                              </select>
+                                              <input
+                                                type="text"
+                                                id="other_religion"
+                                                name="otherReligion"
+                                                class="comment_input"
+                                                placeholder="Specify Religion"
+                                                style="display: none; margin-left: 10px"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="caste">Caste / ಜಾತಿ</label>
+                                              <input
+                                                type="text"
+                                                id="caste"
+                                                name="caste"
+                                                class="comment_input"
+                                                placeholder="Caste"
+                                                required="required"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Social Category, Belong to BPL, BPL Card Number, SATS Number -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="social_category"
+                                                >Social Category / ಸಾಮಾಜಿಕ ವರ್ಗ</label
+                                              >
+                                              <select
+                                                id="social_category"
+                                                name="socialCategory"
+                                                class="comment_input"
+                                                required="required"
+                                              >
+                                                <option value="" disabled selected>
+                                                  Select Category / ವರ್ಗ ಆಯ್ಕೆಮಾಡಿ
+                                                </option>
+                                                <option value="general">General / ಸಾಮಾನ್ಯ</option>
+                                                <option value="obc">OBC / ಓಬಿಸಿ</option>
+                                                <option value="sc">SC / ಎಸ್‌ಸಿ</option>
+                                                <option value="st">ST / ಎಸ್‌ಟಿ</option>
+                                                <option value="other">Other / ಇತರ</option>
+                                              </select>
+                                            </div>
+                                            <div>
+                                              <label for="belong_to_bpl"
+                                                >Belong to BPL / ಬಿಪಿಎಲ್ ಗೆ ಸೇರಿದ್ದಾರೆ</label
+                                              >
+                                              <select
+                                                id="belong_to_bpl"
+                                                name="belongToBPL"
+                                                class="comment_input"
+                                                required="required"
+                                              >
+                                                <option value="" disabled selected>
+                                                  Select / ಆಯ್ಕೆಮಾಡಿ
+                                                </option>
+                                                <option value="yes">Yes / ಹೌದು</option>
+                                                <option value="no">No / ಇಲ್ಲ</option>
+                                              </select>
+                                            </div>
+                                            <div>
+                                              <label for="bpl_card_number"
+                                                >BPL Card No / ಬಿಪಿಎಲ್ ಕಾರ್ಡ್ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="bpl_card_number"
+                                                name="bplCardNumber"
+                                                class="comment_input"
+                                                placeholder="BPL Card Number"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="sats_number"
+                                                >SATS Number / ಸಾಟ್‌ಎಸ್ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="sats_number"
+                                                name="satsNo"
+                                                class="comment_input"
+                                                placeholder="SATS Number"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Bank Name, Account Number, IFSC Code -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="bank_name">Bank Name / ಬ್ಯಾಂಕ್ ಹೆಸರು</label>
+                                              <input
+                                                type="text"
+                                                id="bank_name"
+                                                name="bankName"
+                                                class="comment_input"
+                                                placeholder="Bank Name"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="account_number"
+                                                >Account Number / ಖಾತೆ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="account_number"
+                                                name="accountNumber"
+                                                class="comment_input"
+                                                placeholder="Account Number"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="ifsc_code"
+                                                >IFSC Code / ಐಎಫ್‌ಎಸ್‌ಸಿ ಕೋಡ್</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="ifsc_code"
+                                                name="ifscCode"
+                                                class="comment_input"
+                                                placeholder="IFSC Code"
+                                                required="required"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Father's Name, Mother's Name -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="father_name"
+                                                >Father's Name / ತಂದೆಯ ಹೆಸರು</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="father_name"
+                                                name="fatherName"
+                                                class="comment_input"
+                                                placeholder="Father's Name"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="mother_name"
+                                                >Mother's Name / ತಾಯಿಯ ಹೆಸರು</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="mother_name"
+                                                name="motherName"
+                                                class="comment_input"
+                                                placeholder="Mother's Name"
+                                                required="required"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Father's Aadhar Number, Mother's Aadhar Number -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="father_aadhar_number"
+                                                >Father's Aadhar Number / ತಂದೆಯ ಆಧಾರ್ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="father_aadhar_number"
+                                                name="fatherAadharNumber"
+                                                class="comment_input"
+                                                placeholder="Father's Aadhar Number"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="mother_aadhar_number"
+                                                >Mother's Aadhar Number / ತಾಯಿಯ ಆಧಾರ್ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="mother_aadhar_number"
+                                                name="motherAadharNumber"
+                                                class="comment_input"
+                                                placeholder="Mother's Aadhar Number"
+                                                required="required"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Father's Qualification, Mother's Qualification, Father's Occupation, Mother's Occupation -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="father_qualification"
+                                                >Father's Qualification / ತಂದೆಯ ವಿದ್ಯಾರ್ಹತೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="father_qualification"
+                                                name="fatherQualification"
+                                                class="comment_input"
+                                                placeholder="Father's Qualification"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="mother_qualification"
+                                                >Mother's Qualification / ತಾಯಿಯ ವಿದ್ಯಾರ್ಹತೆ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="mother_qualification"
+                                                name="motherQualification"
+                                                class="comment_input"
+                                                placeholder="Mother's Qualification"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="father_occupation"
+                                                >Father's Occupation / ತಂದೆಯ ಉದ್ಯೋಗ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="father_occupation"
+                                                name="fatherOccupation"
+                                                class="comment_input"
+                                                placeholder="Father's Occupation"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="mother_occupation"
+                                                >Mother's Occupation / ತಾಯಿಯ ಉದ್ಯೋಗ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="mother_occupation"
+                                                name="motherOccupation"
+                                                class="comment_input"
+                                                placeholder="Mother's Occupation"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Annual Income, Number of Dependents, Father's Phone Number, Mother's Phone Number -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="annual_income"
+                                                >Annual Income of the Family / ವಾರ್ಷಿಕ ಆದಾಯ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="annual_income"
+                                                name="annualIncome"
+                                                class="comment_input"
+                                                placeholder="Annual Income"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="no_of_dependents"
+                                                >Number of Dependents / ನಿರ್ವಹಣೆಯಲ್ಲಿರುವವರ ಸಂಖ್ಯೆ</label
+                                              >
+                                              <input
+                                                type="number"
+                                                id="no_of_dependents"
+                                                name="noOfDependents"
+                                                class="comment_input"
+                                                placeholder="Number of Dependents"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="father_phone_number"
+                                                >Father's Phone Number / ತಂದೆಯ ಫೋನ್ ನಂಬರ್</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="father_phone_number"
+                                                name="fatherPhoneNumber"
+                                                class="comment_input"
+                                                placeholder="Father's Phone Number"
+                                                required="required"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="mother_phone_number"
+                                                >Mother's Phone Number / ತಾಯಿಯ ಫೋನ್ ನಂಬರ್</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="mother_phone_number"
+                                                name="motherPhoneNumber"
+                                                class="comment_input"
+                                                placeholder="Mother's Phone Number"
+                                                required="required"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Previous School Affiliation, Transfer Certificate Number, Transfer Certificate Date -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="previous_school_affiliation"
+                                                >Previous School Affiliation / ಹಳೆಯ ಶಾಲೆಯ ಒಡನೊಡನೆ</label
+                                              >
+                                              <select
+                                                id="previous_school_affiliation"
+                                                name="previousSchoolAffiliation"
+                                                class="comment_input"
+                                              >
+                                                <option value="" disabled selected>
+                                                  Select Affiliation / ಒಡನೊಡನೆ ಆಯ್ಕೆಮಾಡಿ
+                                                </option>
+                                                <option value="state">State Board / ರಾಜ್ಯ ಮಂಡಳಿ</option>
+                                                <option value="cbsc">CBSC / ಸಿಬಿಎಸ್‌ಸಿ</option>
+                                                <option value="icse">ICSE / ಐಸಿಎಸ್ಇ</option>
+                                                <option value="other">Other / ಇತರ</option>
+                                              </select>
+                                            </div>
+                                            <div>
+                                              <label for="transfer_certificate_number"
+                                                >Transfer Certificate Number / ವರ್ಗಾಯCertificate
+                                                Number</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="transfer_certificate_number"
+                                                name="transferCertificateNumber"
+                                                class="comment_input"
+                                                placeholder="Transfer Certificate Number"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="transfer_certificate_date"
+                                                >Transfer Certificate Date / ವರ್ಗಾವಣೆ ಪ್ರಮಾಣಪತ್ರದ
+                                                ದಿನಾಂಕ</label
+                                              >
+                                              <input
+                                                type="date"
+                                                id="transfer_certificate_date"
+                                                name="transferCertificateDate"
+                                                class="comment_input"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Previous School Name, Pincode of Previous School, DISE Number -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="previous_school_name"
+                                                >Previous School Name/ ಹಳೆಯ ಶಾಲೆಯ ಹೆಸರು</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="previous_school_name"
+                                                name="previousSchoolName"
+                                                class="comment_input"
+                                                placeholder="Previous School Name"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="pincode_of_previous_school"
+                                                >Previous School Pincode / ಶಾಲೆಯ ಪಿನ್‌ಕೋಡ್</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="pincode_of_previous_school"
+                                                name="pincodeOfPreviousSchool"
+                                                class="comment_input"
+                                                placeholder="Pincode of Previous School"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="dise_no">DISE Number / ಡಿಐಎಸ್‌ಇ ಸಂಖ್ಯೆ</label>
+                                              <input
+                                                type="text"
+                                                id="dise_no"
+                                                name="diseNo"
+                                                class="comment_input"
+                                                placeholder="DISE Number"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <!-- Previous School District, Previous School Taluk, Previous School Village/City/Town -->
+                                          <div class="form-group-inline">
+                                            <div>
+                                              <label for="previous_school_district"
+                                                >District of the Previous School / ಹಳೆಯ ಶಾಲೆಯ ಸಂಬಂಧಿತ
+                                                ಜಿಲ್ಲೆ
+                                              </label>
+                                              <input
+                                                type="text"
+                                                id="previous_school_district"
+                                                name="previousSchoolDistrict"
+                                                class="comment_input"
+                                                placeholder="Previous School District"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="previous_school_taluk"
+                                                >Taluk of the Previous School / ಹಳೆಯ ಶಾಲೆಯ ಸ್ಥಾನಿಯ
+                                                ತಾಲ್ಲೂಕು</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="previous_school_taluk"
+                                                name="previousSchoolTaluk"
+                                                class="comment_input"
+                                                placeholder="Previous School Taluk"
+                                              />
+                                            </div>
+                                            <div>
+                                              <label for="previous_school_village_city_town"
+                                                >Previous School Village/City/Town / ಹಳೆಯ ಶಾಲೆಯ
+                                                ಗ್ರಾಮ/ನಗರ/ಮಟ್ಟ</label
+                                              >
+                                              <input
+                                                type="text"
+                                                id="previous_school_village_city_town"
+                                                name="previousSchoolVillageCityTown"
+                                                class="comment_input"
+                                                placeholder="Previous School Village/City/Town"
+                                              />
+                                            </div>
+                                          </div>
+                                          <hr />
+                        
+                                          <div class="form-group">
+                                           
+                                    <button type="button" class="btn btn-primary btn-lg"
+                                    id="updateButton">Update</button>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main_content_iner ">
+                <div class="container-fluid plr_30 body_white_bg pt_30">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="white_box mb_30">
+                                <div class="box_header ">
+                                    <div class="main-title">
+                                        <h3 class="mb-0">Edit Student image</h3>
+                                    </div>
+                                </div>
+                                <form>
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="image">
+                                        <label class="input-group-text" for="image">Upload</label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-lg"
+                                        id="updateImage">Update</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<script src="/js/auth.js"></script>
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const studentId = localStorage.getItem('studentId');
+        const token = localStorage.getItem('token');
+
+        checkAuthAndFetchUserData((error, userData) => {
+            if (error) {
+                console.error('Authentication failed');
+                return;
+            }
+            document.getElementById('profileImage').src = getImagePath(userData.image);
+            document.getElementById('name').textContent = userData.name;
+            document.getElementById('role').textContent = `Welcome ${userData.role}!`;
+
+            if (studentId) {
+                fetch(`/app/student/read/${studentId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        
+                        document.getElementById('studentName').value = data.name;
+                        document.getElementById('admissionClass').value = data.admissionClass;
+                        document.getElementById('dob').value = formatDate(data.dob);
+                        document.getElementById('gender').value = data.gender;
+                        document.getElementById('mother_tongue').value = data.motherTongue;
+                        document.getElementById('other_language').value = data.anyOtherLanguage;
+                        document.getElementById('no_of_brothers').value = data.noOfBrothers;
+                        document.getElementById('no_of_sisters').value = data.noOfSisters;
+                        document.getElementById('address').value = data.address;
+                        document.getElementById('city_village_town').value = data.cityVillageTown;
+                        document.getElementById('locality').value = data.locality;
+                        document.getElementById('pincode').value = data.pincode;
+                        document.getElementById('district').value = data.district;
+                        document.getElementById('taluk').value = data.taluk;
+                        document.getElementById('aadhar_number').value = data.aadharNumber;
+                        document.getElementById('religion').value = data.religion;
+                        document.getElementById('caste').value = data.caste;
+                        document.getElementById('social_category').value = data.socialCategory;
+                        document.getElementById('belong_to_bpl').value = data.belongToBPL == 1 ? 'yes' : 'no';
+                        document.getElementById('bpl_card_number').value = data.bplCardNumber;
+                        document.getElementById('sats_number').value = data.satsNo;
+                        document.getElementById('bank_name').value = data.bankName;
+                        document.getElementById('account_number').value = data.accountNumber;
+                        document.getElementById('ifsc_code').value = data.ifscCode;
+                        document.getElementById('father_name').value = data.fatherName;
+                        document.getElementById('mother_name').value = data.motherName;
+                        document.getElementById('father_aadhar_number').value = data.fatherAadharNumber;
+                        document.getElementById('mother_aadhar_number').value = data.motherAadharNumber;
+                        document.getElementById('father_qualification').value = data.fatherQualification;
+                        document.getElementById('mother_qualification').value = data.motherQualification;
+                        document.getElementById('father_occupation').value = data.fatherOccupation;
+                        document.getElementById('mother_occupation').value = data.motherOccupation;
+                        document.getElementById('annual_income').value = data.annualIncome;
+                        document.getElementById('no_of_dependents').value = data.noOfDependents;
+                        document.getElementById('father_phone_number').value = data.fatherPhoneNumber;
+                        document.getElementById('mother_phone_number').value = data.motherPhoneNumber;
+                        document.getElementById('previous_school_affiliation').value = data.previousSchoolAffiliation;
+                        document.getElementById('transfer_certificate_number').value = data.transferCertificateNumber;
+                        document.getElementById('transfer_certificate_date').value = formatDate(data.transferCertificateDate);
+                        document.getElementById('previous_school_name').value = data.previousSchoolName;
+                        document.getElementById('pincode_of_previous_school').value = data.pincodeOfPreviousSchool;
+                        document.getElementById('dise_no').value = data.diseNo;
+                        document.getElementById('previous_school_district').value = data.previousSchoolDistrict;
+                        document.getElementById('previous_school_taluk').value = data.previousSchoolTaluk;
+                        document.getElementById('previous_school_village_city_town').value = data.previousSchoolVillageCityTown;
+                    
+                    })
+                    .catch(error => console.error('Error fetching student details:', error));
+            }
+        });
+
+
+        document.getElementById('updateButton').addEventListener('click', () => {
+            const newPassword = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+
+            if (newPassword !== confirmPassword) {
+                alert('New password and confirm password do not match!');
+                return;
+            }
+            const updatedUser = {
+                name: document.getElementById('userName').value,
+                email: document.getElementById('email').value,
+                role: document.getElementById('userRole').value,
+                password: document.getElementById('password').value
+            };
+
+            fetch(`/app/user/update/${editUserId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(updatedUser)
+            })
+                .then(response => response.json())
+                .then(data => {
+
+                    if (data.message === 'Success') {
+                        alert('User updated successfully!');
+                    } else {
+                        alert('Failed to update user.');
+                    }
+                })
+                .catch(error => console.error('Error updating user:', error));
+        });
+
+        document.getElementById('updateImage').addEventListener('click', () => {
+            const imageInput = document.getElementById('image');
+            if (imageInput.files.length === 0) {
+                alert('Please select an image to upload.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image', imageInput.files[0]);
+
+            fetch(`/app/user/updateImage/${editUserId}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Success') {
+                        alert('User image updated successfully!');
+                    } else {
+                        alert('Failed to update user image.');
+                    }
+                })
+                .catch(error => console.error('Error updating user image:', error));
+        });
+    });
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+    function getImagePath(image) {
+        if (image) {
+
+            return image.replace("../../Church_portal/public/", "/");
+        }
+        return ""; // Return an empty string if the image is null or undefined
+    }
+
+</script>
+
+</html>

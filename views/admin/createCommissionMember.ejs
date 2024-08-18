@@ -1,0 +1,200 @@
+<html>
+
+<head>
+    <title>Create Commission Member</title>
+
+    <link rel="stylesheet" href="/styles/style1.css" />
+    <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+
+</head>
+
+<body>
+    <%- include('../handlebars/navbar') %>
+
+        <section class="main_content dashboard_part">
+
+            <div class="container-fluid g-0">
+                <div class="row">
+                    <div class="col-lg-12 p-0">
+                        <div class="header_iner d-flex justify-content-between align-items-center">
+                            <%- include('../handlebars/mobileNav') %>
+                            <div class="sidebar_icon d-lg-none">
+                                <i class="ti-menu"></i>
+                            </div>
+                            <div>
+
+                                <form action="/admin/editChurchInfo.ejs">
+                                    <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
+                                </form>
+                            </div>
+
+                            <div class="header_right d-flex justify-content-between align-items-center">
+
+                                <div class="profile_info">
+                                    <img id="profileImage" src="" alt="Profile Image">
+                                    <div class="profile_info_iner">
+                                        <p id="role">Welcome!</p>
+                                        <h5 id="name">User</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_content_iner ">
+                <div class="container-fluid plr_30 body_white_bg pt_30">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="white_box mb_30">
+                                <div class="box_header ">
+                                    <div class="main-title">
+                                        <h3 class="mb-0">Create Commission Member </h3>
+                                    </div>
+                                </div>
+                                <form id="createCommissionMemberForm">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="name">Member Name</label>
+                                        <input type="text" class="form-control" id="name" name="name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="category">Commissions</label>
+                                        <select multiple class="form-control" id="category" name="category">
+                                            <!-- Options will be populated dynamically -->
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label" for="designation">Designation</label>
+                                        <input type="text" class="form-control" id="designation" name="designation">
+                                    </div>
+
+                                    <label class="form-label" for="image">Image</label>
+                                    <div class="input-group mb-3">
+
+                                        <input type="file" class="form-control" id="image" name="image">
+                                        <label class="input-group-text" for="image">Upload</label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-lg"
+                                        id="createButton">Create</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+
+<script src="/js/auth.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+    checkAuthAndFetchUserData((error, userData) => {
+        if (error) {
+            console.error('Authentication failed');
+            return;
+        }
+
+        document.getElementById('profileImage').src = getImagePath(userData.image);
+        document.getElementById('name').textContent = userData.name;
+        document.getElementById('role').textContent = `Welcome ${userData.role}!`;
+    });
+
+    // Fetch and populate associations
+    const commissions = await fetchCommissions();
+    populateCommissionDropdown(commissions);
+
+    document.getElementById('createButton').addEventListener('click', createCommissionMember);
+});
+    function getImagePath(image) {
+        if (image) {
+
+            return image.replace("../../Church_portal/public/", "/");
+        }
+        return "";
+    }
+
+    async function createCommissionMember() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert('Please login first');
+        return;
+    }
+
+    const form = document.getElementById('createCommissionMemberForm');
+    const formData = new FormData(form);
+
+    // Handle multiple selections for associations
+    const selectedCommissions = Array.from(document.getElementById('category').selectedOptions).map(option => option.value);
+    formData.delete('category'); // Remove the default value
+    selectedCommissions.forEach(name => formData.append('category', name));
+
+    try {
+        const response = await fetch('/app/commissionMember/create', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.message === 'Created Successfully') {
+            alert('Commission member created successfully!');
+        } else {
+            alert('Error creating commission member: ' + data.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+    async function fetchCommissions() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        console.error('No token found');
+        return;
+    }
+
+    try {
+        const response = await fetch('/app/commission/read', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch commissions');
+        }
+
+        const data = await response.json();
+        
+        return data || [];
+    } catch (error) {
+        console.error('Error fetching commissions:', error);
+        return [];
+    }
+}
+
+function populateCommissionDropdown(commissions) {
+    const select = document.getElementById('category');
+    select.innerHTML = ''; 
+
+    commissions.forEach(commission => {
+        const option = document.createElement('option');
+        option.value = commission.name; 
+        option.textContent = commission.name; 
+        select.appendChild(option);
+    });
+}
+</script>
+
+</html>
