@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/*********************************
+1. Home
+*********************************/
+
+.home {
+  width: 100%;
+}
+.home_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.home_container {
+  width: 100%;
+  height: 323px;
+}
+.home_content {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 60px;
+}
+.home_title {
+  font-size: 30px;
+  color: #ffffff;
+  line-height: 0.75;
+}
+.breadcrumbs li {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  color: #eb4141;
+  font-weight: 600;
+  line-height: 0.75;
+}
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin-left: 5px;
+  color: #ffffff;
+}
+.breadcrumbs li a {
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 0.75;
+}
+
+/*********************************
+2. gallery
+*********************************/
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/*********************************
+3. Popular Sermons
+*********************************/
+
+.popular {
+  width: 100%;
+  background: #ffffff;
+}
+.popular_row {
+  justify-content: center;
+  align-content: center;
+}
+.popular_item {
+  width: 100%;
+  overflow-y: auto;
+}
+.popular_image {
+  width: 100%;
+}
+.popular_image img {
+  max-width: 100%;
+  margin-top: 30px;
+}
+.popular .gallery_content {
+  margin-top: 42px;
+}
+.popular .gallery_buttons {
+  margin-top: 30px;
+}
+
+/*********************************
+4. Featured
+*********************************/
+.featured .gallery_title,
+.featured .gallery_list li,
+.featured .gallery_text p {
+  color: #ffffff;
+}
+.featured .gallery_buttons {
+  margin-top: 30px;
+}
