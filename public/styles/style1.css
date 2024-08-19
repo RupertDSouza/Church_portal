@@ -1952,6 +1952,7 @@ table.dataTable.dtr-inline.collapsed
 .delete-btn-table{
   margin-top: 5%;
 }
+}
 @media (max-width: 575.98px) {
   .header_iner {
     margin: 0;
