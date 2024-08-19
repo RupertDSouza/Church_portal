@@ -26,20 +26,20 @@ exports.create = async (req, res) => {
 
 exports.readAll = async (req, res) => {
   try {
-    let people;
+    let response;
     if (req.query.q) {
-      people = await req.repo.find(req.query.q);
+      response = await req.repo.find(req.query.q);
     } else {
-      people = await req.repo.find();
+      response = await req.repo.find();
     }
 
-    if (!people || people.length === 0) {
+    if (!response || response.length === 0) {
       return res.status(400).json({
         message: "Not found",
       });
     }
 
-    return res.status(200).json(people);
+    return res.status(200).json(response);
   } catch (error) {
     return res.status(404).json({
       error: "Couldn't fetch data",
@@ -49,14 +49,14 @@ exports.readAll = async (req, res) => {
 
 exports.readOne = async (req, res) => {
   try {
-    const person = await req.repo.findById(req.params.id);
-    if (!person || person === 0) {
+    const response = await req.repo.findById(req.params.id);
+    if (!response || response === 0) {
       return res.status(400).json({
         message: "Not found",
       });
     }
 
-    return res.status(200).json(person);
+    return res.status(200).json(response);
   } catch {
     return res.status(404).json({
       error: "Couldn't fetch data",
@@ -100,8 +100,8 @@ exports.updateWithImage = async (req, res) => {
         const accessAsync = promisify(fs.access);
         const unlinkAsync = promisify(fs.unlink);
         try {
-          accessAsync(person.image);
-          unlinkAsync(person.image);
+          accessAsync(change.image);
+          unlinkAsync(change.image);
         } catch (unlinkError) {
           console.error("Error deleting image file:", unlinkError);
         }
@@ -166,22 +166,22 @@ exports.delete = async (req, res) => {
   try {
     const accessAsync = promisify(fs.access);
     const unlinkAsync = promisify(fs.unlink);
-    const person = await req.repo.findOneAndDelete(req.params.id);
-    if (!person || person === 0) {
+    const response = await req.repo.findOneAndDelete(req.params.id);
+    if (!response || response === 0) {
       return res.status(404).json({
         message: "Not found",
       });
     }
-    if (person.image) {
+    if (response.image) {
       try {
-        accessAsync(person.image);
-        unlinkAsync(person.image);
+        accessAsync(response.image);
+        unlinkAsync(response.image);
       } catch (unlinkError) {
         console.error("Error deleting image file:", unlinkError);
       }
     }
     return res.status(200).json({
-      data: { person },
+      data: { response },
       message: "Deleted Successfully",
     });
   } catch (error) {

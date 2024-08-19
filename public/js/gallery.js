@@ -26,13 +26,15 @@ async function loadAssociationInfo(containerId) {
           <div class="gallery-item ${
             index === 0 || index === 3 ? "large" : "small"
           }">
-            <img src="${imageUrl}" alt="${item.title}" loading="lazy">
-            ${
-              item.title
-                ? `<div class="image-overlay"><p>${item.title}</p></div>`
-                : ""
-            }
+          <img src="${imageUrl}" alt="${item.name}" loading="lazy">
+          <div class="image-overlay">
+            <h3>${item.name}</h3>
+            <p class="description">${item.description}</p>
           </div>
+          <a href="${
+            item.link
+          }" class="item-link" target="_blank" rel="noopener noreferrer"></a>
+        </div>
         `;
         container.insertAdjacentHTML("beforeend", itemHtml);
       }

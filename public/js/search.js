@@ -90,11 +90,10 @@ function displayResults(results) {
                 break;
               case "link":
                 if (field === "link") {
-                  const link = document.createElement("a");
-                  link.href = result[field];
-                  link.textContent = "Read More";
-                  link.target = "_blank";
-                  element.appendChild(link);
+                  element = document.createElement("a");
+                  element.className = `content-${field}`;
+                  element.href = result[field];
+                  element.textContent = "Click Here to view more";
                 } else {
                   element.textContent = `${
                     field.charAt(0).toUpperCase() + field.slice(1)
