@@ -1,14 +1,14 @@
 const express = require("express");
-const commisionMemberModel = require("../models/mongodb/commisionMemberModel");
+const commissionMemberModel = require("../models/mongodb/commissionMemberModel");
 const initializeRepo = require("../middleware/repoMiddleware");
 const crudRouter = require("./crudRouter");
 const router = express.Router();
 
 router.use(
-  "/commisionMember",
+  "/commissionMember",
   (req, res, next) => {
     req.access = ["admin"];
-    req.model = commisionMemberModel;
+    req.model = commissionMemberModel;
     next();
   },
   initializeRepo,

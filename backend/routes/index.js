@@ -3,8 +3,8 @@ const wardrouter = require("./wardRouter");
 const priestrouter = require("./priestRouter");
 const associationrouter = require("./associationRouter");
 const associationMemberrouter = require("./associationMemberRouter");
-const commisionrouter = require("./commisionRouter");
-const commisionMemberrouter = require("./commisionMemberRouter");
+const commissionrouter = require("./commissionRouter");
+const commissionMemberrouter = require("./commissionMemberRouter");
 const newsrouter = require("./newsRouter");
 const institutionrouter = require("./institutionRouter");
 const obituaryrouter = require("./obituaryRouter");
@@ -29,8 +29,8 @@ router.use(
   priestrouter,
   associationrouter,
   associationMemberrouter,
-  commisionrouter,
-  commisionMemberrouter,
+  commissionrouter,
+  commissionMemberrouter,
   newsrouter,
   institutionrouter,
   obituaryrouter,

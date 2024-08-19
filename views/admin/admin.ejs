@@ -1,34 +1,41 @@
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/styles/style1.css" />
+    <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+  </head>
 
-  <title>Admin Page</title>
-  <link rel="stylesheet" href="/styles/style1.css" />
-  <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
-  
-</head>
-
-<body class="crm_body_bg">
-  
-  <%- include('../handlebars/navbar') %>
+  <body class="crm_body_bg">
+    <%- include('../handlebars/navbar') %>
     <section class="main_content dashboard_part">
       <div class="container-fluid g-0">
         <div class="row">
           <div class="col-lg-12 p-0">
-            <div class="header_iner d-flex justify-content-between align-items-center"> 
-               <%- include('../handlebars/mobileNav') %>
-              <div class="sidebar_icon d-lg-none">
-              
-              </div>
+            <div
+              class="header_iner d-flex justify-content-between align-items-center"
+            >
+              <%- include('../handlebars/mobileNav') %>
+              <div class="sidebar_icon d-lg-none"></div>
               <div>
                 <form action="/admin/editChurchInfo.ejs">
-                  <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
-              </form>
+                  <input
+                    type="submit"
+                    value="Update Church Info"
+                    class="btn btn-secondary btn-lg"
+                    id="updateChurchInfo"
+                  />
+                </form>
               </div>
 
-              <div class="header_right d-flex justify-content-between align-items-center">
+              <div
+                class="header_right d-flex justify-content-between align-items-center"
+              >
                 <div class="profile_info">
                   <img id="profileImage" src="" alt="Profile Image" />
                   <div class="profile_info_iner">
@@ -67,14 +74,16 @@
                           <h3>Obituary</h3>
                         </div>
 
-                        <div class="single_quick_activity" id="parishCouncilDiv">
+                        <div
+                          class="single_quick_activity"
+                          id="parishCouncilDiv"
+                        >
                           <h3>Parish Council</h3>
                         </div>
 
-                        <div class="single_quick_activity" id="commisionDiv">
+                        <div class="single_quick_activity" id="commissionDiv">
                           <h3>Commission</h3>
                         </div>
-
                       </div>
                     </div>
                   </div>
@@ -85,67 +94,68 @@
         </div>
       </div>
     </section>
-</body>
+  </body>
 
-<!-- Include jwt-decode library -->
-<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+  <!-- Include jwt-decode library -->
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 
-<!-- Include your auth.js file -->
-<script src="/js/auth.js"></script>
+  <!-- Include your auth.js file -->
+  <script src="/js/auth.js"></script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    checkAuthAndFetchUserData((error, userData) => {
-      if (error) {
-        console.error('Authentication failed');
-        return;
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      checkAuthAndFetchUserData((error, userData) => {
+        if (error) {
+          console.error("Authentication failed");
+          return;
+        }
+
+        document.getElementById("profileImage").src = getImagePath(
+          userData.image
+        );
+        document.getElementById("name").textContent = userData.name;
+        document.getElementById(
+          "role"
+        ).textContent = `Welcome ${userData.role}!`;
+      });
+    });
+
+    function getImagePath(image) {
+      if (image) {
+        return image.replace("../../Church_portal/public/", "/");
       }
-
-      document.getElementById('profileImage').src = getImagePath(userData.image);
-      document.getElementById('name').textContent = userData.name;
-      document.getElementById('role').textContent = `Welcome ${userData.role}!`;
-    });
-  });
-
-  function getImagePath(image) {
-    if (image) {
-      return image.replace("../../Church_portal/public/", "/");
+      return "";
     }
-    return "";
-  }
 
-  document.getElementById("wardsDiv").addEventListener("click", function () {
-    window.location.href = "/admin/wards.ejs";
-  });
-
-  document
-    .getElementById("priestsDiv")
-    .addEventListener("click", function () {
-      window.location.href = "/admin/priests.ejs";
+    document.getElementById("wardsDiv").addEventListener("click", function () {
+      window.location.href = "/admin/wards.ejs";
     });
 
-  document
-    .getElementById("obituaryDiv")
-    .addEventListener("click", function () {
-      window.location.href = "/admin/obituary.ejs";
-    });
-  document
-    .getElementById("associationsDiv")
-    .addEventListener("click", function () {
-      window.location.href = "/admin/associations.ejs";
-    });
-  document.getElementById('parishCouncilDiv').addEventListener('click', function () {
-    window.location.href = '/admin/parishCouncil.ejs';
+    document
+      .getElementById("priestsDiv")
+      .addEventListener("click", function () {
+        window.location.href = "/admin/priests.ejs";
+      });
 
-  });
-  document.getElementById('commisionDiv').addEventListener('click', function () {
-    window.location.href = '/admin/commision.ejs';
-
-  });
-
-
-</script>
-
-
-
+    document
+      .getElementById("obituaryDiv")
+      .addEventListener("click", function () {
+        window.location.href = "/admin/obituary.ejs";
+      });
+    document
+      .getElementById("associationsDiv")
+      .addEventListener("click", function () {
+        window.location.href = "/admin/associations.ejs";
+      });
+    document
+      .getElementById("parishCouncilDiv")
+      .addEventListener("click", function () {
+        window.location.href = "/admin/parishCouncil.ejs";
+      });
+    document
+      .getElementById("commissionDiv")
+      .addEventListener("click", function () {
+        window.location.href = "/admin/commission.ejs";
+      });
+  </script>
 </html>
