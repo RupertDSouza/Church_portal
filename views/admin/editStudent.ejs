@@ -863,39 +863,75 @@
 
 
         document.getElementById('updateButton').addEventListener('click', () => {
-            const newPassword = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            
+            const updatedStudent = {
+                name: document.getElementById('studentName').value,
+                admissionClass: document.getElementById('admissionClass').value,
+                dob: document.getElementById('dob').value,
+                gender: document.getElementById('gender').value,
+                motherTongue: document.getElementById('mother_tongue').value,
+                anyOtherLanguage: document.getElementById('other_language').value,
+                noOfBrothers: document.getElementById('no_of_brothers').value,
+                noOfSisters: document.getElementById('no_of_sisters').value,
+                address: document.getElementById('address').value,
+                cityVillageTown: document.getElementById('city_village_town').value,
+                locality: document.getElementById('locality').value,
+                pincode: document.getElementById('pincode').value,
+                district: document.getElementById('district').value,
+                taluk: document.getElementById('taluk').value,
+                aadharNumber: document.getElementById('aadhar_number').value,
+                religion: document.getElementById('religion').value,
+                caste: document.getElementById('caste').value,
+                socialCategory: document.getElementById('social_category').value,
+                belongToBPL: document.getElementById('belong_to_bpl').value === 'yes' ? 1 : 0,
+                bplCardNumber: document.getElementById('bpl_card_number').value,
+                satsNo: document.getElementById('sats_number').value,
+                bankName: document.getElementById('bank_name').value,
+                accountNumber: document.getElementById('account_number').value,
+                ifscCode: document.getElementById('ifsc_code').value,
+                fatherName: document.getElementById('father_name').value,
+                motherName: document.getElementById('mother_name').value,
+                fatherAadharNumber: document.getElementById('father_aadhar_number').value,
+                motherAadharNumber: document.getElementById('mother_aadhar_number').value,
+                fatherQualification: document.getElementById('father_qualification').value,
+                motherQualification: document.getElementById('mother_qualification').value,
+                fatherOccupation: document.getElementById('father_occupation').value,
+                motherOccupation: document.getElementById('mother_occupation').value,
+                annualIncome: document.getElementById('annual_income').value,
+                noOfDependents: document.getElementById('no_of_dependents').value,
+                fatherPhoneNumber: document.getElementById('father_phone_number').value,
+                motherPhoneNumber: document.getElementById('mother_phone_number').value,
+                previousSchoolAffiliation: document.getElementById('previous_school_affiliation').value,
+                transferCertificateNumber: document.getElementById('transfer_certificate_number').value,
+                transferCertificateDate: document.getElementById('transfer_certificate_date').value,
+                previousSchoolName: document.getElementById('previous_school_name').value,
+                pincodeOfPreviousSchool: document.getElementById('pincode_of_previous_school').value,
+                diseNo: document.getElementById('dise_no').value,
+                previousSchoolDistrict: document.getElementById('previous_school_district').value,
+                previousSchoolTaluk: document.getElementById('previous_school_taluk').value,
+                previousSchoolVillageCityTown: document.getElementById('previous_school_village_city_town').value
 
-
-            if (newPassword !== confirmPassword) {
-                alert('New password and confirm password do not match!');
-                return;
-            }
-            const updatedUser = {
-                name: document.getElementById('userName').value,
-                email: document.getElementById('email').value,
-                role: document.getElementById('userRole').value,
-                password: document.getElementById('password').value
             };
 
-            fetch(`/app/user/update/${editUserId}`, {
+            fetch(`/app/student/update/${studentId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(updatedUser)
+                body: JSON.stringify(updatedStudent)
             })
                 .then(response => response.json())
                 .then(data => {
 
                     if (data.message === 'Success') {
-                        alert('User updated successfully!');
+                        alert('Student updated successfully!');
                     } else {
-                        alert('Failed to update user.');
+                        alert('Failed to update student.');
                     }
                 })
-                .catch(error => console.error('Error updating user:', error));
+                .catch(error => console.error('Error updating student:', error));
         });
 
         document.getElementById('updateImage').addEventListener('click', () => {
