@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const hashMiddleware = require("../../middleware/hashMiddleware");
+const hashMiddlewareForUpdate = require("../../middleware/hashMiddlewareForUpdate");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -19,12 +20,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Role is required"],
   },
-  image:{
+  image: {
     type: String,
   },
 });
 
 userSchema.pre("save", hashMiddleware);
+userSchema.pre("findOneAndUpdate", hashMiddlewareForUpdate);
 
 const user = new mongoose.model("User", userSchema);
 
