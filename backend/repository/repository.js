@@ -84,7 +84,8 @@ class Repository {
     if (this.model.name === "Student" || this.model.name === "Payment") {
       const instance = await this.model.findByPk(id);
       if (instance) {
-        return await instance.destroy();
+        await instance.destroy();
+        return instance.dataValues.image;
       }
       return null;
     } else {

@@ -1,5 +1,7 @@
+const { log } = require("console");
 const fs = require("fs");
 const { promisify } = require("util");
+const cloudinary = require("cloudinary").v2;
 
 exports.create = async (req, res) => {
   try {
@@ -78,7 +80,7 @@ exports.update = async (req, res) => {
       message: "Success",
     });
   } catch (error) {
-    res.status(404).json({
+    return res.status(404).json({
       message: "couldn't update",
     });
   }
@@ -100,19 +102,27 @@ exports.updateWithImage = async (req, res) => {
         const accessAsync = promisify(fs.access);
         const unlinkAsync = promisify(fs.unlink);
         try {
-          accessAsync(change.image);
-          unlinkAsync(change.image);
-        } catch (unlinkError) {
-          console.error("Error deleting image file:", unlinkError);
+          await accessAsync(old.image);
+          await unlinkAsync(old.image);
+        } catch {
+          try {
+            const publicId = extractPublicIdFromUrl(old.image);
+            await cloudinary.uploader.destroy(publicId).catch((error) => {
+              return res.status(400).json({ Error: error });
+            });
+          } catch (extractionError) {
+            return res
+              .status(400)
+              .error({ "Error extracting public ID": extractionError });
+          }
         }
       }
     }
     return res.status(200).json({
-      change,
-      message: "Success",
+      message: "Updated Successfully",
     });
   } catch (error) {
-    res.status(404).json({
+    return res.status(404).json({
       message: "couldn't update",
     });
   }
@@ -156,7 +166,7 @@ exports.updateMass = async (req, res) => {
       message: "Success",
     });
   } catch (error) {
-    res.status(404).json({
+    return res.status(404).json({
       message: "couldn't update",
     });
   }
@@ -167,84 +177,48 @@ exports.delete = async (req, res) => {
     const accessAsync = promisify(fs.access);
     const unlinkAsync = promisify(fs.unlink);
     const response = await req.repo.findOneAndDelete(req.params.id);
+
     if (!response || response === 0) {
       return res.status(404).json({
         message: "Not found",
       });
     }
-    if (response.image) {
+
+    if (response) {
       try {
-        accessAsync(response.image);
-        unlinkAsync(response.image);
-      } catch (unlinkError) {
-        console.error("Error deleting image file:", unlinkError);
+        await accessAsync(response);
+        await unlinkAsync(response);
+      } catch {
+        try {
+          const publicId = extractPublicIdFromUrl(response);
+          await cloudinary.uploader.destroy(publicId).catch((error) => {
+            return res.status(400).json({ Error: error });
+          });
+        } catch (extractionError) {
+          return res
+            .status(400)
+            .error({ "Error extracting public ID": extractionError });
+        }
       }
     }
+
     return res.status(200).json({
-      data: { response },
       message: "Deleted Successfully",
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       error: error,
     });
   }
 };
 
-// exports.update = async (req, res) => {
-//   try {
-//     let change;
-//     if (req.mass) {
-//       console.log(req.body.about[0]._id);
-//       const { about } = req.body;
-//       const id = req.body.about[0]._id;
+function extractPublicIdFromUrl(url) {
+  const regex = /\/([^/]+?)(?:\?|$)/;
+  const match = url.match(regex);
 
-//       const updates = {};
-//       about.forEach((item) => {
-//         if (item.occasion) {
-//           updates[`about.$[elem].occasion`] = item.occasion;
-//         }
-//         if (item.date) {
-//           updates[`about.$[elem].date`] = item.date;
-//         }
-//         if (item.time) {
-//           updates[`about.$[elem].time`] = item.time;
-//         }
-//       });
-
-//       change = await req.repo.findOneAndUpdate(
-//         req.params.id,
-//         { $set: updates },
-//         {
-//           arrayFilters: [{ "elem._id": id }],
-//           new: true,
-//         }
-//       );
-//     } else {
-//       change = await req.repo.findOneAndUpdate(req.params.id, req.body);
-//     }
-
-//     if (!change || change === 0) {
-//       return res.status(400).json({
-//         message: "Not Found",
-//       });
-//     }
-
-//     if (change.image) {
-//       const old = await req.repo.findById(req.params.id);
-//       if (change.image !== old.image && old.image != null) {
-//         const unlinkAsync = promisify(fs.unlink);
-//         unlinkAsync(old.image);
-//       }
-//     }
-
-//     return res.status(200).json({
-//       data: { change },
-//       message: "Success",
-//     });
-//   } catch (error) {
-//     res.status(404).json({
-//       message: "couldn't update",
-//     });
-//   }
-// };
+  if (match && match[1]) {
+    return match[1];
+  } else {
+    throw new Error("Could not extract public ID from the URL");
+  }
+}

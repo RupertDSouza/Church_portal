@@ -34,6 +34,13 @@ router.put(
   controller.updateWithImage
 );
 
+router.put(
+  "/updateAdmissionImage/:id",
+  uploadImageCloudinary,
+  uploadToCloud,
+  controller.updateWithImage
+);
+
 router.put("/updateMass/:id", upload.none(), auth, controller.updateMass);
 
 router.delete("/delete/:id", auth, controller.delete);
