@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Create Ward</title>
+    <title>Create Poster</title>
 
     <link rel="stylesheet" href="/styles/style1.css" />
     <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
@@ -50,31 +50,20 @@
                             <div class="white_box mb_30">
                                 <div class="box_header ">
                                     <div class="main-title">
-                                        <h3 class="mb-0">Create Ward </h3>
+                                        <h3 class="mb-0">Create Church Poster </h3>
                                     </div>
                                 </div>
-                                <form id="createWardForm">
+                                <form id="createPosterForm">
                                     <div class="mb-3">
-                                        <label class="form-label" for="name">Ward Name</label>
-                                        <input type="text" class="form-control" id="name" name="name">
+                                        <label class="form-label" for="title">Poster Title</label>
+                                        <input type="text" class="form-control" id="title" name="title">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label" for="description">description</label>
-                                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                                        <label class="form-label" for="link">link</label>
+                                        <input type="text" class="form-control" id="link" name="link">
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="place">Place</label>
-                                        <input type="text" class="form-control" id="place" name="place">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="noOfFamilies">No Of Families</label>
-                                        <input type="number" class="form-control" id="noOfFamilies" name="noOfFamilies">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="noOfMembers">No Of Members</label>
-                                        <input type="number" class="form-control" id="noOfMembers" name="noOfMembers">
-                                    </div>
-                                    <label class="form-label" for="image">Ward Image</label>
+                                    
+                                    <label class="form-label" for="image">Poster </label>
                                     <div class="input-group mb-3">
 
                                         <input type="file" class="form-control" id="image" name="image">
@@ -109,7 +98,7 @@
             document.getElementById('name').textContent = userData.name;
             document.getElementById('role').textContent = `Welcome ${userData.role}!`;
         });
-        document.getElementById('createButton').addEventListener('click', createWard);
+        document.getElementById('createButton').addEventListener('click', createPoster);
     });
     function getImagePath(image) {
         if (image) {
@@ -119,25 +108,18 @@
         return "";
     }
 
-    async function createWard() {
+    async function createPoster() {
         const token = localStorage.getItem('token');
         if (!token) {
             alert('Please login first');
             return;
         }
 
-        const form = document.getElementById('createWardForm');
+        const form = document.getElementById('createPosterForm');
         const formData = new FormData(form);
-        formData.set('noOfFamilies', Number(formData.get('noOfFamilies')));
-        formData.set('noOfMembers', Number(formData.get('noOfMembers')));
-
-        if (isNaN(formData.get('noOfFamilies')) || isNaN(formData.get('noOfMembers'))) {
-            alert('Please enter valid numbers for No Of Families and No Of Members.');
-            return;
-        }
 
         try {
-            const response = await fetch('/app/ward/create', {
+            const response = await fetch('/app/poster/create', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -146,12 +128,12 @@
             });
 
             const data = await response.json();
-            
+           
             if (data.message === 'Created Successfully') {
-                alert('Ward created successfully!');
+                alert('Poster created successfully!');
 
             } else {
-                alert('Error creating ward: ' + data.message);
+                alert('Error creating poster: ' + data.message);
             }
         } catch (error) {
             console.error('Error:', error);
