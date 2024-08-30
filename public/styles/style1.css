@@ -3060,7 +3060,12 @@ body::-webkit-scrollbar {
 .single_element .single_quick_activity:nth-child(6) {
   background: #dcd53596;
 }
-
+.single_element .single_quick_activity:nth-child(7) {
+  background: burlywood;
+}
+.single_element .single_quick_activity:nth-child(8) {
+  background: rosybrown;
+}
 .single_element .single_quick_activity::before {
   position: absolute;
   left: 0;
