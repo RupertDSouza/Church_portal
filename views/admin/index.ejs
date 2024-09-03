@@ -84,6 +84,14 @@
                         <div class="single_quick_activity" id="commissionDiv">
                           <h3>Commission</h3>
                         </div>
+
+                        <div class="single_quick_activity" id="institutionDiv">
+                          <h3>Institution</h3>
+                        </div>
+
+                        <div class="single_quick_activity" id="massTimingsDiv">
+                          <h3>Mass Timings</h3>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -156,6 +164,16 @@
       .getElementById("commissionDiv")
       .addEventListener("click", function () {
         window.location.href = "/admin/commission.ejs";
+      });
+      document
+      .getElementById("institutionDiv")
+      .addEventListener("click", function () {
+        window.location.href = "/admin/institution.ejs";
+      });
+      document
+      .getElementById("massTimingsDiv")
+      .addEventListener("click", function () {
+        window.location.href = "/admin/massTiming.ejs";
       });
   </script>
 </html>
