@@ -1,4 +1,3 @@
-const { log } = require("console");
 const fs = require("fs");
 const { promisify } = require("util");
 const cloudinary = require("cloudinary").v2;
@@ -130,19 +129,19 @@ exports.updateWithImage = async (req, res) => {
 
 exports.updateMass = async (req, res) => {
   try {
-    const { about } = req.body;
+    const { info } = req.body;
     const id = req.body.info[0]._id;
 
     const updates = {};
-    about.forEach((item) => {
+    info.forEach((item) => {
       if (item.occasion) {
-        updates[`about.$[elem].occasion`] = item.occasion;
+        updates[`info.$[elem].occasion`] = item.occasion;
       }
       if (item.date) {
-        updates[`about.$[elem].date`] = item.date;
+        updates[`info.$[elem].date`] = item.date;
       }
       if (item.time) {
-        updates[`about.$[elem].time`] = item.time;
+        updates[`info.$[elem].time`] = item.time;
       }
     });
 
@@ -184,13 +183,13 @@ exports.delete = async (req, res) => {
       });
     }
 
-    if (response) {
+    if (response.image) {
       try {
-        await accessAsync(response);
-        await unlinkAsync(response);
+        await accessAsync(response.image);
+        await unlinkAsync(response.image);
       } catch {
         try {
-          const publicId = extractPublicIdFromUrl(response);
+          const publicId = extractPublicIdFromUrl(response.image);
           await cloudinary.uploader.destroy(publicId).catch((error) => {
             return res.status(400).json({ Error: error });
           });

@@ -85,7 +85,7 @@ class Repository {
       const instance = await this.model.findByPk(id);
       if (instance) {
         await instance.destroy();
-        return instance.dataValues.image;
+        return instance.dataValues;
       }
       return null;
     } else {
