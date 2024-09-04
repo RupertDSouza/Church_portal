@@ -98,27 +98,53 @@ exports.updateWithImage = async (req, res) => {
 
     if (change.image) {
       if (change.image !== old.image && old.image != null) {
+        try {
+          const publicId = extractPublicIdFromUrl(old.image);
+          await cloudinary.uploader.destroy(publicId).catch((error) => {
+            return res.status(400).json({ Error: error });
+          });
+        } catch (extractionError) {
+          return res
+            .status(400)
+            .error({ "Error extracting public ID": extractionError });
+        }
+      }
+    }
+    return res.status(200).json({
+      message: "Success",
+    });
+  } catch (error) {
+    return res.status(404).json({
+      message: "couldn't update",
+    });
+  }
+};
+
+exports.updateServerImage = async (req, res) => {
+  try {
+    const old = await req.repo.findById(req.params.id);
+    const change = await req.repo.findOneAndUpdate(req.params.id, req.body);
+
+    if (!change || change === 0) {
+      return res.status(400).json({
+        message: "Not Found",
+      });
+    }
+
+    if (change.image) {
+      if (change.image !== old.image && old.image != null) {
         const accessAsync = promisify(fs.access);
         const unlinkAsync = promisify(fs.unlink);
         try {
           await accessAsync(old.image);
           await unlinkAsync(old.image);
-        } catch {
-          try {
-            const publicId = extractPublicIdFromUrl(old.image);
-            await cloudinary.uploader.destroy(publicId).catch((error) => {
-              return res.status(400).json({ Error: error });
-            });
-          } catch (extractionError) {
-            return res
-              .status(400)
-              .error({ "Error extracting public ID": extractionError });
-          }
+        } catch (unlinkError) {
+          return res.status(400).json({ Error: unlinkError });
         }
       }
     }
     return res.status(200).json({
-      message: "Updated Successfully",
+      message: "Success",
     });
   } catch (error) {
     return res.status(404).json({

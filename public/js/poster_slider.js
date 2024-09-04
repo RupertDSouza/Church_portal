@@ -24,7 +24,7 @@ async function loadPoster(containerId) {
     ) {
       const item = data[index];
 
-      const imageUrl = item.image.replace(/^.*\/public\//, "../");
+      const imageUrl = item.image;
       const itemHtml = `
         <div class="poster-slider">
           <div

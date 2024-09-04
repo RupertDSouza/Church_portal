@@ -19,7 +19,7 @@ async function fetchInstitutionData(
     const data = await response.json();
     const item = data.filter((item) => item.type === type);
 
-    const imageUrl = item[0].image.replace(/^.*\/public\//, "../");
+    const imageUrl = item[0].image;
 
     document.getElementById(titleId).textContent = item[0].name;
     document.getElementById(imageId).src = imageUrl;

@@ -20,7 +20,7 @@ async function loadWardInfo(containerId) {
     for (let index = 0; index <= data.length - 1; index++) {
       const item = data[index];
 
-      const imageUrl = item.image.replace(/^.*\/public\//, "../");
+      const imageUrl = item.image;
       const truncatedContent =
         item.description.length > 300
           ? item.description.substring(0, 300) + "..."

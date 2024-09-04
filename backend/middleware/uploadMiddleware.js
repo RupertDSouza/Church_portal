@@ -23,7 +23,7 @@ const fileUpload = (req, res, next) => {
       const originalName = file.originalname;
       const targetPath = path.join(
         __dirname,
-        `../../public/uploads/${originalName}`
+        `../../public/images/${originalName}`
       );
 
       if (
@@ -33,7 +33,7 @@ const fileUpload = (req, res, next) => {
           if (err) return callback(err);
           processedFiles[
             fieldName
-          ] = `../../Church_portal/public/uploads/${originalName}`;
+          ] = `../../Church_portal/public/images/${originalName}`;
           callback(null);
         });
       } else {

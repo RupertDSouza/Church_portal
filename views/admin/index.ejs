@@ -130,7 +130,7 @@
 
     function getImagePath(image) {
       if (image) {
-        return image.replace("../../Church_portal/public/", "/");
+        return image;
       }
       return "";
     }
@@ -165,12 +165,12 @@
       .addEventListener("click", function () {
         window.location.href = "/admin/commission.ejs";
       });
-      document
+    document
       .getElementById("institutionDiv")
       .addEventListener("click", function () {
         window.location.href = "/admin/institution.ejs";
       });
-      document
+    document
       .getElementById("massTimingsDiv")
       .addEventListener("click", function () {
         window.location.href = "/admin/massTiming.ejs";

@@ -11,7 +11,13 @@ const controller = require("../controller/crudController");
 const router = express.Router();
 const upload = multer();
 
-router.post("/create", auth, uploadImage, fileUpload, controller.create);
+router.post(
+  "/create",
+  auth,
+  uploadImageCloudinary,
+  uploadToCloud,
+  controller.create
+);
 
 router.post(
   "/admission",
@@ -29,8 +35,8 @@ router.put("/update/:id", upload.none(), auth, controller.update);
 router.put(
   "/updateImage/:id",
   auth,
-  uploadImage,
-  fileUpload,
+  uploadImageCloudinary,
+  uploadToCloud,
   controller.updateWithImage
 );
 
@@ -39,6 +45,14 @@ router.put(
   uploadImageCloudinary,
   uploadToCloud,
   controller.updateWithImage
+);
+
+router.put(
+  "/updateWebImage/:id",
+  auth,
+  uploadImage,
+  fileUpload,
+  controller.updateServerImage
 );
 
 router.put("/updateMass/:id", upload.none(), auth, controller.updateMass);

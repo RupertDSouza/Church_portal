@@ -1,190 +1,208 @@
 <html>
-    <head>
-        <title>Readings</title>
+  <head>
+    <title>Readings</title>
 
+    <link rel="stylesheet" href="/styles/style1.css" />
+    <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+  </head>
+  <body class="crm_body_bg">
+    <%- include('../handlebars/navbar') %>
 
-           <link rel="stylesheet" href="/styles/style1.css" />
-        <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
-        
-         
-        
-    </head>
-    <body class="crm_body_bg">
-
-        <%- include('../handlebars/navbar') %>
-      
-      
-      <section class="main_content dashboard_part">
-      
+    <section class="main_content dashboard_part">
       <div class="container-fluid g-0">
-      <div class="row">
-      <div class="col-lg-12 p-0">
-      <div class="header_iner d-flex justify-content-between align-items-center">
-        <%- include('../handlebars/mobileNav') %>
-      <div class="sidebar_icon d-lg-none">
-      <i class="ti-menu"></i>
-      </div>
-      <div >
-     
-        <form action="/admin/editChurchInfo.ejs">
-            <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
-        </form>
-      </div>
-      
-      <div class="header_right d-flex justify-content-between align-items-center">
-      <div class="header_notification_warp d-flex align-items-center">
-      <li>
-      <a href="#" onclick="redirectToCreateReading()">
-         <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
-      </li>
-      
-      </div>
-      <div class="profile_info">
-        <img id="profileImage" src="" alt="Profile Image">
-        <div class="profile_info_iner">
-            <p id="role">Welcome!</p>
-            <h5 id="name">User</h5>
+        <div class="row">
+          <div class="col-lg-12 p-0">
+            <div
+              class="header_iner d-flex justify-content-between align-items-center"
+            >
+              <%- include('../handlebars/mobileNav') %>
+              <div class="sidebar_icon d-lg-none">
+                <i class="ti-menu"></i>
+              </div>
+              <div>
+                <form action="/admin/editChurchInfo.ejs">
+                  <input
+                    type="submit"
+                    value="Update Church Info"
+                    class="btn btn-secondary btn-lg"
+                    id="updateChurchInfo"
+                  />
+                </form>
+              </div>
+
+              <div
+                class="header_right d-flex justify-content-between align-items-center"
+              >
+                <div class="header_notification_warp d-flex align-items-center">
+                  <li>
+                    <a href="#" onclick="redirectToCreateReading()">
+                      <img
+                        src="../images/interface_16374941.png"
+                        style="max-width: 16%; margin-left: 85%"
+                      />
+                    </a>
+                  </li>
+                </div>
+                <div class="profile_info">
+                  <img id="profileImage" src="" alt="Profile Image" />
+                  <div class="profile_info_iner">
+                    <p id="role">Welcome!</p>
+                    <h5 id="name">User</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
       </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      
+
       <div class="main_content_iner">
         <div class="container-fluid plr_30 body_white_bg pt_30">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="QA_section">
-                        <div class="QA_table">
-                            <table class="table lms_table_active">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">First Reading</th>
-                                        <th scope="col">Second Reading</th>
-                                        <th scope="col">Responsorial Psalm</th>
-                                        <th scope="col">Gospel</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Table rows will be dynamically inserted here -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="QA_section">
+                <div class="QA_table">
+                  <table class="table lms_table_active">
+                    <thead>
+                      <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">First Reading</th>
+                        <th scope="col">Second Reading</th>
+                        <th scope="col">Responsorial Psalm</th>
+                        <th scope="col">Gospel</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Table rows will be dynamically inserted here -->
+                    </tbody>
+                  </table>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<div id="response"></div> 
+    <div id="response"></div>
 
-<!-- Modal Background  -->
-<div id="confirmationModal" class="modal">
-    <div class="modal-content">
+    <!-- Modal Background  -->
+    <div id="confirmationModal" class="modal">
+      <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
         <p>Are you sure you want to delete this reading?</p>
-        <button id="confirmDelete" class="btn btn-primary" style="margin-bottom: 10;">Yes</button>
+        <button
+          id="confirmDelete"
+          class="btn btn-primary"
+          style="margin-bottom: 10"
+        >
+          Yes
+        </button>
         <button id="cancelDelete" class="btn btn-secondary">No</button>
+      </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 
+    <script src="/js/auth.js"></script>
 
-<script src="/js/auth.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
         checkAuthAndFetchUserData((error, userData) => {
-            if (error) {
-                console.error('Authentication failed');
-                return;
-            }
+          if (error) {
+            console.error("Authentication failed");
+            return;
+          }
 
-            document.getElementById('profileImage').src = getImagePath(userData.image);
-            document.getElementById('name').textContent = userData.name;
-            document.getElementById('role').textContent = `Welcome ${userData.role}!`;
+          document.getElementById("profileImage").src = getImagePath(
+            userData.image
+          );
+          document.getElementById("name").textContent = userData.name;
+          document.getElementById(
+            "role"
+          ).textContent = `Welcome ${userData.role}!`;
         });
         displayResults();
-    });
-    
-    async function displayResults() {
-        try {
-            const token = localStorage.getItem('token');
-            const response = await fetch("/app/reading/read", {
-                method: "GET",
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
+      });
 
-            if (!response.ok) {
-                throw new Error("Network response was not ok " + response.statusText);
-            }
-            
-            const readings = await response.json();
-            const tableBody = document.querySelector('.lms_table_active tbody');
-            
-            // Clear existing table rows
-            tableBody.innerHTML = '';
-            
-            readings.forEach(reading => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
+      async function displayResults() {
+        try {
+          const token = localStorage.getItem("token");
+          const response = await fetch("/app/reading/read", {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
+
+          const readings = await response.json();
+          const tableBody = document.querySelector(".lms_table_active tbody");
+
+          // Clear existing table rows
+          tableBody.innerHTML = "";
+
+          readings.forEach((reading) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
                 <td>${formatDate(reading.date)}</td>
                 <td>${reading.firstReading}</td>
                 <td>${reading.secondReading}</td>
                 <td>${reading.responsorialPsalm}</td>
                 <td>${reading.gospel}</td>
-                <td><a href="#" class="status_btn edit-btn" data-id="${reading._id}" style="text-decoration: none;">Edit</a>&nbsp;&nbsp;
-                    <a href="#" class="status_btn delete-btn delete-btn-table" data-id="${reading._id}" style="text-decoration: none;">Delete</a></td>
+                <td><a href="#" class="status_btn edit-btn" data-id="${
+                  reading._id
+                }" style="text-decoration: none;">Edit</a>&nbsp;&nbsp;
+                    <a href="#" class="status_btn delete-btn delete-btn-table" data-id="${
+                      reading._id
+                    }" style="text-decoration: none;">Delete</a></td>
                     `;
-                    tableBody.appendChild(row);
-                });
+            tableBody.appendChild(row);
+          });
 
-                document.querySelectorAll('.delete-btn').forEach(button => {
-                button.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const cardId = this.getAttribute('data-id');
-                    showConfirmationModal(cardId);
-                });
+          document.querySelectorAll(".delete-btn").forEach((button) => {
+            button.addEventListener("click", function (event) {
+              event.preventDefault();
+              const cardId = this.getAttribute("data-id");
+              showConfirmationModal(cardId);
             });
-                
-                document.querySelectorAll('.edit-btn').forEach(button => {
-                    button.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        const rowId = this.getAttribute('data-id');
-                        localStorage.setItem('readingId', rowId);
-                        window.location.href = '/admin/editReading.ejs';
-                    });
-                });
-                
-            } catch (error) {
-                console.error("Error:", error);
-                document.getElementById("response").innerText = "Error: " + error.message;
-            }
+          });
+
+          document.querySelectorAll(".edit-btn").forEach((button) => {
+            button.addEventListener("click", function (event) {
+              event.preventDefault();
+              const rowId = this.getAttribute("data-id");
+              localStorage.setItem("readingId", rowId);
+              window.location.href = "/admin/editReading.ejs";
+            });
+          });
+        } catch (error) {
+          console.error("Error:", error);
+          document.getElementById("response").innerText =
+            "Error: " + error.message;
         }
-        
-        function getImagePath(image) {
-            if (image) {
-                
-                return image.replace("../../Church_portal/public/", "/");
-            }
-            return ""; 
+      }
+
+      function getImagePath(image) {
+        if (image) {
+          return image;
         }
-        function formatDate(dateString) {
+        return "";
+      }
+      function formatDate(dateString) {
         const date = new Date(dateString);
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
         return `${year}-${month}-${day}`;
-    }
-        function showConfirmationModal(cardId) {
+      }
+      function showConfirmationModal(cardId) {
         const modal = document.getElementById("confirmationModal");
         modal.style.display = "block";
 
@@ -193,59 +211,62 @@
         const cancelButton = document.getElementById("cancelDelete");
 
         confirmButton.onclick = async function () {
-            await deleteCard(cardId);
-            modal.style.display = "none";
+          await deleteCard(cardId);
+          modal.style.display = "none";
         };
 
         closeButton.onclick = function () {
-            modal.style.display = "none";
+          modal.style.display = "none";
         };
 
         cancelButton.onclick = function () {
-            modal.style.display = "none";
+          modal.style.display = "none";
         };
+      }
 
-    }
-
-    async function deleteCard(cardId) {
-        const token = localStorage.getItem('token');
+      async function deleteCard(cardId) {
+        const token = localStorage.getItem("token");
         if (!token) {
-            alert('Please login first');
-            return;
+          alert("Please login first");
+          return;
         }
 
         try {
-            const response = await fetch(`/app/reading/delete/${cardId}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
+          const response = await fetch(`/app/reading/delete/${cardId}`, {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
-            if (!response.ok) {
-                throw new Error("Network response was not ok " + response.statusText);
-            }
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
 
-            const row = document.querySelector(`[data-id='${cardId}']`).closest('tr');
-        if (row) {
+          const row = document
+            .querySelector(`[data-id='${cardId}']`)
+            .closest("tr");
+          if (row) {
             row.remove();
-        }
+          }
 
-        // Optionally, you can show a success message
-        document.getElementById("response").innerText = "Reading deleted successfully";
+          // Optionally, you can show a success message
+          document.getElementById("response").innerText =
+            "Reading deleted successfully";
         } catch (error) {
-            console.error("Error:", error);
-            const responseElement = document.getElementById("response");
-            if (responseElement) {
-                responseElement.innerText = "Error: " + error.message;
-            }
+          console.error("Error:", error);
+          const responseElement = document.getElementById("response");
+          if (responseElement) {
+            responseElement.innerText = "Error: " + error.message;
+          }
         }
-    }
-        
-        function redirectToCreateReading() {
-                window.location.href = '/admin/createReading.ejs';
-            }
-       
-</script>
-</body>
+      }
+
+      function redirectToCreateReading() {
+        window.location.href = "/admin/createReading.ejs";
+      }
+    </script>
+  </body>
 </html>

@@ -11,7 +11,7 @@ async function fetchData(url, titleId, imageId, detailsId, addressId) {
     const len = data.length - 1;
     const item = data[len];
 
-    const imageUrl = item.image.replace(/^.*\/public\//, "../");
+    const imageUrl = item.image;
 
     document.getElementById(titleId).textContent = item.name;
     document.getElementById(imageId).src = imageUrl;

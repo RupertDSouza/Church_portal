@@ -20,7 +20,7 @@ async function loadPriestInfo(containerId) {
     for (let index = data.length - 1; index >= 0; index--) {
       const item = data[index];
 
-      const imageUrl = item.image.replace(/^.*\/public\//, "../");
+      const imageUrl = item.image;
       const fromDate = new Date(item.fromDate).toLocaleDateString();
       let toDate = new Date(item.toDate).toLocaleDateString();
       const dateOfOrdination = new Date(

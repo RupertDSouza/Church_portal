@@ -25,7 +25,7 @@ function getMostRecentItem(data, type) {
 
 function displayItem(image, title, text, dates, item) {
   if (item) {
-    const imageUrl = item.image.replace(/^.*\/public\//, "../");
+    const imageUrl = item.image;
     document.getElementById(image).src = imageUrl;
     document.getElementById(title).textContent = `${item.title}`;
 

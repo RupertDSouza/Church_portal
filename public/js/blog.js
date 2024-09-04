@@ -29,7 +29,7 @@ function displayItem(containerId, data) {
 
   for (let index = data.length - 1; index >= 0; index--) {
     item = data[index];
-    const imageUrl = item.image.replace(/^.*\/public\//, "../");
+    const imageUrl = item.image;
 
     const itemHtml = `
          <div class="latest_news d-flex flex-row align-items-start justify-content-start">
@@ -55,7 +55,7 @@ function displayItem(containerId, data) {
 
 function displayBlogContent(item_container, item) {
   const blogContent = document.getElementById(item_container);
-  const imageUrl = item.image.replace(/^.*\/public\//, "../");
+  const imageUrl = item.image;
 
   const blogHtml = `
     <div class="blog_post">

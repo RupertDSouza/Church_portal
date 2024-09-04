@@ -188,7 +188,7 @@ function displayResults(results) {
 
         if (result.image) {
           const img = document.createElement("img");
-          img.src = result.image.replace(/^.*\/public\//, "../");
+          img.src = result.image;
           img.alt = result.title || result.name || "Result image";
           img.className = "result-image";
           resultDiv.appendChild(img);

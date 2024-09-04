@@ -16,7 +16,7 @@ async function fetchDataArray(url, containerId) {
 
     for (let index = data.length - 1; index >= 0; index--) {
       const item = data[index];
-      const imageUrl = item.image.replace(/^.*\/public\//, "../");
+      const imageUrl = item.image;
       const born = new Date(item.born).toLocaleDateString();
       const died = new Date(item.died).toLocaleDateString();
       const itemHtml = `

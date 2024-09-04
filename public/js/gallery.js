@@ -20,7 +20,7 @@ async function loadAssociationInfo(containerId) {
     for (let index = 0; index < data.length; index++) {
       if (data[index].type === "gallery") {
         const item = data[index];
-        const imageUrl = item.image.replace(/^.*\/public\//, "../");
+        const imageUrl = item.image;
 
         const itemHtml = `
           <div class="gallery-item ${

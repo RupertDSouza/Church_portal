@@ -17,8 +17,8 @@ async function loadSingleWardInfo() {
       return;
     }
 
-    const imageUrl = item.image.replace(/^.*\/public\//, "../");
-    const gurkarImageUrl = item.gurkarImage.replace(/^.*\/public\//, "../");
+    const imageUrl = item.image;
+    const gurkarImageUrl = item.gurkarImage;
 
     document.getElementById("ward-name").innerText = item.name;
     document.getElementById("ward-img").src = imageUrl;
