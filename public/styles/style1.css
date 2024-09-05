@@ -5653,3 +5653,62 @@ canvas#highlights {
   cursor: pointer;
 }
 
+div.header_iner d-flex justify-content-between align-items-center{
+/* Default styling for larger screens */
+.header_right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_notification_warp {
+  display: flex;
+  align-items: center;
+}
+
+.header_notification_warp img {
+  max-width: 50px; /* Set a default size for larger screens */
+  height: auto;    /* Ensure the aspect ratio is maintained */
+  transition: all 0.2s ease; /* Smooth transition for resizing */
+}
+
+/* Profile image styling */
+.profile_info img {
+  max-width: 50px; /* Set default size for the profile image */
+  height: auto;    /* Maintain aspect ratio */
+  border-radius: 50%; /* Keep the circular shape */
+  transition: all 0.2s ease;
+}
+
+/* Responsive adjustments for tablets and smaller screens */
+@media (max-width: 768px) {
+  .header_right {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center;
+  }
+
+  /* Adjust notification image size */
+  .header_notification_warp img {
+    max-width: 40px; /* Smaller size for tablets */
+  }
+
+  /* Adjust profile image size */
+  .profile_info img {
+    max-width: 40px; /* Smaller size for tablets */
+  }
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 480px) {
+  /* Further adjust the notification image size */
+  .header_notification_warp img {
+    max-width: 30px; /* Further reduce size for mobile devices */
+  }
+
+  /* Further adjust the profile image size */
+  .profile_info img {
+    max-width: 30px; /* Further reduce size for mobile devices */
+  }
+}
+
+}
