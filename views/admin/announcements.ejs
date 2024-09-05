@@ -27,7 +27,7 @@
                             </div>
                             <div>
 
-                                <form action="/admin/editChurchInfo.ejs">
+                                <form action="/admin/editChurchInfo">
                                     <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
                                 </form>
                             </div>
@@ -143,7 +143,7 @@
                     event.preventDefault();
                     const cardId = this.getAttribute('data-id');
                     localStorage.setItem('announcementId', cardId);
-                    window.location.href = '/admin/editAnnouncement.ejs';
+                    window.location.href = '/admin/editAnnouncement';
                 });
             });
 
@@ -161,7 +161,7 @@
         return ""; 
     }
     function redirectToCreateAnnouncement() {
-        window.location.href = '/admin/createAnnouncement.ejs';
+        window.location.href = '/admin/createAnnouncement';
     }
     function getItem(data, type) {
         const filteredData = data.filter((item) => item.type === type);
