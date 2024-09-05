@@ -23,7 +23,7 @@
               <%- include('../handlebars/mobileNav') %>
               <div class="sidebar_icon d-lg-none"></div>
               <div>
-                <form action="/admin/editChurchInfo.ejs">
+                <form action="/admin/editChurchInfo">
                   <input
                     type="submit"
                     value="Update Church Info"
@@ -136,44 +136,44 @@
     }
 
     document.getElementById("wardsDiv").addEventListener("click", function () {
-      window.location.href = "/admin/wards.ejs";
+      window.location.href = "/admin/wards";
     });
 
     document
       .getElementById("priestsDiv")
       .addEventListener("click", function () {
-        window.location.href = "/admin/priests.ejs";
+        window.location.href = "/admin/priests";
       });
 
     document
       .getElementById("obituaryDiv")
       .addEventListener("click", function () {
-        window.location.href = "/admin/obituary.ejs";
+        window.location.href = "/admin/obituary";
       });
     document
       .getElementById("associationsDiv")
       .addEventListener("click", function () {
-        window.location.href = "/admin/associations.ejs";
+        window.location.href = "/admin/associations";
       });
     document
       .getElementById("parishCouncilDiv")
       .addEventListener("click", function () {
-        window.location.href = "/admin/parishCouncil.ejs";
+        window.location.href = "/admin/parishCouncil";
       });
     document
       .getElementById("commissionDiv")
       .addEventListener("click", function () {
-        window.location.href = "/admin/commission.ejs";
+        window.location.href = "/admin/commission";
       });
       document
       .getElementById("institutionDiv")
       .addEventListener("click", function () {
-        window.location.href = "/admin/institution.ejs";
+        window.location.href = "/admin/institution";
       });
       document
       .getElementById("massTimingsDiv")
       .addEventListener("click", function () {
-        window.location.href = "/admin/massTiming.ejs";
+        window.location.href = "/admin/massTiming";
       });
   </script>
 </html>

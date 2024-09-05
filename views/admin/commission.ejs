@@ -28,7 +28,7 @@
                             </div>
                             <div>
 
-                                <form action="/admin/createCommissionMember.ejs">
+                                <form action="/admin/createCommissionMember">
                                     <input type="submit" value="Add Commission Member" class="btn btn-secondary btn-lg" id="addCommissionMember">
                                 </form>
                             </div>
@@ -143,7 +143,7 @@
                     event.preventDefault();
                     const cardId = this.getAttribute('data-id');
                     localStorage.setItem('commissionId', cardId);
-                    window.location.href = '/admin/editCommission.ejs';
+                    window.location.href = '/admin/editCommission';
                 });
             });
 
@@ -161,7 +161,7 @@
         return "";
     }
     function redirectToCreateCommission() {
-        window.location.href = '/admin/createCommission.ejs';
+        window.location.href = '/admin/createCommission';
     }
 
     function showConfirmationModal(cardId) {

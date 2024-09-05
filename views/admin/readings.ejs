@@ -26,7 +26,7 @@
       </div>
       <div >
      
-        <form action="/admin/editChurchInfo.ejs">
+        <form action="/admin/editChurchInfo">
             <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
         </form>
       </div>
@@ -160,7 +160,7 @@
                         event.preventDefault();
                         const rowId = this.getAttribute('data-id');
                         localStorage.setItem('readingId', rowId);
-                        window.location.href = '/admin/editReading.ejs';
+                        window.location.href = '/admin/editReading';
                     });
                 });
                 
@@ -243,7 +243,7 @@
     }
         
         function redirectToCreateReading() {
-                window.location.href = '/admin/createReading.ejs';
+                window.location.href = '/admin/createReading';
             }
        
 </script>

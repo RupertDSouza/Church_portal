@@ -28,7 +28,7 @@
                             </div>
                             <div>
 
-                                <form action="/admin/editChurchInfo.ejs">
+                                <form action="/admin/editChurchInfo">
                                     <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
                                 </form>
                             </div>
@@ -142,7 +142,7 @@
                     event.preventDefault();
                     const cardId = this.getAttribute('data-id');
                     localStorage.setItem('associationId', cardId);
-                    window.location.href = '/admin/editAssociation.ejs';
+                    window.location.href = '/admin/editAssociation';
                 });
             });
 
@@ -160,7 +160,7 @@
         return "";
     }
     function redirectToCreateAssociation() {
-        window.location.href = '/admin/createAssociation.ejs';
+        window.location.href = '/admin/createAssociation';
     }
 
     function showConfirmationModal(cardId) {

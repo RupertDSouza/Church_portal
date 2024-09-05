@@ -26,7 +26,7 @@
       </div>
       <div >
      
-        <form action="/admin/editChurchInfo.ejs">
+        <form action="/admin/editChurchInfo">
             <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
         </form>
       </div>
@@ -245,7 +245,7 @@
                         event.preventDefault();
                         const rowId = this.getAttribute('data-id');
                         localStorage.setItem('studentId', rowId);
-                        window.location.href = '/admin/editStudent.ejs';
+                        window.location.href = '/admin/editStudent';
                     });
                 });
                 
@@ -329,7 +329,7 @@
     }
         
         function redirectToCreateStudent() {
-                window.location.href = '/admin/createStudent.ejs';
+                window.location.href = '/admin/createStudent';
             }
        
 </script>

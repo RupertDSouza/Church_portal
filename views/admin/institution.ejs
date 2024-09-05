@@ -27,7 +27,7 @@
                             </div>
                             <div>
 
-                                <form action="/admin/students.ejs">
+                                <form action="/admin/students">
                                     <input type="submit" value="View Student Details" class="btn btn-secondary btn-lg" id="viewStudentDetails">
                                 </form>
                             </div>
@@ -136,7 +136,7 @@
                     event.preventDefault();
                     const cardId = this.getAttribute('data-id');
                     localStorage.setItem('institutionId', cardId);
-                    window.location.href = '/admin/editInstitution.ejs';
+                    window.location.href = '/admin/editInstitution';
                 });
             });
 
