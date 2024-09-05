@@ -28,7 +28,7 @@
                             </div>
                             <div>
 
-                                <form action="/admin/editChurchInfo.ejs">
+                                <form action="/admin/editChurchInfo">
                                     <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
                                 </form>
                             </div>
@@ -144,7 +144,7 @@
                     event.preventDefault();
                     const cardId = this.getAttribute('data-id');
                     localStorage.setItem('newsId', cardId);
-                    window.location.href = '/admin/editNews.ejs';
+                    window.location.href = '/admin/editNews';
                 });
             });
 
@@ -161,7 +161,7 @@
         return "";
     }
     function redirectToCreateNews() {
-        window.location.href = '/admin/createNews.ejs';
+        window.location.href = '/admin/createNews';
     }
     function getItem(data, type) {
         const filteredData = data.filter((item) => item.type === type);
