@@ -62,11 +62,12 @@ function displayBlogContent(item_container, item) {
       <div class="blog_image">
         <img src="${imageUrl}" alt />
         <div class="news_date d-flex flex-column align-items-center justify-content-center">
-          <div class="news_day">${new Date(item.dates).getDate()}</div>
-          <div class="news_month">${new Date(item.dates).toLocaleString(
-            "default",
-            { month: "long" }
-          )}, ${new Date(item.dates).getFullYear()}</div>
+          <div class="news_day">${new Date(item.dates).getDate()} ${new Date(
+    item.dates
+  ).toLocaleString("default", { month: "long" })}, ${new Date(
+    item.dates
+  ).getFullYear()}
+          </div>
         </div>
       </div>
       <div class="blog_title">${item.title}</div>

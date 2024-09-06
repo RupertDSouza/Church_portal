@@ -74,6 +74,9 @@
 ************/
 
 @media only screen and (max-width: 1024px) {
+  .home_slider_content .button {
+    top: 160px;
+  }
 }
 
 /************
@@ -125,6 +128,14 @@
 ************/
 
 @media only screen and (max-width: 768px) {
+  .home_slider_content .logo-lg-1 {
+    bottom: 110px;
+    width: 79px;
+    height: 79px;
+  }
+  .home_slider_content .button {
+    top: 200px;
+  }
   .number-row {
     display: grid;
     grid-template-columns: 1fr;

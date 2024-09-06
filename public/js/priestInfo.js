@@ -26,9 +26,11 @@ async function loadPriestInfo(containerId) {
       const dateOfOrdination = new Date(
         item.dateOfOrdination
       ).toLocaleDateString();
-      if (toDate == "Invalid Date") {
+      if (toDate === "01/01/1970" || toDate === null) {
         toDate = "...".toString();
+        console.log(toDate);
       }
+
       const itemHtml = `
             <div class="ministry">
               <div class="col-xl-4 col-md-6">
@@ -41,7 +43,6 @@ async function loadPriestInfo(containerId) {
                     <h2>${item.name}<h2>
                 </div>
                 <div class="ministry_color">
-                    <h4>Date of Ordination : ${dateOfOrdination}</h4>
                     <br>
                     <h4>${fromDate} - ${toDate}</h4>
                 </div>

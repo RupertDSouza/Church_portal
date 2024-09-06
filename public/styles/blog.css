@@ -68,20 +68,18 @@
 .blog_image img {
   width: 100%;
   max-width: 800px;
-  max-height: 300px;
 }
 .news_date {
   position: absolute;
   top: 0;
   left: 0;
-  width: 150px;
-  height: 94px;
+  width: 200px;
   background: #eb4141;
 }
 .news_day {
-  font-size: 30px;
+  padding: 10px;
+  font-size: 15px;
   color: #ffffff;
-  line-height: 0.75;
 }
 .news_month {
   font-size: 12px;
