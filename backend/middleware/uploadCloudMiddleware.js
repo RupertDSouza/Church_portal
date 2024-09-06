@@ -1,6 +1,8 @@
 const cloudinary = require("cloudinary");
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
+const { promisify } = require("util");
 require("dotenv").config();
 
 const upload = multer({
@@ -39,6 +41,10 @@ const uploadToCloud = async (req, res, next) => {
 
             // Store the image URL with a unique name
             req.body[field] = optimizeUrl;
+            console.log(req.body[field]);
+            console.log(file.filename);
+            const unlink = promisify(fs.unlink);
+            await unlink(`../../Church_portal/public/temp/${file.filename}`);
           } catch (error) {
             return res.status(400).json({ Error: error });
           }

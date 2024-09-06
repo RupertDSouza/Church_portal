@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 async function hashMiddleware(next) {
   if (this.isModified("password") || this.isNew) {

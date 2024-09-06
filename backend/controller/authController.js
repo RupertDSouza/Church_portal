@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 const secretKey = process.env.SECRECT_KEY;
@@ -28,7 +28,7 @@ exports.login = async (req, res) => {
       expiresIn: "1h",
     });
 
-    return res.json({ token, });
+    return res.json({ token });
   } catch (error) {
     return res.status(500).json({
       error: error,
