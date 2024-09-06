@@ -5,8 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "start": "pm2 start app.js",
-    "stop": "pm2 stop app.js"
+    "start": "pm2 start app.js --max-memory-restart 200M",
+    "stop": "pm2 stop app.js",
+    "kill": "pm2 kill"
   },
   "author": "Anish",
   "license": "ISC",

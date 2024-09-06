@@ -53,31 +53,25 @@ app.get("/", (req, res) => {
 app.get("/:page", (req, res, next) => {
   const page = req.params.page;
   console.log(`Attempting to render page: ${page}`);
-  res.render(
-    page,
-    (err, html) => {
-      if (err) {
-        console.error(`Error rendering page: ${page}`, err);
-        return next(err);
-      }
-      res.send(html);
+  res.render(page, (err, html) => {
+    if (err) {
+      console.error(`Error rendering page: ${page}`, err);
+      return next(err);
     }
-  );
+    res.send(html);
+  });
 });
 
 app.get("/admin/:page", (req, res, next) => {
   const page = req.params.page;
   console.log(`Attempting to render page: ${page}`);
-  res.render(
-    `admin/${page}`,
-    (err, html) => {
-      if (err) {
-        console.error(`Error rendering page: ${page}`, err);
-        return next(err);
-      }
-      res.send(html);
+  res.render(`admin/${page}`, (err, html) => {
+    if (err) {
+      console.error(`Error rendering page: ${page}`, err);
+      return next(err);
     }
-  );
+    res.send(html);
+  });
 });
 
 // Catch-all route for debugging
