@@ -1,12 +1,13 @@
 const cloudinary = require("cloudinary");
 const multer = require("multer");
 const path = require("path");
-const fs = require("fs");
-const { promisify } = require("util");
+const fs = require("fs").promises;
 require("dotenv").config();
 
+const tempDir = path.join(__dirname, "../../public/temp");
+
 const upload = multer({
-  dest: path.join(__dirname, "../../public/temp"),
+  dest: tempDir,
 });
 
 const uploadToCloud = async (req, res, next) => {
@@ -41,8 +42,26 @@ const uploadToCloud = async (req, res, next) => {
 
             // Store the image URL with a unique name
             req.body[field] = optimizeUrl;
-            const unlink = promisify(fs.unlink);
-            await unlink(` ../../../public/temp/${file.filename}`);
+
+            // Delete the temporary file
+            const filePath = path.join(tempDir, file.filename);
+            console.log(`Attempting to delete: ${filePath}`);
+
+            try {
+              await Promise.race([
+                fs.unlink(filePath),
+                new Promise((_, reject) =>
+                  setTimeout(
+                    () => reject(new Error("File deletion timed out")),
+                    5000
+                  )
+                ),
+              ]);
+              console.log(`Successfully deleted: ${filePath}`);
+            } catch (unlinkError) {
+              console.error(`Error deleting file: ${filePath}`, unlinkError);
+              // Optionally, you can choose to continue despite the error
+            }
           } catch (error) {
             return res.status(400).json({ Error: error });
           }
