@@ -159,6 +159,9 @@
   .search {
     margin-left: 165px;
   }
+  .footer_ul {
+    display: grid;
+  }
 }
 
 /************
