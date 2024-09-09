@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /jcdn-cgi/
+Disallow: /images/
+Disallow: /js/
+Disallow: /plugins/
+Disallow: /styles/
+Disallow: /temp/
+Disallow: /admin/
+Disallow: /handlebars/
+
+Sitemap: https://holyspiritmukka.in/sitemap.xml
