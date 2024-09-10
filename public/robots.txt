@@ -1,6 +1,8 @@
 User-agent: *
 Disallow: /jcdn-cgi/
 Disallow: /images/
+Allow: /images/holy-spirit-church.jpg
+Allow: /images/holy-spirit-logo-xxl.jpg
 Disallow: /js/
 Disallow: /plugins/
 Disallow: /styles/
