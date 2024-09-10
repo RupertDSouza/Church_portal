@@ -3,6 +3,12 @@ Disallow: /jcdn-cgi/
 Disallow: /images/
 Allow: /images/holy-spirit-church.jpg
 Allow: /images/holy-spirit-logo-xxl.jpg
+Allow: /favicon.ico
+Allow: /images/apple-touch-icon.png
+Allow: /images/android-chrome-512x512.png
+Allow: /images/android-chrome-192x192.png
+Allow: /images/favicon-32x32.png
+Allow: /images/favicon-16x16.png
 Disallow: /js/
 Disallow: /plugins/
 Disallow: /styles/
