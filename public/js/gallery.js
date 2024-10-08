@@ -17,16 +17,15 @@ async function loadAssociationInfo(containerId) {
       return;
     }
 
-    for (let index = 0; index < data.length; index++) {
+    for (let key = data.length; key > 0; key--) {
+      index = key - 1;
       if (data[index].type === "gallery") {
         const item = data[index];
         const imageUrl = item.image;
 
         const itemHtml = `
-          <div class="gallery-item ${
-            index === 0 || index === 3 ? "large" : "small"
-          }">
-          <img src="${imageUrl}" alt="${item.name}" loading="lazy">
+          <div class="gallery-item ${index % 3 === 0 ? "large" : "small"}">
+          <img src="${imageUrl}" alt="${item.name}">
           <div class="image-overlay">
             <h3>${item.name}</h3>
             <p class="description">${item.description}</p>
