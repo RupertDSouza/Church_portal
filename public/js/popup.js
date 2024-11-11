@@ -80,14 +80,14 @@ async function populateSchedule() {
       occasionCell.textContent = event.occasion;
       row.appendChild(occasionCell);
 
-      let dateCell = document.createElement("td");
-      dateCell.textContent = new Date(event.date).toLocaleDateString();
-      if (
-        dateCell.textContent === "01/01/1970" ||
-        dateCell.textContent === null
-      ) {
-        dateCell.textContent = "...".toString();
+      const dateCell = document.createElement("td");
+
+      if (!event.date || isNaN(new Date(event.date).getTime())) {
+        dateCell.textContent = "...";
+      } else {
+        dateCell.textContent = new Date(event.date).toLocaleDateString();
       }
+
       row.appendChild(dateCell);
 
       const timeCell = document.createElement("td");
