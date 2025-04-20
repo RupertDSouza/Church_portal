@@ -85,6 +85,17 @@
                         <li><a href="ward">Wards</a></li>
                         <li><a href="associations">Associations</a></li>
                         <li><a href="commission">Commissions</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle">Services</a>
+                          <div class="dropdown-content">
+                            <a href="#" onclick="event.preventDefault(); showMassSchedule();">Mass Schedule</a>
+                            <a href="#" onclick="event.preventDefault(); showDailyReading();">Daily Reading</a>
+                            <a href="#" onclick="event.preventDefault(); showSpotlight();">Spotlight</a>
+                            <a href="parish_council">Parish Council</a>
+                            <a href="gallery">Gallery</a>
+                            <a href="#">Magazine</a>
+                          </div>
+                        </li>
                         <li><a href="blog">Blog</a></li>
                         <li><a href="institution">Institution</a></li>
                         <li><a href="about_us">About us</a></li>
@@ -192,6 +203,17 @@
               <li><a href="ward">Wards</a></li>
               <li><a href="associations">Associations</a></li>
               <li><a href="commission">Commissions</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Services</a>
+                <div class="dropdown-content">
+                  <a href="#" onclick="event.preventDefault(); showMassSchedule();">Mass Schedule</a>
+                  <a href="#" onclick="event.preventDefault(); showDailyReading();">Daily Reading</a>
+                  <a href="#" onclick="event.preventDefault(); showSpotlight();">Spotlight</a>
+                  <a href="parish_council">Parish Council</a>
+                  <a href="gallery">Gallery</a>
+                  <a href="#">Magazine</a>
+                </div>
+              </li>
               <li><a href="blog">Blog</a></li>
               <li><a href="institution">Institution</a></li>
               <li><a href="about_us">About us</a></li>
@@ -740,6 +762,46 @@ $(document).ready(function() {
       gtag("js", new Date());
 
       gtag("config", "UA-23581568-13");
+    </script>
+
+    <script>
+      // Handle mobile dropdowns
+      document.addEventListener('DOMContentLoaded', function() {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+          const toggle = dropdown.querySelector('.dropdown-toggle');
+          const content = dropdown.querySelector('.dropdown-content');
+          
+          toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Close other dropdowns
+            dropdowns.forEach(other => {
+              if (other !== dropdown) {
+                other.querySelector('.dropdown-content').style.display = 'none';
+              }
+            });
+            
+            // Toggle current dropdown
+            if (content.style.display === 'block') {
+              content.style.display = 'none';
+            } else {
+              content.style.display = 'block';
+            }
+          });
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+              content.style.display = 'none';
+            });
+          }
+        });
+      });
     </script>
   </body>
 </html>
