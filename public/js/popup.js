@@ -99,31 +99,68 @@ async function populateSchedule() {
   });
 }
 
-function showPopup1() {
+// Make functions globally accessible
+window.showMassSchedule = function() {
+  console.log('Showing Mass Schedule'); // Debug log
   populateSchedule();
   document.getElementById("schedulePopup").style.display = "block";
   document.getElementById("popupOverlay").style.display = "block";
+  history.pushState({ popup: 'schedule' }, '', '/mass_schedule');
 }
 
-function showPopup2() {
+window.showDailyReading = function() {
+  console.log('Showing Daily Reading'); // Debug log
   populateReadings();
   document.getElementById("readingsPopup").style.display = "block";
   document.getElementById("popupOverlay").style.display = "block";
+  history.pushState({ popup: 'readings' }, '', '/daily_reading');
 }
 
-function closePopup() {
+window.showSpotlight = function() {
+  console.log('Showing Spotlight'); // Debug log
+  document.getElementById("popupOverlay").style.display = "block";
+  history.pushState({ popup: 'spotlight' }, '', '/spotlight');
+}
+
+window.closePopup = function() {
+  console.log('Closing popup'); // Debug log
   document.getElementById("popupOverlay").style.display = "none";
   document.getElementById("readingsPopup").style.display = "none";
   document.getElementById("schedulePopup").style.display = "none";
+  history.pushState({}, '', '/');
 }
 
-// Initial setup
-document.addEventListener("DOMContentLoaded", () => {
-  const showButton1 = document.getElementById("daily_mass");
-  showButton1.addEventListener("click", showPopup1);
+window.addEventListener('popstate', function(event) {
+  if (event.state && event.state.popup) {
+    switch(event.state.popup) {
+      case 'schedule':
+        showMassSchedule();
+        break;
+      case 'readings':
+        showDailyReading();
+        break;
+      case 'spotlight':
+        showSpotlight();
+        break;
+    }
+  } else {
+    closePopup();
+  }
+});
 
-  const showButton2 = document.getElementById("daily_reading");
-  showButton2.addEventListener("click", showPopup2);
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname;
+  switch(path) {
+    case '/mass_schedule':
+      showMassSchedule();
+      break;
+    case '/daily_reading':
+      showDailyReading();
+      break;
+    case '/spotlight':
+      showSpotlight();
+      break;
+  }
 
   const closeButton = document.querySelector(".close-btn");
   closeButton.addEventListener("click", closePopup);
