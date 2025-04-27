@@ -190,4 +190,45 @@
 
 .overlay.active {
   display: block;
+}
+
+/* Header Logo Styles */
+.header_logo_container {
+  display: flex;
+  align-items: center;
+}
+
+.header_logo {
+  display: flex;
+  align-items: center;
+}
+
+.header_logo_link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header_logo_img {
+  height: 50px;
+  margin-right: 15px;
+}
+
+.header_logo_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header_logo_text h2 {
+  color: #eb4141;
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+.header_logo_text span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  color: #353535;
 } 
