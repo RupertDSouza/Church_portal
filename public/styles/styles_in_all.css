@@ -263,41 +263,7 @@ section {
 3. Header
 *********************************/
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  -webkit-transition: all 400ms ease;
-  -moz-transition: all 400ms ease;
-  -ms-transition: all 400ms ease;
-  -o-transition: all 400ms ease;
-  transition: all 400ms ease;
-}
-.header.scrolled {
-  top: -82px;
-}
-.header.scrolled .header_content {
-  height: 110px;
-}
-
-/*********************************
-3.2 Header Content
-*********************************/
-
-.header_container {
-  width: 100%;
-  background: #ffffff;
-}
-.header_content {
-  height: 115px;
-  -webkit-transition: all 400ms ease;
-  -moz-transition: all 400ms ease;
-  -ms-transition: all 400ms ease;
-  -o-transition: all 400ms ease;
-  transition: all 400ms ease;
-}
+/* Header styles moved to navigation.css */
 
 /*********************************
 3.3 Logo
