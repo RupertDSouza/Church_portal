@@ -152,6 +152,9 @@ window.closePopup = function() {
   allPopups.forEach(popup => {
     popup.style.display = 'none';
   });
+
+  // Update URL to base URL when closing popup
+  window.history.replaceState({}, document.title, window.location.pathname);
 };
 
 // Close popup when clicking outside
