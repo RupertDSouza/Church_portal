@@ -20,28 +20,31 @@
               <nav class="main_nav">
                 <ul>
                   <li class="<%= currentPage === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
-                  <li class="<%= currentPage === 'priest' ? 'active' : '' %>"><a href="priest">Priests</a></li>
-                  <li class="<%= currentPage === 'ward' ? 'active' : '' %>"><a href="ward">Wards</a></li>
-                  <li class="<%= currentPage === 'associations' ? 'active' : '' %>"><a href="associations">Associations</a></li>
-                  <li class="<%= currentPage === 'commission' ? 'active' : '' %>"><a href="commission">Commissions</a></li>
+                  <li class="<%= currentPage === 'priest' ? 'active' : '' %>"><a href="/priest">Priests</a></li>
+                  <li class="<%= currentPage === 'ward' ? 'active' : '' %>"><a href="/ward">Wards</a></li>
+                  <li class="<%= currentPage === 'associations' ? 'active' : '' %>"><a href="/associations">Associations</a></li>
+                  <li class="<%= currentPage === 'commission' ? 'active' : '' %>"><a href="/commission">Commissions</a></li>
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" role="button" aria-expanded="false">Services</a>
+                    <a href="#" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">
+                      Services
+                      <span class="dropdown-arrow">▼</span>
+                    </a>
                     <div class="dropdown-content" aria-labelledby="servicesDropdown">
-                      <a href="#" onclick="event.preventDefault(); showMassSchedule();">Mass Schedule</a>
-                      <a href="#" onclick="event.preventDefault(); showDailyReading();">Daily Reading</a>
-                      <a href="#" onclick="event.preventDefault(); showSpotlight();">Spotlight</a>
-                      <a href="parish_council">Parish Council</a>
-                      <a href="gallery">Gallery</a>
-                      <a href="#">Magazine</a>
+                      <a href="#" onclick="handleServiceClick('mass_schedule')" role="menuitem">Mass Schedule</a>
+                      <a href="#" onclick="handleServiceClick('daily_reading')" role="menuitem">Daily Reading</a>
+                      <a href="#" onclick="handleServiceClick('spotlight')" role="menuitem">Spotlight</a>
+                      <a href="/parish_council" role="menuitem">Parish Council</a>
+                      <a href="/gallery" role="menuitem">Gallery</a>
+                      <a href="/magazine" role="menuitem">Magazine</a>
                     </div>
                   </li>
-                  <li class="<%= currentPage === 'blog' ? 'active' : '' %>"><a href="blog">Blog</a></li>
-                  <li class="<%= currentPage === 'institution' ? 'active' : '' %>"><a href="institution">Institution</a></li>
-                  <li class="<%= currentPage === 'about_us' ? 'active' : '' %>"><a href="about_us">About us</a></li>
+                  <li class="<%= currentPage === 'blog' ? 'active' : '' %>"><a href="/blog">Blog</a></li>
+                  <li class="<%= currentPage === 'institution' ? 'active' : '' %>"><a href="/institution">Institution</a></li>
+                  <li class="<%= currentPage === 'about_us' ? 'active' : '' %>"><a href="/about_us">About us</a></li>
                 </ul>
               </nav>
             </div>
-            <div class="search">
+            <div class="search" role="button" tabindex="0" aria-label="Search">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -62,7 +65,7 @@
                 />
               </svg>
             </div>
-            <div class="hamburger ml-auto">
+            <div class="hamburger ml-auto" role="button" tabindex="0" aria-label="Menu">
               <i class="fa fa-bars" aria-hidden="true"></i>
             </div>
           </div>
@@ -81,10 +84,12 @@
                   class="search_input"
                   placeholder="Search"
                   required="required"
+                  aria-label="Search input"
                 />
                 <button
                   type="submit"
                   class="header_search_button d-flex flex-column align-items-center justify-content-center"
+                  aria-label="Submit search"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -112,11 +117,11 @@
         </div>
       </div>
 
-      <div id="searchModal" class="modal">
+      <div id="searchModal" class="modal" role="dialog" aria-labelledby="searchModalTitle">
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Search Results</h2>
-          <div id="searchResults"></div>
+          <span class="close" role="button" tabindex="0" aria-label="Close search results">&times;</span>
+          <h2 id="searchModalTitle">Search Results</h2>
+          <div id="searchResults" role="region" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -126,37 +131,47 @@
 <div class="menu d-flex flex-column align-items-center justify-content-center">
   <div class="menu_content">
     <div class="logo-lg-1 d-flex flex-column align-items-center justify-content-center">
-      <img src="images/logo-lg-1.png" alt />
+      <img src="images/logo-lg-1.png" alt="Holy Spirit Church Logo" />
     </div>
     <nav class="menu_nav">
       <ul>
         <li class="<%= currentPage === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
-        <li class="<%= currentPage === 'priest' ? 'active' : '' %>"><a href="priest">Priests</a></li>
-        <li class="<%= currentPage === 'ward' ? 'active' : '' %>"><a href="ward">Wards</a></li>
-        <li class="<%= currentPage === 'associations' ? 'active' : '' %>"><a href="associations">Associations</a></li>
-        <li class="<%= currentPage === 'commission' ? 'active' : '' %>"><a href="commission">Commissions</a></li>
+        <li class="<%= currentPage === 'priest' ? 'active' : '' %>"><a href="/priest">Priests</a></li>
+        <li class="<%= currentPage === 'ward' ? 'active' : '' %>"><a href="/ward">Wards</a></li>
+        <li class="<%= currentPage === 'associations' ? 'active' : '' %>"><a href="/associations">Associations</a></li>
+        <li class="<%= currentPage === 'commission' ? 'active' : '' %>"><a href="/commission">Commissions</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" role="button" aria-expanded="false">Services</a>
+          <a href="#" class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">
+            Services
+            <span class="dropdown-arrow">▼</span>
+          </a>
           <div class="dropdown-content" aria-labelledby="servicesDropdown">
-            <a href="#" onclick="event.preventDefault(); showMassSchedule();">Mass Schedule</a>
-            <a href="#" onclick="event.preventDefault(); showDailyReading();">Daily Reading</a>
-            <a href="#" onclick="event.preventDefault(); showSpotlight();">Spotlight</a>
-            <a href="parish_council">Parish Council</a>
-            <a href="gallery">Gallery</a>
-            <a href="#">Magazine</a>
+            <a href="#" onclick="handleServiceClick('mass_schedule')" role="menuitem">Mass Schedule</a>
+            <a href="#" onclick="handleServiceClick('daily_reading')" role="menuitem">Daily Reading</a>
+            <a href="#" onclick="handleServiceClick('spotlight')" role="menuitem">Spotlight</a>
+            <a href="/parish_council" role="menuitem">Parish Council</a>
+            <a href="/gallery" role="menuitem">Gallery</a>
+            <a href="/magazine" role="menuitem">Magazine</a>
           </div>
         </li>
-        <li class="<%= currentPage === 'blog' ? 'active' : '' %>"><a href="blog">Blog</a></li>
-        <li class="<%= currentPage === 'institution' ? 'active' : '' %>"><a href="institution">Institution</a></li>
-        <li class="<%= currentPage === 'about_us' ? 'active' : '' %>"><a href="about_us">About us</a></li>
+        <li class="<%= currentPage === 'blog' ? 'active' : '' %>"><a href="/blog">Blog</a></li>
+        <li class="<%= currentPage === 'institution' ? 'active' : '' %>"><a href="/institution">Institution</a></li>
+        <li class="<%= currentPage === 'about_us' ? 'active' : '' %>"><a href="/about_us">About us</a></li>
       </ul>
     </nav>
   </div>
-  <div class="menu_close">
+  <div class="menu_close" role="button" tabindex="0" aria-label="Close menu">
     <i class="fa fa-times" aria-hidden="true"></i>
   </div>
 </div>
 
-<div id="overlay" class="overlay"></div>
+<div id="overlay" class="overlay" role="presentation"></div>
+
+<script>
+function handleServiceClick(service) {
+  // Always redirect to index with service parameter
+  window.location.href = '/?service=' + service;
+}
+</script>
 
 <script src="/js/navigation.js"></script> 

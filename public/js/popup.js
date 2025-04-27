@@ -99,36 +99,78 @@ async function populateSchedule() {
   });
 }
 
-// Make functions globally accessible
-window.showMassSchedule = function() {
-  console.log('Showing Mass Schedule'); // Debug log
-  populateSchedule();
-  document.getElementById("schedulePopup").style.display = "block";
-  document.getElementById("popupOverlay").style.display = "block";
-  history.pushState({ popup: 'schedule' }, '', '/mass_schedule');
-}
+// Make popup functions globally accessible
+window.showMassSchedule = async function() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  const schedulePopup = document.getElementById('schedulePopup');
+  
+  if (popupOverlay && schedulePopup) {
+    popupOverlay.style.display = 'block';
+    schedulePopup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Populate schedule data
+    await populateSchedule();
+  }
+};
 
-window.showDailyReading = function() {
-  console.log('Showing Daily Reading'); // Debug log
-  populateReadings();
-  document.getElementById("readingsPopup").style.display = "block";
-  document.getElementById("popupOverlay").style.display = "block";
-  history.pushState({ popup: 'readings' }, '', '/daily_reading');
-}
+window.showDailyReading = async function() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  const readingsPopup = document.getElementById('readingsPopup');
+  
+  if (popupOverlay && readingsPopup) {
+    popupOverlay.style.display = 'block';
+    readingsPopup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Populate readings data
+    await populateReadings();
+  }
+};
 
 window.showSpotlight = function() {
-  console.log('Showing Spotlight'); // Debug log
-  document.getElementById("popupOverlay").style.display = "block";
-  history.pushState({ popup: 'spotlight' }, '', '/spotlight');
-}
+  const popupOverlay = document.getElementById('popupOverlay');
+  const spotlightPopup = document.getElementById('spotlightPopup');
+  
+  if (popupOverlay && spotlightPopup) {
+    popupOverlay.style.display = 'block';
+    spotlightPopup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+};
 
+// Close popup function
 window.closePopup = function() {
-  console.log('Closing popup'); // Debug log
-  document.getElementById("popupOverlay").style.display = "none";
-  document.getElementById("readingsPopup").style.display = "none";
-  document.getElementById("schedulePopup").style.display = "none";
-  history.pushState({}, '', '/');
-}
+  const popupOverlay = document.getElementById('popupOverlay');
+  const allPopups = document.querySelectorAll('.popup');
+  
+  if (popupOverlay) {
+    popupOverlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  
+  allPopups.forEach(popup => {
+    popup.style.display = 'none';
+  });
+};
+
+// Close popup when clicking outside
+document.addEventListener('DOMContentLoaded', function() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  if (popupOverlay) {
+    popupOverlay.addEventListener('click', function(e) {
+      if (e.target === popupOverlay) {
+        closePopup();
+      }
+    });
+  }
+
+  // Add close button event listeners
+  const closeButtons = document.querySelectorAll('.close-btn');
+  closeButtons.forEach(button => {
+    button.addEventListener('click', closePopup);
+  });
+});
 
 window.addEventListener('popstate', function(event) {
   if (event.state && event.state.popup) {
