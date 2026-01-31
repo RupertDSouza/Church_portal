@@ -162,30 +162,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Handle search functionality
-  const searchIcon = document.querySelector('.search');
-  const searchContainer = document.querySelector('.header_search_container');
-  const searchForm = document.querySelector('#searchForm');
-  const searchInput = document.querySelector('#searchInput');
-  const searchModal = document.querySelector('#searchModal');
-  const searchClose = document.querySelector('#searchModal .close');
+  // // Handle search functionality
+  // const searchIcon = document.querySelector('.search');
+  // const searchContainer = document.querySelector('.header_search_container');
+  // const searchForm = document.querySelector('#searchForm');
+  // const searchInput = document.querySelector('#searchInput');
+  // const searchModal = document.querySelector('#searchModal');
+  // const searchClose = document.querySelector('#searchModal .close');
 
-  if (searchIcon && searchContainer) {
-    searchIcon.addEventListener('click', function() {
-      searchContainer.classList.toggle('active');
-      if (searchContainer.classList.contains('active')) {
-        searchInput.focus();
-      }
-    });
+  // if (searchIcon && searchContainer) {
+  //   searchIcon.addEventListener('click', function() {
+  //     searchContainer.classList.toggle('active');
+  //     if (searchContainer.classList.contains('active')) {
+  //       searchInput.focus();
+  //     }
+  //   });
 
-    // Add keyboard navigation
-    searchIcon.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        searchIcon.click();
-      }
-    });
-  }
+  //   // Add keyboard navigation
+  //   searchIcon.addEventListener('keydown', function(e) {
+  //     if (e.key === 'Enter' || e.key === ' ') {
+  //       e.preventDefault();
+  //       searchIcon.click();
+  //     }
+  //   });
+  // }
 
   if (searchForm && searchInput && searchModal) {
     searchForm.addEventListener('submit', function(e) {
