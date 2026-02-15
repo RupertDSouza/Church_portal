@@ -99,31 +99,113 @@ async function populateSchedule() {
   });
 }
 
-function showPopup1() {
-  populateSchedule();
-  document.getElementById("schedulePopup").style.display = "block";
-  document.getElementById("popupOverlay").style.display = "block";
-}
+// Make popup functions globally accessible
+window.showMassSchedule = async function() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  const schedulePopup = document.getElementById('schedulePopup');
+  
+  if (popupOverlay && schedulePopup) {
+    popupOverlay.style.display = 'block';
+    schedulePopup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Populate schedule data
+    await populateSchedule();
+  }
+};
 
-function showPopup2() {
-  populateReadings();
-  document.getElementById("readingsPopup").style.display = "block";
-  document.getElementById("popupOverlay").style.display = "block";
-}
+window.showDailyReading = async function() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  const readingsPopup = document.getElementById('readingsPopup');
+  
+  if (popupOverlay && readingsPopup) {
+    popupOverlay.style.display = 'block';
+    readingsPopup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Populate readings data
+    await populateReadings();
+  }
+};
 
-function closePopup() {
-  document.getElementById("popupOverlay").style.display = "none";
-  document.getElementById("readingsPopup").style.display = "none";
-  document.getElementById("schedulePopup").style.display = "none";
-}
+window.showSpotlight = function() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  const spotlightPopup = document.getElementById('spotlightPopup');
+  
+  if (popupOverlay && spotlightPopup) {
+    popupOverlay.style.display = 'block';
+    spotlightPopup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+};
 
-// Initial setup
+// Close popup function
+window.closePopup = function() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  const allPopups = document.querySelectorAll('.popup');
+  
+  if (popupOverlay) {
+    popupOverlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  
+  allPopups.forEach(popup => {
+    popup.style.display = 'none';
+  });
+
+  // Update URL to base URL when closing popup
+  window.history.replaceState({}, document.title, window.location.pathname);
+};
+
+// Close popup when clicking outside
+document.addEventListener('DOMContentLoaded', function() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  if (popupOverlay) {
+    popupOverlay.addEventListener('click', function(e) {
+      if (e.target === popupOverlay) {
+        closePopup();
+      }
+    });
+  }
+
+  // Add close button event listeners
+  const closeButtons = document.querySelectorAll('.close-btn');
+  closeButtons.forEach(button => {
+    button.addEventListener('click', closePopup);
+  });
+});
+
+window.addEventListener('popstate', function(event) {
+  if (event.state && event.state.popup) {
+    switch(event.state.popup) {
+      case 'schedule':
+        showMassSchedule();
+        break;
+      case 'readings':
+        showDailyReading();
+        break;
+      case 'spotlight':
+        showSpotlight();
+        break;
+    }
+  } else {
+    closePopup();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
-  const showButton1 = document.getElementById("daily_mass");
-  showButton1.addEventListener("click", showPopup1);
-
-  const showButton2 = document.getElementById("daily_reading");
-  showButton2.addEventListener("click", showPopup2);
+  const path = window.location.pathname;
+  switch(path) {
+    case '/mass_schedule':
+      showMassSchedule();
+      break;
+    case '/daily_reading':
+      showDailyReading();
+      break;
+    case '/spotlight':
+      showSpotlight();
+      break;
+  }
 
   const closeButton = document.querySelector(".close-btn");
   closeButton.addEventListener("click", closePopup);

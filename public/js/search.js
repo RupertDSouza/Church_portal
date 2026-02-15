@@ -4,6 +4,14 @@ async function performSearch(event) {
   const searchTerm = document.getElementById("searchInput").value;
   if (!searchTerm) return;
 
+  const modal = document.getElementById("searchModal");
+  const loader = document.getElementById("searchLoader");
+  const resultsContainer = document.getElementById("searchResults");
+  
+  modal.style.display = "block";
+  loader.style.display = "block";
+  resultsContainer.innerHTML = "";
+
   try {
     const results = await Promise.all([
       fetch(`/app/church/read?q=${encodeURIComponent(searchTerm)}`).then(
@@ -44,23 +52,26 @@ async function performSearch(event) {
     displayResults(results.flat());
   } catch (error) {
     console.error("Error fetching search results:", error);
+    document.getElementById("searchLoader").style.display = "none";
+    document.getElementById("searchResults").innerHTML = "<p>Error loading results. Please try again.</p>";
   }
 }
 
 function displayResults(results) {
   const resultsContainer = document.getElementById("searchResults");
+  const loader = document.getElementById("searchLoader");
+  
+  loader.style.display = "none";
   resultsContainer.innerHTML = "";
 
-  if (
-    results.length === 0 ||
-    (results.length === 1 && results[0].message === "Not found")
-  ) {
+  const validResults = results.filter(item => !item.message);
+
+  if (validResults.length === 0) {
     resultsContainer.innerHTML = "<p>No results found</p>";
   } else {
-    results.forEach((result, index) => {
-      if (result.message !== "Not found") {
-        const resultDiv = document.createElement("div");
-        resultDiv.className = "result-item";
+    validResults.forEach((result, index) => {
+      const resultDiv = document.createElement("div");
+      resultDiv.className = "result-item";
 
         // Array of possible fields
         const fields = [
@@ -195,13 +206,11 @@ function displayResults(results) {
         }
 
         resultsContainer.appendChild(resultDiv);
-      }
+      // }
     });
   }
 
-  // Show the modal
-  const modal = document.getElementById("searchModal");
-  modal.style.display = "block";
+  // Modal already shown in performSearch
 }
 
 // Close the modal when the user clicks on <span> (x)
