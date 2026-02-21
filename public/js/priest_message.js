@@ -19,18 +19,60 @@ async function loadPriestMessage(containerId) {
 
     data.forEach((item) => {
       const imageHtml = item.image
-        ? `<div class="assoc-and-comm_item_image" style="width:250px;height:250px;overflow:hidden;border-radius:50%;border:5px solid #fff;box-shadow:0 4px 8px rgba(0,0,0,0.1);margin-bottom:20px;">
-               <img src="${item.image}" alt="Priest Message" style="width:100%;height:100%;object-fit:cover;" />
+        ? `<div style="
+              flex-shrink:0;
+              width:200px; height:200px;
+              border-radius:50%;
+              overflow:hidden;
+              border:5px solid #fff;
+              box-shadow:0 6px 20px rgba(0,0,0,0.18);
+            ">
+              <img src="${item.image}" alt="Priest" style="width:100%;height:100%;object-fit:cover;" />
            </div>`
         : "";
 
       const itemHtml = `
-        <div class="col-md-12">
-          <div class="popular_item" style="margin-bottom:30px;display:flex;flex-direction:column;align-items:center;background:#f9f9f9;padding:30px 20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+        <div class="col-md-12" style="margin-bottom:32px;">
+          <div style="
+              display:flex;
+              align-items:center;
+              gap:36px;
+              background:linear-gradient(135deg,#fdfcfb 0%,#f3efe9 100%);
+              padding:36px 40px;
+              border-radius:16px;
+              box-shadow:0 8px 32px rgba(0,0,0,0.09);
+              border-left:5px solid #b5894b;
+            ">
             ${imageHtml}
-            <div class="assoc-and-comm_item_title" style="font-size:24px;font-weight:bold;color:#333;margin-bottom:16px;">${item.messageTitle || ""}</div>
-            <div class="assoc-and-comm_item_text" style="font-size:16px;line-height:1.8;color:#555;text-align:justify;max-width:800px;">
-              <p>${item.messageDescription || ""}</p>
+            <div style="flex:1;">
+              <div style="
+                  font-size:14px;
+                  letter-spacing:2px;
+                  text-transform:uppercase;
+                  color:#b5894b;
+                  margin-bottom:8px;
+                  font-weight:600;
+                ">Message from the Parish Priest</div>
+              <h2 style="
+                  font-size:26px;
+                  font-weight:800;
+                  font-style:italic;
+                  color:#2c2c2c;
+                  margin:0 0 18px 0;
+                  line-height:1.3;
+                ">${item.messageTitle || ""}</h2>
+              <div style="
+                  font-size:15px;
+                  font-style:italic;
+                  color:#5a5040;
+                  line-height:1.9;
+                  text-align:justify;
+                  border-top:1px solid #ddd;
+                  padding-top:16px;
+                  position:relative;
+                ">
+                <span style="font-size:48px;color:#ddd;line-height:0;vertical-align:-18px;margin-right:4px;">&ldquo;</span>${item.messageDescription || ""}<span style="font-size:48px;color:#ddd;line-height:0;vertical-align:-18px;margin-left:4px;">&rdquo;</span>
+              </div>
             </div>
           </div>
         </div>`;
