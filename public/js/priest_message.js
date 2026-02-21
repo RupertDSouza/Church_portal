@@ -20,61 +20,66 @@ async function loadPriestMessage(containerId) {
     data.forEach((item) => {
       const imageHtml = item.image
         ? `<div style="
-              flex-shrink:0;
-              width:200px; height:200px;
-              border-radius:50%;
+              position:relative;
+              width:100%;
+              max-height:480px;
               overflow:hidden;
-              border:5px solid #fff;
-              box-shadow:0 6px 20px rgba(0,0,0,0.18);
+              border-radius:12px 12px 0 0;
             ">
-              <img src="${item.image}" alt="Priest" style="width:100%;height:100%;object-fit:cover;" />
+              <img src="${item.image}" alt="Priest" style="width:100%;height:480px;object-fit:cover;object-position:top;display:block;" />
+              <div style="
+                position:absolute;
+                bottom:0; left:0; right:0;
+                height:120px;
+                background:linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+              "></div>
+              <div style="
+                position:absolute;
+                bottom:20px; left:32px;
+                font-size:12px;
+                letter-spacing:3px;
+                text-transform:uppercase;
+                color:#f5d98b;
+                font-weight:700;
+              ">Message from the Parish Priest</div>
            </div>`
-        : "";
+        : `<div style="padding:28px 36px 0;">
+              <div style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#b5894b;font-weight:700;">Message from the Parish Priest</div>
+           </div>`;
 
       const itemHtml = `
-        <div class="col-md-12" style="margin-bottom:32px;">
-          <div style="
-              display:flex;
-              align-items:center;
-              gap:36px;
-              background:linear-gradient(135deg,#fdfcfb 0%,#f3efe9 100%);
-              padding:36px 40px;
+        <div class="col-md-12" style="margin-bottom:40px;">
+          <article style="
+              background:#fff;
               border-radius:16px;
-              box-shadow:0 8px 32px rgba(0,0,0,0.09);
-              border-left:5px solid #b5894b;
+              box-shadow:0 10px 40px rgba(0,0,0,0.1);
+              overflow:hidden;
+              border:1px solid #f0e9df;
             ">
             ${imageHtml}
-            <div style="flex:1;">
-              <div style="
-                  font-size:14px;
-                  letter-spacing:2px;
-                  text-transform:uppercase;
-                  color:#b5894b;
-                  margin-bottom:8px;
-                  font-weight:600;
-                ">Message from the Parish Priest</div>
+            <div style="padding:36px 40px 40px;">
               <h2 style="
-                  font-size:26px;
-                  font-weight:800;
+                  font-size:30px;
+                  font-weight:900;
                   font-style:italic;
-                  color:#2c2c2c;
-                  margin:0 0 18px 0;
+                  color:#1a1a1a;
+                  margin:0 0 20px 0;
                   line-height:1.3;
+                  border-left:4px solid #b5894b;
+                  padding-left:16px;
                 ">${item.messageTitle || ""}</h2>
               <div style="
-                  font-size:15px;
+                  font-size:16px;
                   font-style:italic;
-                  color:#5a5040;
-                  line-height:1.9;
+                  color:#4a3f32;
+                  line-height:2;
                   text-align:justify;
-                  border-top:1px solid #ddd;
-                  padding-top:16px;
-                  position:relative;
                 ">
-                <span style="font-size:48px;color:#ddd;line-height:0;vertical-align:-18px;margin-right:4px;">&ldquo;</span>${item.messageDescription || ""}<span style="font-size:48px;color:#ddd;line-height:0;vertical-align:-18px;margin-left:4px;">&rdquo;</span>
+                <span style="float:left;font-size:72px;font-family:Georgia,serif;line-height:0.75;color:#b5894b;margin:8px 12px 0 0;">&ldquo;</span>
+                ${item.messageDescription || ""}
               </div>
             </div>
-          </div>
+          </article>
         </div>`;
       container.insertAdjacentHTML("beforeend", itemHtml);
     });
