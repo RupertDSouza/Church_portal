@@ -55,6 +55,12 @@
             </div>
 
             <div id="response"></div>
+        <!-- Always-visible Add button -->
+        <div style="text-align: center; padding: 16px 0 24px 0;">
+            <button onclick="redirectToCreatePoster()" class="btn btn-primary" style="min-width:160px;">
+                + Add Church Poster
+            </button>
+        </div>
 
             <!-- Modal Background  -->
             <div id="confirmationModal" class="modal">
@@ -160,9 +166,6 @@
                 <p style="color: #aaa; margin-bottom: 24px;">
                     Click the <strong>+</strong> button to add a new church poster.
                 </p>
-                <button onclick="window.location.href='/admin/createChurchPoster'" class="btn btn-primary">
-                    + Add Church Poster
-                </button>
             </div>`;
     }
     function getImagePath(image) {

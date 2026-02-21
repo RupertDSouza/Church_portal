@@ -111,6 +111,12 @@
     </section>
 
     <div id="response"></div>
+        <!-- Always-visible Add button -->
+        <div style="text-align: center; padding: 16px 0 24px 0;">
+            <button onclick="redirectToCreateStudent()" class="btn btn-primary" style="min-width:160px;">
+                + Add Student
+            </button>
+        </div>
 
     <!-- Modal Background  -->
     <div id="confirmationModal" class="modal">
@@ -273,9 +279,6 @@
                 <p style="color: #aaa; margin-bottom: 24px;">
                     Click the <strong>+</strong> button to add a new student.
                 </p>
-                <button onclick="window.location.href='/admin/createStudent'" class="btn btn-primary">
-                    + Add Student
-                </button>
             </div>`;
     }
     function getImagePath(image) {
