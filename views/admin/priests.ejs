@@ -51,16 +51,17 @@
                     <div class="row justify-content-center" id="cards-container">
                         <!-- Cards will be inserted here dynamically -->
                     </div>
+                    <!-- Always-visible Add button -->
+                    <div style="text-align: center; padding: 12px 0 16px;">
+                        <button onclick="redirectToCreatePriest()" class="btn btn-primary" style="min-width:160px;">
+                + Add Priest
+            </button>
+                    </div>
+                
                 </div>
             </div>
 
             <div id="response"></div>
-        <!-- Always-visible Add button -->
-        <div style="text-align: center; padding: 16px 0 24px 0;">
-            <button onclick="redirectToCreatePriest()" class="btn btn-primary" style="min-width:160px;">
-                + Add Priest
-            </button>
-        </div>
 
             <!-- Modal Background  -->
             <div id="confirmationModal" class="modal">
@@ -160,7 +161,7 @@
     function showEmptyState() {
         const cardsContainer = document.getElementById("cards-container");
         cardsContainer.innerHTML = `
-            <div class="col-12 text-center" style="padding: 60px 20px;">
+            <div class="col-12 text-center" style="padding: 30px 20px 8px;">
                 <div style="font-size: 64px; color: #ccc; margin-bottom: 16px;">&#128196;</div>
                 <h4 style="color: #6c757d; margin-bottom: 8px;">No priests yet</h4>
                 <p style="color: #aaa; margin-bottom: 24px;">
