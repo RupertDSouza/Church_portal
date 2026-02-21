@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const priestSchema = new mongoose.Schema({
+const priestMessageSchema = new mongoose.Schema({
   messageTitle: {
     type: String,
     require: [true, "Message Title is Required"],
@@ -14,6 +14,6 @@ const priestSchema = new mongoose.Schema({
     require: false,
   },
 });
-const priest = new mongoose.model("Priest", priestSchema);
+const priestMessage = new mongoose.model("PriestMessage", priestMessageSchema);
 
-module.exports = priest;
+module.exports = priestMessage;
