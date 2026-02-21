@@ -30,13 +30,6 @@
       </div>
       
       <div class="header_right d-flex justify-content-between align-items-center">
-      <div class="header_notification_warp d-flex align-items-center">
-      <li>
-      <a href="#" onclick="redirectToCreateEvent()">
-         <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
-      </li>
-      
-      </div>
       <div class="profile_info">
         <img id="profileImage" src="" alt="Profile Image">
         <div class="profile_info_iner">
@@ -97,11 +90,18 @@
           });
   
           if (!response.ok) {
-              throw new Error("Network response was not ok " + response.statusText);
-          }
+                showEmptyState();
+                return;
+            }
   
           const result = await response.json();
+
+            if (result.length === 0) {
+                showEmptyState();
+                return;
+            }
           const recentNews = getItem(result, "events");
+            if (!recentNews || recentNews.length === 0) { showEmptyState(); return; }
           const cardsContainer = document.getElementById("cards-container");
   
           recentNews.forEach(record => {
@@ -146,7 +146,7 @@
 
       } catch (error) {
           console.error("Error:", error);
-          document.getElementById("response").innerText = "Error: " + error.message;
+            showEmptyState();
       }
   }
   function getImagePath(image) {

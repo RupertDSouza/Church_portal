@@ -25,13 +25,6 @@
       </div>
       
       <div class="header_right d-flex justify-content-between align-items-center">
-      <div class="header_notification_warp d-flex align-items-center">
-      <li>
-      <a href="#" onclick="redirectToCreateUsers()">
-         <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
-      </li>
-      
-      </div>
       <div class="profile_info">
         <img id="profileImage" src="" alt="Profile Image">
         <div class="profile_info_iner">
@@ -124,12 +117,16 @@
           });
 
           if (!response.ok) {
-            throw new Error(
-              "Network response was not ok " + response.statusText
-            );
-          }
+                showEmptyState();
+                return;
+            }
 
           const users = await response.json();
+
+          if (users.length === 0) {
+            showEmptyState();
+            return;
+          }
           const tableBody = document.querySelector(".lms_table_active tbody");
 
           // Clear existing table rows
@@ -166,11 +163,27 @@
                 
             } catch (error) {
                 console.error("Error:", error);
-                document.getElementById("response").innerText = "Error: " + error.message;
+            showEmptyState();
             }
         }
         
-        function getImagePath(image) {
+    
+    function showEmptyState() {
+        // For table-based pages, show message in the response div
+        const responseEl = document.getElementById("response");
+        responseEl.innerHTML = `
+            <div class="text-center" style="padding: 60px 20px;">
+                <div style="font-size: 64px; color: #ccc; margin-bottom: 16px;">&#128196;</div>
+                <h4 style="color: #6c757d; margin-bottom: 8px;">No users yet</h4>
+                <p style="color: #aaa; margin-bottom: 24px;">
+                    Click the <strong>+</strong> button to add a new user.
+                </p>
+                <button onclick="window.location.href='/admin/createUser'" class="btn btn-primary">
+                    + Add User
+                </button>
+            </div>`;
+    }
+    function getImagePath(image) {
             if (image) {
                 
                 return image.replace("../../Church_portal/public/", "/");
