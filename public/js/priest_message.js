@@ -22,11 +22,27 @@ async function loadPriestMessage(containerId) {
         ? `<div style="
               position:relative;
               width:100%;
-              max-height:480px;
+              height:480px;
               overflow:hidden;
               border-radius:12px 12px 0 0;
             ">
-              <img src="${item.image}" alt="Priest" style="width:100%;height:480px;object-fit:cover;object-position:top;display:block;" />
+              <!-- Blurred backdrop fills the empty letterbox bars -->
+              <div style="
+                position:absolute;inset:0;
+                background-image:url('${item.image}');
+                background-size:cover;
+                background-position:center;
+                filter:blur(18px) brightness(0.6);
+                transform:scale(1.1);
+              "></div>
+              <!-- Actual image, fully visible -->
+              <img src="${item.image}" alt="Priest" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;" />
+              <!-- Edge fade overlay: fades all 4 edges to white -->
+              <div style="
+                position:absolute;inset:0;
+                background:radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(255,255,255,0.55) 75%, rgba(255,255,255,0.9) 100%);
+                pointer-events:none;
+              "></div>
               <div style="
                 position:absolute;
                 bottom:0; left:0; right:0;
@@ -59,7 +75,7 @@ async function loadPriestMessage(containerId) {
             ${imageHtml}
             <div style="padding:36px 40px 40px;">
               <h2 style="
-                  font-size:30px;
+                  font-size:20px;
                   font-weight:900;
                   font-style:italic;
                   color:#1a1a1a;
