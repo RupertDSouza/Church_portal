@@ -92,11 +92,17 @@
             });
 
             if (!response.ok) {
-                throw new Error("Network response was not ok " + response.statusText);
+                showEmptyState();
+                return;
             }
 
             const result = await response.json();
             const cardsContainer = document.getElementById("cards-container");
+
+            if (result.length === 0) {
+                showEmptyState();
+                return;
+            }
 
             result.forEach(record => {
                 const cardDiv = document.createElement("div");
@@ -137,8 +143,23 @@
 
         } catch (error) {
             console.error("Error:", error);
-            document.getElementById("response").innerText = "Error: " + error.message;
+            showEmptyState();
         }
+    }
+
+    function showEmptyState() {
+        const cardsContainer = document.getElementById("cards-container");
+        cardsContainer.innerHTML = `
+            <div class="col-12 text-center" style="padding: 60px 20px;">
+                <div style="font-size: 64px; color: #ccc; margin-bottom: 16px;">&#9997;</div>
+                <h4 style="color: #6c757d; margin-bottom: 8px;">No priest message yet</h4>
+                <p style="color: #aaa; margin-bottom: 24px;">
+                    Click the <strong>+</strong> button to add a new message.
+                </p>
+                <button onclick="redirectToCreatePriestMessage()" class="btn btn-primary">
+                    + Add Priest Message
+                </button>
+            </div>`;
     }
 
     function getImagePath(image) {
