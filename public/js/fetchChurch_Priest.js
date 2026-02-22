@@ -17,8 +17,8 @@ async function fetchData(url, titleId, imageId, detailsId, addressId) {
     document.getElementById(imageId).src = imageUrl;
 
     const truncatedContent =
-      item.description.length > 700
-        ? item.description.substring(0, 700) + "..."
+      item.description.length > 200
+        ? item.description.substring(0, 200) + "..."
         : item.description;
     document.getElementById(detailsId).textContent = truncatedContent;
     if (addressId) {
