@@ -1,65 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Holy Spirit Church, Mukka</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="Holy Spirit, Holy Spirit Church, Holy Spirit Church Mukka, Mukka Church, Mukka, Church" />
-    <meta name="description" content="Holy Spirit Church, Mukka" />
-    <meta name="author" content="Holy Spirit Church Mukka" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Holy Spirit Church Mukka" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://holyspiritmukka.in" />
-    <meta property="og:image" content="https://holyspiritmukka.in/images/holy-spirit-church.jpg" />
-    <meta property="og:description" content="Holy Spirit Church, Mukka" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" href="/favicon.ico?v=2">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="styles/bootstrap4/bootstrap.min.css"
-    />
-    <link
-      href="plugins/font-awesome-4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="plugins/OwlCarousel2-2.2.1/owl.carousel.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="plugins/OwlCarousel2-2.2.1/animate.css"
-    />
-    <link rel="stylesheet" type="text/css" href="styles/styles_in_all.css" />
-    <link rel="stylesheet" type="text/css" href="styles/main_styles.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="styles/common_responsive.css"
-    />
-    <link rel="stylesheet" type="text/css" href="styles/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="styles/popup_styles.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="styles/mobile_nav.css" /> -->
-    <link rel="stylesheet" type="text/css" href="styles/navigation.css" />
-  </head>
-  <body>
-    <div class="super_container">
-      <%- include('partials/navigation', { currentPage: 'home' }) %>
+
+<head>
+  <title>Holy Spirit Church, Mukka</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="keywords"
+    content="Holy Spirit, Holy Spirit Church, Holy Spirit Church Mukka, Mukka Church, Mukka, Church" />
+  <meta name="description" content="Holy Spirit Church, Mukka" />
+  <meta name="author" content="Holy Spirit Church Mukka" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="Holy Spirit Church Mukka" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://holyspiritmukka.in" />
+  <meta property="og:image" content="https://holyspiritmukka.in/images/holy-spirit-church.jpg" />
+  <meta property="og:description" content="Holy Spirit Church, Mukka" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css" />
+  <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css" />
+  <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css" />
+  <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css" />
+  <link rel="stylesheet" type="text/css" href="styles/styles_in_all.css" />
+  <link rel="stylesheet" type="text/css" href="styles/main_styles.css" />
+  <link rel="stylesheet" type="text/css" href="styles/common_responsive.css" />
+  <link rel="stylesheet" type="text/css" href="styles/responsive.css" />
+  <link rel="stylesheet" type="text/css" href="styles/popup_styles.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="styles/mobile_nav.css" /> -->
+  <link rel="stylesheet" type="text/css" href="styles/navigation.css" />
+</head>
+
+<body>
+  <div class="super_container">
+    <%- include('partials/navigation', { currentPage: 'home' }) %>
 
       <div class="ads" id="ads">
         <h2>Support & Celebrations</h2>
@@ -73,16 +52,16 @@
       <div class="home">
         <div class="home_slider_container">
           <div type="button"
-            class="home_slider_nav home_slider_prev d-flex flex-column align-items-center justify-content-center" id="go-to-prev"
-          >
+            class="home_slider_nav home_slider_prev d-flex flex-column align-items-center justify-content-center"
+            id="go-to-prev">
             <img src="images/arrow_l.png" alt />
           </div>
           <div class="poster-container" id="poster-slider">
             <!-- displayed here -->
           </div>
           <div type="button"
-            class="home_slider_nav home_slider_next d-flex flex-column align-items-center justify-content-center" id="go-to-next"
-          >
+            class="home_slider_nav home_slider_next d-flex flex-column align-items-center justify-content-center"
+            id="go-to-next">
             <img src="images/arrow_r.png" alt />
           </div>
         </div>
@@ -121,370 +100,396 @@
 
       <%- include('partials/services', { currentPage: 'home' }) %>
 
-      <div class="priest">
-        <div
-          class="priest_background"
-          style="background-image: url(images/sermon.png)"
-        ></div>
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="section_title_container">
-                <div class="section_image">
-                  <img src="images/icons-01.png" alt />
+        <div class="priest">
+          <div class="priest_background" style="background-image: url(images/sermon.png)"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="section_title_container">
+                  <div class="section_image">
+                    <img src="images/icons-01.png" alt />
+                  </div>
+                  <div class="section_title">
+                    <h2>Parish Priest</h2>
+                  </div>
+                  <div class="section_subtitle">Grace and blessings to all</div>
                 </div>
-                <div class="section_title"><h2>Parish Priest</h2></div>
-                <div class="section_subtitle">Grace and blessings to all</div>
               </div>
             </div>
-          </div>
-          <div class="row priest_row">
-            <div class="col-lg-4">
-              <div class="priest_image">
-                <img id="priest-image" alt />
+            <div class="row priest_row">
+              <div class="col-lg-4">
+                <div class="priest_image">
+                  <img id="priest-image" alt />
+                </div>
               </div>
-            </div>
 
-            <div class="col-lg-6">
-              <div class="priest_content">
-                <div class="priest_title">
-                  <h2 id="priest-title"></h2>
-                </div>
-                <div class="priest_text">
-                  <p id="priest-details"></p>
-                </div>
-                <div class="button priest_button">
-                  <a href="priest">Read More</a>
+              <div class="col-lg-6">
+                <div class="priest_content">
+                  <div class="priest_title">
+                    <h2 id="priest-title"></h2>
+                  </div>
+                  <div class="priest_text">
+                    <p id="priest-details"></p>
+                  </div>
+                  <div class="button priest_button">
+                    <a href="priest">About the Priest</a>
+                  </div>
+
+                  <!-- Priest Message inline preview -->
+                  <div id="pm-inline"
+                    style="display:none;margin-top:24px;padding:20px 22px;background:#f1e8e838;border-radius:14px;border-left:4px solid #eb4141;box-shadow:inset 0 2px 8px rgba(0,0,0,0.07), 0 2px 8px rgba(181,137,75,0.1);">
+                     <div style="display:flex;gap:16px;align-items:flex-start;">
+                       <img id="pm-inline-img" src="" alt="Message" style="display:none;width:160px;height:160px;object-fit:cover;border-radius:10px;flex-shrink:0;box-shadow:0 4px 10px rgba(0,0,0,0.13);" />
+                       <div style="flex:1;">
+                         <h4 id="pm-msg-title" style="font-weight:800;font-style:italic;color:#1a1a1a;margin:0 0 8px;border-left:4px solid #eb4141;padding-left:10px;font-size:15px;"></h4>
+                         <p style="font-style:italic;font-size:14px;line-height:1.8;color:#555;margin-bottom:10px;">
+                           <span style="font-size:32px;line-height:0;vertical-align:-11px;color:#eb4141;font-family:Georgia,serif;">&ldquo;</span>
+                           <span id="pm-desc"></span>
+                         </p>
+                         <div style="text-align:right;">
+                           <a href="priest_message" style="color:#eb4141;font-weight:700;font-size:13px;text-decoration:none;border-bottom:2px solid #eb4141;padding-bottom:2px;letter-spacing:0.5px;">Read Message &rarr;</a>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="causes" id="obituary">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="section_title_container">
-                <div class="section_image">
-                  <img src="images/church_4.png" alt />
-                </div>
-                <div class="section_title"><h2>Obituary</h2></div>
-                <div class="section_subtitle">God loves us all</div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-            <div class="causes_slider_container">
+        <script>
+          fetch("/app/priestMessage/read", { method: "GET" })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              if (!data || data.length === 0) return;
+              var item = data[data.length - 1];
+              document.getElementById("pm-msg-title").textContent = item.messageTitle || "";
+              var desc = item.messageDescription || "";
+              document.getElementById("pm-desc").textContent =
+                desc.length > 120 ? desc.substring(0, 120) + "…" : desc;
+              if (item.image) {
+                var img = document.getElementById("pm-inline-img");
+                img.src = item.image;
+                img.style.display = "block";
+              }
+              document.getElementById("pm-inline").style.display = "";
+            })
+            .catch(function (e) { console.error("Priest message error:", e); });
+        </script>
 
-            <div class="slider-wrapper">
-              <button id="prev" class="slider-nav slider-prev">
-                <img src="images/arrow_l.png" alt="Previous" />
-              </button>
-              <div class="slider-container">
-                <div class="slider" id="slider-container">
-                  <!-- display here -->
-                </div>
-              </div>
-              <button id="next" class="slider-nav slider-next">
-                <img src="images/arrow_r.png" alt="Next" />
-              </button>
-            </div>
-
-            </div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="quote">
-        <div
-          class="quote_background parallax-window"
-          data-parallax="scroll"
-          data-image-src="images/quote.jpg"
-        ></div>
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="section_title_container">
-                <div class="section_image">
-                  <img src="images/church_5.png" loading="lazy" alt />
-                </div>
-                <div class="section_title"><h2>Living in God's Amazing Grace!</h2></div>
-                <div class="section_subtitle">God loves us all</div>
-              </div>
-            </div>
-          </div>
-          <div class="row quote_row">
-            <div class="col text-center">
-              <div class="number-row" id="number-row">
-                <!-- display numbers -->
-            </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="news">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="section_title_container">
-                <div class="section_image">
-                  <img src="images/church_6.png" alt />
-                </div>
-                <div class="section_title"><h2>Latest News</h2></div>
-                <div class="section_subtitle">God loves us all</div>
-              </div>
-            </div>
-          </div>
-          <div class="row news_row">
-            <div class="col-lg-4 news_col">
-              <div class="news_item">
-                <div class="news_image">
-                  <img id="news_image" alt />
-                  <div
-                    class="news_date_bg d-flex flex-column align-items-center justify-content-center"
-                  >
-                    <div class="news_date" id="news_date"></div>
-                    <div class="news_type">NEWS</div>
+        <div class="causes" id="obituary">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="section_title_container">
+                  <div class="section_image">
+                    <img src="images/church_4.png" alt />
                   </div>
-                </div>
-                <div class="news_content">
-                  <div class="news_title" id="news_title"></div>
-                  <div class="news_text">
-                    <p id="news_text"></p>
+                  <div class="section_title">
+                    <h2>Obituary</h2>
                   </div>
-                  <div class="news_link"><a href="blog#news_content">Read More</a></div>
+                  <div class="section_subtitle">God loves us all</div>
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col">
+                <div class="causes_slider_container">
 
-            <div class="col-lg-4 news_col">
-              <div class="news_item">
-                <div class="news_image">
-                  <img id="events_image" alt />
-                  <div
-                    class="news_date_bg d-flex flex-column align-items-center justify-content-center"
-                  >
-                    <div class="news_date" id="events_date"></div>
-                    <div class="news_type">EVENTS</div>
-                  </div>
-                </div>
-                <div class="news_content">
-                  <div class="news_title" id="events_title">Help us raise money for the kids</div>
-                  <div class="news_text" >
-                    <p id="events_text"></p>
-                  </div>
-                  <div class="news_link"><a href="blog#events_content">Read More</a></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 news_col">
-              <div class="news_item">
-                <div class="news_image">
-                  <img id="announcements_image" alt />
-                  <div
-                    class="news_date_bg d-flex flex-column align-items-center justify-content-center"
-                  >
-                    <div class="news_date" id="announcements_date"></div>
-                    <div class="news_type">ANNOUCEMENTS</div>
-                  </div>
-                </div>
-                <div class="news_content">
-                  <div class="news_title" id="announcements_title">The best way to pray</div>
-                  <div class="news_text" >
-                    <p id="announcements_text"></p>
-                  </div>
-                  <div class="news_link"><a href="blog#announcements_content">Read More</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4 footer_col">
-              <div class="logo_container">
-                <div class="logo">
-                  <a class="logo_align" href="#">
-                    <img src="images/holy-spirit-logo-md.jpg" alt="Holy Spirit Church Logo">
-                    <div class="logo_text">
-                      <h2>Holy Spirit Church</h2>
-                      <span>Mukka</span>
+                  <div class="slider-wrapper">
+                    <button id="prev" class="slider-nav slider-prev">
+                      <img src="images/arrow_l.png" alt="Previous" />
+                    </button>
+                    <div class="slider-container">
+                      <div class="slider" id="slider-container">
+                        <!-- display here -->
+                      </div>
                     </div>
-                  </a>
+                    <button id="next" class="slider-nav slider-next">
+                      <img src="images/arrow_r.png" alt="Next" />
+                    </button>
+                  </div>
+
                 </div>
-              </div>
-            </div>
-
-            <div class="col-lg-5 footer_col">
-              <div class="footer_contact">
-                <div class="footer_title">Contact Us</div>
-                <ul class="footer_ul">
-                  <li class="footer_li">
-                    <span>Address: </span>
-                    <div id="church-address"></div>
-                  </li>
-                  <li class="footer_li">
-                    <span>Phone: </span>
-                    <div id="contact"></div>
-                  </li>
-                  <li class="footer_li">
-                    <span>Email: </span>
-                    <a id="email" href="" class="__cf_email__">[email&#160;protected]</a>
-
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="footer_social">
-                <ul>
-                  <li>
-                    <a href="#"
-                      ><i class="fa fa-google-plus" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><i class="fa fa-pinterest" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><i class="fa fa-facebook" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><i class="fa fa-twitter" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
+  </div>
 
-        <div class="copyright text-center">
-          Copyright &copy;
-
-          <script>
-            document.write(new Date().getFullYear());
-          </script>
-          All rights reserved 
+  <div class="quote">
+    <div class="quote_background parallax-window" data-parallax="scroll" data-image-src="images/quote.jpg"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="section_title_container">
+            <div class="section_image">
+              <img src="images/church_5.png" loading="lazy" alt />
+            </div>
+            <div class="section_title">
+              <h2>Living in God's Amazing Grace!</h2>
+            </div>
+            <div class="section_subtitle">God loves us all</div>
+          </div>
         </div>
-      </footer>
+      </div>
+      <div class="row quote_row">
+        <div class="col text-center">
+          <div class="number-row" id="number-row">
+            <!-- display numbers -->
+          </div>
+
+        </div>
+      </div>
     </div>
-    <script src="js/search.js"></script>
-    <script src="js/ads.js"></script>
-    <script src="js/popup.js"></script>
-    <script src="js/footerContact.js"></script>
-    <script src="js/loadNumbers.js"></script>
-    <script src="js/poster_slider.js"></script>
-    <script src="js/slider_script.js"></script>
-    <script src="js/fetchChurch_Priest.js"></script>
-    <script src="js/fetchBlog.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="styles/bootstrap4/popper.js"></script>
-    <script src="styles/bootstrap4/bootstrap.min.js"></script>
-    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-    <script src="plugins/easing/easing.js"></script>
-    <script src="plugins/parallax-js-master/parallax.min.js"></script>
-    <script src="js/custom.js"></script>
+  </div>
 
-    <script>
-      // Handle service parameter from URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const service = urlParams.get('service');
-      
-      if (service) {
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-          switch(service) {
-            case 'mass_schedule':
-              showMassSchedule();
-              break;
-            case 'daily_reading':
-              showDailyReading();
-              break;
-            case 'spotlight':
-              showSpotlight();
-              break;
-          }
-        });
-      }
-    </script>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="section_title_container">
+            <div class="section_image">
+              <img src="images/church_6.png" alt />
+            </div>
+            <div class="section_title">
+              <h2>Latest News</h2>
+            </div>
+            <div class="section_subtitle">God loves us all</div>
+          </div>
+        </div>
+      </div>
+      <div class="row news_row">
+        <div class="col-lg-4 news_col">
+          <div class="news_item">
+            <div class="news_image">
+              <img id="news_image" alt />
+              <div class="news_date_bg d-flex flex-column align-items-center justify-content-center">
+                <div class="news_date" id="news_date"></div>
+                <div class="news_type">NEWS</div>
+              </div>
+            </div>
+            <div class="news_content">
+              <div class="news_title" id="news_title"></div>
+              <div class="news_text">
+                <p id="news_text"></p>
+              </div>
+              <div class="news_link"><a href="blog#news_content">Read More</a></div>
+            </div>
+          </div>
+        </div>
 
-    <script>
+        <div class="col-lg-4 news_col">
+          <div class="news_item">
+            <div class="news_image">
+              <img id="events_image" alt />
+              <div class="news_date_bg d-flex flex-column align-items-center justify-content-center">
+                <div class="news_date" id="events_date"></div>
+                <div class="news_type">EVENTS</div>
+              </div>
+            </div>
+            <div class="news_content">
+              <div class="news_title" id="events_title">Help us raise money for the kids</div>
+              <div class="news_text">
+                <p id="events_text"></p>
+              </div>
+              <div class="news_link"><a href="blog#events_content">Read More</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 news_col">
+          <div class="news_item">
+            <div class="news_image">
+              <img id="announcements_image" alt />
+              <div class="news_date_bg d-flex flex-column align-items-center justify-content-center">
+                <div class="news_date" id="announcements_date"></div>
+                <div class="news_type">ANNOUCEMENTS</div>
+              </div>
+            </div>
+            <div class="news_content">
+              <div class="news_title" id="announcements_title">The best way to pray</div>
+              <div class="news_text">
+                <p id="announcements_text"></p>
+              </div>
+              <div class="news_link"><a href="blog#announcements_content">Read More</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 footer_col">
+          <div class="logo_container">
+            <div class="logo">
+              <a class="logo_align" href="#">
+                <img src="images/holy-spirit-logo-md.jpg" alt="Holy Spirit Church Logo">
+                <div class="logo_text">
+                  <h2>Holy Spirit Church</h2>
+                  <span>Mukka</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 footer_col">
+          <div class="footer_contact">
+            <div class="footer_title">Contact Us</div>
+            <ul class="footer_ul">
+              <li class="footer_li">
+                <span>Address: </span>
+                <div id="church-address"></div>
+              </li>
+              <li class="footer_li">
+                <span>Phone: </span>
+                <div id="contact"></div>
+              </li>
+              <li class="footer_li">
+                <span>Email: </span>
+                <a id="email" href="" class="__cf_email__">[email&#160;protected]</a>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="footer_social">
+            <ul>
+              <li>
+                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright text-center">
+      Copyright &copy;
+
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      All rights reserved
+    </div>
+  </footer>
+  </div>
+  <script src="js/search.js"></script>
+  <script src="js/ads.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/footerContact.js"></script>
+  <script src="js/loadNumbers.js"></script>
+  <script src="js/poster_slider.js"></script>
+  <script src="js/slider_script.js"></script>
+  <script src="js/fetchChurch_Priest.js"></script>
+  <script src="js/fetchBlog.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="styles/bootstrap4/popper.js"></script>
+  <script src="styles/bootstrap4/bootstrap.min.js"></script>
+  <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+  <script src="plugins/easing/easing.js"></script>
+  <script src="plugins/parallax-js-master/parallax.min.js"></script>
+  <script src="js/custom.js"></script>
+
+  <script>
+    // Handle service parameter from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const service = urlParams.get('service');
+
+    if (service) {
+      // Wait for DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function () {
+        switch (service) {
+          case 'mass_schedule':
+            showMassSchedule();
+            break;
+          case 'daily_reading':
+            showDailyReading();
+            break;
+          case 'spotlight':
+            showSpotlight();
+            break;
+        }
+      });
+    }
+  </script>
+
+  <script>
     function initParallax() {
       $('.services_background, .quote_background').parallax('destroy');
       $('.services_background, .quote_background').parallax({
-          speed: 0.1,
-          androidFix: false,
-          iosFix: false
+        speed: 0.1,
+        androidFix: false,
+        iosFix: false
       });
     }
-  
-    $(document).ready(function() {
+
+    $(document).ready(function () {
       // Wait for images to load
-      $('<img/>').attr('src', 'images/services.jpg').on('load', function() {
+      $('<img/>').attr('src', 'images/services.jpg').on('load', function () {
+        $(this).remove();
+        $('<img/>').attr('src', 'images/quote.jpg').on('load', function () {
           $(this).remove();
-          $('<img/>').attr('src', 'images/quote.jpg').on('load', function() {
-              $(this).remove();
-              initParallax();
-          });
+          initParallax();
+        });
       });
-  
+
       // Reinitialize on resize
       $(window).on('resize', initParallax);
-  
+
       // Fallback: if images don't load, initialize anyway after a delay
       setTimeout(initParallax, 2000);
     });
 
     function setParallaxPosition() {
-      $('.parallax').each(function() {
-          var scrolled = $(window).scrollTop();
-          var speed = 0.5; // Adjust for desired parallax effect
-          $(this).css('background-position', 'center ' + -(scrolled * speed) + 'px');
+      $('.parallax').each(function () {
+        var scrolled = $(window).scrollTop();
+        var speed = 0.5; // Adjust for desired parallax effect
+        $(this).css('background-position', 'center ' + -(scrolled * speed) + 'px');
       });
     }
 
-    $(document).ready(function() {
-        setParallaxPosition();
-        $(window).scroll(setParallaxPosition);
-        $(window).resize(setParallaxPosition);
+    $(document).ready(function () {
+      setParallaxPosition();
+      $(window).scroll(setParallaxPosition);
+      $(window).resize(setParallaxPosition);
     });
-    </script>
+  </script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        $('.parallax-window').parallax({
-          naturalWidth: 1920,
-          naturalHeight: 1080
-        });
-        $(window).trigger('resize');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      $('.parallax-window').parallax({
+        naturalWidth: 1920,
+        naturalHeight: 1080
       });
-    </script>
-    
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      $(window).trigger('resize');
+    });
+  </script>
 
-      gtag("config", "UA-23581568-13");
-    </script>
-  </body>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-23581568-13");
+  </script>
+</body>
+
 </html>

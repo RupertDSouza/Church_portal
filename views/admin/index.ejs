@@ -1,49 +1,39 @@
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <title>Admin Page</title>
-    <link rel="stylesheet" href="/styles/style1.css" />
-    <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <body class="crm_body_bg">
-    <%- include('../handlebars/navbar') %>
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="/styles/style1.css" />
+  <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+</head>
+
+<body class="crm_body_bg">
+  <%- include('../handlebars/navbar') %>
     <section class="main_content dashboard_part">
       <div class="container-fluid g-0">
         <div class="row">
           <div class="col-lg-12 p-0">
-            <div
-              class="header_iner d-flex justify-content-between align-items-center"
-            >
+            <div class="header_iner d-flex justify-content-between align-items-center">
               <%- include('../handlebars/mobileNav') %>
-              <div class="sidebar_icon d-lg-none"></div>
-              <div>
-                <form action="/admin/editChurchInfo">
-                  <input
-                    type="submit"
-                    value="Update Church Info"
-                    class="btn btn-secondary btn-lg"
-                    id="updateChurchInfo"
-                  />
-                </form>
-              </div>
+                <div class="sidebar_icon d-lg-none"></div>
+                <div>
+                  <form action="/admin/editChurchInfo">
+                    <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg"
+                      id="updateChurchInfo" />
+                  </form>
+                </div>
 
-              <div
-                class="header_right d-flex justify-content-between align-items-center"
-              >
-                <div class="profile_info">
-                  <img id="profileImage" src="" alt="Profile Image" />
-                  <div class="profile_info_iner">
-                    <p id="role">Welcome!</p>
-                    <h5 id="name">User</h5>
+                <div class="header_right d-flex justify-content-between align-items-center">
+                  <div class="profile_info">
+                    <img id="profileImage" src="" alt="Profile Image" />
+                    <div class="profile_info_iner">
+                      <p id="role">Welcome!</p>
+                      <h5 id="name">User</h5>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -74,10 +64,7 @@
                           <h3>Obituary</h3>
                         </div>
 
-                        <div
-                          class="single_quick_activity"
-                          id="parishCouncilDiv"
-                        >
+                        <div class="single_quick_activity" id="parishCouncilDiv">
                           <h3>Parish Council</h3>
                         </div>
 
@@ -92,6 +79,10 @@
                         <div class="single_quick_activity" id="massTimingsDiv">
                           <h3>Mass Timings</h3>
                         </div>
+
+                        <div class="single_quick_activity" id="priestMessageDiv">
+                          <h3>Priest Message</h3>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -102,78 +93,84 @@
         </div>
       </div>
     </section>
-  </body>
+</body>
 
-  <!-- Include jwt-decode library -->
-  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<!-- Include jwt-decode library -->
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 
-  <!-- Include your auth.js file -->
-  <script src="/js/auth.js"></script>
+<!-- Include your auth.js file -->
+<script src="/js/auth.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      checkAuthAndFetchUserData((error, userData) => {
-        if (error) {
-          console.error("Authentication failed");
-          return;
-        }
-
-        document.getElementById("profileImage").src = getImagePath(
-          userData.image
-        );
-        document.getElementById("name").textContent = userData.name;
-        document.getElementById(
-          "role"
-        ).textContent = `Welcome ${userData.role}!`;
-      });
-    });
-
-    function getImagePath(image) {
-      if (image) {
-        return image;
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    checkAuthAndFetchUserData((error, userData) => {
+      if (error) {
+        console.error("Authentication failed");
+        return;
       }
-      return "";
-    }
 
-    document.getElementById("wardsDiv").addEventListener("click", function () {
-      window.location.href = "/admin/wards";
+      document.getElementById("profileImage").src = getImagePath(
+        userData.image
+      );
+      document.getElementById("name").textContent = userData.name;
+      document.getElementById(
+        "role"
+      ).textContent = `Welcome ${userData.role}!`;
+    });
+  });
+
+  function getImagePath(image) {
+    if (image) {
+      return image;
+    }
+    return "";
+  }
+
+  document.getElementById("wardsDiv").addEventListener("click", function () {
+    window.location.href = "/admin/wards";
+  });
+
+  document
+    .getElementById("priestsDiv")
+    .addEventListener("click", function () {
+      window.location.href = "/admin/priests";
     });
 
-    document
-      .getElementById("priestsDiv")
-      .addEventListener("click", function () {
-        window.location.href = "/admin/priests";
-      });
+  document
+    .getElementById("obituaryDiv")
+    .addEventListener("click", function () {
+      window.location.href = "/admin/obituary";
+    });
+  document
+    .getElementById("associationsDiv")
+    .addEventListener("click", function () {
+      window.location.href = "/admin/associations";
+    });
+  document
+    .getElementById("parishCouncilDiv")
+    .addEventListener("click", function () {
+      window.location.href = "/admin/parishCouncil";
+    });
+  document
+    .getElementById("commissionDiv")
+    .addEventListener("click", function () {
+      window.location.href = "/admin/commission";
+    });
+  document
+    .getElementById("institutionDiv")
+    .addEventListener("click", function () {
+      window.location.href = "/admin/institution";
+    });
+  document
+    .getElementById("massTimingsDiv")
+    .addEventListener("click", function () {
+      window.location.href = "/admin/massTiming";
+    });
+  document
+    .getElementById("priestMessageDiv")
+    .addEventListener("click", function () {
+      window.location.href = "/admin/priestMessage";
+    });
+</script>
 
-    document
-      .getElementById("obituaryDiv")
-      .addEventListener("click", function () {
-        window.location.href = "/admin/obituary";
-      });
-    document
-      .getElementById("associationsDiv")
-      .addEventListener("click", function () {
-        window.location.href = "/admin/associations";
-      });
-    document
-      .getElementById("parishCouncilDiv")
-      .addEventListener("click", function () {
-        window.location.href = "/admin/parishCouncil";
-      });
-    document
-      .getElementById("commissionDiv")
-      .addEventListener("click", function () {
-        window.location.href = "/admin/commission";
-      });
-    document
-      .getElementById("institutionDiv")
-      .addEventListener("click", function () {
-        window.location.href = "/admin/institution";
-      });
-    document
-      .getElementById("massTimingsDiv")
-      .addEventListener("click", function () {
-        window.location.href = "/admin/massTiming";
-      });
-  </script>
 </html>

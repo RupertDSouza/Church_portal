@@ -1,48 +1,44 @@
 <html>
-  <head>
-    <title>Readings</title>
 
-    <link rel="stylesheet" href="/styles/style1.css" />
-    <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
-  </head>
-  <body class="crm_body_bg">
-    <%- include('../handlebars/navbar') %>
+<head>
+  <title>Readings</title>
+
+  <link rel="stylesheet" href="/styles/style1.css" />
+  <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+</head>
+
+<body class="crm_body_bg">
+  <%- include('../handlebars/navbar') %>
 
     <section class="main_content dashboard_part">
       <div class="container-fluid g-0">
-      <div class="row">
-      <div class="col-lg-12 p-0">
-      <div class="header_iner d-flex justify-content-between align-items-center">
-        <%- include('../handlebars/mobileNav') %>
-      <div class="sidebar_icon d-lg-none">
-      <i class="ti-menu"></i>
-      </div>
-      <div >
-     
-        <form action="/admin/editChurchInfo">
-            <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
-        </form>
-      </div>
-      
-      <div class="header_right d-flex justify-content-between align-items-center">
-      <div class="header_notification_warp d-flex align-items-center">
-      <li>
-      <a href="#" onclick="redirectToCreateReading()">
-         <img src="../images/interface_16374941.png" style="max-width:16%; margin-left:85%"> </a>
-      </li>
-      
-      </div>
-      <div class="profile_info">
-        <img id="profileImage" src="" alt="Profile Image">
-        <div class="profile_info_iner">
-            <p id="role">Welcome!</p>
-            <h5 id="name">User</h5>
+        <div class="row">
+          <div class="col-lg-12 p-0">
+            <div class="header_iner d-flex justify-content-between align-items-center">
+              <%- include('../handlebars/mobileNav') %>
+                <div class="sidebar_icon d-lg-none">
+                  <i class="ti-menu"></i>
+                </div>
+                <div>
+
+                  <form action="/admin/editChurchInfo">
+                    <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg"
+                      id="updateChurchInfo">
+                  </form>
+                </div>
+
+                <div class="header_right d-flex justify-content-between align-items-center">
+                  <div class="profile_info">
+                    <img id="profileImage" src="" alt="Profile Image">
+                    <div class="profile_info_iner">
+                      <p id="role">Welcome!</p>
+                      <h5 id="name">User</h5>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
         </div>
-    </div>
-      </div>
-      </div>
-      </div>
-      </div>
       </div>
 
       <div class="main_content_iner">
@@ -71,6 +67,12 @@
             </div>
           </div>
         </div>
+        <!-- Always-visible Add button -->
+        <div style="text-align: center; padding: 12px 0 16px;">
+          <button onclick="redirectToCreateReading()" class="btn btn-primary" style="min-width:160px;">
+            + Add Reading
+          </button>
+        </div>
       </div>
     </section>
 
@@ -81,11 +83,7 @@
       <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
         <p>Are you sure you want to delete this reading?</p>
-        <button
-          id="confirmDelete"
-          class="btn btn-primary"
-          style="margin-bottom: 10"
-        >
+        <button id="confirmDelete" class="btn btn-primary" style="margin-bottom: 10">
           Yes
         </button>
         <button id="cancelDelete" class="btn btn-secondary">No</button>
@@ -126,12 +124,16 @@
           });
 
           if (!response.ok) {
-            throw new Error(
-              "Network response was not ok " + response.statusText
-            );
+            showEmptyState();
+            return;
           }
 
           const readings = await response.json();
+
+          if (readings.length === 0) {
+            showEmptyState();
+            return;
+          }
           const tableBody = document.querySelector(".lms_table_active tbody");
 
           // Clear existing table rows
@@ -145,47 +147,58 @@
                 <td>${reading.secondReading}</td>
                 <td>${reading.responsorialPsalm}</td>
                 <td>${reading.gospel}</td>
-                <td><a href="#" class="status_btn edit-btn" data-id="${
-                  reading._id
-                }" style="text-decoration: none;">Edit</a>&nbsp;&nbsp;
-                    <a href="#" class="status_btn delete-btn delete-btn-table" data-id="${
-                      reading._id
-                    }" style="text-decoration: none;">Delete</a></td>
+                <td><a href="#" class="status_btn edit-btn" data-id="${reading._id
+              }" style="text-decoration: none;">Edit</a>&nbsp;&nbsp;
+                    <a href="#" class="status_btn delete-btn delete-btn-table" data-id="${reading._id
+              }" style="text-decoration: none;">Delete</a></td>
                     `;
             tableBody.appendChild(row);
           });
 
-                document.querySelectorAll('.delete-btn').forEach(button => {
-                button.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const cardId = this.getAttribute('data-id');
-                    showConfirmationModal(cardId);
-                });
+          document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', function (event) {
+              event.preventDefault();
+              const cardId = this.getAttribute('data-id');
+              showConfirmationModal(cardId);
             });
-                
-                document.querySelectorAll('.edit-btn').forEach(button => {
-                    button.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        const rowId = this.getAttribute('data-id');
-                        localStorage.setItem('readingId', rowId);
-                        window.location.href = '/admin/editReading';
-                    });
-                });
-                
-            } catch (error) {
-                console.error("Error:", error);
-                document.getElementById("response").innerText = "Error: " + error.message;
-            }
+          });
+
+          document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', function (event) {
+              event.preventDefault();
+              const rowId = this.getAttribute('data-id');
+              localStorage.setItem('readingId', rowId);
+              window.location.href = '/admin/editReading';
+            });
+          });
+
+        } catch (error) {
+          console.error("Error:", error);
+          showEmptyState();
         }
-        
-        function getImagePath(image) {
-            if (image) {
-                
-                return image.replace("../../Church_portal/public/", "/");
-            }
-            return ""; 
+      }
+
+
+      function showEmptyState() {
+        // For table-based pages, show message in the response div
+        const responseEl = document.getElementById("response");
+        responseEl.innerHTML = `
+            <div class="text-center" style="padding: 30px 20px 8px;">
+                <div style="font-size: 64px; color: #ccc; margin-bottom: 16px;">&#128196;</div>
+                <h4 style="color: #6c757d; margin-bottom: 8px;">No readings yet</h4>
+                <p style="color: #aaa; margin-bottom: 24px;">
+                    Click the <strong>+</strong> button to add a new reading.
+                </p>
+            </div>`;
+      }
+      function getImagePath(image) {
+        if (image) {
+
+          return image.replace("../../Church_portal/public/", "/");
         }
-        function formatDate(dateString) {
+        return "";
+      }
+      function formatDate(dateString) {
         const date = new Date(dateString);
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -252,12 +265,13 @@
             responseElement.innerText = "Error: " + error.message;
           }
         }
-    }
-        
-        function redirectToCreateReading() {
-                window.location.href = '/admin/createReading';
-            }
-       
-</script>
+      }
+
+      function redirectToCreateReading() {
+        window.location.href = '/admin/createReading';
+      }
+
+    </script>
 </body>
+
 </html>

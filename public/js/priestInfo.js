@@ -22,14 +22,12 @@ async function loadPriestInfo(containerId) {
 
       const imageUrl = item.image;
       const fromDate = new Date(item.fromDate).toLocaleDateString();
-      let toDate = new Date(item.toDate).toLocaleDateString();
-      const dateOfOrdination = new Date(
-        item.dateOfOrdination
-      ).toLocaleDateString();
-      if (toDate === "01/01/1970" || toDate === null) {
-        toDate = "...".toString();
-        console.log(toDate);
-      }
+      let toDate = item.toDate
+        ? new Date(item.toDate).toLocaleDateString()
+        : "...";
+      // const dateOfOrdination = new Date(
+      //   item.dateOfOrdination
+      // ).toLocaleDateString();
 
       const itemHtml = `
             <div class="ministry">

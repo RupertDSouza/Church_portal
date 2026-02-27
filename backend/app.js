@@ -85,3 +85,19 @@ app.use((err, req, res, next) => {
   console.error("Error handling middleware triggered:", err);
   res.status(500).send("An error occurred!");
 });
+
+// const priestMessageModel = require("./models/mongodb/priestMessageModel");
+
+// app.get("/priest_message", async (req, res, next) => {
+//   try {
+//     // Fetch the most recent/active priest record
+//     const priests = await priestMessageModel.find().sort({ fromDate: -1 }).limit(1);
+//     const ogImage =
+//       priests.length > 0 && priests[0].image
+//         ? priests[0].image
+//         : "https://holyspiritmukka.in/images/holy-spirit-church.jpg"; // fallback
+//     res.render("priest_message", { ogImage });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
