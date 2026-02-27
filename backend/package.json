@@ -1,17 +1,4 @@
 {
-  "name": "restful-api",
-  "version": "1.0.0",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
-    "start": "pm2 start app.js --max-memory-restart 200M",
-    "stop": "pm2 stop app.js",
-    "kill": "pm2 kill"
-  },
-  "author": "Anish",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parse": "^0.1.0",

@@ -1,0 +1,18 @@
+{
+  "name": "restful-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "pm2 start server.js --name=church_portal --max-memory-restart 200M",
+    "stop": "pm2 stop church_portal",
+    "kill": "pm2 kill"
+  },
+  "author": "Anish",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "pm2": "^6.0.14"
+  }
+}

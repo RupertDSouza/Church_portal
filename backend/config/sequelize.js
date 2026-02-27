@@ -1,7 +1,6 @@
 // config/sequelize.js
-// config/sequelize.js
 const { Sequelize } = require("sequelize");
-const pg = require("pg"); // Add this line to import pg
+const pg = require("pg");
 
 const connectionString = process.env.POSTGRESQL_URL;
 
