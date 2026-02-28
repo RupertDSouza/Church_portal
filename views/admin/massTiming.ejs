@@ -463,22 +463,25 @@
       };
 
       // ── API call ───────────────────────────────────────────────────────────
-      async function pushUpdate(dayName, masses) {
+      async function pushUpdate(day) {
         try {
           const token = localStorage.getItem("token");
-          const res = await fetch(`/app/mass/updateMass/${weekDocId}`, {
+          const res = await fetch(`/app/mass/updateMass/${day._id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`
             },
-            body: JSON.stringify({ dayName, masses })
+            body: JSON.stringify({ masses: day.masses })
           });
-          if (!res.ok) throw new Error(await res.text());
+          if (!res.ok) {
+            const errText = await res.text();
+            throw new Error(errText);
+          }
           return true;
         } catch (e) {
-          console.error("Update failed:", e);
-          alert("Failed to save. Please try again.");
+          console.log("Update failed:", e.message);
+          alert("Failed to save: " + e.message);
           return false;
         }
       }
