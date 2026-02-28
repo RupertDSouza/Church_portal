@@ -34,8 +34,8 @@ class Repository {
             { content: new RegExp(searchTerm, "i") },
             { history: new RegExp(searchTerm, "i") },
             { day: new RegExp(searchTerm, "i") },
-            { "info.occasion": new RegExp(searchTerm, "i") },
-            { "info.time": new RegExp(searchTerm, "i") },
+            { "week.masses.occasion": new RegExp(searchTerm, "i") },
+            { "week.masses.time": new RegExp(searchTerm, "i") },
             { link: new RegExp(searchTerm, "i") },
             { firstReading: new RegExp(searchTerm, "i") },
             { secondReading: new RegExp(searchTerm, "i") },
@@ -49,7 +49,7 @@ class Repository {
         if (isValidDate) {
           const nextDay = new Date(dateSearch);
           nextDay.setDate(nextDay.getDate() + 1);
-          filter.$or.push({ "info.date": { $gte: dateSearch, $lt: nextDay } });
+          filter.$or.push({ "week.masses.date": { $gte: dateSearch, $lt: nextDay } });
         }
       }
       return await this.model.find(filter);

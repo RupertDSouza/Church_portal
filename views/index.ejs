@@ -136,47 +136,26 @@
                   </div>
 
                   <!-- Priest Message inline preview -->
-                  <div id="pm-inline"
-                    style="display:none;margin-top:24px;padding:20px 22px;background:#f1e8e838;border-radius:14px;border-left:4px solid #eb4141;box-shadow:inset 0 2px 8px rgba(0,0,0,0.07), 0 2px 8px rgba(181,137,75,0.1);">
-                     <div style="display:flex;gap:16px;align-items:flex-start;">
-                       <img id="pm-inline-img" src="" alt="Message" style="display:none;width:160px;height:160px;object-fit:cover;border-radius:10px;flex-shrink:0;box-shadow:0 4px 10px rgba(0,0,0,0.13);" />
-                       <div style="flex:1;">
-                         <h4 id="pm-msg-title" style="font-weight:800;font-style:italic;color:#1a1a1a;margin:0 0 8px;border-left:4px solid #eb4141;padding-left:10px;font-size:15px;"></h4>
-                         <p style="font-style:italic;font-size:14px;line-height:1.8;color:#555;margin-bottom:10px;">
-                           <span style="font-size:32px;line-height:0;vertical-align:-11px;color:#eb4141;font-family:Georgia,serif;">&ldquo;</span>
-                           <span id="pm-desc"></span>
-                         </p>
-                         <div style="text-align:right;">
-                           <a href="priest_message" style="color:#eb4141;font-weight:700;font-size:13px;text-decoration:none;border-bottom:2px solid #eb4141;padding-bottom:2px;letter-spacing:0.5px;">Read Message &rarr;</a>
-                         </div>
-                       </div>
-                     </div>
-                   </div>
+                  <div id="pm-inline" class="pm-inline">
+                    <div class="pm-inline-body">
+                      <img id="pm-inline-img" src="" alt="Message" class="pm-inline-img" />
+                      <div class="pm-inline-text">
+                        <h4 id="pm-msg-title" class="pm-msg-title"></h4>
+                        <p class="pm-inline-quote">
+                          <span class="pm-quote-mark">&ldquo;</span>
+                          <span id="pm-desc"></span>
+                        </p>
+                        <div class="pm-inline-link">
+                          <a href="priest_message">Read Message &rarr;</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <script>
-          fetch("/app/priestMessage/read", { method: "GET" })
-            .then(function (r) { return r.json(); })
-            .then(function (data) {
-              if (!data || data.length === 0) return;
-              var item = data[data.length - 1];
-              document.getElementById("pm-msg-title").textContent = item.messageTitle || "";
-              var desc = item.messageDescription || "";
-              document.getElementById("pm-desc").textContent =
-                desc.length > 120 ? desc.substring(0, 120) + "…" : desc;
-              if (item.image) {
-                var img = document.getElementById("pm-inline-img");
-                img.src = item.image;
-                img.style.display = "block";
-              }
-              document.getElementById("pm-inline").style.display = "";
-            })
-            .catch(function (e) { console.error("Priest message error:", e); });
-        </script>
 
         <div class="causes" id="obituary">
           <div class="container">
@@ -397,6 +376,7 @@
   <script src="js/poster_slider.js"></script>
   <script src="js/slider_script.js"></script>
   <script src="js/fetchChurch_Priest.js"></script>
+  <script src="js/priest_message.js"></script>
   <script src="js/fetchBlog.js"></script>
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="styles/bootstrap4/popper.js"></script>

@@ -7,6 +7,7 @@
 .home {
   width: 100%;
 }
+
 .home_background {
   position: absolute;
   top: 0;
@@ -14,21 +15,25 @@
   width: 100%;
   height: 100%;
 }
+
 .home_container {
   width: 100%;
   height: 323px;
 }
+
 .home_content {
   position: absolute;
   width: 100%;
   left: 0;
   bottom: 60px;
 }
+
 .home_title {
   font-size: 30px;
   color: #ffffff;
   line-height: 0.75;
 }
+
 .breadcrumbs li {
   display: inline-block;
   position: relative;
@@ -37,11 +42,13 @@
   font-weight: 600;
   line-height: 0.75;
 }
+
 .breadcrumbs li:not(:last-child)::after {
   content: "/";
   margin-left: 5px;
   color: #ffffff;
 }
+
 .breadcrumbs li a {
   color: #ffffff;
   font-weight: 500;
@@ -56,6 +63,7 @@
   padding-top: 97px;
   padding-bottom: 10px;
 }
+
 .assoc-and-comm_background {
   position: absolute;
   top: 0;
@@ -66,6 +74,7 @@
   background-size: cover;
   background-position: center center;
 }
+
 .assoc-and-comm_row {
   margin-top: 84px;
 }
@@ -78,6 +87,7 @@
   overflow: hidden;
   margin: 0 auto;
 }
+
 .assoc-and-comm_item_image::after {
   display: block;
   position: absolute;
@@ -96,13 +106,16 @@
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
+
 .assoc-and-comm_item_image img {
   max-width: 100%;
 }
+
 .assoc-and-comm_item:hover .assoc-and-comm_item_image::after {
   visibility: visible;
   opacity: 1;
 }
+
 .assoc-and-comm_item_title {
   font-size: 17px;
   font-weight: 600;
@@ -114,14 +127,17 @@
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
+
 .assoc-and-comm_item_text {
   margin-top: 12px;
   margin-right: 40px;
   margin-left: 40px;
 }
+
 .assoc-and-comm_item:hover .assoc-and-comm_item_title {
   color: #eb4141;
 }
+
 .imageAndInfo {
   height: 450px;
   display: flex;
@@ -132,22 +148,27 @@
     background-color: #333; */
   transition: transform 0.5s ease;
 }
+
 .assoc-and-comm_buttons {
   margin-top: 64px;
 }
+
 .assoc-and-comm_buttons ul li {
   display: inline-block;
   margin-right: 18px;
   cursor: pointer;
 }
+
 .assoc-and-comm_buttons ul li img,
 .assoc-and-comm_buttons ul li svg {
   width: 27px;
   height: 27px;
 }
+
 .assoc-and-comm_buttons ul li img svg {
   max-width: 100%;
 }
+
 .svg path,
 .svg rect,
 .svg polygon {
@@ -158,6 +179,7 @@
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
+
 .assoc-and-comm_item:hover .svg path,
 .assoc-and-comm_item:hover .svg rect,
 .assoc-and-comm_item:hover .svg polygon {
@@ -172,24 +194,30 @@
   width: 100%;
   background: #ffffff;
 }
+
 .popular_row {
   justify-content: center;
   align-content: center;
 }
+
 .popular_item {
   width: 100%;
   overflow-y: auto;
 }
+
 .popular_image {
   width: 100%;
 }
+
 .popular_image img {
   max-width: 100%;
   margin-top: 30px;
 }
+
 .popular .assoc-and-comm_content {
   margin-top: 42px;
 }
+
 .popular .assoc-and-comm_buttons {
   margin-top: 30px;
 }
@@ -198,14 +226,15 @@
 4. Featured
 *********************************/
 
-.featured {
-}
+
+
 .featured_col {
   padding-left: 44px;
   padding-right: 44px;
   padding-top: 43px;
   padding-bottom: 45px;
 }
+
 .featured_background {
   position: absolute;
   top: 0;
@@ -213,12 +242,14 @@
   width: 100%;
   height: 100%;
 }
+
 .featured_1 {
   width: 40%;
   padding: 30px;
   margin-bottom: 40px;
   margin-left: 40px;
 }
+
 .featured_col_2 {
   padding-left: 219px;
   padding-top: 111px;
@@ -232,6 +263,7 @@
 .featured .assoc-and-comm_text p {
   color: #ffffff;
 }
+
 .featured .assoc-and-comm_buttons {
   margin-top: 30px;
 }

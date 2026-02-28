@@ -1,110 +1,106 @@
 <div class="services">
-  <% if (locals.currentPage === 'home') { %>
-    <div
-      class="services_background"
-      data-parallax="scroll"
-      data-image-src="images/services.jpg"
-    ></div>
-  <% } %>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="section_title_container">
-          <div class="section_image">
-            <img src="images/church_2.png" alt />
+  <% if (locals.currentPage==='home' ) { %>
+    <div class="services_background" data-parallax="scroll" data-image-src="images/services.jpg"></div>
+    <% } %>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="section_title_container">
+              <div class="section_image">
+                <img src="images/church_2.png" alt />
+              </div>
+              <div class="section_title">
+                <h2>Discover More About Church</h2>
+              </div>
+              <div class="section_subtitle">Peace Be With You</div>
+            </div>
           </div>
-          <div class="section_title">
-            <h2>Discover More About Church</h2>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="services_text text-center">
+              <p>
+                Bringing together people of all ages through various
+                activities and services, Holy Spirit Church in Mukka fosters a
+                strong sense of togetherness. From engaging community
+                associations and uplifting worship services to events that
+                celebrate our shared faith, the church is a hub of unity and
+                joy. Our vibrant parish life is beautifully captured in our
+                gallery, reflecting the essence of our community. Join us to
+                experience a place where faith, fellowship, and support are at
+                the heart of everything we do.
+              </p>
+            </div>
           </div>
-          <div class="section_subtitle">Peace Be With You</div>
+        </div>
+        <div class="row services_row">
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a href="#" onclick="handleServiceClick('mass_schedule')" style="cursor: pointer;">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/daily_mass.png" alt />
+                </div>
+                <div class="services_title">Mass Schedule</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a href="#" onclick="handleServiceClick('daily_reading')" style="cursor: pointer;">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/daily_reading.png" alt />
+                </div>
+                <div class="services_title">Daily Reading</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a href="#" onclick="handleServiceClick('spotlight')" style="cursor: pointer;">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/spotlight.png" alt />
+                </div>
+                <div class="services_title">Spotlight</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a href="parish_council">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/parish_council.png" alt />
+                </div>
+                <div class="services_title">Parish Council</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a href="gallery">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/gallery.png" alt />
+                </div>
+                <div class="services_title">Gallery</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a href="#">
+              <div class="services_item text-center">
+                <div class="services_image">
+                  <img src="images/magazine.png" alt />
+                </div>
+                <div class="services_title">Magazine</div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="services_text text-center">
-          <p>
-            Bringing together people of all ages through various
-            activities and services, Holy Spirit Church in Mukka fosters a
-            strong sense of togetherness. From engaging community
-            associations and uplifting worship services to events that
-            celebrate our shared faith, the church is a hub of unity and
-            joy. Our vibrant parish life is beautifully captured in our
-            gallery, reflecting the essence of our community. Join us to
-            experience a place where faith, fellowship, and support are at
-            the heart of everything we do.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row services_row">
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <a href="#" onclick="handleServiceClick('mass_schedule')" style="cursor: pointer;">
-          <div class="services_item text-center">
-            <div class="services_image">
-              <img src="images/daily_mass.png" alt />
-            </div>
-            <div class="services_title">Mass Schedule</div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <a href="#" onclick="handleServiceClick('daily_reading')" style="cursor: pointer;">
-          <div class="services_item text-center">
-            <div class="services_image">
-              <img src="images/daily_reading.png" alt />
-            </div>
-            <div class="services_title">Daily Reading</div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <a href="#" onclick="handleServiceClick('spotlight')" style="cursor: pointer;">
-          <div class="services_item text-center">
-            <div class="services_image">
-              <img src="images/spotlight.png" alt />
-            </div>
-            <div class="services_title">Spotlight</div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <a href="parish_council">
-          <div class="services_item text-center">
-            <div class="services_image">
-              <img src="images/parish_council.png" alt />
-            </div>
-            <div class="services_title">Parish Council</div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <a href="gallery">
-          <div class="services_item text-center">
-            <div class="services_image">
-              <img src="images/gallery.png" alt />
-            </div>
-            <div class="services_title">Gallery</div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <a href="#">
-          <div class="services_item text-center">
-            <div class="services_image">
-              <img src="images/magazine.png" alt />
-            </div>
-            <div class="services_title">Magazine</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- Popup Overlay -->
@@ -121,6 +117,7 @@
           <tr>
             <th>Day</th>
             <th>Occasion</th>
+            <th>Title</th>
             <th>Date</th>
             <th>Time</th>
           </tr>
@@ -153,4 +150,4 @@
       <!-- Spotlight content will be populated here -->
     </div>
   </div>
-</div> 
+</div>

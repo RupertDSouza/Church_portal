@@ -63,35 +63,48 @@ async function populateSchedule() {
   }
 
   const tableBody = document.getElementById("scheduleBody");
-  tableBody.innerHTML = ""; // Clear existing content
+  tableBody.innerHTML = "";
 
   scheduleData.forEach((daySchedule) => {
-    daySchedule.info.forEach((event, index) => {
+    if (!daySchedule.masses || daySchedule.masses.length === 0) {
+      const row = document.createElement("tr");
+      const dayCell = document.createElement("td");
+      dayCell.textContent = daySchedule.name;
+      row.appendChild(dayCell);
+      const emptyCell = document.createElement("td");
+      emptyCell.colSpan = 4;
+      emptyCell.textContent = "No masses scheduled";
+      emptyCell.style.color = "#aaa";
+      row.appendChild(emptyCell);
+      tableBody.appendChild(row);
+      return;
+    }
+
+    daySchedule.masses.forEach((event, index) => {
       const row = document.createElement("tr");
 
       if (index === 0) {
         const dayCell = document.createElement("td");
-        dayCell.textContent = daySchedule.day;
-        dayCell.rowSpan = daySchedule.info.length;
+        dayCell.textContent = daySchedule.name;
+        dayCell.rowSpan = daySchedule.masses.length;
         row.appendChild(dayCell);
       }
 
+      const titleCell = document.createElement("td");
+      titleCell.textContent = event.title || "—";
+      row.appendChild(titleCell);
+
       const occasionCell = document.createElement("td");
-      occasionCell.textContent = event.occasion;
+      occasionCell.textContent = event.occasion || "—";
       row.appendChild(occasionCell);
 
       const dateCell = document.createElement("td");
-
-      if (!event.date || isNaN(new Date(event.date).getTime())) {
-        dateCell.textContent = "...";
-      } else {
-        dateCell.textContent = new Date(event.date).toLocaleDateString();
-      }
-
+      dateCell.textContent = event.date && !isNaN(new Date(event.date).getTime())
+        ? new Date(event.date).toLocaleDateString() : "—";
       row.appendChild(dateCell);
 
       const timeCell = document.createElement("td");
-      timeCell.textContent = event.time;
+      timeCell.textContent = event.time || "—";
       row.appendChild(timeCell);
 
       tableBody.appendChild(row);
@@ -99,39 +112,40 @@ async function populateSchedule() {
   });
 }
 
+
 // Make popup functions globally accessible
-window.showMassSchedule = async function() {
+window.showMassSchedule = async function () {
   const popupOverlay = document.getElementById('popupOverlay');
   const schedulePopup = document.getElementById('schedulePopup');
-  
+
   if (popupOverlay && schedulePopup) {
     popupOverlay.style.display = 'block';
     schedulePopup.style.display = 'block';
     document.body.style.overflow = 'hidden';
-    
+
     // Populate schedule data
     await populateSchedule();
   }
 };
 
-window.showDailyReading = async function() {
+window.showDailyReading = async function () {
   const popupOverlay = document.getElementById('popupOverlay');
   const readingsPopup = document.getElementById('readingsPopup');
-  
+
   if (popupOverlay && readingsPopup) {
     popupOverlay.style.display = 'block';
     readingsPopup.style.display = 'block';
     document.body.style.overflow = 'hidden';
-    
+
     // Populate readings data
     await populateReadings();
   }
 };
 
-window.showSpotlight = function() {
+window.showSpotlight = function () {
   const popupOverlay = document.getElementById('popupOverlay');
   const spotlightPopup = document.getElementById('spotlightPopup');
-  
+
   if (popupOverlay && spotlightPopup) {
     popupOverlay.style.display = 'block';
     spotlightPopup.style.display = 'block';
@@ -140,15 +154,15 @@ window.showSpotlight = function() {
 };
 
 // Close popup function
-window.closePopup = function() {
+window.closePopup = function () {
   const popupOverlay = document.getElementById('popupOverlay');
   const allPopups = document.querySelectorAll('.popup');
-  
+
   if (popupOverlay) {
     popupOverlay.style.display = 'none';
     document.body.style.overflow = 'auto';
   }
-  
+
   allPopups.forEach(popup => {
     popup.style.display = 'none';
   });
@@ -158,10 +172,10 @@ window.closePopup = function() {
 };
 
 // Close popup when clicking outside
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const popupOverlay = document.getElementById('popupOverlay');
   if (popupOverlay) {
-    popupOverlay.addEventListener('click', function(e) {
+    popupOverlay.addEventListener('click', function (e) {
       if (e.target === popupOverlay) {
         closePopup();
       }
@@ -175,9 +189,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-window.addEventListener('popstate', function(event) {
+window.addEventListener('popstate', function (event) {
   if (event.state && event.state.popup) {
-    switch(event.state.popup) {
+    switch (event.state.popup) {
       case 'schedule':
         showMassSchedule();
         break;
@@ -195,7 +209,7 @@ window.addEventListener('popstate', function(event) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
-  switch(path) {
+  switch (path) {
     case '/mass_schedule':
       showMassSchedule();
       break;

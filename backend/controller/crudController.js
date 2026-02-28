@@ -155,45 +155,24 @@ exports.updateServerImage = async (req, res) => {
 
 exports.updateMass = async (req, res) => {
   try {
-    const { info } = req.body;
-    const id = req.body.info[0]._id;
+    const { masses } = req.body;
 
-    const updates = {};
-    info.forEach((item) => {
-      if (item.occasion) {
-        updates[`info.$[elem].occasion`] = item.occasion;
-      }
-      if (item.date) {
-        updates[`info.$[elem].date`] = item.date;
-      }
-      if (item.time) {
-        updates[`info.$[elem].time`] = item.time;
-      }
-    });
-
-    const change = await req.repo.findOneAndUpdate(
-      req.params.id,
-      { $set: updates },
-      {
-        arrayFilters: [{ "elem._id": id }],
-        new: true,
-      }
-    );
-
-    if (!change || change === 0) {
-      return res.status(400).json({
-        message: "Not Found",
-      });
+    if (!Array.isArray(masses)) {
+      return res.status(400).json({ message: "masses[] array is required" });
     }
 
-    return res.status(200).json({
-      data: { change },
-      message: "Success",
-    });
+    // req.params.id = _id of the specific day document (e.g. Sunday's doc)
+    const dayDoc = await req.repo.findById(req.params.id);
+    if (!dayDoc) {
+      return res.status(404).json({ message: "Day not found" });
+    }
+
+    dayDoc.masses = masses;
+    await dayDoc.save();
+
+    return res.status(200).json({ message: "Updated successfully", data: dayDoc });
   } catch (error) {
-    return res.status(404).json({
-      message: "couldn't update",
-    });
+    return res.status(500).json({ message: "Couldn't update", error });
   }
 };
 

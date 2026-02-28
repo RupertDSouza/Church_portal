@@ -29,6 +29,8 @@ async function fetchData(url, titleId, imageId, detailsId, addressId) {
   }
 }
 
+
+
 function initSlider() {
   fetchData(
     "/app/church/read",

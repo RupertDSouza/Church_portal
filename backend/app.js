@@ -1,21 +1,12 @@
 const express = require("express");
 const router = require("./routes/index");
-const connectToDatabase = require("./config/db");
 const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 const sequelize = require("./config/sequelize");
 
-const port = process.env.PORT || 3000;
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-connectToDatabase().then(() => {
-  app.listen(port, "0.0.0.0", () => {
-    console.log("Server is listening on port", port);
-  });
-});
 
 async function syncDatabase() {
   try {
@@ -101,3 +92,5 @@ app.use((err, req, res, next) => {
 //     next(err);
 //   }
 // });
+
+module.exports = app;
