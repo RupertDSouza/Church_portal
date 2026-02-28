@@ -29,6 +29,7 @@
   <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css" />
   <link rel="stylesheet" type="text/css" href="styles/styles_in_all.css" />
   <link rel="stylesheet" type="text/css" href="styles/assoc-and-comm.css" />
+  <link rel="stylesheet" type="text/css" href="styles/priest_message.css" />
   <link rel="stylesheet" type="text/css" href="styles/common_responsive.css" />
   <link rel="stylesheet" type="text/css" href="styles/assoc-and-comm_responsive.css" />
   <link rel="stylesheet" type="text/css" href="styles/navigation.css" />
@@ -81,11 +82,45 @@
 
       <div class="popular">
         <div class="container">
-          <div class="row popular_row" id="assoc-and-comm-container">
-            <div class="col-12 text-center" style="padding: 40px 0; color: #888;">
-              <p>Loading message...</p>
+
+          <!-- Card template: cloned once per message by priest_message.js -->
+          <template id="pm-card-template">
+            <div class="col-md-12 pm-card">
+              <article class="pm-article">
+
+                <!-- Image section (shown only when item.image exists) -->
+                <div class="pm-image-wrap">
+                  <div class="pm-img-blur"></div>
+                  <img class="pm-img" alt="Priest" />
+                  <div class="pm-img-fade"></div>
+                  <div class="pm-img-gradient"></div>
+                  <div class="pm-img-label">Message from the Parish Priest</div>
+                </div>
+
+                <!-- No-image fallback label (shown when item.image is absent) -->
+                <div class="pm-label-only">Message from the Parish Priest</div>
+
+                <!-- Body -->
+                <div class="pm-body">
+                  <h2 class="pm-title"></h2>
+                  <div class="pm-description">
+                    <span class="pm-quote-mark">&ldquo;</span>
+                    <span class="pm-description-text"></span>
+                  </div>
+                </div>
+
+              </article>
             </div>
+          </template>
+
+          <!-- Messages injected here by JS -->
+          <div class="row popular_row" id="assoc-and-comm-container"></div>
+
+          <!-- Shown when API returns no data -->
+          <div id="pm-no-message" style="display:none;" class="col-12 text-center" style="padding:40px 0;color:#888;">
+            <p>No message available at this moment.</p>
           </div>
+
         </div>
       </div>
 
