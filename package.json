@@ -14,5 +14,8 @@
   "description": "",
   "dependencies": {
     "pm2": "^6.0.14"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }

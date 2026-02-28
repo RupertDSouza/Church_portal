@@ -29,6 +29,29 @@ async function fetchData(url, titleId, imageId, detailsId, addressId) {
   }
 }
 
+async function fetchPriestMessage() {
+  try {
+    const response = await fetch("/app/priestMessage/read", { method: "GET" });
+    if (!response.ok) throw new Error("Network response was not ok " + response.statusText);
+    const data = await response.json();
+    if (!data || data.length === 0) return;
+    const item = data[data.length - 1];
+
+    document.getElementById("pm-msg-title").textContent = item.messageTitle || "";
+    var desc = item.messageDescription || "";
+    document.getElementById("pm-desc").textContent =
+      desc.length > 120 ? desc.substring(0, 120) + "\u2026" : desc;
+    if (item.image) {
+      var img = document.getElementById("pm-inline-img");
+      img.src = item.image;
+      img.style.display = "block";
+    }
+    document.getElementById("pm-inline").style.display = "";
+  } catch (error) {
+    console.error("Priest message error:", error);
+  }
+}
+
 function initSlider() {
   fetchData(
     "/app/church/read",
@@ -43,5 +66,6 @@ function initSlider() {
     "priest-image",
     "priest-details"
   );
+  fetchPriestMessage();
 }
 document.addEventListener("DOMContentLoaded", initSlider);
