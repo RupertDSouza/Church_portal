@@ -1,292 +1,500 @@
 <html>
-  <head>
-    <title>Mass Timings</title>
 
-    <link rel="stylesheet" href="/styles/style1.css" />
-    <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
-  </head>
-  <body class="crm_body_bg">
-    <%- include('../handlebars/navbar') %>
+<head>
+  <title>Mass Timings</title>
+  <link rel="stylesheet" href="/styles/style1.css" />
+  <link rel="stylesheet" href="/styles/bootstrap1.min.css" />
+  <style>
+    .day-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      background: #3d5a99;
+      color: #fff;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .day-header .btn-add {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 6px;
+      padding: 4px 14px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .day-header .btn-add:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .mass-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .mass-table th {
+      background: #f5f7fa;
+      color: #666;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      padding: 10px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mass-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: middle;
+      font-size: 14px;
+    }
+
+    .mass-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .mass-table tr:hover td {
+      background: #fafbfc;
+    }
+
+    .btn-edit {
+      color: #3d5a99;
+      cursor: pointer;
+      font-size: 13px;
+      margin-right: 8px;
+    }
+
+    .btn-delete {
+      color: #dc3545;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .btn-edit:hover {
+      text-decoration: underline;
+    }
+
+    .btn-delete:hover {
+      text-decoration: underline;
+    }
+
+    .empty-day {
+      color: #aaa;
+      font-size: 13px;
+      padding: 14px 16px;
+    }
+
+    /* Inline form */
+    .inline-form {
+      background: #f8f9ff;
+      border-top: 1px solid #dde3f0;
+      padding: 14px 16px;
+      display: none;
+    }
+
+    .inline-form.open {
+      display: block;
+    }
+
+    .inline-form .form-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .inline-form .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      min-width: 130px;
+    }
+
+    .inline-form label {
+      font-size: 12px;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .inline-form input {
+      padding: 7px 10px;
+      border: 1px solid #ccd3e0;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .inline-form input:focus {
+      border-color: #3d5a99;
+    }
+
+    .inline-form .btn-save {
+      background: #3d5a99;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .inline-form .btn-cancel {
+      background: #eee;
+      color: #555;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Modal */
+    #confirmModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #confirmModal.open {
+      display: flex;
+    }
+
+    #confirmModal .modal-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 28px 32px;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+    }
+
+    #confirmModal .modal-box p {
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    #confirmModal .modal-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body class="crm_body_bg">
+  <%- include('../handlebars/navbar') %>
 
     <section class="main_content dashboard_part">
       <div class="container-fluid g-0">
-      <div class="row">
-      <div class="col-lg-12 p-0">
-      <div class="header_iner d-flex justify-content-between align-items-center">
-        <%- include('../handlebars/mobileNav') %>
-      <div class="sidebar_icon d-lg-none">
-      <i class="ti-menu"></i>
-      </div>
-      <div >
-     
-        <form action="/admin/editChurchInfo">
-            <input type="submit" value="Update Church Info" class="btn btn-secondary btn-lg" id="updateChurchInfo">
-        </form>
-      </div>
-      
-      <div class="header_right d-flex justify-content-between align-items-center">
-      <div class="profile_info">
-        <img id="profileImage" src="" alt="Profile Image">
-        <div class="profile_info_iner">
-            <p id="role">Welcome!</p>
-            <h5 id="name">User</h5>
-        </div>
-    </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-
-      <div class="main_content_iner">
-        <div class="container-fluid plr_30 body_white_bg pt_30">
-          <div class="row justify-content-center">
-            <div class="col-12">
-              <div class="QA_section">
-                <div class="QA_table">
-                  <table class="table lms_table_active">
-                    <thead>
-                      <tr>
-                        <th scope="col">Day</th>
-                        <th scope="col">Occassion</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- Table rows will be dynamically inserted here -->
-                    </tbody>
-                  </table>
+        <div class="row">
+          <div class="col-lg-12 p-0">
+            <div class="header_iner d-flex justify-content-between align-items-center">
+              <%- include('../handlebars/mobileNav') %>
+                <div class="sidebar_icon d-lg-none"><i class="ti-menu"></i></div>
+                <div></div>
+                <div class="header_right d-flex justify-content-between align-items-center">
+                  <div class="profile_info">
+                    <img id="profileImage" src="" alt="Profile Image">
+                    <div class="profile_info_iner">
+                      <p id="role">Welcome!</p>
+                      <h5 id="name">User</h5>
+                    </div>
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
-                    <!-- Always-visible Add button -->
-                    <div style="text-align: center; padding: 12px 0 16px;">
-                        <button onclick="redirectToCreateMassTiming()" class="btn btn-primary" style="min-width:160px;">
-                + Add Mass Timing
-            </button>
-                    </div>
-                
+
+      <div class="main_content_iner">
+        <div class="container-fluid plr_30 body_white_bg pt_30">
+          <h4 style="margin-bottom:24px; color:#3d5a99;">Mass Timings</h4>
+          <div id="days-container">
+            <div class="text-center" style="padding:40px; color:#aaa;">Loading...</div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <div id="response"></div>
-
-    <!-- Modal Background  -->
-    <div id="confirmationModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <p>Are you sure you want to delete this user?</p>
-        <button
-          id="confirmDelete"
-          class="btn btn-primary"
-          style="margin-bottom: 10"
-        >
-          Yes
-        </button>
-        <button id="cancelDelete" class="btn btn-secondary">No</button>
+    <!-- Confirmation Modal -->
+    <div id="confirmModal">
+      <div class="modal-box">
+        <p>Delete this mass entry?</p>
+        <div class="modal-btns">
+          <button id="confirmYes" class="btn btn-danger">Delete</button>
+          <button id="confirmNo" class="btn btn-secondary">Cancel</button>
+        </div>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
-
     <script src="/js/auth.js"></script>
-
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        checkAuthAndFetchUserData((error, userData) => {
-          if (error) {
-            console.error("Authentication failed");
-            return;
-          }
+      const DAY_ORDER = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-          document.getElementById("profileImage").src = getImagePath(
-            userData.image
-          );
+      let weekData = [];    // array of day documents from DB (each is its own doc)
+
+      // ── Auth & bootstrap ───────────────────────────────────────────────────
+      document.addEventListener("DOMContentLoaded", () => {
+        checkAuthAndFetchUserData((err, userData) => {
+          if (err) return;
+          document.getElementById("profileImage").src = userData.image
+            ? userData.image.replace("../../Church_portal/public/", "/") : "";
           document.getElementById("name").textContent = userData.name;
-          document.getElementById(
-            "role"
-          ).textContent = `Welcome ${userData.role}!`;
+          document.getElementById("role").textContent = `Welcome ${userData.role}!`;
         });
-        displayResults();
+        loadMassTimings();
       });
 
-      async function displayResults() {
+      // ── Fetch & render ─────────────────────────────────────────────────────
+      async function loadMassTimings() {
         try {
           const token = localStorage.getItem("token");
-          const response = await fetch("/app/mass/read", {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+          const res = await fetch("/app/mass/read", {
+            headers: { Authorization: `Bearer ${token}` }
           });
+          if (!res.ok) { renderError("No mass data found. Please restart the server to auto-seed."); return; }
+          const docs = await res.json();
+          if (!docs.length) { renderError("No mass data found."); return; }
 
-          if (!response.ok) {
-                showEmptyState();
-                return;
-            }
+          // docs is a flat array of day documents, each { _id, name, masses[] }
+          weekData = docs;
+          weekData.sort((a, b) => DAY_ORDER.indexOf(a.name) - DAY_ORDER.indexOf(b.name));
 
-          const massTimings = await response.json();
-
-          if (massTimings.length === 0) {
-            showEmptyState();
-            return;
-          }
-          const tableBody = document.querySelector(".lms_table_active tbody");
-
-          // Clear existing table rows
-          tableBody.innerHTML = "";
-
-          massTimings.forEach((massTiming) => {
-            // Check if info array exists and has elements
-            if (massTiming.info && massTiming.info.length > 0) {
-              massTiming.info.forEach((info) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                        <td>${massTiming.day}</td>
-                        <td>${info.occasion}</td>
-                        <td>${new Date(info.date).toLocaleDateString()}</td>
-                        <td>${info.time}</td>
-                        <td>
-                            <a href="#" class="status_btn edit-btn" data-id="${
-                              massTiming._id
-                            }" data-info-id="${
-                  info._id
-                }" style="text-decoration: none;">Edit</a>&nbsp;&nbsp;
-                            <a href="#" class="status_btn delete-btn" data-id="${
-                              massTiming._id
-                            }" data-info-id="${
-                  info._id
-                }" style="text-decoration: none;">Delete</a>
-                        </td>
-                    `;
-                tableBody.appendChild(row);
-              });
-            } else {
-              // Handle case where info is empty or undefined
-              const row = document.createElement("tr");
-              row.innerHTML = `
-                    <td>${massTiming.day}</td>
-                    <td colspan="4">No mass information available</td>
-                `;
-              tableBody.appendChild(row);
-            }
-          });
-
-                document.querySelectorAll('.delete-btn').forEach(button => {
-                button.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const cardId = this.getAttribute('data-id');
-                    showConfirmationModal(cardId);
-                });
-            });
-                
-                document.querySelectorAll('.edit-btn').forEach(button => {
-                    button.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        const rowId = this.getAttribute('data-id');
-                        localStorage.setItem('editUserId', rowId);
-                        window.location.href = '/admin/editUser';
-                    });
-                });
-                
-            } catch (error) {
-                console.error("Error:", error);
-            showEmptyState();
-            }
+          renderAllDays();
+        } catch (e) {
+          console.error(e);
+          renderError("Failed to load mass timings.");
         }
-        
-    
-    function showEmptyState() {
-        // For table-based pages, show message in the response div
-        const responseEl = document.getElementById("response");
-        responseEl.innerHTML = `
-            <div class="text-center" style="padding: 30px 20px 8px;">
-                <div style="font-size: 64px; color: #ccc; margin-bottom: 16px;">&#128196;</div>
-                <h4 style="color: #6c757d; margin-bottom: 8px;">No mass timings yet</h4>
-                <p style="color: #aaa; margin-bottom: 24px;">
-                    Click the <strong>+</strong> button to add a new mass timing.
-                </p>
-            </div>`;
-    }
-    function getImagePath(image) {
-            if (image) {
-                
-                return image.replace("../../Church_portal/public/", "/");
-            }
-            return ""; 
-        }
-        function showConfirmationModal(cardId) {
-        const modal = document.getElementById("confirmationModal");
-        modal.style.display = "block";
-
-        const confirmButton = document.getElementById("confirmDelete");
-        const closeButton = document.getElementById("closeModal");
-        const cancelButton = document.getElementById("cancelDelete");
-
-        confirmButton.onclick = async function () {
-          await deleteCard(cardId);
-          modal.style.display = "none";
-        };
-
-        closeButton.onclick = function () {
-          modal.style.display = "none";
-        };
-
-        cancelButton.onclick = function () {
-          modal.style.display = "none";
-        };
       }
 
-      async function deleteCard(cardId) {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          alert("Please login first");
-          return;
+      function renderAllDays() {
+        const container = document.getElementById("days-container");
+        container.innerHTML = "";
+        weekData.forEach(day => container.appendChild(buildDayCard(day)));
+      }
+
+      function buildDayCard(day) {
+        const card = document.createElement("div");
+        card.className = "day-card";
+        card.id = `day-${day.name}`;
+
+        // Header
+        const header = document.createElement("div");
+        header.className = "day-header";
+        header.innerHTML = `
+          <span>${day.name}</span>
+          <button class="btn-add" onclick="openAddForm('${day.name}')">+ Add Mass</button>`;
+        card.appendChild(header);
+
+        // Table
+        const tableWrap = document.createElement("div");
+        tableWrap.id = `table-${day.name}`;
+        tableWrap.appendChild(buildTable(day));
+        card.appendChild(tableWrap);
+
+        // Inline form (hidden)
+        const form = buildInlineForm(day.name);
+        form.id = `form-${day.name}`;
+        card.appendChild(form);
+
+        return card;
+      }
+
+      function buildTable(day) {
+        if (!day.masses || day.masses.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "empty-day";
+          empty.textContent = 'No masses scheduled. Click the "+ Add Mass" button to add one.';
+          return empty;
+        }
+        const tbl = document.createElement("table");
+        tbl.className = "mass-table";
+        tbl.innerHTML = `
+          <thead>
+            <tr>
+              <th>Title</th><th>Time</th><th>Occasion</th><th>Date</th><th></th>
+            </tr>
+          </thead>`;
+        const tbody = document.createElement("tbody");
+        day.masses.forEach((m, idx) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${m.title || "—"}</td>
+            <td>${m.time || "—"}</td>
+            <td>${m.occasion || "—"}</td>
+            <td>${m.date ? new Date(m.date).toLocaleDateString() : "—"}</td>
+            <td>
+              <span class="btn-edit"   onclick="openEditForm('${day.name}', ${idx})">Edit</span>
+              <span class="btn-delete" onclick="confirmDelete('${day.name}', ${idx})">Delete</span>
+            </td>`;
+          tbody.appendChild(tr);
+        });
+        tbl.appendChild(tbody);
+        return tbl;
+      }
+
+      function buildInlineForm(dayName) {
+        const div = document.createElement("div");
+        div.className = "inline-form";
+        div.innerHTML = `
+          <div class="form-row">
+            <div class="form-group">
+              <label>Title <small style="color:#999">(e.g. 1st Mass)</small></label>
+              <input type="text" id="fi-title-${dayName}" placeholder="1st Mass">
+            </div>
+            <div class="form-group">
+              <label>Time</label>
+              <input type="text" id="fi-time-${dayName}" placeholder="6:30 AM">
+            </div>
+            <div class="form-group">
+              <label>Occasion <small style="color:#999">(optional)</small></label>
+              <input type="text" id="fi-occasion-${dayName}" placeholder="Christmas">
+            </div>
+            <div class="form-group">
+              <label>Date <small style="color:#999">(optional)</small></label>
+              <input type="date" id="fi-date-${dayName}">
+            </div>
+            <div class="form-group" style="justify-content:flex-end; flex-direction:row; gap:8px; align-items:flex-end;">
+              <button class="btn-save"   onclick="saveForm('${dayName}')">Save</button>
+              <button class="btn-cancel" onclick="closeForm('${dayName}')">Cancel</button>
+            </div>
+          </div>
+          <input type="hidden" id="fi-editIdx-${dayName}" value="">`;
+        return div;
+      }
+
+      // ── Form open/close ────────────────────────────────────────────────────
+      function openAddForm(dayName) {
+        clearForm(dayName);
+        document.getElementById(`fi-editIdx-${dayName}`).value = "";
+        openForm(dayName);
+      }
+
+      function openEditForm(dayName, idx) {
+        const day = weekData.find(d => d.name === dayName);
+        const mass = day.masses[idx];
+        document.getElementById(`fi-title-${dayName}`).value = mass.title || "";
+        document.getElementById(`fi-time-${dayName}`).value = mass.time || "";
+        document.getElementById(`fi-occasion-${dayName}`).value = mass.occasion || "";
+        document.getElementById(`fi-date-${dayName}`).value = mass.date
+          ? new Date(mass.date).toISOString().split("T")[0] : "";
+        document.getElementById(`fi-editIdx-${dayName}`).value = idx;
+        openForm(dayName);
+      }
+
+      function openForm(dayName) {
+        document.getElementById(`form-${dayName}`).classList.add("open");
+      }
+      function closeForm(dayName) {
+        document.getElementById(`form-${dayName}`).classList.remove("open");
+        clearForm(dayName);
+      }
+      function clearForm(dayName) {
+        ["title", "time", "occasion"].forEach(f =>
+          document.getElementById(`fi-${f}-${dayName}`).value = "");
+        document.getElementById(`fi-date-${dayName}`).value = "";
+      }
+
+      // ── Save (add or edit) ─────────────────────────────────────────────────
+      async function saveForm(dayName) {
+        const title = document.getElementById(`fi-title-${dayName}`).value.trim();
+        const time = document.getElementById(`fi-time-${dayName}`).value.trim();
+        const occasion = document.getElementById(`fi-occasion-${dayName}`).value.trim();
+        const dateVal = document.getElementById(`fi-date-${dayName}`).value;
+        const editIdx = document.getElementById(`fi-editIdx-${dayName}`).value;
+
+        if (!time) { alert("Time is required."); return; }
+
+        const day = weekData.find(d => d.name === dayName);
+        const entry = { title, time, occasion: occasion || undefined, date: dateVal || undefined };
+
+        if (editIdx === "") {
+          day.masses.push(entry);
+        } else {
+          day.masses[parseInt(editIdx)] = entry;
         }
 
+        const ok = await pushUpdate(day);
+        if (ok) {
+          refreshDayCard(day);
+          closeForm(dayName);
+        }
+      }
+
+      // ── Delete ─────────────────────────────────────────────────────────────
+      let pendingDelete = null;
+
+      function confirmDelete(dayName, idx) {
+        pendingDelete = { dayName, idx };
+        document.getElementById("confirmModal").classList.add("open");
+      }
+
+      document.getElementById("confirmYes").onclick = async () => {
+        if (!pendingDelete) return;
+        const { dayName, idx } = pendingDelete;
+        const day = weekData.find(d => d.name === dayName);
+        day.masses.splice(idx, 1);
+        const ok = await pushUpdate(day);
+        if (ok) refreshDayCard(day);
+        document.getElementById("confirmModal").classList.remove("open");
+        pendingDelete = null;
+      };
+      document.getElementById("confirmNo").onclick = () => {
+        document.getElementById("confirmModal").classList.remove("open");
+        pendingDelete = null;
+      };
+
+      // ── API call ───────────────────────────────────────────────────────────
+      async function pushUpdate(dayName, masses) {
         try {
-          const response = await fetch(`/app/user/delete/${cardId}`, {
-            method: "DELETE",
+          const token = localStorage.getItem("token");
+          const res = await fetch(`/app/mass/updateMass/${weekDocId}`, {
+            method: "PUT",
             headers: {
-              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
             },
+            body: JSON.stringify({ dayName, masses })
           });
-
-          if (!response.ok) {
-            throw new Error(
-              "Network response was not ok " + response.statusText
-            );
-          }
-
-          const row = document
-            .querySelector(`[data-id='${cardId}']`)
-            .closest("tr");
-          if (row) {
-            row.remove();
-          }
-
-          // Optionally, you can show a success message
-          document.getElementById("response").innerText =
-            "User deleted successfully";
-        } catch (error) {
-          console.error("Error:", error);
-          const responseElement = document.getElementById("response");
-          if (responseElement) {
-            responseElement.innerText = "Error: " + error.message;
-          }
+          if (!res.ok) throw new Error(await res.text());
+          return true;
+        } catch (e) {
+          console.error("Update failed:", e);
+          alert("Failed to save. Please try again.");
+          return false;
         }
-    }
-        
-        function redirectToCreateUsers() {
-                window.location.href = '/admin/createUser';
-            }
-        document.getElementById('updateChurchInfo').addEventListener('click', () => {
-            window.location.href = '/admin/editChurchInfo';
-    });
-</script>
+      }
+
+      // ── Re-render a single day card ────────────────────────────────────────
+      function refreshDayCard(day) {
+        const tableWrap = document.getElementById(`table-${day.name}`);
+        tableWrap.innerHTML = "";
+        tableWrap.appendChild(buildTable(day));
+      }
+
+      function renderError(msg) {
+        document.getElementById("days-container").innerHTML =
+          `<div class="text-center" style="padding:40px; color:#aaa;">${msg}</div>`;
+      }
+    </script>
 </body>
+
 </html>
